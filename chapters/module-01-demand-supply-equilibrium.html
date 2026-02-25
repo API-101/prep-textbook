@@ -1,0 +1,1268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Module 1: Demand, Supply, and Equilibrium — API-101 Preparation</title>
+  <link rel="stylesheet" href="../css/theme.css?v=1">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="site-nav">
+    <a href="../index.html" class="site-nav__brand">API-101 <span>Preparation</span></a>
+    <ul class="site-nav__links">
+      <li><a href="../index.html">Home</a></li>
+    </ul>
+  </nav>
+
+  <!-- Page Wrapper -->
+  <div class="page-wrapper">
+
+    <!-- Sidebar: Table of Contents -->
+    <aside class="sidebar">
+      <span class="sidebar__part-label">Module 1</span>
+      <a href="#introduction" class="sidebar__link sidebar__link--active">Introduction</a>
+      <a href="#policy-connections" class="sidebar__link">Policy Connections</a>
+      <a href="#demand" class="sidebar__link">Understanding Demand</a>
+      <a href="#demand-interactive" class="sidebar__link">Demand Graph</a>
+      <a href="#supply" class="sidebar__link">Understanding Supply</a>
+      <a href="#supply-interactive" class="sidebar__link">Supply Graph</a>
+      <a href="#equilibrium" class="sidebar__link">Market Equilibrium</a>
+      <a href="#equilibrium-interactive" class="sidebar__link">Equilibrium Graph</a>
+      <a href="#cap-return" class="sidebar__link">Returning to the CAP</a>
+      <a href="#practice-quiz" class="sidebar__link">Practice Quiz</a>
+      <a href="#key-terms" class="sidebar__link">Key Terms</a>
+      <a href="#summary" class="sidebar__link">Summary</a>
+
+      <span class="sidebar__part-label" style="margin-top: var(--space-2xl);">All Modules</span>
+      <a href="#" class="sidebar__link" style="font-weight:600; color: var(--color-primary);">1. Demand, Supply, Equilibrium</a>
+      <a href="module-02-demand-supply-shifters.html" class="sidebar__link">2. Demand &amp; Supply Shifters</a>
+      <a href="module-03-consumer-producer-surplus.html" class="sidebar__link">3. Consumer &amp; Producer Surplus</a>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+
+      <!-- ===== MODULE HEADER ===== -->
+      <header class="chapter-header">
+        <div class="chapter-header__part">Preparation Module 1</div>
+        <div class="chapter-header__number">Module 1</div>
+        <h1 class="chapter-header__title">The Basics of Demand, Supply, and Equilibrium</h1>
+        <p class="chapter-header__subtitle">
+          The foundation of economic analysis: understanding how prices emerge from the interaction of buyers and sellers, and why policymakers need these tools to evaluate policy interventions.
+        </p>
+      </header>
+
+      <!-- ===== LEARNING OBJECTIVES ===== -->
+      <div class="learning-objectives">
+        <div class="learning-objectives__title">Learning Objectives</div>
+        <ul>
+          <li>Explain the Law of Demand and understand why it slopes downward</li>
+          <li>Construct a demand curve from a demand equation, including inverting the function for graphing</li>
+          <li>Explain the Law of Supply and understand why it slopes upward</li>
+          <li>Construct a supply curve from a supply equation and interpret the slope</li>
+          <li>Identify and solve for equilibrium price and quantity algebraically</li>
+          <li>Interpret market conditions when price is above or below equilibrium</li>
+          <li>Apply demand-supply analysis to understand real-world policy, such as the EU Common Agricultural Policy</li>
+        </ul>
+      </div>
+
+      <!-- ===== INTRODUCTION ===== -->
+      <h2 id="introduction">Introduction</h2>
+      <p>
+        Welcome to the first of three modules designed to prepare you for API-101 at the Harvard Kennedy School. This module introduces the core building blocks of microeconomic analysis: demand, supply, and equilibrium. These concepts form the analytical foundation for virtually every policy question you will encounter in the course.
+      </p>
+      <p>
+        Economics is fundamentally a framework for understanding choices and their consequences. When a government implements a policy—whether it is setting a minimum wage, imposing a tariff, or subsidizing an industry—the policy operates through supply and demand mechanisms. To predict and evaluate the effects of policy, you must understand how buyers and sellers respond to incentives, and how prices coordinate their actions.
+      </p>
+      <p>
+        Each section below combines reading material, interactive demonstrations, and self-check opportunities. We will use the European sugar market as our primary worked example throughout, building your understanding step by step. By the end of this module, you will be able to graph demand and supply curves, solve for equilibrium algebraically, interpret what happens when markets are out of balance, and connect these concepts to real policy choices.
+      </p>
+      <p>
+        <strong>Estimated time to complete this module: 60–75 minutes.</strong>
+      </p>
+
+      <hr class="section-divider">
+
+      <!-- ===== POLICY CONNECTIONS ===== -->
+      <h2 id="policy-connections">Policy Connections: What's Under the CAP?</h2>
+      <p>
+        Economics provides a framework for thinking about the impact of decisions and market forces on complex policy scenarios. Throughout these modules, we will use the European Union's Common Agricultural Policy (CAP) as a running example to connect foundational economics to real-world policy. The CAP offers an excellent case study because it illustrates how government intervention, even when well-intentioned, can create unintended economic consequences that supply-and-demand analysis helps us understand.
+      </p>
+
+      <h3>The EU Common Agricultural Policy: Origins and Structure</h3>
+      <p>
+        The Common Agricultural Policy, established in 1962, is one of the oldest and most significant policy interventions in modern markets. The EU created the CAP to address what policymakers saw as critical concerns: ensuring a stable food supply for Europe's 500 million consumers and guaranteeing decent living standards for the continent's farmers. In the decades after World War II, food security was a genuine policy priority, and agriculture represented a much larger share of employment and output than it does today.
+      </p>
+      <p>
+        The original CAP operated through a system of <strong>price supports</strong>: the government would set a guaranteed minimum price for various agricultural products. If the market price fell below this guaranteed price, the government would step in and purchase the unsold surplus at the guaranteed price, storing it or sometimes disposing of it. This policy succeeded in boosting farm incomes and agricultural output—perhaps too well. Over time, the guaranteed prices created powerful incentives for farmers to expand production far beyond what the market demanded at any reasonable price. The result was massive, persistent surpluses.
+      </p>
+      <p>
+        By the 1980s and 1990s, the oversupply had reached absurd proportions. Europe accumulated what the press nicknamed "Butter Mountains"—enormous stockpiles of stored butter—and "Wine Lakes"—vast quantities of unsellable wine that the government had purchased and could neither sell nor effectively dispose of. Other countries faced similar problems: the United States currently spends approximately $20 billion annually on agricultural subsidies (concentrated on commodities like corn and soybeans in states like Iowa), while countries like Norway, Switzerland, and Japan maintain some of the highest agricultural subsidies in the world. These surpluses were expensive to manage and created environmental problems.
+      </p>
+      <p>
+        Beginning in the 1990s, the CAP underwent significant reforms. Rather than maintaining rigid price supports, the EU shifted toward <strong>direct payments</strong> to farmers that are partially decoupled from production—meaning farmers receive income support even if they are not producing at maximum capacity. This addresses the income support goal while reducing the surplus problem. However, the original CAP structure with price supports provides an excellent lens for understanding how markets work. When we analyze why price supports create surpluses, we are applying the same demand-and-supply framework you will use to evaluate modern policies as well.
+      </p>
+
+      <hr class="section-divider">
+
+      <!-- ===== DEMAND ===== -->
+      <h2 id="demand">Understanding Demand</h2>
+
+      <h3>The Law of Demand</h3>
+      <div class="definition-box">
+        <div class="definition-box__term">Law of Demand</div>
+        <div class="definition-box__text">
+          Holding all else equal (ceteris paribus), when the price of a good rises, the quantity demanded falls; when the price falls, the quantity demanded rises. The relationship is inverse, and the demand curve slopes downward from left to right.
+        </div>
+      </div>
+
+      <p>
+        Economists use the term "demand" to describe the relationship between price and the quantity that consumers are willing and able to purchase. This relationship is based on needs, wants, and the ability to pay. When the price of a product increases, consumers typically respond by purchasing less of it—a phenomenon we see everywhere, from gasoline prices to concert tickets to smartphone models. When the price falls, they purchase more.
+      </p>
+      <p>
+        The law of demand reflects rational economic behavior: consumers face trade-offs. When sugar becomes more expensive, households might consume less directly, switch to artificial sweeteners, or purchase fewer sugary products overall. Bakeries and beverage manufacturers might reduce their use of sugar or develop alternative recipes. Some potential customers may be priced out of the market entirely. Conversely, when sugar becomes cheaper, all these decisions reverse—consumers purchase more.
+      </p>
+      <p>
+        A <strong>demand schedule</strong> is a table showing the quantity demanded at various price levels. When you plot these price-quantity pairs on a graph, you create a <strong>demand curve</strong>. By convention in economics, we place quantity on the horizontal axis (x-axis) and price on the vertical axis (y-axis). This convention—which is opposite to typical mathematical practice where the independent variable goes on the x-axis—has historical roots and is universal in economics. The resulting downward-sloping line illustrates the law of demand visually.
+      </p>
+
+      <h3>Demand Equations: Reading the Math</h3>
+      <p>
+        Linear demand relationships can be expressed algebraically in standard form as:
+      </p>
+      <div class="equation-block">
+        $$Q_d = a - bP$$
+      </div>
+      <p>
+        In this equation:
+      </p>
+      <ul>
+        <li><strong>\(Q_d\)</strong> is the quantity demanded (the dependent variable in mathematical terms, though we place it on the horizontal axis when graphing)</li>
+        <li><strong>P</strong> is the price of the good</li>
+        <li><strong>a</strong> is the horizontal intercept—the quantity demanded when price equals zero. This represents the maximum quantity consumers would buy if the good were free</li>
+        <li><strong>b</strong> is the slope coefficient, a positive number. It tells us how much quantity demanded decreases for each unit increase in price. The negative sign in front of bP ensures the downward slope</li>
+      </ul>
+      <p>
+        The negative coefficient on P is crucial: it embodies the law of demand. If b = 10, it means that for every one-unit increase in price, quantity demanded falls by 10 units. The slope of the demand curve is -b (which is negative, confirming the downward slope).
+      </p>
+
+      <h3>Building a Demand Schedule: The EU Sugar Market Example</h3>
+      <p>
+        Let's work with a concrete example that will anchor our understanding throughout this module. Imagine the demand for sugar in the European Union during a particular year. Suppose economists have estimated the demand equation:
+      </p>
+      <div class="equation-block">
+        $$Q_d = 50 - 10P$$
+      </div>
+      <p>
+        Where \(Q_d\) is measured in millions of kilograms per year, and P is the price in euros per kilogram.
+      </p>
+      <p>
+        We can build a demand schedule by plugging in different prices:
+      </p>
+
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Price (€/kg)</th>
+            <th>Quantity Demanded (millions of kg/year)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>50 - 10(1) = 40</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>50 - 10(2) = 30</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>50 - 10(3) = 20</td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td>50 - 10(4) = 10</td>
+          </tr>
+          <tr>
+            <td>5</td>
+            <td>50 - 10(5) = 0</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p>
+        Notice the pattern: each time price increases by 1 euro per kilogram, quantity demanded falls by 10 million kilograms. This regular pattern reflects the linearity of the demand equation. The coefficient of 10 on price tells us the magnitude of this response. At a price of 5 euros per kilogram, quantity demanded reaches zero—this is the price at which no consumer is willing or able to buy sugar.
+      </p>
+
+      <div class="figure">
+        <div id="demand-static-graph"></div>
+        <div class="figure__caption">Figure 1.1: The demand curve for EU sugar, showing the downward slope and key schedule points. The vertical intercept (P = 5) represents the maximum price consumers will pay; the horizontal intercept (Q = 50) represents the quantity demanded when price is zero. The slope of -1/10 indicates that for every 10 million kg increase in quantity, price falls by 1 euro.</div>
+      </div>
+
+      <h3>From Equation to Graph: Inverting the Demand Function</h3>
+      <p>
+        To graph the demand curve, we need to invert the demand equation so that price (P) is expressed as a function of quantity (\(Q_d\)). This is necessary because we place price on the vertical axis, making it the dependent variable for graphing purposes. Let's work through the algebra step by step.
+      </p>
+
+      <div class="math-steps">
+        <div class="math-step">
+          <div class="math-step__label">Start with:</div>
+          <div class="math-step__expr">$$Q_d = 50 - 10P$$</div>
+        </div>
+        <div class="math-step">
+          <div class="math-step__label">Add \(10P\) to both sides:</div>
+          <div class="math-step__expr">$$Q_d + 10P = 50$$</div>
+        </div>
+        <div class="math-step">
+          <div class="math-step__label">Subtract \(Q_d\) from both sides:</div>
+          <div class="math-step__expr">$$10P = 50 - Q_d$$</div>
+        </div>
+        <div class="math-step">
+          <div class="math-step__label">Divide both sides by 10:</div>
+          <div class="math-step__expr">$$P = 5 - \frac{Q_d}{10}$$</div>
+        </div>
+      </div>
+
+      <p>
+        The inverted form is now in slope-intercept form: \(P = 5 - Q_d/10\). We can read off two key features:
+      </p>
+      <ul>
+        <li><strong>Vertical intercept (P-intercept):</strong> When \(Q_d = 0\), P = 5. This means the demand curve crosses the vertical axis at a price of 5 euros per kilogram. This is the highest price consumers will pay; above this, quantity demanded is zero.</li>
+        <li><strong>Slope:</strong> The coefficient on \(Q_d\) is -1/10, which is the slope of the demand curve. For every one unit increase in quantity, price falls by 0.1 euros. Equivalently, for every 10 units increase in quantity, price falls by 1 euro.</li>
+      </ul>
+
+      <h3>Graphing the Demand Curve</h3>
+      <p>
+        With the inverted equation \(P = 5 - Q_d/10\), we have several methods to graph the demand curve:
+      </p>
+
+      <div class="step-process">
+        <div class="step-process__step">
+          <div class="step-process__number">Method 1: Using Intercepts</div>
+          <div class="step-process__content">
+            Plot the vertical intercept (0, 5) where the curve crosses the price axis. Then plot the horizontal intercept by setting P = 0: \(0 = 5 - Q_d/10\), so \(Q_d = 50\). Plot the point (50, 0). Draw a straight line connecting these two points. This is the demand curve.
+          </div>
+        </div>
+        <div class="step-process__step">
+          <div class="step-process__number">Method 2: Using Slope and a Point</div>
+          <div class="step-process__content">
+            Plot the vertical intercept (0, 5). The slope is -1/10, meaning for every 10 units of quantity increase, price decreases by 1 euro. From (0, 5), move right 10 units and down 1 unit to reach (10, 4). Continue this pattern to plot additional points: (20, 3), (30, 2), (40, 1), (50, 0). Connect these points with a straight line.
+          </div>
+        </div>
+        <div class="step-process__step">
+          <div class="step-process__number">Method 3: Plotting Schedule Points</div>
+          <div class="step-process__content">
+            Use the demand schedule we calculated earlier. Plot the points (40, 1), (30, 2), (20, 3), (10, 4), and (0, 5). These correspond to the price-quantity combinations in our table. Connect them with a straight line.
+          </div>
+        </div>
+      </div>
+
+      <p>
+        All three methods produce the same downward-sloping demand curve, confirming the law of demand. The downward slope visually represents the inverse relationship between price and quantity demanded.
+      </p>
+
+      <div class="callout callout--insight">
+        <div class="callout__title">Important Distinction: Demand vs. Quantity Demanded</div>
+        <p>
+          "Demand" refers to the entire relationship between price and quantity—the entire demand curve. "Quantity demanded" refers to a specific point on that curve at a particular price. When economists say "demand increased," they mean the entire curve shifted (not shown here). When we move along the demand curve due to a price change, quantity demanded changes, but demand itself does not. This distinction becomes crucial in Module 2 when we explore what causes the demand curve to shift.
+        </p>
+      </div>
+
+      <!-- ===== DEMAND INTERACTIVE GRAPH ===== -->
+      <h3 id="demand-interactive">Interactive: Exploring Demand Curves</h3>
+      <div class="graph-container">
+        <div class="graph-container__title">Demand Curve Explorer</div>
+        <div class="graph-container__description">
+          Adjust the intercept (a) and slope (b) to see how the demand curve changes. The equation shown is \(Q_d = a - bP\), which we invert to \(P = (a/b) - (Q/b)\) for graphing. Increasing the intercept shifts the curve rightward. Increasing the slope coefficient makes the curve steeper.
+        </div>
+        <div class="graph-container__svg-wrapper" id="demand-graph"></div>
+        <div class="graph-container__controls">
+          <div class="graph-control">
+            <label class="graph-control__label">Intercept (a): Quantity at P=0</label>
+            <input type="range" class="graph-control__slider" id="demand-intercept" min="20" max="100" step="5" value="50">
+            <span class="graph-control__value" id="demand-intercept-value">50</span>
+          </div>
+          <div class="graph-control">
+            <label class="graph-control__label">Slope coefficient (b): Units lost per €1 price increase</label>
+            <input type="range" class="graph-control__slider" id="demand-slope" min="2" max="20" step="2" value="10">
+            <span class="graph-control__value" id="demand-slope-value">10</span>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        The graph above shows the EU sugar demand curve with default values matching our example: a = 50 and b = 10. Try adjusting the sliders to see how the curve responds. When you increase the intercept (a), the demand curve shifts rightward, indicating that consumers demand more at every price level. When you increase the slope coefficient (b), the curve becomes steeper, indicating that consumers are more responsive to price changes.
+      </p>
+
+      <div class="self-check">
+        <div class="self-check__question">
+          If the demand equation is \(Q_d = 50 - 10P\), what is the quantity demanded when the price is 2.5 euros per kilogram?
+        </div>
+        <button class="self-check__reveal-btn">Show Answer</button>
+        <div class="self-check__answer">
+          Substitute P = 2.5 into the equation: \(Q_d = 50 - 10(2.5) = 50 - 25 = 25\) million kilograms. At a price of 2.5 euros per kilogram, consumers demand 25 million kilograms per year.
+        </div>
+      </div>
+
+      <hr class="section-divider">
+
+      <!-- ===== SUPPLY ===== -->
+      <h2 id="supply">Understanding Supply</h2>
+
+      <h3>The Law of Supply</h3>
+      <div class="definition-box">
+        <div class="definition-box__term">Law of Supply</div>
+        <div class="definition-box__text">
+          Holding all else equal, when the price of a good rises, the quantity supplied rises; when the price falls, the quantity supplied falls. The supply curve slopes upward from left to right.
+        </div>
+      </div>
+
+      <p>
+        Supply describes the relationship between the price of a good and the quantity that producers are willing and able to offer for sale. Unlike the inverse relationship of demand, supply slopes upward: higher prices create stronger incentives for producers to increase output. When oil prices rise, energy companies expand drilling operations, invest in new refineries, and increase production capacity—all motivated by the expectation of higher profits. When grain prices increase, farmers allocate more land to grain cultivation rather than other crops. Higher prices make production more profitable and encourage expansion.
+      </p>
+      <p>
+        Just as with demand, we can represent supply with a <strong>supply schedule</strong> (a table) or a <strong>supply curve</strong> (a graph). The upward slope reflects the law of supply: producers supply more at higher prices. This reflects economic reality: firms have costs of production, and higher prices allow them to cover those costs and earn profits even when expanding production.
+      </p>
+
+      <h3>Supply Equations and Interpretation</h3>
+      <p>
+        Linear supply relationships typically take the form:
+      </p>
+      <div class="equation-block">
+        $$Q_s = c + dP$$
+      </div>
+      <p>
+        In this equation:
+      </p>
+      <ul>
+        <li><strong>\(Q_s\)</strong> is the quantity supplied (the dependent variable in mathematics, placed on the horizontal axis when graphing)</li>
+        <li><strong>P</strong> is the price of the good</li>
+        <li><strong>c</strong> is the vertical intercept quantity—the quantity supplied when price is zero. This is often zero or negative; a negative value represents a reservation price below which producers are unwilling to supply</li>
+        <li><strong>d</strong> is the slope coefficient, a positive number. It tells us how much quantity supplied increases for each unit increase in price. A larger d means producers are more responsive to price changes</li>
+      </ul>
+      <p>
+        The positive coefficient on P is essential: it embodies the law of supply. If d = 15, it means that for every one-unit increase in price, quantity supplied increases by 15 units.
+      </p>
+
+      <h3>Building a Supply Schedule: The EU Sugar Market</h3>
+      <p>
+        Continuing with our EU sugar example, suppose economists have estimated the supply equation:
+      </p>
+      <div class="equation-block">
+        $$Q_s = 15P$$
+      </div>
+      <p>
+        Where \(Q_s\) is measured in millions of kilograms per year, and P is the price in euros per kilogram. Notice that the constant term (c) is zero, meaning that at a price of zero, producers supply nothing—which makes economic sense. At any positive price, producers enter the market.
+      </p>
+      <p>
+        Let's build the supply schedule:
+      </p>
+
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Price (€/kg)</th>
+            <th>Quantity Supplied (millions of kg/year)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>15(1) = 15</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>15(2) = 30</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>15(3) = 45</td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td>15(4) = 60</td>
+          </tr>
+          <tr>
+            <td>5</td>
+            <td>15(5) = 75</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p>
+        Notice the pattern: for each one-euro increase in price, quantity supplied increases by 15 million kilograms. This is the slope coefficient (d = 15) in action. The supply curve is perfectly linear in this example, reflecting the simplifying assumption that the responsiveness to price is constant across all prices.
+      </p>
+
+      <div class="figure">
+        <div id="supply-static-graph"></div>
+        <div class="figure__caption">Figure 1.2: The supply curve for EU sugar, showing the upward slope and key schedule points. The curve passes through the origin, indicating that producers supply zero at price zero. The slope of 1/15 indicates that for every 15 million kg increase in quantity, price rises by 1 euro.</div>
+      </div>
+
+      <h3>From Equation to Graph: Inverting the Supply Function</h3>
+      <p>
+        To graph the supply curve on the same axes as demand, we invert the supply equation so that price is a function of quantity:
+      </p>
+
+      <div class="math-steps">
+        <div class="math-step">
+          <div class="math-step__label">Start with:</div>
+          <div class="math-step__expr">$$Q_s = 15P$$</div>
+        </div>
+        <div class="math-step">
+          <div class="math-step__label">Divide both sides by 15:</div>
+          <div class="math-step__expr">$$P = \frac{Q_s}{15}$$</div>
+        </div>
+      </div>
+
+      <p>
+        The inverted form is \(P = Q_s/15\), or more explicitly, \(P = 0 + (1/15)Q_s\). Key features:
+      </p>
+      <ul>
+        <li><strong>Vertical intercept:</strong> When \(Q_s = 0\), P = 0. The supply curve passes through the origin. This makes sense: producers have no reason to supply anything if price is zero.</li>
+        <li><strong>Slope:</strong> The coefficient on \(Q_s\) is 1/15, which is the slope. For every 15 units increase in quantity, price increases by 1 euro. Alternatively, for every 1 unit increase in quantity, price increases by 1/15 euro (approximately 0.067 euros).</li>
+      </ul>
+
+      <h3>Graphing the Supply Curve</h3>
+      <p>
+        With the inverted equation \(P = Q_s/15\), we can graph the supply curve using the same methods we used for demand:
+      </p>
+
+      <div class="step-process">
+        <div class="step-process__step">
+          <div class="step-process__number">Method 1: Using the Origin and Slope</div>
+          <div class="step-process__content">
+            The supply curve passes through the origin (0, 0). The slope is 1/15. From the origin, move right 15 units and up 1 unit to reach (15, 1). Continue: (30, 2), (45, 3), (60, 4), (75, 5). Connect these points with a straight line.
+          </div>
+        </div>
+        <div class="step-process__step">
+          <div class="step-process__number">Method 2: Plotting Schedule Points</div>
+          <div class="step-process__content">
+            Use the supply schedule. Plot the points (15, 1), (30, 2), (45, 3), (60, 4), and (75, 5). Connect them with a straight line.
+          </div>
+        </div>
+      </div>
+
+      <p>
+        The supply curve slopes upward, confirming the law of supply. Notice that it is less steep than the demand curve (which has a slope of -1/10 = -0.1 in absolute value). The supply curve has a slope of 1/15 ≈ 0.067. This means demand is more responsive to price changes than supply in this particular market—an assumption that will prove important when we find equilibrium.
+      </p>
+
+      <div class="callout callout--insight">
+        <div class="callout__title">Important Distinction: Supply vs. Quantity Supplied</div>
+        <p>
+          Like with demand, "supply" refers to the entire curve—the full relationship between price and quantity supplied. "Quantity supplied" refers to a specific point on that curve at a particular price. When the supply curve shifts (which we will explore in Module 2), economists say "supply increased" or "supply decreased." Movements along the supply curve due to price changes are changes in "quantity supplied," not changes in "supply."
+        </p>
+      </div>
+
+      <!-- ===== SUPPLY INTERACTIVE GRAPH ===== -->
+      <h3 id="supply-interactive">Interactive: Exploring Supply Curves</h3>
+      <div class="graph-container">
+        <div class="graph-container__title">Supply Curve Explorer</div>
+        <div class="graph-container__description">
+          Adjust the intercept (c) and slope (d) to see how the supply curve shifts and rotates. The equation shown is \(Q_s = c + dP\), which we invert to \(P = -(c/d) + (1/d)Q_s\) for graphing. A higher intercept shifts the curve rightward. A higher slope coefficient makes producers more responsive to price.
+        </div>
+        <div class="graph-container__svg-wrapper" id="supply-graph"></div>
+        <div class="graph-container__controls">
+          <div class="graph-control">
+            <label class="graph-control__label">Intercept (c): Baseline quantity</label>
+            <input type="range" class="graph-control__slider" id="supply-intercept" min="-20" max="20" step="5" value="0">
+            <span class="graph-control__value" id="supply-intercept-value">0</span>
+          </div>
+          <div class="graph-control">
+            <label class="graph-control__label">Slope coefficient (d): Responsiveness to price</label>
+            <input type="range" class="graph-control__slider" id="supply-slope" min="2" max="30" step="2" value="15">
+            <span class="graph-control__value" id="supply-slope-value">15</span>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        The graph above shows the EU sugar supply curve with default values matching our example: c = 0 and d = 15. Try adjusting the intercept: a positive value shifts the entire curve rightward, meaning producers supply more at every price (perhaps due to improved technology). A negative intercept shifts the curve leftward and rotates it, implying a reservation price below which producers won't supply. Adjusting the slope coefficient changes how responsive producers are to price movements.
+      </p>
+
+      <div class="self-check">
+        <div class="self-check__question">
+          If the supply equation is \(Q_s = 15P\), how many millions of kilograms are supplied when the price is 3 euros per kilogram?
+        </div>
+        <button class="self-check__reveal-btn">Show Answer</button>
+        <div class="self-check__answer">
+          Substitute P = 3 into the equation: \(Q_s = 15(3) = 45\) million kilograms. At a price of 3 euros per kilogram, producers supply 45 million kilograms per year.
+        </div>
+      </div>
+
+      <hr class="section-divider">
+
+      <!-- ===== EQUILIBRIUM ===== -->
+      <h2 id="equilibrium">Market Equilibrium</h2>
+
+      <h3>What is Equilibrium?</h3>
+      <div class="definition-box">
+        <div class="definition-box__term">Market Equilibrium</div>
+        <div class="definition-box__text">
+          The price and quantity at which the quantity demanded equals the quantity supplied (\(Q_d = Q_s\)). At equilibrium, there is no inherent tendency for the price to change. Graphically, equilibrium is the point where the demand and supply curves intersect.
+        </div>
+      </div>
+
+      <p>
+        Equilibrium is the "resting point" of a market—the unique price where the plans of consumers and producers align perfectly. At any other price, one side of the market will be frustrated: either excess demand (shortage) or excess supply (surplus). Market forces—the actions of frustrated buyers and sellers—push price toward equilibrium until balance is restored.
+      </p>
+      <p>
+        Markets in equilibrium tend to stay in equilibrium unless something external changes (which we will explore in Module 2). When a market is not in equilibrium, the imbalance creates incentives for buyers and sellers to adjust. If price is too high, unsold inventory accumulates, and sellers lower prices to clear it. If price is too low, buyers search frantically for products, and prices rise. This process is not always instantaneous—sometimes price adjustments take time—but the tendency is toward equilibrium.
+      </p>
+
+      <h3>Finding Equilibrium Algebraically</h3>
+      <p>
+        To find the equilibrium price and quantity, set quantity demanded equal to quantity supplied and solve for the price:
+      </p>
+      <div class="equation-block">
+        $$Q_d = Q_s$$
+        $$a - bP = c + dP$$
+        $$a - c = dP + bP$$
+        $$a - c = (b + d)P$$
+        $$P^* = \frac{a - c}{b + d}$$
+      </div>
+      <p>
+        Once you have found the equilibrium price \(P^*\), substitute it back into either the demand or supply equation to find the equilibrium quantity \(Q^*\):
+      </p>
+      <div class="equation-block">
+        $$Q^* = a - bP^*  \text{ or }  Q^* = c + dP^*$$
+      </div>
+      <p>
+        Both equations should yield the same \(Q^*\), which confirms your calculation. Many instructors recommend plugging the equilibrium price into both equations as a check—if you get different quantities, you've made an error.
+      </p>
+
+      <h3>Worked Example: EU Sugar Market Equilibrium</h3>
+      <div class="callout callout--example">
+        <div class="callout__title">Example: Finding Equilibrium in the Sugar Market</div>
+        <p>
+          Using our EU sugar market example, find the equilibrium price and quantity.
+        </p>
+        <p style="margin-top: var(--space-md);">
+          <strong>Given:</strong><br>
+          Demand: \(Q_d = 50 - 10P\)<br>
+          Supply: \(Q_s = 15P\)<br><br>
+
+          <strong>Step 1: Set \(Q_d = Q_s\) and solve for P:</strong><br>
+          \(50 - 10P = 15P\)<br>
+          \(50 = 15P + 10P\)<br>
+          \(50 = 25P\)<br>
+          \(P^* = 50/25 = 2\)<br><br>
+
+          <strong>Step 2: Find \(Q^*\) by substituting \(P^* = 2\) into the demand equation:</strong><br>
+          \(Q^* = 50 - 10(2) = 50 - 20 = 30\)<br><br>
+
+          <strong>Step 3: Verify by substituting \(P^* = 2\) into the supply equation:</strong><br>
+          \(Q^* = 15(2) = 30\) ✓<br><br>
+
+          <strong>Conclusion:</strong> The equilibrium price is 2 euros per kilogram, and the equilibrium quantity is 30 million kilograms per year. At this price and quantity, the market is in balance.
+        </p>
+      </div>
+
+      <p>
+        This example illustrates an important practical tip: <strong>always plug the equilibrium price into both equations</strong>. If you get different quantities, you have made an arithmetic error and should recalculate. Getting the same \(Q^*\) from both equations confirms that you have found true equilibrium.
+      </p>
+
+      <h3>Graphing Supply and Demand Together</h3>
+      <p>
+        When we graph both the demand and supply curves on the same axes, their intersection point is the equilibrium. For our EU sugar market:
+      </p>
+      <ul>
+        <li>The demand curve \(P = 5 - Q_d/10\) slopes downward, crossing the vertical axis at P = 5 and the horizontal axis at Q = 50.</li>
+        <li>The supply curve \(P = Q_s/15\) slopes upward from the origin.</li>
+        <li>They intersect at the equilibrium point (\(Q^* = 30\), \(P^* = 2\)).</li>
+      </ul>
+      <p>
+        At prices above 2 euros per kilogram, quantity supplied exceeds quantity demanded, creating a surplus. At prices below 2 euros per kilogram, quantity demanded exceeds quantity supplied, creating a shortage.
+      </p>
+
+      <div class="figure">
+        <div id="equilibrium-static-graph"></div>
+        <div class="figure__caption">Figure 1.3: The equilibrium for the EU sugar market. The demand curve (blue) and supply curve (red) intersect at the equilibrium point E*, where \(P^* = 2\) euros per kilogram and \(Q^* = 30\) million kilograms per year. The dashed lines show the equilibrium price and quantity projections to the axes. At prices above equilibrium, quantity supplied exceeds quantity demanded (surplus region). At prices below equilibrium, quantity demanded exceeds quantity supplied (shortage region).</div>
+      </div>
+
+      <h3>Surplus and Shortage Dynamics</h3>
+      <div class="definition-box">
+        <div class="definition-box__term">Surplus (Excess Supply)</div>
+        <div class="definition-box__text">
+          When the market price is above the equilibrium price, quantity supplied exceeds quantity demanded. Producers have unsold inventory that accumulates. Sellers, unable to move all their goods, reduce prices. This downward pressure on price continues until the market reaches equilibrium.
+        </div>
+      </div>
+
+      <div class="definition-box">
+        <div class="definition-box__term">Shortage (Excess Demand)</div>
+        <div class="definition-box__text">
+          When the market price is below the equilibrium price, quantity demanded exceeds quantity supplied. Consumers want to purchase more than producers are willing to supply. Willing buyers cannot find the product at the current price, creating upward pressure on the price. Price rises until the market reaches equilibrium.
+        </div>
+      </div>
+
+      <p>
+        Let's use our sugar market to illustrate surplus conditions. Suppose the government sets a price floor at 3.5 euros per kilogram (which might happen under an agricultural support policy). At this price, quantity demanded falls to \(Q_d = 50 - 10(3.5) = 50 - 35 = 15\) million kg, while quantity supplied rises to \(Q_s = 15(3.5) = 52.5\) million kg. The surplus is \(52.5 - 15 = 37.5\) million kg of unsold sugar.
+      </p>
+
+      <p>
+        Producers have 37.5 million kilograms of unwanted sugar. This is precisely the problem the EU faced with the CAP: guaranteed prices above equilibrium created massive surpluses that the government had to purchase and store. Without government intervention (such as buying the surplus), the surplus pressure would drive prices downward until they reached equilibrium at 2 euros per kilogram.
+      </p>
+
+      <p>
+        Now suppose price is below equilibrium, say at 1 euro per kilogram. At this price, quantity demanded is \(Q_d = 50 - 10(1) = 40\) million kg, while quantity supplied is only \(Q_s = 15(1) = 15\) million kg. The shortage is \(40 - 15 = 25\) million kg of unsatisfied demand.
+      </p>
+
+      <p>
+        At this price, consumers want 40 million kilograms but can only find 15 million. The shortage creates upward pressure on price as frustrated buyers bid prices up. Prices rise until they reach 2 euros per kilogram, where quantity demanded equals quantity supplied and equilibrium is restored.
+      </p>
+
+      <div class="callout callout--warning">
+        <div class="callout__title">Common Misconception</div>
+        <p>
+          Students often confuse "surplus" (the excess of quantity supplied over quantity demanded at a given price) with "consumer surplus" (the benefit consumers receive from buying at a price below their maximum willingness to pay). These are entirely different concepts. A "surplus" is an excess supply condition that pushes price downward. "Consumer surplus" is a measure of the value consumers gain from trade, which we will explore in detail in Module 3. Do not mix these up!
+        </p>
+      </div>
+
+      <!-- ===== EQUILIBRIUM INTERACTIVE GRAPH ===== -->
+      <h2 id="equilibrium-interactive">Interactive: Demand, Supply, and Equilibrium</h2>
+
+      <div class="graph-container">
+        <div class="graph-container__title">Combined Market: Finding Equilibrium</div>
+        <div class="graph-container__description">
+          This graph shows both demand (blue, downward sloping) and supply (red, upward sloping) curves for the EU sugar market. Adjust the demand intercept and supply intercept using the sliders to see how equilibrium price (\(P^*\)) and quantity (\(Q^*\)) change. The dark point marks the equilibrium intersection.
+        </div>
+        <div class="graph-container__svg-wrapper" id="equilibrium-graph"></div>
+        <div class="graph-container__controls">
+          <div class="graph-control">
+            <label class="graph-control__label">Demand Intercept (a): Max willingness to pay</label>
+            <input type="range" class="graph-control__slider" id="eq-demand-intercept" min="40" max="120" step="5" value="50">
+            <span class="graph-control__value" id="eq-demand-intercept-value">50</span>
+          </div>
+          <div class="graph-control">
+            <label class="graph-control__label">Supply Intercept (c): Baseline supply</label>
+            <input type="range" class="graph-control__slider" id="eq-supply-intercept" min="-10" max="30" step="5" value="0">
+            <span class="graph-control__value" id="eq-supply-intercept-value">0</span>
+          </div>
+        </div>
+        <div class="graph-container__info" id="equilibrium-info">
+          <p><strong>Equilibrium Price (\(P^*\)):</strong> <span id="eq-price-display">€2.00</span></p>
+          <p><strong>Equilibrium Quantity (\(Q^*\)):</strong> <span id="eq-quantity-display">30</span> units</p>
+        </div>
+      </div>
+
+      <p>
+        The sliders adjust the demand and supply curves. As you change the demand intercept (a), observe how the entire demand curve shifts rightward (higher a) or leftward (lower a). This represents changes in what consumers want at any given price—perhaps due to tastes, income, or population changes. As you change the supply intercept (c), the supply curve shifts. Notice that:
+      </p>
+      <ul>
+        <li>Increasing the demand intercept (rightward demand shift) raises both equilibrium price and equilibrium quantity. More demand drives prices up and quantities sold increase.</li>
+        <li>Increasing the supply intercept (rightward supply shift) increases equilibrium quantity but lowers equilibrium price. More supply lowers prices and increases quantities sold.</li>
+      </ul>
+      <p>
+        These effects reflect the core intuition of supply and demand: shifts that make supply or demand larger drive price in opposite directions. We will explore these shifts in detail in Module 2.
+      </p>
+
+      <div class="self-check">
+        <div class="self-check__question">
+          If the demand equation is \(Q_d = 50 - 10P\) and the supply equation is \(Q_s = 15P\), what would happen to the equilibrium quantity if the demand intercept increased from 50 to 70? (Hint: Use the equilibrium formula \(Q^* = \frac{a - c}{b + d}\) where a = 70, c = 0, b = 10, d = 15.)
+        </div>
+        <button class="self-check__reveal-btn">Show Answer</button>
+        <div class="self-check__answer">
+          With the new demand equation \(Q_d = 70 - 10P\) and supply unchanged at \(Q_s = 15P\), set them equal: \(70 - 10P = 15P\), so \(70 = 25P\), \(P^* = 2.8\). Then \(Q^* = 15(2.8) = 42\) million kilograms. The equilibrium quantity increased from 30 to 42 million kilograms. Higher demand (higher intercept) increases both price and quantity at equilibrium.
+        </div>
+      </div>
+
+      <hr class="section-divider">
+
+      <!-- ===== RETURNING TO THE CAP ===== -->
+      <h2 id="cap-return">Returning to the CAP: Applying Equilibrium Analysis to Policy</h2>
+
+      <p>
+        Now that you understand demand, supply, and equilibrium, we can return to the EU Common Agricultural Policy and apply our new analytical tools. Recall that the original CAP operated through <strong>price supports</strong>: the government guaranteed a minimum price for agricultural products like sugar, butter, and wine. If the market price fell below this guaranteed price, the government purchased the unsold surplus at the guaranteed price.
+      </p>
+
+      <p>
+        Using our sugar market example, imagine the EU government sets a price support (price floor) at 3 euros per kilogram, well above the equilibrium price of 2 euros per kilogram. This policy is designed to help farmers by guaranteeing them higher prices and thus higher revenues. But what happens in the market?
+      </p>
+
+      <p>
+        At a price of 3 euros per kilogram, quantity demanded falls to \(Q_d = 50 - 10(3) = 20\) million kilograms, while quantity supplied rises to \(Q_s = 15(3) = 45\) million kilograms. A surplus of 25 million kilograms emerges. Without government action, this surplus would push prices downward. But the government steps in and purchases the 25 million kilograms at 3 euros per kilogram. The government spends \(25 \times 3 = 75\) million euros. Moreover, the government must store this purchased sugar somewhere—incurring storage costs—or attempt to sell it, which requires offering steep discounts that effectively waste the resources already spent buying it.
+      </p>
+
+      <p>
+        This example illustrates why the CAP created such enormous costs. The surplus is not a one-time problem: as long as the price support remains above equilibrium, surpluses continue to accumulate year after year. Multiply 75 million euros by the number of years the policy runs, add storage costs and disposal challenges, and the fiscal burden becomes staggering. When you multiply this across multiple commodities (sugar, butter, wine, grains, dairy, etc.) and across 27 EU member states, you understand why the CAP consumed roughly 40% of the entire EU budget for decades.
+      </p>
+
+      <p>
+        Moreover, the CAP created unintended consequences beyond the fiscal cost. Guaranteed prices incentivized farmers to specialize heavily in supported commodities, even when doing so was economically inefficient. It reduced incentives for innovation in farming practices. It affected international markets: the EU's surplus production was sometimes dumped on world markets at prices below cost, harming farmers in developing countries. It led to environmental problems from intensive production focused on maximizing yields of subsidized crops. And it benefited large agricultural producers disproportionately to small farmers, because payment was often based on acreage or production volume.
+      </p>
+
+      <p>
+        The CAP example demonstrates a crucial lesson: understanding demand and supply is essential for predicting the real-world effects of policy. A well-intentioned policy designed to help farmers created surpluses, inefficient production decisions, environmental problems, international trade distortions, and massive costs to taxpayers. By applying supply-and-demand analysis, we can predict these consequences <em>before</em> implementing a policy, and design better alternatives. This is why these tools are central to policy analysis at every level—from local planning boards to international institutions.
+      </p>
+
+      <hr class="section-divider">
+
+      <!-- ===== PRACTICE QUIZ ===== -->
+      <h2 id="practice-quiz">Practice Quiz: Demand, Supply, and Equilibrium</h2>
+      <p>
+        Test your understanding with this interactive practice quiz. The quiz covers the core concepts from this module: demand equations, supply equations, equilibrium calculations, and interpreting surplus and shortage conditions. Take your time with each question, and use the feedback to deepen your understanding.
+      </p>
+      <div class="callout callout--example">
+        <div class="callout__title">Quiz Instructions</div>
+        <p>This practice quiz contains 8 questions (multiple choice and short answer). Your understanding is based on completion and reasoning, not just correct answers. After you answer each question, you will receive immediate feedback. Work through all questions and review the feedback carefully.</p>
+      </div>
+
+      <!-- Quiz container -->
+      <div id="quiz-1"></div>
+
+      <hr class="section-divider">
+
+      <!-- ===== KEY TERMS ===== -->
+      <h2 id="key-terms">Key Terms Glossary</h2>
+      <p>
+        Mastering the terminology of demand and supply analysis is essential for all that follows in microeconomics. Here are the key terms from this module:
+      </p>
+
+      <table class="glossary-table">
+        <thead>
+          <tr>
+            <th>Term</th>
+            <th>Definition</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Ceteris Paribus</td>
+            <td>Latin for "all else equal"; the assumption that all variables except those being studied are held constant. This allows us to isolate the relationship between price and quantity.</td>
+          </tr>
+          <tr>
+            <td>Demand</td>
+            <td>The relationship between price and the quantity that consumers are willing and able to purchase, shown as either a demand curve or demand schedule. Encompasses all points on the curve.</td>
+          </tr>
+          <tr>
+            <td>Demand Curve</td>
+            <td>A graph showing the inverse relationship between price (vertical axis) and quantity demanded (horizontal axis). Slopes downward from left to right, illustrating the law of demand.</td>
+          </tr>
+          <tr>
+            <td>Demand Schedule</td>
+            <td>A table listing the quantities demanded at different price levels, showing the same information as a demand curve in tabular form.</td>
+          </tr>
+          <tr>
+            <td>Equilibrium</td>
+            <td>The price and quantity at which quantity demanded equals quantity supplied (\(Q_d = Q_s\)), eliminating any pressure for further price change. The intersection of supply and demand curves.</td>
+          </tr>
+          <tr>
+            <td>Equilibrium Price (\(P^*\))</td>
+            <td>The price at which the quantity demanded equals the quantity supplied, where supply and demand curves intersect. The price at which the market clears.</td>
+          </tr>
+          <tr>
+            <td>Equilibrium Quantity (\(Q^*\))</td>
+            <td>The quantity bought and sold at the equilibrium price, where the market clears with no excess supply or demand.</td>
+          </tr>
+          <tr>
+            <td>Law of Demand</td>
+            <td>The principle that, holding all else constant, when price rises, quantity demanded falls, and when price falls, quantity demanded rises. Reflects the inverse price-quantity relationship.</td>
+          </tr>
+          <tr>
+            <td>Law of Supply</td>
+            <td>The principle that, holding all else constant, when price rises, quantity supplied rises, and when price falls, quantity supplied falls. Reflects the positive price-quantity relationship.</td>
+          </tr>
+          <tr>
+            <td>Quantity Demanded</td>
+            <td>A specific point on the demand curve showing the quantity consumers are willing to buy at a particular price. Different from "demand," which refers to the entire curve.</td>
+          </tr>
+          <tr>
+            <td>Quantity Supplied</td>
+            <td>A specific point on the supply curve showing the quantity producers are willing to sell at a particular price. Different from "supply," which refers to the entire curve.</td>
+          </tr>
+          <tr>
+            <td>Shortage (Excess Demand)</td>
+            <td>A situation where quantity demanded exceeds quantity supplied at the current price, creating upward pressure on price and incentives for price to rise toward equilibrium.</td>
+          </tr>
+          <tr>
+            <td>Supply</td>
+            <td>The relationship between price and the quantity that producers are willing and able to offer for sale, shown as either a supply curve or supply schedule. Encompasses all points on the curve.</td>
+          </tr>
+          <tr>
+            <td>Supply Curve</td>
+            <td>A graph showing the positive relationship between price (vertical axis) and quantity supplied (horizontal axis). Slopes upward from left to right, illustrating the law of supply.</td>
+          </tr>
+          <tr>
+            <td>Supply Schedule</td>
+            <td>A table listing the quantities supplied at different price levels, showing the same information as a supply curve in tabular form.</td>
+          </tr>
+          <tr>
+            <td>Surplus (Excess Supply)</td>
+            <td>A situation where quantity supplied exceeds quantity demanded at the current price, creating downward pressure on price and incentives for price to fall toward equilibrium.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="flashcard-launcher">
+        <button class="flashcard-launcher__btn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M12 4v16"/></svg>
+          Study as Flashcards
+        </button>
+      </div>
+
+      <hr class="section-divider">
+
+      <!-- ===== SUMMARY ===== -->
+      <h2 id="summary">Module Summary</h2>
+      <p>
+        In this module, you learned the foundational tools of supply and demand analysis, the analytical framework that underlies nearly all policy questions in microeconomics.
+      </p>
+
+      <p>
+        <strong>Demand</strong> represents how buyers respond to price. The law of demand tells us that quantity demanded falls as price rises, because consumers face trade-offs and budget constraints. We express demand mathematically as \(Q_d = a - bP\) (where the negative coefficient on P reflects the law of demand) and graphically as a downward-sloping curve. To graph demand, we must invert the equation so that P is a function of Q. The demand curve's vertical intercept shows the highest price consumers will pay; the horizontal intercept shows quantity demanded when price is zero.
+      </p>
+
+      <p>
+        <strong>Supply</strong> represents how sellers respond to price. The law of supply tells us that quantity supplied rises as price rises, because higher prices make production more profitable and attract new producers. We express supply as \(Q_s = c + dP\) (where the positive coefficient reflects the law of supply) and graphically as an upward-sloping curve. Like demand, we invert supply to graph it with price on the vertical axis. The supply curve's vertical intercept (or its interaction with price) shows the minimum acceptable price; the slope shows producer responsiveness to price.
+      </p>
+
+      <p>
+        <strong>Equilibrium</strong> occurs where demand and supply intersect. At the equilibrium price (\(P^*\)) and quantity (\(Q^*\)), quantity demanded equals quantity supplied. The market is in balance, with no inherent tendency for price to change. We find equilibrium by setting \(Q_d = Q_s\) and solving for \(P^*\), then substituting back to find \(Q^*\). A crucial check: plug \(P^*\) into both equations and verify you get the same \(Q^*\).
+      </p>
+
+      <p>
+        When price is <strong>above equilibrium</strong>, there is a surplus (excess supply). Quantity supplied exceeds quantity demanded. Producers have unsold inventory and respond by cutting prices, pushing price downward toward equilibrium.
+      </p>
+
+      <p>
+        When price is <strong>below equilibrium</strong>, there is a shortage (excess demand). Quantity demanded exceeds quantity supplied. Buyers search frantically and bid prices up, pushing price upward toward equilibrium.
+      </p>
+
+      <p>
+        You can now construct demand and supply curves from equations, find equilibrium price and quantity both graphically and algebraically, and predict what happens in response to surplus and shortage. These tools are the foundation for understanding how markets work and why they sometimes fail to produce desired outcomes—which is where policy comes in.
+      </p>
+
+      <p>
+        The EU Common Agricultural Policy demonstrates why these tools matter. By setting price supports above equilibrium, the CAP created persistent surpluses that the government had to purchase and store. This led to fiscal costs, environmental damage, inefficient production decisions, and distortions in international markets. Supply-and-demand analysis allows policymakers to predict these consequences before implementing a policy, and to design better alternatives that achieve policy goals more efficiently.
+      </p>
+
+      <p>
+        In Module 2, we will explore what happens when factors beyond price—such as consumer preferences, technology, input costs, expectations, or the number of producers and consumers—cause the demand or supply curves to shift. We will learn how to trace the effects of these shifts on market equilibrium and understand the policy implications. We will also examine cases where price controls prevent markets from adjusting to equilibrium, with important consequences for consumers, producers, and the effectiveness of policy.
+      </p>
+
+      <!-- ===== CHAPTER NAVIGATION ===== -->
+      <nav class="chapter-nav">
+        <a href="../index.html" class="chapter-nav__link chapter-nav__link--prev">
+          <span class="chapter-nav__direction">&larr; Back</span>
+          <span class="chapter-nav__title">Home</span>
+        </a>
+        <a href="module-02-demand-supply-shifters.html" class="chapter-nav__link chapter-nav__link--next">
+          <span class="chapter-nav__direction">Next &rarr;</span>
+          <span class="chapter-nav__title">Module 2: Demand &amp; Supply Shifters</span>
+        </a>
+      </nav>
+
+    </main>
+  </div>
+
+  <!-- Scripts -->
+  <script src="../js/textbook.js"></script>
+  <script>
+    /* ============================================================
+       KaTeX Auto-Render Initialization
+       ============================================================ */
+    document.addEventListener("DOMContentLoaded", function() {
+      if (typeof renderMathInElement !== 'undefined') {
+        renderMathInElement(document.body, {
+          delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "\\(", right: "\\)", display: false}
+          ]
+        });
+      }
+    });
+
+    /* ============================================================
+       Module 1: Interactive Graphs and Quiz
+       ============================================================ */
+
+    // ===== Static Graph 1: Demand Curve =====
+    (function() {
+      const graph = EconGraph.create('#demand-static-graph', {
+        xLabel: 'Quantity (millions of kg/year)',
+        yLabel: 'Price (€/kg)',
+        xDomain: [0, 60],
+        yDomain: [0, 6]
+      });
+      if (!graph) return;
+
+      // Demand: P = 5 - Q/10
+      const demand = x => 5 - (x / 10);
+      graph.addLine(demand, '#2e86c1', { label: 'D', strokeWidth: 2.5 });
+
+      // Mark schedule points
+      const points = [
+        {q: 40, p: 1, label: '(40, 1)'},
+        {q: 30, p: 2, label: '(30, 2)'},
+        {q: 20, p: 3, label: '(20, 3)'},
+        {q: 10, p: 4, label: '(10, 4)'},
+        {q: 0, p: 5, label: '(0, 5)'}
+      ];
+      points.forEach(pt => {
+        graph.addPoint(pt.q, pt.p, {
+          color: '#2e86c1',
+          radius: 4
+        });
+      });
+
+      // Mark intercepts
+      graph.addPoint(0, 5, { color: '#e74c3c', radius: 5, label: 'Vertical intercept (5)' });
+      graph.addPoint(50, 0, { color: '#e74c3c', radius: 5, label: 'Horizontal intercept (50)' });
+
+      // Add slope annotation
+      graph.addLabel(45, 0.8, 'Slope = -1/10', {
+        color: '#2e86c1',
+        fontSize: '11px',
+        fontStyle: 'italic'
+      });
+    })();
+
+    // ===== Static Graph 2: Supply Curve =====
+    (function() {
+      const graph = EconGraph.create('#supply-static-graph', {
+        xLabel: 'Quantity (millions of kg/year)',
+        yLabel: 'Price (€/kg)',
+        xDomain: [0, 80],
+        yDomain: [0, 6]
+      });
+      if (!graph) return;
+
+      // Supply: P = Q/15
+      const supply = x => x / 15;
+      graph.addLine(supply, '#c0392b', { label: 'S', strokeWidth: 2.5 });
+
+      // Mark schedule points
+      const points = [
+        {q: 15, p: 1},
+        {q: 30, p: 2},
+        {q: 45, p: 3},
+        {q: 60, p: 4}
+      ];
+      points.forEach(pt => {
+        graph.addPoint(pt.q, pt.p, {
+          color: '#c0392b',
+          radius: 4
+        });
+      });
+
+      // Mark origin
+      graph.addPoint(0, 0, { color: '#e74c3c', radius: 5, label: 'Origin (0, 0)' });
+
+      // Add slope annotation
+      graph.addLabel(60, 2.8, 'Slope = 1/15', {
+        color: '#c0392b',
+        fontSize: '11px',
+        fontStyle: 'italic'
+      });
+    })();
+
+    // ===== Static Graph 3: Equilibrium =====
+    (function() {
+      const graph = EconGraph.create('#equilibrium-static-graph', {
+        xLabel: 'Quantity (millions of kg/year)',
+        yLabel: 'Price (€/kg)',
+        xDomain: [0, 60],
+        yDomain: [0, 6]
+      });
+      if (!graph) return;
+
+      // Demand: P = 5 - Q/10
+      const demand = x => 5 - (x / 10);
+      // Supply: P = Q/15
+      const supply = x => x / 15;
+
+      graph.addLine(demand, '#2e86c1', { label: 'D', strokeWidth: 2.5 });
+      graph.addLine(supply, '#c0392b', { label: 'S', strokeWidth: 2.5 });
+
+      // Equilibrium point E* at (30, 2)
+      const eqQ = 30;
+      const eqP = 2;
+
+      graph.addPoint(eqQ, eqP, {
+        color: '#1a5276',
+        radius: 7,
+        label: 'E*'
+      });
+
+      // Dashed lines to axes
+      graph.addDashedLine(
+        [{x: eqQ, y: eqP}, {x: eqQ, y: 0}],
+        '#1a5276',
+        { strokeWidth: 1.5 }
+      );
+      graph.addDashedLine(
+        [{x: eqQ, y: eqP}, {x: 0, y: eqP}],
+        '#1a5276',
+        { strokeWidth: 1.5 }
+      );
+
+      // Axis labels for equilibrium
+      graph.addLabel(eqQ + 1, -0.4, 'Q* = 30', {
+        color: '#1a5276',
+        fontSize: '11px',
+        fontWeight: '600'
+      });
+      graph.addLabel(-6, eqP, 'P* = 2', {
+        color: '#1a5276',
+        fontSize: '11px',
+        fontWeight: '600',
+        anchor: 'end'
+      });
+
+      // Shade surplus region (above P=2)
+      // Light shading from supply curve down to equilibrium
+      graph.addLabel(20, 3.5, 'Surplus\nregion', {
+        color: '#c0392b',
+        fontSize: '10px',
+        opacity: 0.6,
+        textAnchor: 'middle'
+      });
+
+      // Shade shortage region (below P=2)
+      graph.addLabel(10, 0.8, 'Shortage\nregion', {
+        color: '#2e86c1',
+        fontSize: '10px',
+        opacity: 0.6,
+        textAnchor: 'middle'
+      });
+    })();
+
+    // ===== Graph 1: Demand Curve with Parameters =====
+    (function() {
+      const graph = EconGraph.create('#demand-graph', {
+        xLabel: 'Quantity (millions of kg/year)',
+        yLabel: 'Price (€/kg)',
+        xDomain: [0, 100],
+        yDomain: [0, 6]
+      });
+      if (!graph) return;
+
+      function update() {
+        graph.clear();
+        const a = parseFloat(document.getElementById('demand-intercept').value);
+        const b = parseFloat(document.getElementById('demand-slope').value);
+        document.getElementById('demand-intercept-value').textContent = a.toFixed(0);
+        document.getElementById('demand-slope-value').textContent = b.toFixed(0);
+
+        // Demand: Qd = a - bP  =>  P = a/b - Q/b
+        const demand = x => (a / b) - (x / b);
+        graph.addLine(demand, '#2e86c1', { label: 'D', className: 'dynamic', strokeWidth: 2.5 });
+
+        // Mark a point at Q=30 (for default values, this is Q=30 at P=2)
+        const qDemo = 30;
+        const pDemo = demand(qDemo);
+        if (pDemo > 0 && pDemo < 6) {
+          graph.addPoint(qDemo, pDemo, {
+            color: '#2e86c1',
+            radius: 5,
+            className: 'dynamic'
+          });
+        }
+      }
+
+      document.getElementById('demand-intercept').addEventListener('input', update);
+      document.getElementById('demand-slope').addEventListener('input', update);
+      update();
+    })();
+
+    // ===== Graph 2: Supply Curve with Parameters =====
+    (function() {
+      const graph = EconGraph.create('#supply-graph', {
+        xLabel: 'Quantity (millions of kg/year)',
+        yLabel: 'Price (€/kg)',
+        xDomain: [0, 100],
+        yDomain: [0, 6]
+      });
+      if (!graph) return;
+
+      function update() {
+        graph.clear();
+        const c = parseFloat(document.getElementById('supply-intercept').value);
+        const d = parseFloat(document.getElementById('supply-slope').value);
+        document.getElementById('supply-intercept-value').textContent = c.toFixed(0);
+        document.getElementById('supply-slope-value').textContent = d.toFixed(0);
+
+        // Supply: Qs = c + dP  =>  P = (Q - c) / d
+        const supply = x => (x - c) / d;
+        graph.addLine(supply, '#c0392b', { label: 'S', className: 'dynamic', strokeWidth: 2.5 });
+
+        // Mark a point at Q=30 (for default values, this is Q=30 at P=2)
+        const qDemo = 30;
+        const pDemo = supply(qDemo);
+        if (pDemo > 0 && pDemo < 6) {
+          graph.addPoint(qDemo, pDemo, {
+            color: '#c0392b',
+            radius: 5,
+            className: 'dynamic'
+          });
+        }
+      }
+
+      document.getElementById('supply-intercept').addEventListener('input', update);
+      document.getElementById('supply-slope').addEventListener('input', update);
+      update();
+    })();
+
+    // ===== Graph 3: Equilibrium (Combined Demand + Supply) =====
+    (function() {
+      const graph = EconGraph.create('#equilibrium-graph', {
+        xLabel: 'Quantity (millions of kg/year)',
+        yLabel: 'Price (€/kg)',
+        xDomain: [0, 100],
+        yDomain: [0, 6]
+      });
+      if (!graph) return;
+
+      function update() {
+        graph.clear();
+        const a = parseFloat(document.getElementById('eq-demand-intercept').value);
+        const c = parseFloat(document.getElementById('eq-supply-intercept').value);
+        document.getElementById('eq-demand-intercept-value').textContent = a.toFixed(0);
+        document.getElementById('eq-supply-intercept-value').textContent = c.toFixed(0);
+
+        // Demand: Qd = a - 10P  =>  P = a/10 - Q/10
+        const demand = x => (a / 10) - (x / 10);
+        // Supply: Qs = c + 15P  =>  P = (Q - c) / 15
+        const supply = x => (x - c) / 15;
+
+        graph.addLine(demand, '#2e86c1', { label: 'D', className: 'dynamic', strokeWidth: 2.5 });
+        graph.addLine(supply, '#c0392b', { label: 'S', className: 'dynamic', strokeWidth: 2.5 });
+
+        // Equilibrium: a - 10P = c + 15P  =>  a - c = 25P  =>  P* = (a - c) / 25
+        const eqP = (a - c) / 25;
+        const eqQ = c + 15 * eqP;
+
+        if (eqQ > 0 && eqP > 0 && eqQ < 100 && eqP < 6) {
+          graph.addPoint(eqQ, eqP, {
+            color: '#1a5276',
+            radius: 7,
+            label: 'E*',
+            labelOffset: { dx: 12, dy: -12 },
+            className: 'dynamic'
+          });
+
+          // Dashed lines to axes
+          graph.addDashedLine(
+            [{x: eqQ, y: eqP}, {x: eqQ, y: 0}],
+            '#1a5276',
+            { strokeWidth: 1.5, className: 'dynamic' }
+          );
+          graph.addDashedLine(
+            [{x: eqQ, y: eqP}, {x: 0, y: eqP}],
+            '#1a5276',
+            { strokeWidth: 1.5, className: 'dynamic' }
+          );
+
+          // Axis labels
+          graph.addLabel(eqQ + 2, -0.3, `Q* = ${eqQ.toFixed(0)}`, {
+            color: '#1a5276', fontSize: '12px', fontWeight: '600', className: 'dynamic'
+          });
+          graph.addLabel(-6, eqP, `P* = €${eqP.toFixed(2)}`, {
+            color: '#1a5276', fontSize: '12px', fontWeight: '600', anchor: 'end', className: 'dynamic'
+          });
+
+          // Update info box
+          document.getElementById('eq-price-display').textContent = '€' + eqP.toFixed(2);
+          document.getElementById('eq-quantity-display').textContent = eqQ.toFixed(0);
+        }
+      }
+
+      document.getElementById('eq-demand-intercept').addEventListener('input', update);
+      document.getElementById('eq-supply-intercept').addEventListener('input', update);
+      update();
+    })();
+
+    // ===== PRACTICE QUIZ =====
+    // Quiz data: core questions covering demand, supply, and equilibrium
+    const quizData = [
+      {
+        type: 'short_answer',
+        text: 'Suppose that the demand for a good is given by the equation Q<sub>d</sub> = 8 – 4P. How many units are demanded at price 1?',
+        feedback: 'You can solve this using algebra. Plug in P = 1 into the demand equation: Q<sub>d</sub> = 8 – 4(1) = 8 – 4 = 4 units.',
+        correctAnswer: '4'
+      },
+      {
+        type: 'short_answer',
+        text: 'Suppose that the supply for a good is given by the equation Q<sub>s</sub> = 2P + 5. How many units are supplied at price 2?',
+        feedback: 'Plug in P = 2 into the supply equation: Q<sub>s</sub> = 2(2) + 5 = 4 + 5 = 9 units.',
+        correctAnswer: '9'
+      },
+      {
+        type: 'multiple_choice',
+        text: 'Suppose that consumers will buy 100 units of a good at price 10 and 50 units at price 20, and the demand curve is linear. Find the equation for the demand curve so that price is a function of quantity.',
+        options: [
+          { text: 'P = 150 – 5Q<sub>d</sub>', correct: false },
+          { text: 'P = 30 + Q<sub>d</sub>/5', correct: false },
+          { text: 'P = 30 – Q<sub>d</sub>/5', correct: true },
+          { text: 'P = Q<sub>d</sub>/5 - 10', correct: false },
+          { text: 'P = -Q<sub>d</sub>/5', correct: false }
+        ],
+        feedback: 'The slope is (ΔP / ΔQ) = (20 – 10) / (50 – 100) = 10 / (-50) = -1/5. Using the point (Q = 100, P = 10): 10 = Intercept – (1/5)(100) → Intercept = 30. Therefore, P = 30 – Q<sub>d</sub>/5.'
+      },
+      {
+        type: 'multiple_choice',
+        text: 'Suppose that producers will supply 4 units at price 2, the supply curve is linear, and for each $1 increase in price, the quantity supplied increases by 4 units. Find the equation for the supply curve so that price is a function of quantity.',
+        options: [
+          { text: 'P = 4Q<sub>s</sub> – 4', correct: false },
+          { text: 'P = 4Q<sub>s</sub> – 14', correct: false },
+          { text: 'P = Q<sub>s</sub>/4', correct: false },
+          { text: 'P = Q<sub>s</sub>/4 + 1', correct: true },
+          { text: 'P = Q<sub>s</sub>/4 + 3.5', correct: false }
+        ],
+        feedback: 'The slope is 1/4 (price per unit). Using the point (Q = 4, P = 2): 2 = Intercept + (1/4)(4) → 2 = Intercept + 1 → Intercept = 1. Therefore, P = Q<sub>s</sub>/4 + 1.'
+      },
+      {
+        type: 'short_answer',
+        text: 'The demand curve is Q<sub>d</sub> = 8 – 4P and the supply curve is Q<sub>s</sub> = 2P + 5. What is the market equilibrium price?',
+        feedback: 'Set Q<sub>d</sub> = Q<sub>s</sub>: 8 – 4P = 2P + 5 → 8 – 5 = 2P + 4P → 3 = 6P → P = 0.5. The equilibrium price is $0.50.',
+        correctAnswer: '0.5'
+      },
+      {
+        type: 'short_answer',
+        text: 'Using the same demand and supply equations (Q<sub>d</sub> = 8 – 4P and Q<sub>s</sub> = 2P + 5), what is the market equilibrium quantity?',
+        feedback: 'Plug P = 0.5 into either equation. Using demand: Q<sub>d</sub> = 8 – 4(0.5) = 8 – 2 = 6 units. Using supply: Q<sub>s</sub> = 2(0.5) + 5 = 1 + 5 = 6 units. The equilibrium quantity is 6 units.',
+        correctAnswer: '6'
+      },
+      {
+        type: 'multiple_choice',
+        text: 'Which of the following best describes what happens at a price above the equilibrium price?',
+        options: [
+          { text: 'Quantity demanded exceeds quantity supplied, creating a shortage.', correct: false },
+          { text: 'Quantity supplied exceeds quantity demanded, creating a surplus.', correct: true },
+          { text: 'Both demand and supply increase equally.', correct: false },
+          { text: 'The demand curve shifts rightward.', correct: false },
+          { text: 'Consumers immediately purchase all available inventory.', correct: false }
+        ],
+        feedback: 'At prices above equilibrium, producers are willing to supply more than consumers demand. This excess supply (surplus) creates downward pressure on the price until equilibrium is restored.'
+      },
+      {
+        type: 'multiple_choice',
+        text: 'If the demand equation is Q<sub>d</sub> = 50 – 2P, what is the quantity demanded when P = 15?',
+        options: [
+          { text: '20 units', correct: true },
+          { text: '30 units', correct: false },
+          { text: '80 units', correct: false },
+          { text: '40 units', correct: false },
+          { text: '15 units', correct: false }
+        ],
+        feedback: 'Substitute P = 15: Q<sub>d</sub> = 50 – 2(15) = 50 – 30 = 20 units.'
+      }
+    ];
+
+    // Initialize the quiz
+    PracticeQuiz.create('#quiz-1', quizData, {
+      title: 'Module 1 Practice Quiz'
+    });
+
+    // SelfCheck.init() is called automatically by textbook.js on DOMContentLoaded
+    // Do NOT call it again here — double-init causes the toggle to fire twice
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,340 @@
+<?xml version="1.0"?>
+<questestinterop xmlns="http://www.imsglobal.org/xsd/ims_qtiasiv1p2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.imsglobal.org/xsd/ims_qtiasiv1p2 http://www.imsglobal.org/xsd/ims_qtiasiv1p2p1.xsd">
+  <assessment ident="gbcba397e46465af6b95ea8a77bc8232b" title="3.4 Practice Quiz: Consumer and Producer Surplus" external_assignment_id="959880">
+    <qtimetadata>
+      <qtimetadatafield>
+        <fieldlabel>cc_maxattempts</fieldlabel>
+        <fieldentry>unlimited</fieldentry>
+      </qtimetadatafield>
+    </qtimetadata>
+    <section ident="root_section">
+      <item ident="8d0e74a9ac2dfb8877247b4df63b21c6" title="Question" instructions="">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>question_type</fieldlabel>
+              <fieldentry>text_only_question</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>points_possible</fieldlabel>
+              <fieldentry>1.0</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>original_answer_ids</fieldlabel>
+              <fieldentry/>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>assessment_question_identifierref</fieldlabel>
+              <fieldentry>d34eef554044dfb804cbae4976e5b3dd</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>calculator_type</fieldlabel>
+              <fieldentry>none</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>source_url</fieldlabel>
+              <fieldentry/>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>passage</fieldlabel>
+              <fieldentry>false</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material orientation="left">
+            <mattext texttype="text/html">&lt;div&gt;
+&lt;p&gt;&lt;span style="font-size: 14pt;"&gt;Suppose that the supply and demand functions for the global market for copper are as follows:&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;&lt;span style="font-size: 14pt;"&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp;Q&lt;sub&gt;D&lt;/sub&gt; = 39 &#x2013; 3P&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;&lt;span style="font-size: 14pt;"&gt;&amp;nbsp; &amp;nbsp; &amp;nbsp;Q&lt;sub&gt;S&lt;/sub&gt; = 2P &#x2013; 1&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;&lt;span style="font-size: 14pt;"&gt;where quantity is in millions of metric tons and price is in US dollars ($) per kilogram.&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;br&gt;&lt;span style="font-size: 14pt;"&gt;What is the market equilibrium price and quantity? Enter your answers separately in Questions 1 and 2.&amp;nbsp;&lt;/span&gt;&lt;/p&gt;
+&lt;/div&gt;</mattext>
+          </material>
+        </presentation>
+      </item>
+      <item ident="6b28a671e2dcf24fe554ebf59a18f030" title="Question">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>question_type</fieldlabel>
+              <fieldentry>numerical_question</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>points_possible</fieldlabel>
+              <fieldentry>1.0</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>original_answer_ids</fieldlabel>
+              <fieldentry>18a0c80b-0a51-4680-a2fd-97f8744820b5</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>assessment_question_identifierref</fieldlabel>
+              <fieldentry>21533ed01c092c14c75081fbc9d7bf83</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>parent_stimulus_item_ident</fieldlabel>
+              <fieldentry>8d0e74a9ac2dfb8877247b4df63b21c6</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>calculator_type</fieldlabel>
+              <fieldentry>none</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;div&gt;What is the market equilibrium price?&lt;/div&gt;</mattext>
+          </material>
+          <response_str ident="response1" rcardinality="Single">
+            <render_fib fibtype="Decimal">
+              <response_label ident="answer1"/>
+            </render_fib>
+          </response_str>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <or>
+                <varequal respident="response1">8.0</varequal>
+                <and>
+                  <vargte respident="response1">8.0</vargte>
+                  <varlte respident="response1">8.0</varlte>
+                </and>
+              </or>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+        </resprocessing>
+        <itemfeedback ident="general_fb">
+          <flow_mat>
+            <material>
+              <mattext texttype="text/html">&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;&lt;span style="font-size: 14pt;"&gt;In equilibrium, quantity demanded should equal quantity supplied, that is, we should have:&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span style="font-size: 14pt;"&gt;Q&lt;sub&gt;D&lt;/sub&gt; = Q&lt;sub&gt;S&lt;/sub&gt;&lt;/span&gt;&lt;br&gt;&lt;span style="font-size: 14pt;"&gt;39 &#x2013; 3P = 2P &#x2013; 1&lt;/span&gt;&lt;br&gt;&lt;span style="font-size: 14pt;"&gt;5P = 40&lt;/span&gt;&lt;br&gt;&lt;span style="font-size: 14pt;"&gt;P =&amp;nbsp; 8&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;&lt;span style="font-size: 14pt;"&gt;Note that price is in US dollars ($) per kilogram&lt;/span&gt;&lt;/p&gt;</mattext>
+            </material>
+          </flow_mat>
+        </itemfeedback>
+      </item>
+      <item ident="912f0a597f102aa0d321ec79bf9a6180" title="Question">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>question_type</fieldlabel>
+              <fieldentry>numerical_question</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>points_possible</fieldlabel>
+              <fieldentry>1.0</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>original_answer_ids</fieldlabel>
+              <fieldentry>c4db08e3-4832-41ea-aac4-c116c45dfb79,5b243edf-129e-4415-9430-e8c83e3e6eb3</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>assessment_question_identifierref</fieldlabel>
+              <fieldentry>db4bf3da9ee381af02ebf3968e490100</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>parent_stimulus_item_ident</fieldlabel>
+              <fieldentry>8d0e74a9ac2dfb8877247b4df63b21c6</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>calculator_type</fieldlabel>
+              <fieldentry>none</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;div&gt;What is the market equilibrium quantity?&lt;/div&gt;</mattext>
+          </material>
+          <response_str ident="response1" rcardinality="Single">
+            <render_fib fibtype="Decimal">
+              <response_label ident="answer1"/>
+            </render_fib>
+          </response_str>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <or>
+                <varequal respident="response1">15000000.0</varequal>
+                <and>
+                  <vargte respident="response1">15000000.0</vargte>
+                  <varlte respident="response1">15000000.0</varlte>
+                </and>
+              </or>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+          <respcondition continue="No">
+            <conditionvar>
+              <or>
+                <varequal respident="response1">15.0</varequal>
+                <and>
+                  <vargte respident="response1">15.0</vargte>
+                  <varlte respident="response1">15.0</varlte>
+                </and>
+              </or>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+        </resprocessing>
+        <itemfeedback ident="general_fb">
+          <flow_mat>
+            <material>
+              <mattext texttype="text/html">&lt;p&gt;&lt;span style="font-size: 14pt;"&gt;Plug the price of $8 per kilogram back in to either the demand or supply equation to find the equilibrium quantity:&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span style="font-size: 14pt;"&gt;Q&lt;sub&gt;D&lt;/sub&gt; = 39 &#x2013; 3*8 = 15&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span style="font-size: 14pt;"&gt;OR&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span style="font-size: 14pt;"&gt;Q&lt;sub&gt;S&lt;/sub&gt; = 2*8 &#x2013; 1 = 15&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span style="font-size: 14pt;"&gt;Since the units are in millions of metric tons, the equilibrium quantity is 15,000,000 tons. The practice quiz accepts either 15 (assuming the units are millions of metric tons) or 15,000,000 (assuming the units are tons).&lt;/span&gt;&lt;/p&gt;</mattext>
+            </material>
+          </flow_mat>
+        </itemfeedback>
+      </item>
+      <item ident="5ecc2936ff612243a6f92032b8c4def9" title="Question">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>question_type</fieldlabel>
+              <fieldentry>numerical_question</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>points_possible</fieldlabel>
+              <fieldentry>1.0</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>original_answer_ids</fieldlabel>
+              <fieldentry>724adc34-a0b2-44dc-9f2c-2fcc9d8e8bdd</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>assessment_question_identifierref</fieldlabel>
+              <fieldentry>d0d51485f8d2cec12ad6b8a23f91ceb0</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>calculator_type</fieldlabel>
+              <fieldentry>none</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;div&gt;
+&lt;p&gt;&lt;span style="font-size: 14pt;"&gt;For the graph below, calculate the consumer surplus.&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;&lt;img src="$IMS-CC-FILEBASE$/Uploaded Media/6f3e8a09ae8f82ede4a22872f0baea0b.png" alt="Q3Q2Q.png" width="600" height="366" loading="lazy"&gt;&lt;/p&gt;
+&lt;/div&gt;</mattext>
+          </material>
+          <response_str ident="response1" rcardinality="Single">
+            <render_fib fibtype="Decimal">
+              <response_label ident="answer1"/>
+            </render_fib>
+          </response_str>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <or>
+                <varequal respident="response1">2.0</varequal>
+                <and>
+                  <vargte respident="response1">2.0</vargte>
+                  <varlte respident="response1">2.0</varlte>
+                </and>
+              </or>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+        </resprocessing>
+        <itemfeedback ident="general_fb">
+          <flow_mat>
+            <material>
+              <mattext texttype="text/html">&lt;p&gt;&lt;span style="font-size: 14pt;"&gt;Feedback: The consumer surplus is the area of the triangle below the demand curve and above the equilibrium price line. It is represented by the blue triangle in the graph below.&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="$IMS-CC-FILEBASE$/Uploaded Media/a9b91755-a13f-4369-890c-64d37781ca57" alt="" height="200px" loading="lazy"&gt;&lt;br&gt;&amp;nbsp;&lt;br&gt;Remember, the area of a triangle is defined as follows: &lt;br&gt;AREA= 1/2 * base * height.&lt;br&gt;&amp;nbsp;&lt;br&gt;Thus, CS = 1/2 * 4 * 1 = 2.&lt;/p&gt;</mattext>
+            </material>
+          </flow_mat>
+        </itemfeedback>
+      </item>
+      <item ident="9f15e31c0eab99a4f92dd9770b9dc9a1" title="Question">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>question_type</fieldlabel>
+              <fieldentry>numerical_question</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>points_possible</fieldlabel>
+              <fieldentry>1.0</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>original_answer_ids</fieldlabel>
+              <fieldentry>f017eabf-4979-46d7-8194-5295d480b396</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>assessment_question_identifierref</fieldlabel>
+              <fieldentry>d54a2f2746abc02212458a30ed9ff9ff</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>calculator_type</fieldlabel>
+              <fieldentry>none</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;div&gt;
+&lt;p&gt;&lt;span style="font-size: 14pt;"&gt;For the same graph in the previous question, calculate the producer surplus.&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;&lt;img src="$IMS-CC-FILEBASE$/Uploaded Media/6f3e8a09ae8f82ede4a22872f0baea0b.png" alt="Q3Q2Q.png" width="600" height="366" loading="lazy"&gt;&lt;/p&gt;
+&lt;/div&gt;</mattext>
+          </material>
+          <response_str ident="response1" rcardinality="Single">
+            <render_fib fibtype="Decimal">
+              <response_label ident="answer1"/>
+            </render_fib>
+          </response_str>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <or>
+                <varequal respident="response1">4.0</varequal>
+                <and>
+                  <vargte respident="response1">4.0</vargte>
+                  <varlte respident="response1">4.0</varlte>
+                </and>
+              </or>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+        </resprocessing>
+        <itemfeedback ident="general_fb">
+          <flow_mat>
+            <material>
+              <mattext texttype="text/html">&lt;p&gt;Feedback: The producer surplus is the area of the triangle above the supply curve and below the equilibrium price line. It is represented by the blue triangle in the graph below.&lt;/p&gt;
+&lt;p&gt;&lt;img src="$IMS-CC-FILEBASE$/Uploaded Media/c09f7174-f7cf-4855-8b34-38d60a68cd71" alt="" height="200px" loading="lazy"&gt;&lt;/p&gt;
+&lt;p&gt;Thus, PS = 1/2 * 4 * 2 = 4.&lt;/p&gt;</mattext>
+            </material>
+          </flow_mat>
+        </itemfeedback>
+      </item>
+    </section>
+  </assessment>
+</questestinterop>

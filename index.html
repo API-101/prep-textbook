@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Preparation for API-101 — Microeconomics Summer Preparation</title>
+  <link rel="stylesheet" href="css/theme.css?v=1">
+  <style>
+    /* Homepage-specific styles */
+    .hero {
+      background: linear-gradient(135deg, #0d2137 0%, #1a5276 50%, #2e86c1 100%);
+      color: #fff;
+      padding: var(--space-3xl) var(--space-2xl);
+      text-align: center;
+      min-height: 42vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    .hero__institution {
+      font-family: var(--font-body);
+      font-size: 0.875rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #d4ac0d;
+      margin-bottom: var(--space-sm);
+    }
+    .hero__title {
+      font-family: var(--font-heading);
+      font-size: 2.75rem;
+      font-weight: 700;
+      line-height: 1.15;
+      margin-bottom: var(--space-md);
+      color: #fff;
+    }
+    .hero__subtitle {
+      font-size: 1.1875rem;
+      color: rgba(255,255,255,0.85);
+      max-width: 38rem;
+      line-height: 1.55;
+      margin-bottom: var(--space-xl);
+    }
+    .hero__course-code {
+      font-family: var(--font-mono);
+      font-size: 0.8125rem;
+      background: rgba(255,255,255,0.15);
+      padding: var(--space-xs) var(--space-md);
+      border-radius: 2rem;
+      color: rgba(255,255,255,0.9);
+    }
+    .home-content {
+      max-width: var(--wide-width);
+      margin: 0 auto;
+      padding: var(--space-3xl) var(--space-xl);
+    }
+    .intro-text {
+      max-width: var(--content-width);
+      margin: 0 auto var(--space-3xl);
+      font-size: 1.0625rem;
+      line-height: 1.7;
+      color: var(--color-neutral-700);
+    }
+    .intro-text p {
+      margin-bottom: var(--space-md);
+    }
+
+    /* Module cards */
+    .modules-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: var(--space-xl);
+      margin-top: var(--space-xl);
+    }
+    .module-card {
+      background: var(--color-surface);
+      border: 1px solid var(--color-neutral-200);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      transition: box-shadow 0.2s ease, transform 0.2s ease;
+      text-decoration: none;
+      color: inherit;
+      display: block;
+    }
+    .module-card:hover {
+      box-shadow: var(--shadow-md);
+      transform: translateY(-3px);
+      border-color: var(--color-primary-light);
+    }
+    .module-card__banner {
+      width: 100%;
+      height: 60px;
+      object-fit: cover;
+      display: block;
+    }
+    .module-card__body {
+      padding: var(--space-lg);
+    }
+    .module-card__number {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--color-primary-light);
+      margin-bottom: var(--space-xs);
+    }
+    .module-card__title {
+      font-family: var(--font-heading);
+      font-size: 1.3125rem;
+      font-weight: 700;
+      color: var(--color-neutral-900);
+      margin-bottom: var(--space-sm);
+      line-height: 1.25;
+    }
+    .module-card__description {
+      font-size: 0.9375rem;
+      color: var(--color-neutral-600);
+      line-height: 1.55;
+      margin-bottom: var(--space-md);
+    }
+    .module-card__meta {
+      display: flex;
+      gap: var(--space-md);
+      font-size: 0.8125rem;
+      color: var(--color-neutral-500);
+    }
+    .module-card__meta-item {
+      display: flex;
+      align-items: center;
+      gap: var(--space-xs);
+    }
+    .module-card__sections {
+      list-style: none;
+      padding: 0;
+      margin: var(--space-md) 0 0;
+      border-top: 1px solid var(--color-neutral-200);
+      padding-top: var(--space-md);
+    }
+    .module-card__sections li {
+      font-size: 0.875rem;
+      color: var(--color-neutral-600);
+      padding: var(--space-xs) 0;
+      display: flex;
+      align-items: baseline;
+      gap: var(--space-sm);
+    }
+    .module-card__sections li::before {
+      content: '';
+      width: 6px;
+      height: 6px;
+      background: var(--color-primary-light);
+      border-radius: 50%;
+      flex-shrink: 0;
+      margin-top: 0.35em;
+    }
+
+    /* Learning outcomes section */
+    .outcomes-section {
+      max-width: var(--content-width);
+      margin: var(--space-3xl) auto 0;
+      padding: var(--space-2xl) 0;
+      border-top: 1px solid var(--color-neutral-200);
+    }
+    .outcomes-section h2 {
+      border: none;
+      margin-top: 0;
+      text-align: center;
+    }
+    .outcomes-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: var(--space-lg);
+      margin-top: var(--space-xl);
+      list-style: none;
+      padding: 0;
+    }
+    .outcomes-list li {
+      padding: var(--space-md) var(--space-lg);
+      background: var(--color-bg);
+      border-left: 3px solid var(--color-primary);
+      border-radius: 0 var(--radius-md) var(--radius-md) 0;
+      font-size: 0.9375rem;
+      line-height: 1.5;
+      color: var(--color-neutral-700);
+    }
+
+    /* Tips section */
+    .tips-section {
+      max-width: var(--content-width);
+      margin: var(--space-3xl) auto 0;
+      padding: var(--space-2xl) 0;
+      border-top: 1px solid var(--color-neutral-200);
+    }
+    .tips-section h2 {
+      border: none;
+      margin-top: 0;
+    }
+    .tips-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: var(--space-lg);
+      margin-top: var(--space-xl);
+    }
+    .tip {
+      padding: var(--space-lg);
+      background: var(--color-surface);
+      border: 1px solid var(--color-neutral-200);
+      border-radius: var(--radius-md);
+    }
+    .tip__title {
+      font-family: var(--font-heading);
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--color-primary);
+      margin-bottom: var(--space-xs);
+    }
+    .tip__text {
+      font-size: 0.9375rem;
+      color: var(--color-neutral-600);
+      line-height: 1.5;
+    }
+
+    .footer {
+      text-align: center;
+      padding: var(--space-2xl);
+      color: var(--color-neutral-500);
+      font-size: 0.8125rem;
+      border-top: 1px solid var(--color-neutral-200);
+      margin-top: var(--space-3xl);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="site-nav">
+    <a href="index.html" class="site-nav__brand">API-101 <span>Preparation</span></a>
+    <ul class="site-nav__links">
+      <li><a href="#modules">Modules</a></li>
+      <li><a href="#outcomes">Outcomes</a></li>
+      <li><a href="#tips">Tips</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero -->
+  <header class="hero" style="margin-top: var(--nav-height);">
+    <div class="hero__institution">Harvard Kennedy School</div>
+    <h1 class="hero__title">Preparation for Resources,<br>Incentives, and Choices</h1>
+    <p class="hero__subtitle">
+      An interactive preparation experience to build your foundation in core microeconomics principles before API-101.
+    </p>
+    <div class="hero__course-code">API-101: Markets and Market Failures</div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="home-content">
+
+    <div class="intro-text">
+      <p>
+        The goal of these materials is to prepare you for API-101 at the Harvard Kennedy School, a core course in the MPP program. This learning experience will help ensure that you and your classmates have a similar foundation in several core principles of microeconomics.
+      </p>
+      <p>
+        Work through the three modules in order. Each module builds on the previous one, guiding you from the basics of demand and supply through market equilibrium, shifters, and welfare analysis. Consider allocating 2&ndash;5 hours depending on your previous economics experience.
+      </p>
+    </div>
+
+    <!-- Modules -->
+    <h2 id="modules" style="text-align: center; border: none;">Modules</h2>
+    <div class="modules-grid">
+
+      <!-- Module 1 -->
+      <a href="chapters/module-01-1-demand.html" class="module-card">
+        <img src="assets/images/banner-module1.png" alt="" class="module-card__banner">
+        <div class="module-card__body">
+          <div class="module-card__number">Module 1 · 3 Parts</div>
+          <div class="module-card__title">The Basics of Demand, Supply, and Equilibrium</div>
+          <div class="module-card__description">
+            Learn the fundamental relationship between price and quantity. Graph demand and supply curves, solve for market equilibrium, and connect these tools to real policy through the EU's Common Agricultural Policy.
+          </div>
+          <div class="module-card__meta">
+            <span class="module-card__meta-item">~60 min</span>
+            <span class="module-card__meta-item">Interactive graphs</span>
+            <span class="module-card__meta-item">Practice quiz</span>
+          </div>
+          <ul class="module-card__sections">
+            <li>Part 1: Interpreting and graphing demand</li>
+            <li>Part 2: Interpreting and graphing supply</li>
+            <li>Part 3: Solving for equilibrium + CAP policy</li>
+          </ul>
+        </div>
+      </a>
+
+      <!-- Module 2 -->
+      <a href="chapters/module-02-demand-supply-shifters.html" class="module-card">
+        <img src="assets/images/banner-module2.png" alt="" class="module-card__banner">
+        <div class="module-card__body">
+          <div class="module-card__number">Module 2</div>
+          <div class="module-card__title">Demand and Supply Shifters</div>
+          <div class="module-card__description">
+            Explore what happens when factors beyond price change. Learn to shift demand and supply curves, find new equilibrium points, and apply the four-step process for analyzing market changes.
+          </div>
+          <div class="module-card__meta">
+            <span class="module-card__meta-item">~80 min</span>
+            <span class="module-card__meta-item">Interactive graphs</span>
+            <span class="module-card__meta-item">Practice quiz</span>
+          </div>
+          <ul class="module-card__sections">
+            <li>Factors that shift demand curves</li>
+            <li>Factors that shift supply curves</li>
+            <li>The four-step process for equilibrium changes</li>
+            <li>Policy connection: CAP and supply shifters</li>
+          </ul>
+        </div>
+      </a>
+
+      <!-- Module 3 -->
+      <a href="chapters/module-03-consumer-producer-surplus.html" class="module-card">
+        <img src="assets/images/banner-module3.png" alt="" class="module-card__banner">
+        <div class="module-card__body">
+          <div class="module-card__number">Module 3</div>
+          <div class="module-card__title">Consumer and Producer Surplus</div>
+          <div class="module-card__description">
+            Understand how markets create value for both buyers and sellers. Calculate consumer and producer surplus graphically, evaluate market efficiency, and see how policy interventions redistribute welfare.
+          </div>
+          <div class="module-card__meta">
+            <span class="module-card__meta-item">~70 min</span>
+            <span class="module-card__meta-item">Interactive graphs</span>
+            <span class="module-card__meta-item">Practice quiz</span>
+          </div>
+          <ul class="module-card__sections">
+            <li>Consumer surplus and willingness to pay</li>
+            <li>Producer surplus and willingness to sell</li>
+            <li>Social surplus and allocative efficiency</li>
+            <li>Policy connection: CAP and surplus redistribution</li>
+          </ul>
+        </div>
+      </a>
+
+    </div>
+
+    <!-- Learning Outcomes -->
+    <section class="outcomes-section" id="outcomes">
+      <h2>By the End of These Modules, You Will Be Able To</h2>
+      <ul class="outcomes-list">
+        <li>Understand how the quantity of a good or service supplied or demanded is related to its price</li>
+        <li>Manipulate a demand or supply equation and plot it on a graph</li>
+        <li>Plot supply and demand together and find the equilibrium point</li>
+        <li>Explain shifts in supply or demand and how they impact a market's equilibrium</li>
+        <li>Calculate consumer and producer surplus using graphical methods</li>
+      </ul>
+    </section>
+
+    <!-- Tips -->
+    <section class="tips-section" id="tips">
+      <h2>How to Get the Most Out of These Modules</h2>
+      <div class="tips-grid">
+        <div class="tip">
+          <div class="tip__title">Set Aside Focused Time</div>
+          <div class="tip__text">Work in a quiet place without distractions. Each module is designed to be completed in one sitting.</div>
+        </div>
+        <div class="tip">
+          <div class="tip__title">Work Through In Order</div>
+          <div class="tip__text">The modules build on each other. Complete Module 1 before moving to Module 2, and Module 2 before Module 3.</div>
+        </div>
+        <div class="tip">
+          <div class="tip__title">Engage with Interactives</div>
+          <div class="tip__text">Manipulate the graphs, try different values, and sketch your own curves. Active engagement deepens understanding.</div>
+        </div>
+        <div class="tip">
+          <div class="tip__title">Use Self-Checks</div>
+          <div class="tip__text">Take advantage of self-checks and practice quizzes as opportunities to test your understanding and learn from feedback.</div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    Preparation for API-101: Resources, Incentives, and Choices &middot; Harvard Kennedy School
+  </footer>
+
+</body>
+</html>

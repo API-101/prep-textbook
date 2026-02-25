@@ -1,0 +1,65 @@
+ Now that we've explored the concept of consumer demand, let's shift our focus to
+ how producers supply goods and services. We'll build out the example market for
+ sugar that we began developing in the previous video and work on modeling
+ supply of sugar using equations as well as with the graph. As nobody has signed
+ readings in the previous section, the supply curve characterized the relationship
+ between the quantity of a good or a service that is supplied and expressed.
+ Here's an example of a supply curve that might characterize the quantity of sugar
+ that is produced for sale in a region of the EU. Here QS is the quantity of sugar
+ that's supplied and as before P is the price per kilo of sugar. Looking at the
+ supply equation, the first thing you should notice is the positive relationship
+ between price and the quantity supplied. We know from the law of supply that all
+ is being equal, we expect the quantity supplied to increase as the price of a
+ good increases and this positive coefficient on P in this equation illustrates that concept.
+ We can also illustrate this concept by creating a supply schedule using the same
+ approach we did for creating a demand schedule. First we can plug in a price of
+ one euro to the quantity supplied equation and see that at a price of
+ one euro per kilogram of sugar, 15 kilograms of sugar are supplied. When the price
+ increases to two euros per kilogram of sugar, 15 more kilograms of sugar are supplied
+ and we can see that by plugging two in this supply equation and seeing that the
+ quantity supplied becomes 15 times two, which is 30. We can continue to do this
+ process for additional price as well and see if the quantity supplied increases by
+ 15 every time the price increases by one euro.
+ Now that we've established the link between our supply equation and the law of supply,
+ let's avoid a graphing the supply curve. The process for graphing the supply curve
+ is nearly identical to that for graphing demand. The stuff to the same and the
+ only thing that changes is that now we use the equation for the supply curve rather
+ than the equation for the demand curve. The supply equation is also written with
+ quantity expressed as a function of price and so we'll need to invert the supply
+ function for the price expressed as a function of quantity. The first thing I'll
+ do is simply switch sides of the equation so that price is not left as a personal
+ preference thing and then I'll divide both sides by 15 and now we have price
+ expressed as a function of quantity supplied instead. Now that we've inverted our supply
+ function, let's work on actually graphing it. As before, the first thing you always do
+ is to give a graph a descriptive title and label your axes and at the
+ fourth end of the time is we always graph quantity on the horizontal axis, also
+ called the x axis and we graph price on the variable axis or also called the y axis.
+ So like we did before, let's start by finding a vertical intercept. The vertical intercept is the
+ point at which the y axis is the vertical axis. To find that point, let's plug in
+ zero for quantity supplied in our inverted supply equation and solve for P. In this
+ case, it's quite simply if you plug in zero for quantity supplied, the price is just zero.
+ Let me find it. Intuitively, this is the price at which no producer would enter the
+ market begins a line sugar. In this example, at any price higher than zero
+ euros per kilo sugar, some producers would enter the market and the quantity
+ supplied to be positive. Now that we have one point on the line, we can use the
+ slope to find additional points on the line and connect them. In this case, the
+ slope is positive and it is 1 over 15, which is the coefficient of the quantity
+ supplied. As before, as I said, if the price were to increase by one euro per kilogram of
+ sugar, we can expect that the quantity supplied to increase by 15 and so the
+ next player line will be at one euro and 15 kilogram of sugar supplied. We can use
+ the same process to find additional points on this line. So if the price were to
+ further increase the two euros, then we expect the quantity supplied to increase
+ by 15 again to 30. Now we have a couple of points. We can connect them and get the
+ entire supply curve. Now that we've graphed the supply curve, let's take a few
+ minutes to link what we've just done back to the end to which we got for the law
+ of supply. The supply curve is upward-solving, which indicates that the quantity supplied
+ should increase as the price increases. This is exactly the relationship that's
+ positive in the law of supply. All else being equal, produced or typically more
+ willing and able to supply sugar when the price they receive for it is higher. In
+ this video, we've explored the concept of supply. Building on the example of the
+ market for sugar, we highlighted how supply and demand functions can be used to
+ illustrate the laws of demand and supply and understand how the quantity of a
+ good or service that is demand is supplied varies with its price. Finally, we
+ learned how to graph supply and demand curves. Next, we'll build on this example.
+ We started here and create understanding how the laws of supply and demand interact
+ to determine the prices we actually see in the marketplace.

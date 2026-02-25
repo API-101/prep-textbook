@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Module 1 · Part 2: Supply — API-101 Preparation</title>
+  <link rel="stylesheet" href="../css/theme.css?v=2">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav class="site-nav">
+    <a href="../index.html" class="site-nav__brand">API-101 <span>Preparation</span></a>
+    <ul class="site-nav__links">
+      <li><a href="../index.html">Home</a></li>
+    </ul>
+  </nav>
+
+  <!-- Page Wrapper -->
+  <div class="page-wrapper">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <span class="sidebar__part-label">Module 1 · Part 2 of 3</span>
+      <a href="#supply" class="sidebar__link sidebar__link--active">Understanding Supply</a>
+      <a href="#supply-interactive" class="sidebar__link">Supply Graph</a>
+
+      <span class="sidebar__part-label" style="margin-top: var(--space-2xl);">Module 1 Parts</span>
+      <a href="module-01-1-demand.html" class="sidebar__link">Part 1: Demand</a>
+      <a href="module-01-2-supply.html" class="sidebar__link" style="font-weight:600; color: var(--color-primary);">Part 2: Supply</a>
+      <a href="module-01-3-equilibrium.html" class="sidebar__link">Part 3: Equilibrium</a>
+
+      <span class="sidebar__part-label" style="margin-top: var(--space-2xl);">All Modules</span>
+      <a href="module-01-1-demand.html" class="sidebar__link" style="font-weight:600; color: var(--color-primary);">1. Demand, Supply, Equilibrium</a>
+      <a href="module-02-demand-supply-shifters.html" class="sidebar__link">2. Demand &amp; Supply Shifters</a>
+      <a href="module-03-consumer-producer-surplus.html" class="sidebar__link">3. Consumer &amp; Producer Surplus</a>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+
+      <!-- ===== MODULE HEADER ===== -->
+      <header class="chapter-header">
+        <div class="chapter-header__part">Preparation Module 1 · Part 2 of 3</div>
+        <div class="chapter-header__number">Module 1</div>
+        <h1 class="chapter-header__title">The Basics of Demand, Supply, and Equilibrium</h1>
+        <p class="chapter-header__subtitle">
+          In Part 1 you built demand curves. Now we turn to the other side of the market: how producers respond to price signals, and how to construct and interpret supply curves.
+        </p>
+      </header>
+
+      <!-- Part Progress Strip -->
+      <div class="part-progress">
+        <span class="part-progress__label">Module 1 · Part 2 of 3</span>
+        <div class="part-progress__steps">
+          <a class="part-progress__step" href="module-01-1-demand.html">Demand</a>
+          <span class="part-progress__divider">→</span>
+          <a class="part-progress__step part-progress__step--active" href="module-01-2-supply.html">Supply</a>
+          <span class="part-progress__divider">→</span>
+          <a class="part-progress__step" href="module-01-3-equilibrium.html">Equilibrium</a>
+        </div>
+      </div>
+
+      <!-- ===== LEARNING OBJECTIVES ===== -->
+      <div class="learning-objectives">
+        <div class="learning-objectives__title">Learning Objectives — Part 2</div>
+        <ul>
+          <li>Explain the Law of Supply and understand why the supply curve slopes upward</li>
+          <li>Construct a supply curve from a supply equation, including inverting the function for graphing</li>
+          <li>Build a supply schedule from a linear supply equation and interpret the slope</li>
+          <li>Distinguish between "supply" (the full curve) and "quantity supplied" (a point on the curve)</li>
+        </ul>
+      </div>
+
+      <!-- ===== SUPPLY ===== -->
+      <h2 id="supply">Understanding Supply</h2>
+
+      <h3>The Law of Supply</h3>
+      <div class="definition-box">
+        <div class="definition-box__term">Law of Supply</div>
+        <div class="definition-box__text">
+          Holding all else equal, when the price of a good rises, the quantity supplied rises; when the price falls, the quantity supplied falls. The supply curve slopes upward from left to right.
+        </div>
+      </div>
+
+      <p>
+        Supply describes the relationship between the price of a good and the quantity that producers are willing and able to offer for sale. Unlike the inverse relationship of demand, supply slopes upward: higher prices create stronger incentives for producers to increase output. When oil prices rise, energy companies expand drilling operations, invest in new refineries, and increase production capacity—all motivated by the expectation of higher profits. When grain prices increase, farmers allocate more land to grain cultivation rather than other crops.
+      </p>
+      <p>
+        Just as with demand, we can represent supply with a <strong>supply schedule</strong> (a table) or a <strong>supply curve</strong> (a graph). The upward slope reflects the law of supply: producers supply more at higher prices. This reflects economic reality: firms have costs of production, and higher prices allow them to cover those costs and earn profits even when expanding production.
+      </p>
+
+      <!-- Check: Law of Supply MC -->
+      <div class="check-understanding"
+           data-question="A farmer earns more money when sugar prices rise. According to the law of supply, what would we expect to happen?"
+           data-correct="1"
+           data-explanation="The law of supply states that higher prices give producers a stronger incentive to increase output, so quantity supplied rises. This is why higher prices attract more production and sometimes new producers to a market.">
+        <div class="check-understanding__option" data-index="0">A) Farmers reduce sugar production because the market is already well-supplied.</div>
+        <div class="check-understanding__option" data-index="1">B) Farmers increase sugar production to take advantage of the higher price.</div>
+        <div class="check-understanding__option" data-index="2">C) Supply is unchanged because input costs have not changed.</div>
+        <div class="check-understanding__option" data-index="3">D) Quantity demanded increases as farmers sell at higher prices.</div>
+      </div>
+
+      <h3>Supply Equations and Interpretation</h3>
+      <p>
+        Linear supply relationships typically take the form:
+      </p>
+      <div class="equation-block">
+        $$Q_s = c + dP$$
+      </div>
+      <p>
+        In this equation:
+      </p>
+      <ul>
+        <li><strong>\(Q_s\)</strong> is the quantity supplied</li>
+        <li><strong>P</strong> is the price of the good</li>
+        <li><strong>c</strong> is the baseline quantity—the quantity supplied when price is zero. This is often zero or negative; a negative value represents a reservation price below which producers are unwilling to supply</li>
+        <li><strong>d</strong> is the slope coefficient, a positive number. It tells us how much quantity supplied increases for each unit increase in price. A larger d means producers are more responsive to price changes</li>
+      </ul>
+      <p>
+        The positive coefficient on P is essential: it embodies the law of supply. If d = 15, it means that for every one-unit increase in price, quantity supplied increases by 15 units.
+      </p>
+
+      <h3>Building a Supply Schedule: The EU Sugar Market</h3>
+      <p>
+        Continuing with our EU sugar example, suppose economists have estimated the supply equation:
+      </p>
+      <div class="equation-block">
+        $$Q_s = 15P$$
+      </div>
+      <p>
+        Where \(Q_s\) is measured in millions of kilograms per year, and P is the price in euros per kilogram. Notice that the constant term (c) is zero, meaning that at a price of zero, producers supply nothing—which makes economic sense.
+      </p>
+
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Price (€/kg)</th>
+            <th>Quantity Supplied (millions of kg/year)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>1</td><td>15(1) = 15</td></tr>
+          <tr><td>2</td><td>15(2) = 30</td></tr>
+          <tr><td>3</td><td>15(3) = 45</td></tr>
+          <tr><td>4</td><td>15(4) = 60</td></tr>
+          <tr><td>5</td><td>15(5) = 75</td></tr>
+        </tbody>
+      </table>
+
+      <p>
+        Notice the pattern: for each one-euro increase in price, quantity supplied increases by 15 million kilograms. The supply curve is perfectly linear, reflecting the simplifying assumption that the responsiveness to price is constant across all prices.
+      </p>
+
+      <!-- Self-check: supply equation calculation -->
+      <div class="self-check">
+        <div class="self-check__question">
+          If the supply equation is \(Q_s = 15P\), how many millions of kilograms are supplied when the price is €3 per kilogram?
+        </div>
+        <button class="self-check__reveal-btn">Show Answer</button>
+        <div class="self-check__answer">
+          Substitute P = 3 into the equation: \(Q_s = 15(3) = 45\) million kilograms. At a price of €3 per kilogram, producers supply 45 million kilograms per year.
+        </div>
+      </div>
+
+      <div class="figure">
+        <div id="supply-static-graph"></div>
+        <div class="figure__caption">Figure 1.2: The supply curve for EU sugar, showing the upward slope and key schedule points. The curve passes through the origin, indicating that producers supply zero at price zero. The slope of 1/15 indicates that for every 15 million kg increase in quantity, price rises by 1 euro.</div>
+      </div>
+
+      <h3>From Equation to Graph: Inverting the Supply Function</h3>
+      <p>
+        To graph the supply curve, we invert the supply equation so that price is a function of quantity:
+      </p>
+
+      <div class="math-steps">
+        <div class="math-step">
+          <div class="math-step__label">Start with:</div>
+          <div class="math-step__expr">$$Q_s = 15P$$</div>
+        </div>
+        <div class="math-step">
+          <div class="math-step__label">Divide both sides by 15:</div>
+          <div class="math-step__expr">$$P = \frac{Q_s}{15}$$</div>
+        </div>
+      </div>
+
+      <p>
+        The inverted form is \(P = Q_s/15\). Key features:
+      </p>
+      <ul>
+        <li><strong>Vertical intercept:</strong> When \(Q_s = 0\), P = 0. The supply curve passes through the origin.</li>
+        <li><strong>Slope:</strong> The coefficient on \(Q_s\) is 1/15. For every 15 units increase in quantity, price increases by 1 euro.</li>
+      </ul>
+
+      <h3>Graphing the Supply Curve</h3>
+      <div class="step-process">
+        <div class="step-process__step">
+          <div class="step-process__number">Method 1</div>
+          <div class="step-process__content">
+            <strong>Using the Origin and Slope:</strong> The curve passes through (0, 0). Slope is 1/15: move right 15 units and up 1 unit. Plot (15, 1), (30, 2), (45, 3), (60, 4), (75, 5). Connect with a straight line.
+          </div>
+        </div>
+        <div class="step-process__step">
+          <div class="step-process__number">Method 2</div>
+          <div class="step-process__content">
+            <strong>Plotting Schedule Points:</strong> Use the supply schedule. Plot (15, 1), (30, 2), (45, 3), (60, 4), (75, 5). Connect with a straight line.
+          </div>
+        </div>
+      </div>
+
+      <p>
+        The supply curve slopes upward, confirming the law of supply. Notice that it is less steep than the demand curve (which has a slope of -1/10 in absolute value). The supply curve has a slope of 1/15 ≈ 0.067. This means demand is more responsive to price changes than supply in this particular market.
+      </p>
+
+      <div class="callout callout--insight">
+        <div class="callout__title">Important Distinction: Supply vs. Quantity Supplied</div>
+        <p>
+          "Supply" refers to the entire curve—the full relationship between price and quantity supplied. "Quantity supplied" refers to a specific point on that curve at a particular price. When the supply curve shifts (which we will explore in Module 2), economists say "supply increased" or "supply decreased." Movements along the supply curve due to price changes are changes in "quantity supplied," not changes in "supply."
+        </p>
+      </div>
+
+      <!-- DrawGraph: Supply -->
+      <h3>Try It: Draw the Supply Curve</h3>
+      <div class="draw-graph-container">
+        <div class="draw-graph-container__title">Draw the EU Sugar Supply Curve</div>
+        <div class="draw-graph-container__prompt">
+          Using what you just learned, draw the supply curve for the EU sugar market. Place <strong>price (€/kg)</strong> on the vertical axis and <strong>quantity (millions of kg/year)</strong> on the horizontal axis. Remember: the supply curve slopes <em>upward</em> from left to right.
+        </div>
+        <div class="draw-graph-container__svg-wrapper" id="draw-graph-supply"></div>
+        <div class="draw-graph-container__controls">
+          <button id="dg-supply-submit" class="draw-graph__submit-btn">Submit</button>
+          <button id="dg-supply-clear" class="draw-graph__clear-btn">Try Again</button>
+          <span class="draw-graph-container__hint">Click and drag to draw your curve</span>
+        </div>
+        <div id="dg-supply-feedback" class="draw-graph__feedback"></div>
+      </div>
+
+      <!-- ===== SUPPLY INTERACTIVE GRAPH ===== -->
+      <h3 id="supply-interactive">Interactive: Exploring Supply Curves</h3>
+      <div class="graph-container">
+        <div class="graph-container__title">Supply Curve Explorer</div>
+        <div class="graph-container__description">
+          Adjust the intercept (c) and slope (d) to see how the supply curve shifts and rotates. The equation is \(Q_s = c + dP\), which we invert to \(P = -(c/d) + (1/d)Q_s\) for graphing. A higher intercept shifts the curve rightward. A higher slope coefficient makes producers more responsive to price.
+        </div>
+        <div class="graph-container__svg-wrapper" id="supply-graph"></div>
+        <div class="graph-container__controls">
+          <div class="graph-control">
+            <label class="graph-control__label">Intercept (c): Baseline quantity</label>
+            <input type="range" class="graph-control__slider" id="supply-intercept" min="-20" max="20" step="5" value="0">
+            <span class="graph-control__value" id="supply-intercept-value">0</span>
+          </div>
+          <div class="graph-control">
+            <label class="graph-control__label">Slope coefficient (d): Responsiveness to price</label>
+            <input type="range" class="graph-control__slider" id="supply-slope" min="2" max="30" step="2" value="15">
+            <span class="graph-control__value" id="supply-slope-value">15</span>
+          </div>
+        </div>
+      </div>
+
+      <p>
+        The graph shows the EU sugar supply curve with default values: c = 0 and d = 15. Try adjusting the intercept: a positive value shifts the entire curve rightward, meaning producers supply more at every price. Adjusting the slope coefficient changes how responsive producers are to price movements.
+      </p>
+
+      <div class="self-check">
+        <div class="self-check__question">
+          Using the supply equation \(Q_s = 15P\), how much does quantity supplied increase if price rises from €2 to €4 per kilogram?
+        </div>
+        <button class="self-check__reveal-btn">Show Answer</button>
+        <div class="self-check__answer">
+          At P = 2: \(Q_s = 15(2) = 30\) million kg. At P = 4: \(Q_s = 15(4) = 60\) million kg. Quantity supplied increases by 30 million kilograms — a doubling of output in response to a doubling of price.
+        </div>
+      </div>
+
+      <!-- Part Navigation -->
+      <nav class="chapter-nav">
+        <a href="module-01-1-demand.html" class="chapter-nav__link chapter-nav__link--prev">
+          <span class="chapter-nav__direction">&larr; Previous</span>
+          <span class="chapter-nav__title">Part 1: Understanding Demand</span>
+        </a>
+        <a href="module-01-3-equilibrium.html" class="chapter-nav__link chapter-nav__link--next">
+          <span class="chapter-nav__direction">Next &rarr;</span>
+          <span class="chapter-nav__title">Part 3: Market Equilibrium</span>
+        </a>
+      </nav>
+
+    </main>
+  </div>
+
+  <!-- Scripts -->
+  <script src="../js/textbook.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      if (typeof renderMathInElement !== 'undefined') {
+        renderMathInElement(document.body, {
+          delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "\\(", right: "\\)", display: false}
+          ]
+        });
+      }
+    });
+
+    // ===== Static Supply Graph =====
+    (function() {
+      const graph = EconGraph.create('#supply-static-graph', {
+        xLabel: 'Quantity (millions of kg/year)',
+        yLabel: 'Price (€/kg)',
+        xDomain: [0, 80],
+        yDomain: [0, 6]
+      });
+      if (!graph) return;
+
+      const supply = x => x / 15;
+      graph.addLine(supply, '#c0392b', { label: 'S', strokeWidth: 2.5 });
+
+      [[15,1],[30,2],[45,3],[60,4]].forEach(([q,p]) => {
+        graph.addPoint(q, p, { color: '#c0392b', radius: 4 });
+      });
+      graph.addPoint(0, 0, { color: '#e74c3c', radius: 5, label: 'Origin (0, 0)' });
+      graph.addLabel(58, 2.8, 'Slope = 1/15', { color: '#c0392b', fontSize: '11px' });
+    })();
+
+    // ===== Interactive Supply Graph =====
+    (function() {
+      const graph = EconGraph.create('#supply-graph', {
+        xLabel: 'Quantity (millions of kg/year)',
+        yLabel: 'Price (€/kg)',
+        xDomain: [0, 100],
+        yDomain: [0, 6]
+      });
+      if (!graph) return;
+
+      function update() {
+        graph.clear();
+        const c = parseFloat(document.getElementById('supply-intercept').value);
+        const d = parseFloat(document.getElementById('supply-slope').value);
+        document.getElementById('supply-intercept-value').textContent = c.toFixed(0);
+        document.getElementById('supply-slope-value').textContent = d.toFixed(0);
+
+        const supply = x => (x - c) / d;
+        graph.addLine(supply, '#c0392b', { label: 'S', className: 'dynamic', strokeWidth: 2.5 });
+
+        const qDemo = 30, pDemo = supply(30);
+        if (pDemo > 0 && pDemo < 6) {
+          graph.addPoint(qDemo, pDemo, { color: '#c0392b', radius: 5, className: 'dynamic' });
+        }
+      }
+
+      document.getElementById('supply-intercept').addEventListener('input', update);
+      document.getElementById('supply-slope').addEventListener('input', update);
+      update();
+    })();
+
+    // ===== DrawGraph: Supply =====
+    (function() {
+      const dg = DrawGraph.create('#draw-graph-supply', {
+        xLabel: 'Quantity (millions of kg/year)',
+        yLabel: 'Price (€/kg)',
+        xDomain: [0, 80],
+        yDomain: [0, 6],
+        expectedSlope: 'positive',
+        correctLine: x => x / 15,
+        feedbackMessages: {
+          correct: 'Your curve slopes upward from left to right — that\'s the law of supply. Higher prices give producers more incentive to produce.',
+          wrongSlope: 'Supply curves slope upward: as price rises, producers supply more. The correct supply curve is shown in the graph.',
+          tooShort: 'Try drawing your curve all the way across the graph from left to right.'
+        }
+      });
+      if (!dg) return;
+
+      const feedbackEl = document.getElementById('dg-supply-feedback');
+      document.getElementById('dg-supply-submit').addEventListener('click', () => {
+        dg.submit(feedbackEl);
+      });
+      document.getElementById('dg-supply-clear').addEventListener('click', () => {
+        dg.clear();
+        feedbackEl.textContent = '';
+        feedbackEl.className = 'draw-graph__feedback';
+      });
+    })();
+  </script>
+
+</body>
+</html>

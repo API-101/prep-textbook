@@ -1,0 +1,710 @@
+<?xml version="1.0"?>
+<questestinterop xmlns="http://www.imsglobal.org/xsd/ims_qtiasiv1p2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.imsglobal.org/xsd/ims_qtiasiv1p2 http://www.imsglobal.org/xsd/ims_qtiasiv1p2p1.xsd">
+  <assessment ident="gd6bdac89f6d3bd885ae85d1f17d1e563" title="2.4 Practice Quiz: Demand and Supply Shifters" external_assignment_id="959879">
+    <qtimetadata>
+      <qtimetadatafield>
+        <fieldlabel>cc_maxattempts</fieldlabel>
+        <fieldentry>unlimited</fieldentry>
+      </qtimetadatafield>
+    </qtimetadata>
+    <section ident="root_section">
+      <item ident="d35428922729b1a5edc5e6bb37073ddf" title="Question" instructions="">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>question_type</fieldlabel>
+              <fieldentry>text_only_question</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>points_possible</fieldlabel>
+              <fieldentry>1.0</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>original_answer_ids</fieldlabel>
+              <fieldentry/>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>assessment_question_identifierref</fieldlabel>
+              <fieldentry>9868a00f80328abd47bafc64a3551463</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>calculator_type</fieldlabel>
+              <fieldentry>none</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>source_url</fieldlabel>
+              <fieldentry/>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>passage</fieldlabel>
+              <fieldentry>false</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material orientation="left">
+            <mattext texttype="text/html">&lt;div&gt;&lt;span style="font-size: 14pt;"&gt;Suppose you are given an estimate of the demand and supply curve for airline service between China&#x2019;s two most populous cities, Beijing and Shanghai. A number of changes that might affect the market for this service are listed in Questions 1-4. In each case, &lt;strong&gt;indicate which shift is most likely to occur, if any&lt;/strong&gt;.&lt;/span&gt;&lt;/div&gt;</mattext>
+          </material>
+        </presentation>
+      </item>
+      <item ident="ccda52997f4bd87842644c40552825a0" title="Question">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>question_type</fieldlabel>
+              <fieldentry>multiple_choice_question</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>points_possible</fieldlabel>
+              <fieldentry>1.0</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>original_answer_ids</fieldlabel>
+              <fieldentry>7743aec6-f5b3-4ace-83f9-c92bc951823c,5bb4c5d8-f612-478d-9a96-f6adeebd9ae5,626089f9-e5fd-4e71-94d8-7af67a32b909,963d3562-a8ee-4c86-82c2-ddf16cc57a38,31bfa6ca-ce9e-4a19-a54b-dd65d53ba914</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>assessment_question_identifierref</fieldlabel>
+              <fieldentry>02039d10e5282c932b140c6b1083eec3</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>parent_stimulus_item_ident</fieldlabel>
+              <fieldentry>d35428922729b1a5edc5e6bb37073ddf</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>calculator_type</fieldlabel>
+              <fieldentry>none</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;div&gt;&lt;span style="font-size: 14pt;"&gt;China attracts a lot of new foreign investors, who tend to travel around the country frequently and who put a premium on transportation speed.&lt;/span&gt;&lt;/div&gt;
+&lt;div&gt;&amp;nbsp;&lt;/div&gt;</mattext>
+          </material>
+          <response_lid ident="response1" rcardinality="Single">
+            <render_choice>
+              <response_label ident="7743aec6-f5b3-4ace-83f9-c92bc951823c">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;&lt;span style="font-size: 14pt;"&gt;Demand curve shifts in.&lt;/span&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="5bb4c5d8-f612-478d-9a96-f6adeebd9ae5">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;&lt;span style="font-size: 14pt;"&gt;Demand curve shifts out.&lt;/span&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="626089f9-e5fd-4e71-94d8-7af67a32b909">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;&lt;span style="font-size: 14pt;"&gt;Supply curve shifts in.&lt;/span&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="963d3562-a8ee-4c86-82c2-ddf16cc57a38">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;&lt;span style="font-size: 14pt;"&gt;Supply curve shifts out.&lt;/span&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="31bfa6ca-ce9e-4a19-a54b-dd65d53ba914">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;&lt;span style="font-size: 14pt;"&gt;No shift.&lt;/span&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="response1">5bb4c5d8-f612-478d-9a96-f6adeebd9ae5</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+        </resprocessing>
+        <itemfeedback ident="general_fb">
+          <flow_mat>
+            <material>
+              <mattext texttype="text/html">&lt;p&gt;&lt;span style="font-size: 14pt;"&gt;In this case, the demand curve shifts outward: A new group of consumers demands the service.&lt;/span&gt;&lt;/p&gt;</mattext>
+            </material>
+          </flow_mat>
+        </itemfeedback>
+      </item>
+      <item ident="4e322230a9aa6251e2e7ca0fb7118338" title="Question">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>question_type</fieldlabel>
+              <fieldentry>multiple_choice_question</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>points_possible</fieldlabel>
+              <fieldentry>1.0</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>original_answer_ids</fieldlabel>
+              <fieldentry>d0d33d6c-bbaa-4a60-baa3-54f93ed5f4be,01171302-0e84-47e2-a550-1d03d6943e98,a9074911-327b-4654-b0bd-2f86ce6b09df,5e3e8234-2033-432a-8da9-6d368906cb90,8285adf0-d04e-4ccd-a887-e872221533a3</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>assessment_question_identifierref</fieldlabel>
+              <fieldentry>b49839d00d3fe05f775fa6135deae890</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>parent_stimulus_item_ident</fieldlabel>
+              <fieldentry>d35428922729b1a5edc5e6bb37073ddf</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>calculator_type</fieldlabel>
+              <fieldentry>none</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;div&gt;&lt;span style="font-size: 14pt;"&gt;The quality of a no-toll highway connecting the two cities deteriorates.&lt;/span&gt;&lt;/div&gt;</mattext>
+          </material>
+          <response_lid ident="response1" rcardinality="Single">
+            <render_choice>
+              <response_label ident="d0d33d6c-bbaa-4a60-baa3-54f93ed5f4be">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;&lt;span style="font-size: 14pt;"&gt;Demand curve shifts in.&lt;/span&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="01171302-0e84-47e2-a550-1d03d6943e98">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;&lt;span style="font-size: 14pt;"&gt;Demand curve shifts out.&lt;/span&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="a9074911-327b-4654-b0bd-2f86ce6b09df">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;&lt;span style="font-size: 14pt;"&gt;Supply curve shifts in.&lt;/span&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="5e3e8234-2033-432a-8da9-6d368906cb90">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;&lt;span style="font-size: 14pt;"&gt;Supply curve shifts out.&lt;/span&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="8285adf0-d04e-4ccd-a887-e872221533a3">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;&lt;span style="font-size: 14pt;"&gt;No shift.&lt;/span&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="response1">01171302-0e84-47e2-a550-1d03d6943e98</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+        </resprocessing>
+        <itemfeedback ident="general_fb">
+          <flow_mat>
+            <material>
+              <mattext texttype="text/html">&lt;p&gt;&lt;span style="font-size: 14pt;"&gt;The demand curve shifts outward: A substitute becomes less attractive.&lt;/span&gt;&lt;/p&gt;</mattext>
+            </material>
+          </flow_mat>
+        </itemfeedback>
+      </item>
+      <item ident="272e4f6b1252b4bd3446647c3311a613" title="Question">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>question_type</fieldlabel>
+              <fieldentry>multiple_choice_question</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>points_possible</fieldlabel>
+              <fieldentry>1.0</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>original_answer_ids</fieldlabel>
+              <fieldentry>dde5048c-b909-488c-8e9d-02b600348da0,5762461b-6745-4fb6-85e2-13c63f4e9b46,f013ce5e-25bb-45e2-9d95-ac1915c9058d,39cddef9-a2e8-4fd0-bbf9-261aeb4b5caa,e450a930-a869-435e-8d6c-7fd5c6cc8178</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>assessment_question_identifierref</fieldlabel>
+              <fieldentry>32a976c50a8942be19cbca79a948b88b</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>parent_stimulus_item_ident</fieldlabel>
+              <fieldentry>d35428922729b1a5edc5e6bb37073ddf</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>calculator_type</fieldlabel>
+              <fieldentry>none</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;div&gt;&lt;span style="font-size: 14pt;"&gt;The price of airplane fuel rises.&lt;/span&gt;&lt;/div&gt;</mattext>
+          </material>
+          <response_lid ident="response1" rcardinality="Single">
+            <render_choice>
+              <response_label ident="dde5048c-b909-488c-8e9d-02b600348da0">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;&lt;span style="font-size: 14pt;"&gt;Demand curve shifts in.&lt;/span&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="5762461b-6745-4fb6-85e2-13c63f4e9b46">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;&lt;span style="font-size: 14pt;"&gt;Demand curve shifts out.&lt;/span&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="f013ce5e-25bb-45e2-9d95-ac1915c9058d">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;&lt;span style="font-size: 14pt;"&gt;Supply curve shifts in.&lt;/span&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="39cddef9-a2e8-4fd0-bbf9-261aeb4b5caa">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;&lt;span style="font-size: 14pt;"&gt;Supply curve shifts out.&lt;/span&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="e450a930-a869-435e-8d6c-7fd5c6cc8178">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;&lt;span style="font-size: 14pt;"&gt;Both supply and demand curves shift in.&lt;/span&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="response1">f013ce5e-25bb-45e2-9d95-ac1915c9058d</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+        </resprocessing>
+        <itemfeedback ident="general_fb">
+          <flow_mat>
+            <material>
+              <mattext texttype="text/html">&lt;p&gt;&lt;span style="font-size: 14pt;"&gt;The supply curve shifts &lt;u&gt;inward&lt;/u&gt;: Airplane fuel is an input cost, so its increase will cause supply to shift inward. This supply shift will in turn lead to a movement &lt;em&gt;along&lt;/em&gt; the demand curve, but &lt;em&gt;not&lt;/em&gt; a shift of it.&lt;/span&gt;&lt;/p&gt;</mattext>
+            </material>
+          </flow_mat>
+        </itemfeedback>
+      </item>
+      <item ident="1521bf882f190a37e9f456f07e0ac643" title="Question">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>question_type</fieldlabel>
+              <fieldentry>multiple_choice_question</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>points_possible</fieldlabel>
+              <fieldentry>1.0</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>original_answer_ids</fieldlabel>
+              <fieldentry>b0178f74-aa42-4ba5-8017-bb9980f41851,78803afe-0ca5-4520-a786-4ba2f4826c35,b19d0bed-33fb-4a94-aa61-6f9eca0c7bf4,1354b479-8eea-420e-9664-8423ca9acd43,73286974-2838-471c-9de8-19c3ca92197f</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>assessment_question_identifierref</fieldlabel>
+              <fieldentry>e7278165267d125a99e9997a6bb89507</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>parent_stimulus_item_ident</fieldlabel>
+              <fieldentry>d35428922729b1a5edc5e6bb37073ddf</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>calculator_type</fieldlabel>
+              <fieldentry>none</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;div&gt;&lt;span style="font-size: 14pt;"&gt;The state lowers the price of airline service.&lt;/span&gt;&lt;/div&gt;</mattext>
+          </material>
+          <response_lid ident="response1" rcardinality="Single">
+            <render_choice>
+              <response_label ident="b0178f74-aa42-4ba5-8017-bb9980f41851">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;&lt;span style="font-size: 14pt;"&gt;Demand curve shifts in.&lt;/span&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="78803afe-0ca5-4520-a786-4ba2f4826c35">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;&lt;span style="font-size: 14pt;"&gt;Demand curve shifts out.&lt;/span&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="b19d0bed-33fb-4a94-aa61-6f9eca0c7bf4">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;&lt;span style="font-size: 14pt;"&gt;Supply curve shifts in.&lt;/span&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="1354b479-8eea-420e-9664-8423ca9acd43">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;&lt;span style="font-size: 14pt;"&gt;Supply curve shifts out.&lt;/span&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="73286974-2838-471c-9de8-19c3ca92197f">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;&lt;span style="font-size: 14pt;"&gt;No shift.&lt;/span&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="response1">73286974-2838-471c-9de8-19c3ca92197f</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+        </resprocessing>
+        <itemfeedback ident="general_fb">
+          <flow_mat>
+            <material>
+              <mattext texttype="text/html">&lt;p&gt;&lt;span style="font-size: 14pt;"&gt;The demand and supply curves &lt;u&gt;do not shift&lt;/u&gt;: People will buy more plane tickets, but only because of the change in price; &lt;em&gt;i.e.&lt;/em&gt;, they will move down &lt;em&gt;along&lt;/em&gt; the demand curve.&lt;/span&gt;&lt;/p&gt;</mattext>
+            </material>
+          </flow_mat>
+        </itemfeedback>
+      </item>
+      <item ident="246e862864162024214fed1db4302ad6" title="Question">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>question_type</fieldlabel>
+              <fieldentry>multiple_choice_question</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>points_possible</fieldlabel>
+              <fieldentry>1.0</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>original_answer_ids</fieldlabel>
+              <fieldentry>f5f4e5a5-aa33-43d8-8c57-876517e99327,af5bf06d-380b-42c9-ab21-2f5e15091f26,d0bbfb1b-677f-4033-97a7-5cc191d49bac,d835a256-741c-48a0-9aa9-52106b795405,a1c61107-bfdf-4c7e-88a2-0694ab46ff46</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>assessment_question_identifierref</fieldlabel>
+              <fieldentry>0f0b0e71b2cf930992eb1dc2dc30d009</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>calculator_type</fieldlabel>
+              <fieldentry>none</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;div&gt;&amp;nbsp;&lt;/div&gt;
+&lt;div&gt;&lt;span style="font-size: 14pt;"&gt;Suppose that the demand function for a good is given by P = 210 &#x2013; 10Q&lt;sub&gt;D&lt;/sub&gt;. A decrease &lt;/span&gt;&lt;/div&gt;
+&lt;div&gt;&lt;span style="font-size: 14pt;"&gt;in the price of the good&#x2019;s substitute has led to a reduction in demand for the original good &lt;/span&gt;&lt;/div&gt;
+&lt;div&gt;&lt;span style="font-size: 14pt;"&gt;by 10 units for each unit in price. &lt;/span&gt;&lt;br&gt;&lt;span style="font-size: 14pt;"&gt;&amp;nbsp;&amp;nbsp; &amp;nbsp;&lt;/span&gt;&lt;br&gt;&lt;span style="font-size: 14pt;"&gt;What is the equation for the new demand curve?&lt;/span&gt;&lt;/div&gt;
+&lt;div&gt;&amp;nbsp;&lt;/div&gt;</mattext>
+          </material>
+          <response_lid ident="response1" rcardinality="Single">
+            <render_choice>
+              <response_label ident="f5f4e5a5-aa33-43d8-8c57-876517e99327">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;&lt;span style="font-size: 14pt;"&gt;P = 200 &#x2013; Q&lt;sub&gt;D&lt;/sub&gt;&lt;/span&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="af5bf06d-380b-42c9-ab21-2f5e15091f26">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;&lt;span style="font-size: 14pt;"&gt;P&amp;nbsp; = 210 &#x2013; Q&lt;sub&gt;D&lt;/sub&gt;&lt;/span&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="d0bbfb1b-677f-4033-97a7-5cc191d49bac">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;&lt;span style="font-size: 14pt;"&gt;P = 200 &#x2013; 10Q&lt;sub&gt;D&lt;/sub&gt;&lt;/span&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="d835a256-741c-48a0-9aa9-52106b795405">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;&lt;span style="font-size: 14pt;"&gt;P = 110 &#x2013; 10Q&lt;sub&gt;D&lt;/sub&gt;&lt;/span&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="a1c61107-bfdf-4c7e-88a2-0694ab46ff46">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;&lt;span style="font-size: 14pt;"&gt;P = 100 &#x2013; Q&lt;sub&gt;D&lt;/sub&gt;&lt;/span&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="response1">d835a256-741c-48a0-9aa9-52106b795405</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+        </resprocessing>
+        <itemfeedback ident="general_fb">
+          <flow_mat>
+            <material>
+              <mattext texttype="text/html">&lt;p&gt;&lt;span style="font-size: 14pt;"&gt;We can solve this problem by plugging in values for P = 210 &#x2013; 10Q&lt;sub&gt;D&lt;/sub&gt;.&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;br&gt;&lt;span style="font-size: 14pt;"&gt;For example, if Q&lt;sub&gt;D&lt;/sub&gt; = 20, then P = 10.&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;br&gt;&lt;span style="font-size: 14pt;"&gt;A decrease in demand by 10 units for each unit in price means that when &lt;/span&gt;&lt;span style="font-size: 14pt;"&gt;P = 10, then Q&lt;sub&gt;D&lt;/sub&gt;. = 10 instead of 20.&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;br&gt;&lt;span style="font-size: 14pt;"&gt;With these new values (P = 10, Q&lt;sub&gt;D&lt;/sub&gt; = 10), we can solve for the equation of the new demand curve.&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span style="font-size: 14pt;"&gt;P&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; = &amp;nbsp; &amp;nbsp; Intercept &#x2013; 10QD. &lt;/span&gt;&lt;br&gt;&lt;span style="font-size: 14pt;"&gt;10&amp;nbsp;&amp;nbsp;&amp;nbsp; = &amp;nbsp; &amp;nbsp; Intercept &#x2013; 10(10)&lt;/span&gt;&lt;br&gt;&lt;span style="font-size: 14pt;"&gt;Intercept = 110&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span style="font-size: 14pt;"&gt;Thus, the new equation is P = 110 &#x2013; 10Q&lt;sub&gt;D&lt;/sub&gt;.&lt;/span&gt;&lt;/p&gt;</mattext>
+            </material>
+          </flow_mat>
+        </itemfeedback>
+      </item>
+      <item ident="a43cc85025a4005f97d897517353487d" title="Question">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>question_type</fieldlabel>
+              <fieldentry>multiple_choice_question</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>points_possible</fieldlabel>
+              <fieldentry>1.0</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>original_answer_ids</fieldlabel>
+              <fieldentry>3280ec8b-f82e-4c99-8b05-c0f5ad14210e,1f88470d-0a14-46fe-b309-5239de56514e,7383b32f-7737-49ce-a538-31ff822b60f3,bcc67d35-e558-408b-bb3a-edc398a11e0a,960bd1f6-f23a-425b-9814-753cadd4407f</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>assessment_question_identifierref</fieldlabel>
+              <fieldentry>7889770b45f80c25a4873128e1bcc82b</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>calculator_type</fieldlabel>
+              <fieldentry>none</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;div&gt;&amp;nbsp;&lt;/div&gt;
+&lt;div&gt;&lt;span style="font-size: 14pt;"&gt;Suppose that the supply function for a good is given by P = 4Q&lt;sub&gt;S&lt;/sub&gt; + 10. An &lt;/span&gt;&lt;span style="font-size: 14pt;"&gt;improvement &lt;br&gt;&lt;/span&gt;&lt;span style="font-size: 14pt;"&gt;in technology allows suppliers to save $2 per unit in their production of the good.&lt;/span&gt;&lt;br&gt;&lt;span style="font-size: 14pt;"&gt;&amp;nbsp;&amp;nbsp; &amp;nbsp;&lt;/span&gt;&lt;br&gt;&lt;span style="font-size: 14pt;"&gt;What is the equation for the new supply curve with price as a function of quantity?&lt;/span&gt;&lt;/div&gt;
+&lt;div&gt;&amp;nbsp;&lt;/div&gt;</mattext>
+          </material>
+          <response_lid ident="response1" rcardinality="Single">
+            <render_choice>
+              <response_label ident="3280ec8b-f82e-4c99-8b05-c0f5ad14210e">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;&lt;span style="font-size: 14pt;"&gt;P = 4Q&lt;sub&gt;S&lt;/sub&gt; + 8&lt;/span&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="1f88470d-0a14-46fe-b309-5239de56514e">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;&lt;span style="font-size: 14pt;"&gt;P = 4Q&lt;sub&gt;S&lt;/sub&gt; + 12&lt;/span&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="7383b32f-7737-49ce-a538-31ff822b60f3">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;&lt;span style="font-size: 14pt;"&gt;P = 6Q&lt;sub&gt;S&lt;/sub&gt; + 12&lt;/span&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="bcc67d35-e558-408b-bb3a-edc398a11e0a">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;&lt;span style="font-size: 14pt;"&gt;P = 6Q&lt;sub&gt;S&lt;/sub&gt; + 10&lt;/span&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="960bd1f6-f23a-425b-9814-753cadd4407f">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;&lt;span style="font-size: 14pt;"&gt;P = 8Q&lt;sub&gt;S&lt;/sub&gt; + 10&lt;/span&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="response1">3280ec8b-f82e-4c99-8b05-c0f5ad14210e</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+        </resprocessing>
+        <itemfeedback ident="general_fb">
+          <flow_mat>
+            <material>
+              <mattext texttype="text/html">Feedback: An improvement in technology leads to an outward shift in the supply curve. Thus, the slope remains the same, but the intercept will shift 2 units downward. &lt;br&gt;&amp;nbsp;&amp;nbsp; &amp;nbsp;&lt;br&gt;In this case, the intercept is 10, so the new demand function is: P = 4Q&lt;sub&gt;S&lt;/sub&gt; + 8.</mattext>
+            </material>
+          </flow_mat>
+        </itemfeedback>
+      </item>
+      <item ident="ad500c89b7cb18a38576edec103dd757" title="Question">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>question_type</fieldlabel>
+              <fieldentry>numerical_question</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>points_possible</fieldlabel>
+              <fieldentry>1.0</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>original_answer_ids</fieldlabel>
+              <fieldentry>16d7d6c1-fef7-40d6-8619-3f16a6c6c166</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>assessment_question_identifierref</fieldlabel>
+              <fieldentry>5254cb66e6267b7d04efa2e1978a294d</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>calculator_type</fieldlabel>
+              <fieldentry>none</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;div&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;&lt;span style="font-size: 14pt;"&gt;A demand curve is given by the equation:&lt;/span&gt;&lt;br&gt;&lt;span style="font-size: 14pt;"&gt;&amp;nbsp;&amp;nbsp; &amp;nbsp;D(p) = 16 &#x2013; 4p&lt;/span&gt;&lt;br&gt;&lt;span style="font-size: 14pt;"&gt;&amp;nbsp;&amp;nbsp; &amp;nbsp;&lt;/span&gt;&lt;br&gt;&lt;span style="font-size: 14pt;"&gt;The supply curve is given by the equation:&lt;/span&gt;&lt;br&gt;&lt;span style="font-size: 14pt;"&gt;&amp;nbsp;&amp;nbsp; &amp;nbsp;S(p) = 2p &#x2013; 2&lt;/span&gt;&lt;br&gt;&lt;span style="font-size: 14pt;"&gt;&amp;nbsp;&amp;nbsp; &amp;nbsp;&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span style="font-size: 14pt;"&gt;The two lines are shown in the graph below:&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;&lt;span style="font-size: 14pt;"&gt;&lt;img style="display: block; margin-left: auto; margin-right: auto;" src="$IMS-CC-FILEBASE$/Uploaded Media/43cc29d8287ba70ca9cc84b977a178a1.png" alt="Q2Q8.png" width="600" height="371" loading="lazy"&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;&lt;span style="font-size: 14pt;"&gt;An outward shift in both the demand and supply curves leads to a movement in equilibrium as shown in the graph below:&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;&lt;span style="font-size: 14pt;"&gt;&lt;img style="display: block; margin-left: auto; margin-right: auto;" src="$IMS-CC-FILEBASE$/Uploaded Media/54f4d52da6ec67554b0f9821cb5a2076.png" alt="Q2Q8b.png" width="600" height="350" loading="lazy"&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;&lt;span style="font-size: 14pt;"&gt;Use the graph to estimate the change in quantity at equilibrium after the &lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span style="font-size: 14pt;"&gt;supply and demand curves have shifted outward. (Round to the nearest 0.5).&lt;/span&gt;&lt;/p&gt;
+&lt;/div&gt;</mattext>
+          </material>
+          <response_str ident="response1" rcardinality="Single">
+            <render_fib fibtype="Decimal">
+              <response_label ident="answer1"/>
+            </render_fib>
+          </response_str>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <or>
+                <varequal respident="response1">3.5</varequal>
+                <and>
+                  <vargte respident="response1">3.5</vargte>
+                  <varlte respident="response1">3.5</varlte>
+                </and>
+              </or>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+        </resprocessing>
+        <itemfeedback ident="general_fb">
+          <flow_mat>
+            <material>
+              <mattext texttype="text/html">&lt;p&gt;&lt;span style="font-size: 14pt;"&gt;Before the shifters, the quantity at equilibrium was 4 as this is where the demand and supply curves intersect. After the supply and demand shifters, the new quantity at equilibrium is 7.5.&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span style="font-size: 14pt;"&gt;Thus, the change is 7.5 &#x2013; 4 = 3.5.&lt;/span&gt;&lt;/p&gt;</mattext>
+            </material>
+          </flow_mat>
+        </itemfeedback>
+      </item>
+      <item ident="0709c8e8406a33f4e82ad660bf236a3e" title="Question">
+        <itemmetadata>
+          <qtimetadata>
+            <qtimetadatafield>
+              <fieldlabel>question_type</fieldlabel>
+              <fieldentry>multiple_choice_question</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>points_possible</fieldlabel>
+              <fieldentry>1.0</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>original_answer_ids</fieldlabel>
+              <fieldentry>f5f6fe2a-09d9-462f-bc3c-4122f363179d,6c9e6e60-b431-43be-b0c1-8a8e7f9892dd,20ec0106-370b-45c2-9ebd-d3d1f67e402c,6e4dab3d-da8c-4250-90ce-4d27591e7e52,61ac27d5-b6ff-45b8-9db6-56aa06f4386e</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>assessment_question_identifierref</fieldlabel>
+              <fieldentry>7b99aa658de76f64f165888d13f63ec3</fieldentry>
+            </qtimetadatafield>
+            <qtimetadatafield>
+              <fieldlabel>calculator_type</fieldlabel>
+              <fieldentry>none</fieldentry>
+            </qtimetadatafield>
+          </qtimetadata>
+        </itemmetadata>
+        <presentation>
+          <material>
+            <mattext texttype="text/html">&lt;div&gt;&amp;nbsp;&lt;/div&gt;
+&lt;div&gt;&lt;span style="font-size: 14pt;"&gt;If both demand and supply curves for a given good shift outward, &lt;/span&gt;&lt;/div&gt;
+&lt;div&gt;&lt;span style="font-size: 14pt;"&gt;what can we conclude about the new equilibrium price and quantity?&lt;/span&gt;&lt;/div&gt;
+&lt;div&gt;&amp;nbsp;&lt;/div&gt;</mattext>
+          </material>
+          <response_lid ident="response1" rcardinality="Single">
+            <render_choice>
+              <response_label ident="f5f6fe2a-09d9-462f-bc3c-4122f363179d">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;&lt;span style="font-size: 14pt;"&gt;Quantity decreases; price increases&lt;/span&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="6c9e6e60-b431-43be-b0c1-8a8e7f9892dd">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;&lt;span style="font-size: 14pt;"&gt;Quantity increases; price decreases&lt;/span&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="20ec0106-370b-45c2-9ebd-d3d1f67e402c">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;&lt;span style="font-size: 14pt;"&gt;Quantity increases; price increases&lt;/span&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="6e4dab3d-da8c-4250-90ce-4d27591e7e52">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;&lt;span style="font-size: 14pt;"&gt;Quantity increases; price may or may not change&lt;/span&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+              <response_label ident="61ac27d5-b6ff-45b8-9db6-56aa06f4386e">
+                <material>
+                  <mattext texttype="text/html">&lt;p&gt;&lt;span style="font-size: 14pt;"&gt;We cannot make any certain conclusions about price and quantity&lt;/span&gt;&lt;/p&gt;</mattext>
+                </material>
+              </response_label>
+            </render_choice>
+          </response_lid>
+        </presentation>
+        <resprocessing>
+          <outcomes>
+            <decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+          </outcomes>
+          <respcondition continue="No">
+            <conditionvar>
+              <varequal respident="response1">6e4dab3d-da8c-4250-90ce-4d27591e7e52</varequal>
+            </conditionvar>
+            <setvar action="Set" varname="SCORE">100</setvar>
+          </respcondition>
+        </resprocessing>
+        <itemfeedback ident="general_fb">
+          <flow_mat>
+            <material>
+              <mattext texttype="text/html">&lt;p&gt;&lt;span style="font-size: 14pt;"&gt;If the supply curve shifts outward, equilibrium quantity must increase. However, we cannot be certain whether price increases since it depends on how large the shift in the demand curve is relative to the shift in the supply curve.&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span style="font-size: 14pt;"&gt;For example, here is a graph of where an outward shift leads to a price increase:&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span style="font-size: 14pt;"&gt;&lt;img style="display: block; margin-left: auto; margin-right: auto;" src="$IMS-CC-FILEBASE$/Uploaded Media/6d79a615-2d25-4562-9af2-0462067c9076" alt="Graph demonstrating an outward shift increasing price" width="433" height="246" loading="lazy"&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span style="font-size: 14pt;"&gt;However, we can also see that an outward shift does not necessarily lead to a price increase, and price remains the same:&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span style="font-size: 14pt;"&gt;&lt;img src="$IMS-CC-FILEBASE$/Uploaded Media/aa3f3ee5-637b-40f9-8a0b-651237ccb4cc" alt="Graph demonstrating with outward shift does not affect price" width="445" height="243" loading="lazy"&gt;&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span style="font-size: 14pt;"&gt;The price could also decline. For example, if supply shifts a lot and demand doesn&#x2019;t shift much, the price would decline.&lt;/span&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span style="font-size: 14pt;"&gt;Thus, we cannot be certain whether there is a price change.&lt;/span&gt;&lt;/p&gt;</mattext>
+            </material>
+          </flow_mat>
+        </itemfeedback>
+      </item>
+    </section>
+  </assessment>
+</questestinterop>

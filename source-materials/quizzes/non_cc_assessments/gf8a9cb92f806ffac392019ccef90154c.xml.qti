@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<questestinterop xmlns="http://www.imsglobal.org/xsd/ims_qtiasiv1p2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.imsglobal.org/xsd/ims_qtiasiv1p2 http://www.imsglobal.org/xsd/ims_qtiasiv1p2p1.xsd">
+  <objectbank ident="gf8a9cb92f806ffac392019ccef90154c">
+    <qtimetadata>
+      <qtimetadatafield>
+        <fieldlabel>bank_title</fieldlabel>
+        <fieldentry>Unfiled Questions</fieldentry>
+      </qtimetadatafield>
+      <qtimetadatafield>
+        <fieldlabel>bank_type</fieldlabel>
+        <fieldentry>Course</fieldentry>
+      </qtimetadatafield>
+      <qtimetadatafield>
+        <fieldlabel>bank_context_uuid</fieldlabel>
+        <fieldentry>EBcbc9Uu92U9CUdk9HBtXtXNqrxAYyrvRdWruEfA</fieldentry>
+      </qtimetadatafield>
+      <qtimetadatafield>
+        <fieldlabel>bank_state</fieldlabel>
+        <fieldentry>active</fieldentry>
+      </qtimetadatafield>
+    </qtimetadata>
+    <item ident="g63d77dc0578874bc0085e3e40220c5a5" title="Question">
+      <itemmetadata>
+        <qtimetadata>
+          <qtimetadatafield>
+            <fieldlabel>question_type</fieldlabel>
+            <fieldentry>multiple_choice_question</fieldentry>
+          </qtimetadatafield>
+          <qtimetadatafield>
+            <fieldlabel>points_possible</fieldlabel>
+            <fieldentry>1.0</fieldentry>
+          </qtimetadatafield>
+          <qtimetadatafield>
+            <fieldlabel>original_answer_ids</fieldlabel>
+            <fieldentry>53720,28310,32216,71454,57753</fieldentry>
+          </qtimetadatafield>
+        </qtimetadata>
+      </itemmetadata>
+      <presentation>
+        <material>
+          <mattext texttype="text/html">&lt;div&gt;Suppose that the demand function for a good is given by P = 210 – 10Q&lt;sub&gt;D&lt;/sub&gt;. A decrease in the price of the good’s substitute has led to a reduction in demand for the original good by 10 units for each unit in price. &lt;br&gt;&amp;nbsp;&amp;nbsp; &amp;nbsp;&lt;br&gt;What is the equation for the new demand curve?&lt;/div&gt;</mattext>
+        </material>
+        <response_lid ident="response1" rcardinality="Single">
+          <render_choice>
+            <response_label ident="53720">
+              <material>
+                <mattext texttype="text/html">P = 200 – Q&lt;sub&gt;D&lt;/sub&gt;</mattext>
+              </material>
+            </response_label>
+            <response_label ident="28310">
+              <material>
+                <mattext texttype="text/html">P&amp;nbsp; = 210 – Q&lt;sub&gt;D&lt;/sub&gt;</mattext>
+              </material>
+            </response_label>
+            <response_label ident="32216">
+              <material>
+                <mattext texttype="text/html">P = 200 – 10Q&lt;sub&gt;D&lt;/sub&gt;</mattext>
+              </material>
+            </response_label>
+            <response_label ident="71454">
+              <material>
+                <mattext texttype="text/html">P = 110 – 10Q&lt;sub&gt;D&lt;/sub&gt;</mattext>
+              </material>
+            </response_label>
+            <response_label ident="57753">
+              <material>
+                <mattext texttype="text/html">P = 100 – Q&lt;sub&gt;D&lt;/sub&gt;</mattext>
+              </material>
+            </response_label>
+          </render_choice>
+        </response_lid>
+      </presentation>
+      <resprocessing>
+        <outcomes>
+          <decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+        </outcomes>
+        <respcondition continue="Yes">
+          <conditionvar>
+            <other/>
+          </conditionvar>
+          <displayfeedback feedbacktype="Response" linkrefid="general_fb"/>
+        </respcondition>
+        <respcondition continue="No">
+          <conditionvar>
+            <varequal respident="response1">71454</varequal>
+          </conditionvar>
+          <setvar action="Set" varname="SCORE">100</setvar>
+        </respcondition>
+      </resprocessing>
+      <itemfeedback ident="general_fb">
+        <flow_mat>
+          <material>
+            <mattext texttype="text/html">&lt;p&gt;Feedback: We can solve this problem by plugging in values for P = 210 – 10Q&lt;sub&gt;D&lt;/sub&gt;. &lt;br&gt;For example, if Q&lt;sub&gt;D&lt;/sub&gt; = 20, then P = 10. &lt;br&gt;A decrease in demand by 10 units for each unit in price means that when P = 10, then Q&lt;sub&gt;D&lt;/sub&gt;. = 10 instead of 20. &lt;br&gt;With these new values (P = 10, Q&lt;sub&gt;D&lt;/sub&gt; = 10), we can solve for the equation of the new demand curve. &lt;/p&gt;
+&lt;p&gt;P&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp; = &amp;nbsp; &amp;nbsp; Intercept – 10QD. &lt;br&gt;10&amp;nbsp;&amp;nbsp;&amp;nbsp; = &amp;nbsp; &amp;nbsp; Intercept – 10(10)&lt;br&gt;Intercept = 110&lt;/p&gt;
+&lt;p&gt;Thus, the new equation is P = 110 – 10Q&lt;sub&gt;D&lt;/sub&gt;.&lt;/p&gt;</mattext>
+          </material>
+        </flow_mat>
+      </itemfeedback>
+    </item>
+    <item ident="ga831cc55320e8023685db553df3dc5df" title="Question">
+      <itemmetadata>
+        <qtimetadata>
+          <qtimetadatafield>
+            <fieldlabel>question_type</fieldlabel>
+            <fieldentry>multiple_choice_question</fieldentry>
+          </qtimetadatafield>
+          <qtimetadatafield>
+            <fieldlabel>points_possible</fieldlabel>
+            <fieldentry>1.0</fieldentry>
+          </qtimetadatafield>
+          <qtimetadatafield>
+            <fieldlabel>original_answer_ids</fieldlabel>
+            <fieldentry>61526,2363,73835,97905,76679</fieldentry>
+          </qtimetadatafield>
+        </qtimetadata>
+      </itemmetadata>
+      <presentation>
+        <material>
+          <mattext texttype="text/html">&lt;div&gt;Suppose that the supply function for a good is given by P = 4Q&lt;sub&gt;S&lt;/sub&gt; + 10. An improvement in technology allows suppliers to save $2 per unit in their production of the good.&lt;br&gt;&amp;nbsp;&amp;nbsp; &amp;nbsp;&lt;br&gt;What is the equation for the new supply curve with price as a function of quantity?&lt;/div&gt;</mattext>
+        </material>
+        <response_lid ident="response1" rcardinality="Single">
+          <render_choice>
+            <response_label ident="61526">
+              <material>
+                <mattext texttype="text/html">P = 4Q&lt;sub&gt;S&lt;/sub&gt; + 8</mattext>
+              </material>
+            </response_label>
+            <response_label ident="2363">
+              <material>
+                <mattext texttype="text/html">P = 4Q&lt;sub&gt;S&lt;/sub&gt; + 12</mattext>
+              </material>
+            </response_label>
+            <response_label ident="73835">
+              <material>
+                <mattext texttype="text/html">P = 6Q&lt;sub&gt;S&lt;/sub&gt; + 12</mattext>
+              </material>
+            </response_label>
+            <response_label ident="97905">
+              <material>
+                <mattext texttype="text/html">P = 6Q&lt;sub&gt;S&lt;/sub&gt; + 10</mattext>
+              </material>
+            </response_label>
+            <response_label ident="76679">
+              <material>
+                <mattext texttype="text/html">P = 8Q&lt;sub&gt;S&lt;/sub&gt; + 10</mattext>
+              </material>
+            </response_label>
+          </render_choice>
+        </response_lid>
+      </presentation>
+      <resprocessing>
+        <outcomes>
+          <decvar maxvalue="100" minvalue="0" varname="SCORE" vartype="Decimal"/>
+        </outcomes>
+        <respcondition continue="Yes">
+          <conditionvar>
+            <other/>
+          </conditionvar>
+          <displayfeedback feedbacktype="Response" linkrefid="general_fb"/>
+        </respcondition>
+        <respcondition continue="No">
+          <conditionvar>
+            <varequal respident="response1">61526</varequal>
+          </conditionvar>
+          <setvar action="Set" varname="SCORE">100</setvar>
+        </respcondition>
+      </resprocessing>
+      <itemfeedback ident="general_fb">
+        <flow_mat>
+          <material>
+            <mattext texttype="text/html">Feedback: An improvement in technology leads to an outward shift in the supply curve. Thus, the slope remains the same, but the intercept will shift 2 units downward. &lt;br&gt;&amp;nbsp;&amp;nbsp; &amp;nbsp;&lt;br&gt;In this case, the intercept is 10, so the new demand function is: P = 4Q&lt;sub&gt;S&lt;/sub&gt; + 8.</mattext>
+          </material>
+        </flow_mat>
+      </itemfeedback>
+    </item>
+  </objectbank>
+</questestinterop>

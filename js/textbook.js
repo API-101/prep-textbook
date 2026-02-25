@@ -1,0 +1,1261 @@
+/* ============================================================
+   Microeconomics for Policy — Interactive Textbook
+   Core JavaScript Framework
+
+   MODULES:
+   1. PolicyExampleSwitcher - tabbed policy domain examples
+   2. EconGraph - D3.js graph utilities for econ diagrams
+   3. SidebarNav - active section tracking
+   4. ChapterLoader - chapter metadata and navigation
+   ============================================================ */
+
+/* -------------------------------------------------------
+   1. POLICY EXAMPLE SWITCHER
+   Handles the tabbed interface for policy domain examples
+   (healthcare, energy, criminal justice, etc.)
+   ------------------------------------------------------- */
+const PolicyExampleSwitcher = {
+  init() {
+    document.querySelectorAll('.policy-example').forEach(container => {
+      const tabs = container.querySelectorAll('.policy-example__tab');
+      const panels = container.querySelectorAll('.policy-example__panel');
+
+      tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          const target = tab.dataset.panel;
+
+          // Deactivate all
+          tabs.forEach(t => t.classList.remove('policy-example__tab--active'));
+          panels.forEach(p => p.classList.remove('policy-example__panel--active'));
+
+          // Activate selected
+          tab.classList.add('policy-example__tab--active');
+          const panel = container.querySelector(`[data-panel-id="${target}"]`);
+          if (panel) panel.classList.add('policy-example__panel--active');
+        });
+      });
+    });
+  }
+};
+
+
+/* -------------------------------------------------------
+   2. ECON GRAPH — D3.js Utility Library
+   Clean, consistent economics graph primitives.
+   All graphs use this for uniform styling.
+   ------------------------------------------------------- */
+const EconGraph = {
+
+  /* Default configuration merged with user options */
+  defaults: {
+    width: 520,
+    height: 380,
+    margin: { top: 30, right: 30, bottom: 50, left: 60 },
+    xLabel: 'Quantity',
+    yLabel: 'Price',
+    xDomain: [0, 100],
+    yDomain: [0, 100],
+    gridLines: true,
+    animate: true,
+    animationDuration: 400
+  },
+
+  /**
+   * Create a new graph instance inside a container.
+   * @param {string} selector - CSS selector for the container element
+   * @param {object} options - Override defaults
+   * @returns {object} graph context with svg, scales, and helper methods
+   */
+  create(selector, options = {}) {
+    const config = { ...this.defaults, ...options };
+    const { width, height, margin } = config;
+    const innerWidth = width - margin.left - margin.right;
+    const innerHeight = height - margin.top - margin.bottom;
+
+    // Clear previous content
+    const container = document.querySelector(selector);
+    if (!container) return null;
+    container.innerHTML = '';
+
+    const svg = d3.select(selector)
+      .append('svg')
+      .attr('viewBox', `0 0 ${width} ${height}`)
+      .attr('preserveAspectRatio', 'xMidYMid meet')
+      .style('max-width', `${width}px`)
+      .style('width', '100%');
+
+    const g = svg.append('g')
+      .attr('transform', `translate(${margin.left},${margin.top})`);
+
+    // Scales
+    const xScale = d3.scaleLinear()
+      .domain(config.xDomain)
+      .range([0, innerWidth]);
+
+    const yScale = d3.scaleLinear()
+      .domain(config.yDomain)
+      .range([innerHeight, 0]);
+
+    // Grid lines
+    if (config.gridLines) {
+      g.append('g')
+        .attr('class', 'grid grid--x')
+        .attr('transform', `translate(0,${innerHeight})`)
+        .call(d3.axisBottom(xScale)
+          .ticks(8)
+          .tickSize(-innerHeight)
+          .tickFormat('')
+        )
+        .selectAll('line')
+        .style('stroke', '#e8e8e8')
+        .style('stroke-dasharray', '2,2');
+
+      g.append('g')
+        .attr('class', 'grid grid--y')
+        .call(d3.axisLeft(yScale)
+          .ticks(8)
+          .tickSize(-innerWidth)
+          .tickFormat('')
+        )
+        .selectAll('line')
+        .style('stroke', '#e8e8e8')
+        .style('stroke-dasharray', '2,2');
+
+      g.selectAll('.grid .domain').remove();
+    }
+
+    // Axes
+    const xAxis = g.append('g')
+      .attr('class', 'axis axis--x')
+      .attr('transform', `translate(0,${innerHeight})`)
+      .call(d3.axisBottom(xScale).ticks(8));
+
+    const yAxis = g.append('g')
+      .attr('class', 'axis axis--y')
+      .call(d3.axisLeft(yScale).ticks(8));
+
+    // Style axes
+    g.selectAll('.axis text')
+      .style('font-family', "'Source Sans 3', sans-serif")
+      .style('font-size', '12px')
+      .style('fill', '#566573');
+
+    g.selectAll('.axis line, .axis .domain')
+      .style('stroke', '#aab7b8');
+
+    // Axis labels
+    svg.append('text')
+      .attr('class', 'axis-label axis-label--x')
+      .attr('x', margin.left + innerWidth / 2)
+      .attr('y', height - 8)
+      .attr('text-anchor', 'middle')
+      .style('font-family', "'Source Sans 3', sans-serif")
+      .style('font-size', '14px')
+      .style('font-weight', '600')
+      .style('fill', '#2c3e50')
+      .text(config.xLabel);
+
+    svg.append('text')
+      .attr('class', 'axis-label axis-label--y')
+      .attr('transform', 'rotate(-90)')
+      .attr('x', -(margin.top + innerHeight / 2))
+      .attr('y', 16)
+      .attr('text-anchor', 'middle')
+      .style('font-family', "'Source Sans 3', sans-serif")
+      .style('font-size', '14px')
+      .style('font-weight', '600')
+      .style('fill', '#2c3e50')
+      .text(config.yLabel);
+
+    // Add clip-path so lines/areas don't overflow the plot area
+    const clipId = 'clip-' + selector.replace(/[^a-zA-Z0-9]/g, '');
+    svg.append('defs').append('clipPath')
+      .attr('id', clipId)
+      .append('rect')
+      .attr('x', 0).attr('y', 0)
+      .attr('width', innerWidth)
+      .attr('height', innerHeight);
+    g.attr('clip-path', `url(#${clipId})`);
+
+    // Re-append axes on top of clip group so they remain visible
+    const axisLayer = svg.append('g')
+      .attr('transform', `translate(${margin.left},${margin.top})`);
+    xAxis.remove();
+    yAxis.remove();
+    const xAxisNew = axisLayer.append('g')
+      .attr('class', 'axis axis--x')
+      .attr('transform', `translate(0,${innerHeight})`)
+      .call(d3.axisBottom(xScale).ticks(8));
+    const yAxisNew = axisLayer.append('g')
+      .attr('class', 'axis axis--y')
+      .call(d3.axisLeft(yScale).ticks(8));
+
+    axisLayer.selectAll('.axis text')
+      .style('font-family', "'Source Sans 3', sans-serif")
+      .style('font-size', '12px')
+      .style('fill', '#566573');
+    axisLayer.selectAll('.axis line, .axis .domain')
+      .style('stroke', '#aab7b8');
+
+    // Return the graph context
+    const ctx = {
+      svg, g, xScale, yScale, xAxis: xAxisNew, yAxis: yAxisNew, config,
+      innerWidth, innerHeight, axisLayer
+    };
+
+    // Attach helper methods
+    ctx.addLine = (data, color, opts = {}) => this.addLine(ctx, data, color, opts);
+    ctx.addArea = (data, color, opts = {}) => this.addArea(ctx, data, color, opts);
+    ctx.addPoint = (x, y, opts = {}) => this.addPoint(ctx, x, y, opts);
+    ctx.addDashedLine = (points, color, opts = {}) => this.addDashedLine(ctx, points, color, opts);
+    ctx.addLabel = (x, y, text, opts = {}) => this.addLabel(ctx, x, y, text, opts);
+    ctx.addShaded = (data, color, opts = {}) => this.addShaded(ctx, data, color, opts);
+
+    /**
+     * Clear all dynamic elements from the graph.
+     * Call this at the top of every slider/input update function.
+     * Removes .dynamic elements AND all .graph-label groups to prevent
+     * any label duplication from stale references.
+     */
+    ctx.clear = () => {
+      ctx.g.selectAll('.dynamic').remove();
+      ctx.g.selectAll('.graph-label').remove();
+      if (ctx.axisLayer) {
+        ctx.axisLayer.selectAll('.dynamic').remove();
+        ctx.axisLayer.selectAll('.graph-label').remove();
+      }
+    };
+
+    return ctx;
+  },
+
+  /**
+   * Add a line (e.g., a demand or supply curve)
+   * @param {object} ctx - graph context
+   * @param {Array} data - [{x, y}, ...] or a function f(x) => y
+   * @param {string} color - CSS color
+   * @param {object} opts - { strokeWidth, dashed, label, className }
+   */
+  addLine(ctx, data, color, opts = {}) {
+    const {
+      strokeWidth = 2.5,
+      dashed = false,
+      label = null,
+      className = '',
+      id = null
+    } = opts;
+
+    // If data is a function, generate points
+    let points = data;
+    if (typeof data === 'function') {
+      const [xMin, xMax] = ctx.config.xDomain;
+      points = [];
+      for (let x = xMin; x <= xMax; x += (xMax - xMin) / 200) {
+        const y = data(x);
+        if (y !== null && y !== undefined && isFinite(y)) {
+          points.push({ x, y });
+        }
+      }
+    }
+
+    const line = d3.line()
+      .x(d => ctx.xScale(d.x))
+      .y(d => ctx.yScale(d.y))
+      .curve(d3.curveMonotoneX);
+
+    const path = ctx.g.append('path')
+      .datum(points)
+      .attr('class', `graph-line ${className}`)
+      .attr('d', line)
+      .attr('fill', 'none')
+      .attr('stroke', color)
+      .attr('stroke-width', strokeWidth);
+
+    if (id) path.attr('id', id);
+    if (dashed) path.attr('stroke-dasharray', '8,4');
+
+    // Optional label at end of line — with white background for readability
+    if (label && points.length > 0) {
+      const lastPoint = points[points.length - 1];
+      const labelG = ctx.g.append('g')
+        .attr('class', `graph-label ${className}`);
+      // White background rect (sized after text renders)
+      const bgRect = labelG.append('rect')
+        .attr('fill', '#fff')
+        .attr('rx', 2).attr('ry', 2)
+        .attr('opacity', 0.85);
+      const labelText = labelG.append('text')
+        .attr('x', ctx.xScale(lastPoint.x) + 8)
+        .attr('y', ctx.yScale(lastPoint.y) + 4)
+        .style('font-family', "'Source Sans 3', sans-serif")
+        .style('font-size', '13px')
+        .style('font-weight', '700')
+        .style('fill', color)
+        .text(label);
+      // Size the background to fit the text
+      try {
+        const bbox = labelText.node().getBBox();
+        bgRect.attr('x', bbox.x - 2).attr('y', bbox.y - 1)
+          .attr('width', bbox.width + 4).attr('height', bbox.height + 2);
+      } catch(e) { /* getBBox can fail if not rendered yet */ }
+    }
+
+    return path;
+  },
+
+  /**
+   * Add a shaded area between two y-functions over an x-range
+   */
+  addShaded(ctx, data, color, opts = {}) {
+    const { opacity = 0.15, className = '', id = null } = opts;
+    // data: { xRange: [x0, x1], yTop: f(x), yBottom: f(x) }
+
+    const nPoints = 100;
+    const [x0, x1] = data.xRange;
+    const step = (x1 - x0) / nPoints;
+    const areaData = [];
+
+    for (let x = x0; x <= x1; x += step) {
+      areaData.push({
+        x,
+        y0: typeof data.yBottom === 'function' ? data.yBottom(x) : data.yBottom,
+        y1: typeof data.yTop === 'function' ? data.yTop(x) : data.yTop
+      });
+    }
+
+    const area = d3.area()
+      .x(d => ctx.xScale(d.x))
+      .y0(d => ctx.yScale(d.y0))
+      .y1(d => ctx.yScale(d.y1))
+      .curve(d3.curveMonotoneX);
+
+    const path = ctx.g.append('path')
+      .datum(areaData)
+      .attr('class', `graph-area ${className}`)
+      .attr('d', area)
+      .attr('fill', color)
+      .attr('opacity', opacity);
+
+    if (id) path.attr('id', id);
+    return path;
+  },
+
+  /**
+   * Add a point (e.g., equilibrium marker)
+   */
+  addPoint(ctx, x, y, opts = {}) {
+    const {
+      radius = 5,
+      color = '#1a5276',
+      label = null,
+      labelOffset = { dx: 8, dy: -10 },
+      className = ''
+    } = opts;
+
+    ctx.g.append('circle')
+      .attr('class', className)
+      .attr('cx', ctx.xScale(x))
+      .attr('cy', ctx.yScale(y))
+      .attr('r', radius)
+      .attr('fill', color)
+      .attr('stroke', '#fff')
+      .attr('stroke-width', 1.5);
+
+    if (label) {
+      const labelG = ctx.g.append('g').attr('class', `graph-label ${className}`);
+      const bgRect = labelG.append('rect')
+        .attr('fill', '#fff').attr('rx', 2).attr('ry', 2).attr('opacity', 0.85);
+      const labelText = labelG.append('text')
+        .attr('x', ctx.xScale(x) + labelOffset.dx)
+        .attr('y', ctx.yScale(y) + labelOffset.dy)
+        .style('font-family', "'Source Sans 3', sans-serif")
+        .style('font-size', '13px')
+        .style('font-weight', '700')
+        .style('fill', color)
+        .text(label);
+      try {
+        const bbox = labelText.node().getBBox();
+        bgRect.attr('x', bbox.x - 2).attr('y', bbox.y - 1)
+          .attr('width', bbox.width + 4).attr('height', bbox.height + 2);
+      } catch(e) {}
+    }
+  },
+
+  /**
+   * Add a dashed reference line (e.g., from equilibrium to axes)
+   */
+  addDashedLine(ctx, points, color, opts = {}) {
+    const { strokeWidth = 1.5, className = '' } = opts;
+    const line = d3.line()
+      .x(d => ctx.xScale(d.x))
+      .y(d => ctx.yScale(d.y));
+
+    ctx.g.append('path')
+      .datum(points)
+      .attr('class', className)
+      .attr('d', line)
+      .attr('fill', 'none')
+      .attr('stroke', color)
+      .attr('stroke-width', strokeWidth)
+      .attr('stroke-dasharray', '5,4')
+      .attr('opacity', 0.6);
+  },
+
+  /**
+   * Add a text label at any position
+   */
+  addLabel(ctx, x, y, text, opts = {}) {
+    const {
+      color = '#2c3e50',
+      fontSize = '13px',
+      fontWeight = '600',
+      anchor = 'start',
+      className = '',
+      background = true
+    } = opts;
+
+    // Use axisLayer (outside clip-path) so labels aren't clipped
+    const layer = ctx.axisLayer || ctx.g;
+    const labelG = layer.append('g').attr('class', `graph-label ${className}`);
+    const bgRect = background ? labelG.append('rect')
+      .attr('fill', '#fff').attr('rx', 2).attr('ry', 2).attr('opacity', 0.85) : null;
+    const labelText = labelG.append('text')
+      .attr('x', ctx.xScale(x))
+      .attr('y', ctx.yScale(y))
+      .attr('text-anchor', anchor)
+      .style('font-family', "'Source Sans 3', sans-serif")
+      .style('font-size', fontSize)
+      .style('font-weight', fontWeight)
+      .style('fill', color)
+      .text(text);
+    if (bgRect) {
+      try {
+        const bbox = labelText.node().getBBox();
+        bgRect.attr('x', bbox.x - 3).attr('y', bbox.y - 1)
+          .attr('width', bbox.width + 6).attr('height', bbox.height + 2);
+      } catch(e) {}
+    }
+    return labelG;
+  }
+};
+
+
+/* -------------------------------------------------------
+   3. SIDEBAR NAVIGATION
+   Highlights the current section in the sidebar as you scroll
+   ------------------------------------------------------- */
+const SidebarNav = {
+  init() {
+    const headings = document.querySelectorAll('.main-content h2[id], .main-content h3[id]');
+    const sidebarLinks = document.querySelectorAll('.sidebar__link');
+
+    if (!headings.length || !sidebarLinks.length) return;
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const id = entry.target.getAttribute('id');
+          sidebarLinks.forEach(link => {
+            link.classList.toggle(
+              'sidebar__link--active',
+              link.getAttribute('href') === `#${id}`
+            );
+          });
+        }
+      });
+    }, {
+      rootMargin: '-80px 0px -70% 0px',
+      threshold: 0
+    });
+
+    headings.forEach(h => observer.observe(h));
+  }
+};
+
+
+/* -------------------------------------------------------
+   4. CHAPTER METADATA
+   Complete textbook structure for navigation and cross-refs
+   ------------------------------------------------------- */
+const TextbookStructure = {
+  title: 'Microeconomics for Policy',
+  subtitle: 'An Interactive Approach',
+  institution: '',
+  courseCode: '',
+  parts: [
+    {
+      number: 1,
+      title: 'Foundations of Microeconomic Analysis',
+      chapters: [
+        { number: 1, title: 'Economic Models and Equilibrium', slug: 'ch01-economic-models-equilibrium' }
+      ]
+    },
+    {
+      number: 2,
+      title: 'Demand, Supply, and Price Mechanisms',
+      chapters: [
+        { number: 2, title: 'Elasticity and Market Responsiveness', slug: 'ch02-elasticity-market-responsiveness' },
+        { number: 3, title: 'Policy Applications: Market Interventions', slug: 'ch03-policy-applications-market-interventions' }
+      ]
+    },
+    {
+      number: 3,
+      title: 'Consumer and Producer Behavior',
+      chapters: [
+        { number: 4, title: 'Consumer Preferences and Choice', slug: 'ch04-consumer-preferences-choice' },
+        { number: 5, title: 'Policy Instruments: Subsidies and Cash Transfers', slug: 'ch05-policy-instruments-subsidies-transfers' },
+        { number: 6, title: 'Choice Under Uncertainty and Risk', slug: 'ch06-choice-uncertainty-risk' },
+        { number: 7, title: 'Producer Behavior and Costs', slug: 'ch07-producer-behavior-costs' }
+      ]
+    },
+    {
+      number: 4,
+      title: 'Market Structure and Market Power',
+      chapters: [
+        { number: 8, title: 'Monopoly and Monopsony Power', slug: 'ch08-monopoly-monopsony-power' },
+        { number: 9, title: 'Price Discrimination and Market Segmentation', slug: 'ch09-price-discrimination-segmentation' },
+        { number: 10, title: 'Market Power in Supply Chains', slug: 'ch10-market-power-supply-chains' }
+      ]
+    },
+    {
+      number: 5,
+      title: 'Strategic Interaction and Coordination',
+      chapters: [
+        { number: 11, title: 'Strategic Behavior and Game Theory', slug: 'ch11-strategic-behavior-game-theory' },
+        { number: 12, title: 'Public Goods and Coordination Failures', slug: 'ch12-public-goods-coordination-failures' }
+      ]
+    },
+    {
+      number: 6,
+      title: 'Market Failures and Policy Solutions',
+      chapters: [
+        { number: 13, title: 'Asymmetric Information and Market Selection', slug: 'ch13-asymmetric-information-selection' },
+        { number: 14, title: 'Externalities and Environmental Policy', slug: 'ch14-externalities-environmental-policy' },
+        { number: 15, title: 'Integration and Course Synthesis', slug: 'ch15-integration-synthesis' }
+      ]
+    }
+  ],
+
+  /** Get all chapters flat */
+  getAllChapters() {
+    return this.parts.flatMap(p => p.chapters.map(c => ({ ...c, partNumber: p.number, partTitle: p.title })));
+  },
+
+  /** Get next/prev chapter for navigation */
+  getAdjacentChapters(chapterNumber) {
+    const all = this.getAllChapters();
+    const idx = all.findIndex(c => c.number === chapterNumber);
+    return {
+      prev: idx > 0 ? all[idx - 1] : null,
+      next: idx < all.length - 1 ? all[idx + 1] : null
+    };
+  }
+};
+
+
+/* -------------------------------------------------------
+   5. CHECK FOR UNDERSTANDING
+   Interactive multiple-choice quiz with instant feedback.
+   Usage in HTML:
+     <div class="check-understanding" data-question="What happens to..."
+          data-correct="1"
+          data-explanation="Because the monopolist must lower price for all units...">
+       <div class="check-understanding__option" data-index="0">A) Price stays the same</div>
+       <div class="check-understanding__option" data-index="1">B) Marginal revenue falls below price</div>
+       <div class="check-understanding__option" data-index="2">C) Total revenue always increases</div>
+       <div class="check-understanding__option" data-index="3">D) The firm produces more</div>
+     </div>
+   ------------------------------------------------------- */
+const CheckUnderstanding = {
+  init() {
+    document.querySelectorAll('.check-understanding').forEach(container => {
+      const question = container.dataset.question;
+      const correctIdx = parseInt(container.dataset.correct, 10);
+      const explanation = container.dataset.explanation;
+      const options = container.querySelectorAll('.check-understanding__option');
+      let answered = false;
+
+      // Build header
+      const header = document.createElement('div');
+      header.className = 'check-understanding__header';
+      header.innerHTML = '<span class="check-understanding__icon">&#9998;</span> Check Your Understanding';
+      container.insertBefore(header, container.firstChild);
+
+      // Build question text
+      if (question) {
+        const qEl = document.createElement('div');
+        qEl.className = 'check-understanding__question';
+        qEl.textContent = question;
+        header.insertAdjacentElement('afterend', qEl);
+      }
+
+      // Build feedback area
+      const feedback = document.createElement('div');
+      feedback.className = 'check-understanding__feedback';
+      feedback.style.display = 'none';
+      container.appendChild(feedback);
+
+      options.forEach((opt, idx) => {
+        opt.addEventListener('click', () => {
+          if (answered) return;
+          answered = true;
+
+          const isCorrect = idx === correctIdx;
+
+          // Mark all options
+          options.forEach((o, i) => {
+            o.classList.add('check-understanding__option--answered');
+            if (i === correctIdx) {
+              o.classList.add('check-understanding__option--correct');
+            } else if (i === idx && !isCorrect) {
+              o.classList.add('check-understanding__option--incorrect');
+            }
+          });
+
+          // Show feedback
+          feedback.style.display = 'block';
+          feedback.className = 'check-understanding__feedback ' +
+            (isCorrect ? 'check-understanding__feedback--correct' : 'check-understanding__feedback--incorrect');
+          feedback.innerHTML = (isCorrect ? '<strong>Correct.</strong> ' : '<strong>Not quite.</strong> ') +
+            (explanation || '');
+        });
+      });
+    });
+  }
+};
+
+
+/* -------------------------------------------------------
+   6. PRACTICE QUIZ ENGINE
+   Multi-question quiz with progress, feedback, scoring.
+   Usage:
+     PracticeQuiz.create('#quiz-container', questions)
+   where questions = [
+     { type: 'multiple_choice', text: '...', options: [{text,correct}], feedback: '...' },
+     { type: 'short_answer', text: '...', correctAnswer: '4.0', feedback: '...' }
+   ]
+   ------------------------------------------------------- */
+const PracticeQuiz = {
+
+  create(selector, questions, opts = {}) {
+    const container = document.querySelector(selector);
+    if (!container || !questions.length) return;
+
+    // Filter out meta/instruction-only questions (no options and no correctAnswer)
+    const validQs = questions.filter(q =>
+      (q.type === 'multiple_choice' && q.options && q.options.length > 0 && q.options.some(o => o.text && o.text.trim() && o.text.trim() !== '&nbsp;')) ||
+      (q.type === 'short_answer' && q.correctAnswer)
+    );
+
+    if (!validQs.length) {
+      container.innerHTML = '<p style="color: #7f8c8d; font-style: italic;">No quiz questions available.</p>';
+      return;
+    }
+
+    const title = opts.title || 'Practice Quiz';
+    const state = {
+      current: 0,
+      answers: new Array(validQs.length).fill(null),
+      checked: new Array(validQs.length).fill(false),
+      correct: new Array(validQs.length).fill(false)
+    };
+
+    function cleanHTML(str) {
+      if (!str) return '';
+      return str.replace(/&nbsp;/g, ' ').replace(/<[^>]*>/g, '').replace(/\s+/g, ' ').trim();
+    }
+
+    function render() {
+      const q = validQs[state.current];
+      const isChecked = state.checked[state.current];
+      const pct = Math.round(((state.current + (isChecked ? 1 : 0)) / validQs.length) * 100);
+
+      let html = `
+        <div class="practice-quiz__header">
+          <div class="practice-quiz__title">${title}</div>
+          <div class="practice-quiz__progress">${state.current + 1} / ${validQs.length}</div>
+        </div>
+        <div class="practice-quiz__progress-bar">
+          <div class="practice-quiz__progress-fill" style="width: ${pct}%"></div>
+        </div>
+        <div class="practice-quiz__body">
+          <div class="practice-quiz__question-number">Question ${state.current + 1}</div>
+          <div class="practice-quiz__question-text">${cleanHTML(q.text)}</div>
+      `;
+
+      if (q.type === 'multiple_choice') {
+        html += '<div class="practice-quiz__options">';
+        const letters = 'ABCDEFGHIJ';
+        q.options.forEach((opt, i) => {
+          const optText = cleanHTML(opt.text);
+          if (!optText) return;
+          let cls = 'practice-quiz__option';
+          if (isChecked) {
+            cls += ' practice-quiz__option--disabled';
+            if (opt.correct) cls += ' practice-quiz__option--correct';
+            else if (state.answers[state.current] === i) cls += ' practice-quiz__option--incorrect';
+          } else if (state.answers[state.current] === i) {
+            cls += ' practice-quiz__option--selected';
+          }
+          html += `<div class="${cls}" data-idx="${i}">
+            <span class="practice-quiz__option-letter">${letters[i]}.</span>
+            <span>${optText}</span>
+          </div>`;
+        });
+        html += '</div>';
+      } else if (q.type === 'short_answer') {
+        const val = state.answers[state.current] || '';
+        let inputCls = 'practice-quiz__input';
+        if (isChecked) {
+          inputCls += state.correct[state.current] ? ' practice-quiz__input--correct' : ' practice-quiz__input--incorrect';
+        }
+        html += `<div class="practice-quiz__input-group">
+          <input type="text" class="${inputCls}" placeholder="Enter your answer..." value="${val}" ${isChecked ? 'disabled' : ''}>
+          ${!isChecked ? '<button class="practice-quiz__btn practice-quiz__btn--primary" id="pq-check">Check</button>' : ''}
+        </div>`;
+        if (isChecked && !state.correct[state.current]) {
+          html += `<div style="font-size: 0.875rem; color: var(--color-neutral-600); margin-bottom: var(--space-sm);">
+            Correct answer: <strong style="color: var(--color-success);">${q.correctAnswer}</strong>
+          </div>`;
+        }
+      }
+
+      // Feedback
+      if (isChecked && q.feedback) {
+        const fbClass = state.correct[state.current] ? 'practice-quiz__feedback--correct' : 'practice-quiz__feedback--incorrect';
+        html += `<div class="practice-quiz__feedback practice-quiz__feedback--visible ${fbClass}">
+          ${state.correct[state.current] ? '<strong>Correct!</strong> ' : '<strong>Not quite.</strong> '}
+          ${cleanHTML(q.feedback)}
+        </div>`;
+      }
+
+      html += '</div>'; // close body
+
+      // Navigation
+      html += '<div class="practice-quiz__nav">';
+      html += state.current > 0
+        ? '<button class="practice-quiz__btn practice-quiz__btn--secondary" id="pq-prev">Previous</button>'
+        : '<div></div>';
+
+      if (q.type === 'multiple_choice' && !isChecked) {
+        html += `<button class="practice-quiz__btn practice-quiz__btn--primary" id="pq-submit" ${state.answers[state.current] === null ? 'disabled' : ''}>Submit Answer</button>`;
+      } else if (isChecked && state.current < validQs.length - 1) {
+        html += '<button class="practice-quiz__btn practice-quiz__btn--primary" id="pq-next">Next Question</button>';
+      } else if (isChecked && state.current === validQs.length - 1) {
+        html += '<button class="practice-quiz__btn practice-quiz__btn--primary" id="pq-finish">See Results</button>';
+      } else {
+        html += '<div></div>';
+      }
+
+      html += '</div>';
+
+      container.innerHTML = html;
+      bindEvents();
+    }
+
+    function showResults() {
+      const numCorrect = state.correct.filter(Boolean).length;
+      const pct = Math.round((numCorrect / validQs.length) * 100);
+      container.innerHTML = `
+        <div class="practice-quiz__header">
+          <div class="practice-quiz__title">${title} — Results</div>
+        </div>
+        <div class="practice-quiz__progress-bar">
+          <div class="practice-quiz__progress-fill" style="width: 100%"></div>
+        </div>
+        <div class="practice-quiz__results">
+          <div class="practice-quiz__score">${numCorrect} / ${validQs.length}</div>
+          <div class="practice-quiz__score-label">You answered ${pct}% of questions correctly.</div>
+          <p style="color: var(--color-neutral-600); margin-bottom: var(--space-xl); font-size: 0.9375rem;">
+            ${pct >= 80 ? 'Great work! You have a strong grasp of this material.' :
+              pct >= 50 ? 'Good effort. Consider reviewing the sections where you had difficulty.' :
+              'Consider reviewing this module\'s content before moving on. Use the interactive graphs and readings to strengthen your understanding.'}
+          </p>
+          <button class="practice-quiz__btn practice-quiz__btn--secondary" id="pq-review">Review Answers</button>
+          <button class="practice-quiz__btn practice-quiz__btn--primary" id="pq-retry" style="margin-left: var(--space-sm);">Try Again</button>
+        </div>
+      `;
+
+      document.getElementById('pq-review')?.addEventListener('click', () => {
+        state.current = 0;
+        render();
+      });
+      document.getElementById('pq-retry')?.addEventListener('click', () => {
+        state.current = 0;
+        state.answers.fill(null);
+        state.checked.fill(false);
+        state.correct.fill(false);
+        render();
+      });
+    }
+
+    function checkAnswer() {
+      const q = validQs[state.current];
+      state.checked[state.current] = true;
+
+      if (q.type === 'multiple_choice') {
+        const selectedIdx = state.answers[state.current];
+        state.correct[state.current] = selectedIdx !== null && q.options[selectedIdx]?.correct === true;
+      } else if (q.type === 'short_answer') {
+        const userAnswer = parseFloat(state.answers[state.current]);
+        const correctAnswer = parseFloat(q.correctAnswer);
+        // Accept within tolerance for numerical answers
+        state.correct[state.current] = !isNaN(userAnswer) && !isNaN(correctAnswer) &&
+          Math.abs(userAnswer - correctAnswer) < Math.max(0.01 * Math.abs(correctAnswer), 0.5);
+      }
+      render();
+    }
+
+    function bindEvents() {
+      // MC option selection
+      container.querySelectorAll('.practice-quiz__option:not(.practice-quiz__option--disabled)').forEach(opt => {
+        opt.addEventListener('click', () => {
+          state.answers[state.current] = parseInt(opt.dataset.idx);
+          render();
+        });
+      });
+
+      // Short answer input
+      const input = container.querySelector('.practice-quiz__input:not([disabled])');
+      if (input) {
+        input.addEventListener('input', (e) => {
+          state.answers[state.current] = e.target.value;
+        });
+        input.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter') checkAnswer();
+        });
+        // Auto-focus
+        input.focus();
+      }
+
+      // Buttons
+      document.getElementById('pq-check')?.addEventListener('click', checkAnswer);
+      document.getElementById('pq-submit')?.addEventListener('click', checkAnswer);
+      document.getElementById('pq-prev')?.addEventListener('click', () => { state.current--; render(); });
+      document.getElementById('pq-next')?.addEventListener('click', () => { state.current++; render(); });
+      document.getElementById('pq-finish')?.addEventListener('click', showResults);
+    }
+
+    render();
+    return { state, render };
+  }
+};
+
+
+/* -------------------------------------------------------
+   7. SELF-CHECK (Reveal Answer)
+   Usage:
+     <div class="self-check">
+       <div class="self-check__question">What happens when...</div>
+       <button class="self-check__reveal-btn">Show Answer</button>
+       <div class="self-check__answer">The equilibrium price rises...</div>
+     </div>
+   ------------------------------------------------------- */
+const SelfCheck = {
+  init() {
+    document.querySelectorAll('.self-check').forEach(container => {
+      const btn = container.querySelector('.self-check__reveal-btn');
+      const answer = container.querySelector('.self-check__answer');
+      if (!btn || !answer) return;
+
+      // Add header if not present
+      if (!container.querySelector('.self-check__header')) {
+        const header = document.createElement('div');
+        header.className = 'self-check__header';
+        header.textContent = 'Self-Check';
+        container.insertBefore(header, container.firstChild);
+      }
+
+      btn.addEventListener('click', () => {
+        answer.classList.toggle('self-check__answer--visible');
+        btn.textContent = answer.classList.contains('self-check__answer--visible') ? 'Hide Answer' : 'Show Answer';
+      });
+    });
+  }
+};
+
+
+/* -------------------------------------------------------
+   8. FLASHCARD STUDY MODE
+   Extracts terms/definitions from .glossary-table and
+   presents a flip-card study interface in a modal overlay.
+   ------------------------------------------------------- */
+const Flashcards = {
+  init() {
+    document.querySelectorAll('.flashcard-launcher__btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const tableId = btn.dataset.table;
+        const table = tableId ? document.getElementById(tableId) : btn.closest('section, .content')?.querySelector('.glossary-table') || document.querySelector('.glossary-table');
+        if (!table) return;
+
+        const terms = [];
+        table.querySelectorAll('tbody tr').forEach(row => {
+          const cells = row.querySelectorAll('td');
+          if (cells.length >= 2) {
+            terms.push({ term: cells[0].textContent.trim(), definition: cells[1].textContent.trim() });
+          }
+        });
+        if (terms.length === 0) return;
+
+        this.open(terms);
+      });
+    });
+  },
+
+  open(terms) {
+    // Shuffle a copy
+    let deck = this.shuffle([...terms]);
+    let idx = 0;
+    let seen = new Set([0]);
+
+    // Build overlay
+    const overlay = document.createElement('div');
+    overlay.className = 'flashcard-overlay flashcard-overlay--open';
+    overlay.innerHTML = `
+      <div class="flashcard-modal">
+        <div class="flashcard-modal__header">
+          <div>
+            <div class="flashcard-modal__title">Flashcard Study Mode</div>
+            <div class="flashcard-modal__counter"><span class="fc-current">1</span> of <span class="fc-total">${deck.length}</span></div>
+          </div>
+          <button class="flashcard-modal__close" aria-label="Close">&times;</button>
+        </div>
+        <div class="flashcard-modal__body">
+          <div class="flashcard" role="button" aria-label="Click to flip card" tabindex="0">
+            <div class="flashcard__inner">
+              <div class="flashcard__face flashcard__front">
+                <div class="flashcard__front-label">Term</div>
+                <div class="flashcard__term"></div>
+                <div class="flashcard__hint">Click to reveal definition</div>
+              </div>
+              <div class="flashcard__face flashcard__back">
+                <div class="flashcard__back-label">Definition</div>
+                <div class="flashcard__definition"></div>
+              </div>
+            </div>
+          </div>
+          <div class="flashcard-modal__nav">
+            <button class="flashcard-modal__nav-btn fc-prev">&larr; Previous</button>
+            <button class="flashcard-modal__nav-btn flashcard-modal__nav-btn--shuffle fc-shuffle">Shuffle</button>
+            <button class="flashcard-modal__nav-btn fc-next">Next &rarr;</button>
+          </div>
+        </div>
+        <div class="flashcard-modal__footer"></div>
+      </div>
+    `;
+
+    document.body.appendChild(overlay);
+
+    const card = overlay.querySelector('.flashcard');
+    const termEl = overlay.querySelector('.flashcard__term');
+    const defEl = overlay.querySelector('.flashcard__definition');
+    const currentEl = overlay.querySelector('.fc-current');
+    const footer = overlay.querySelector('.flashcard-modal__footer');
+
+    // Build dots
+    deck.forEach((_, i) => {
+      const dot = document.createElement('span');
+      dot.className = 'flashcard-dot' + (i === 0 ? ' flashcard-dot--active flashcard-dot--seen' : '');
+      footer.appendChild(dot);
+    });
+    const dots = footer.querySelectorAll('.flashcard-dot');
+
+    function showCard() {
+      card.classList.remove('flashcard--flipped');
+      termEl.textContent = deck[idx].term;
+      defEl.textContent = deck[idx].definition;
+      currentEl.textContent = idx + 1;
+      dots.forEach((d, i) => {
+        d.classList.toggle('flashcard-dot--active', i === idx);
+        if (seen.has(i)) d.classList.add('flashcard-dot--seen');
+      });
+    }
+
+    showCard();
+
+    // Flip
+    card.addEventListener('click', () => card.classList.toggle('flashcard--flipped'));
+    card.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); card.classList.toggle('flashcard--flipped'); }
+    });
+
+    // Nav
+    overlay.querySelector('.fc-prev').addEventListener('click', () => {
+      idx = (idx - 1 + deck.length) % deck.length;
+      seen.add(idx);
+      showCard();
+    });
+    overlay.querySelector('.fc-next').addEventListener('click', () => {
+      idx = (idx + 1) % deck.length;
+      seen.add(idx);
+      showCard();
+    });
+    overlay.querySelector('.fc-shuffle').addEventListener('click', () => {
+      deck = this.shuffle([...deck]);
+      idx = 0;
+      seen = new Set([0]);
+      dots.forEach(d => d.classList.remove('flashcard-dot--seen'));
+      showCard();
+    });
+
+    // Keyboard nav
+    const keyHandler = (e) => {
+      if (e.key === 'Escape') close();
+      if (e.key === 'ArrowRight') { overlay.querySelector('.fc-next').click(); }
+      if (e.key === 'ArrowLeft') { overlay.querySelector('.fc-prev').click(); }
+      if (e.key === ' ' && document.activeElement !== card) { e.preventDefault(); card.classList.toggle('flashcard--flipped'); }
+    };
+    document.addEventListener('keydown', keyHandler);
+
+    // Close
+    const close = () => {
+      document.removeEventListener('keydown', keyHandler);
+      overlay.classList.remove('flashcard-overlay--open');
+      setTimeout(() => overlay.remove(), 200);
+    };
+    overlay.querySelector('.flashcard-modal__close').addEventListener('click', close);
+    overlay.addEventListener('click', (e) => { if (e.target === overlay) close(); });
+  },
+
+  shuffle(arr) {
+    for (let i = arr.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [arr[i], arr[j]] = [arr[j], arr[i]];
+    }
+    return arr;
+  }
+};
+
+
+/* -------------------------------------------------------
+   9. DRAW GRAPH
+   Freehand curve-drawing widget for pedagogical exercises.
+   Usage:
+     const dg = DrawGraph.create('#container-id', {
+       xLabel, yLabel, xDomain, yDomain,
+       expectedSlope: 'negative' | 'positive',
+       correctLine: x => 5 - 0.1 * x,
+       feedbackMessages: { correct, wrongSlope, tooShort }
+     });
+     dg.submit(feedbackEl);
+     dg.clear();
+   ------------------------------------------------------- */
+const DrawGraph = {
+
+  create(selector, options = {}) {
+    const defaults = {
+      width: 520,
+      height: 380,
+      margin: { top: 30, right: 30, bottom: 50, left: 60 },
+      xLabel: 'Quantity',
+      yLabel: 'Price',
+      xDomain: [0, 50],
+      yDomain: [0, 5],
+      expectedSlope: 'negative',
+      correctLine: null,
+      feedbackMessages: {
+        correct: 'Your curve slopes in the right direction.',
+        wrongSlope: 'Check the slope direction.',
+        tooShort: 'Try drawing all the way across the graph.'
+      }
+    };
+
+    const config = { ...defaults, ...options };
+    config.curveColor = config.expectedSlope === 'positive' ? '#c0392b' : '#2e86c1';
+
+    const container = document.querySelector(selector);
+    if (!container) return null;
+    container.innerHTML = '';
+
+    const { width, height, margin } = config;
+    const innerWidth = width - margin.left - margin.right;
+    const innerHeight = height - margin.top - margin.bottom;
+
+    const xScale = d3.scaleLinear().domain(config.xDomain).range([0, innerWidth]);
+    const yScale = d3.scaleLinear().domain(config.yDomain).range([innerHeight, 0]);
+
+    const svg = d3.select(selector)
+      .append('svg')
+      .attr('viewBox', `0 0 ${width} ${height}`)
+      .attr('preserveAspectRatio', 'xMidYMid meet')
+      .style('max-width', `${width}px`)
+      .style('width', '100%');
+
+    const g = svg.append('g')
+      .attr('transform', `translate(${margin.left},${margin.top})`);
+
+    // Grid lines
+    g.append('g').attr('class', 'grid')
+      .attr('transform', `translate(0,${innerHeight})`)
+      .call(d3.axisBottom(xScale).ticks(8).tickSize(-innerHeight).tickFormat(''))
+      .selectAll('line').style('stroke', '#e8e8e8').style('stroke-dasharray', '2,2');
+
+    g.append('g').attr('class', 'grid')
+      .call(d3.axisLeft(yScale).ticks(8).tickSize(-innerWidth).tickFormat(''))
+      .selectAll('line').style('stroke', '#e8e8e8').style('stroke-dasharray', '2,2');
+
+    g.selectAll('.grid .domain').remove();
+
+    // Invisible rect to capture drag events
+    const drawArea = g.append('rect')
+      .attr('width', innerWidth)
+      .attr('height', innerHeight)
+      .attr('fill', 'transparent')
+      .style('cursor', 'crosshair');
+
+    // Axes layer (outside clip)
+    const axisLayer = svg.append('g')
+      .attr('transform', `translate(${margin.left},${margin.top})`);
+
+    axisLayer.append('g').attr('class', 'axis axis--x')
+      .attr('transform', `translate(0,${innerHeight})`)
+      .call(d3.axisBottom(xScale).ticks(8));
+
+    axisLayer.append('g').attr('class', 'axis axis--y')
+      .call(d3.axisLeft(yScale).ticks(8));
+
+    axisLayer.selectAll('.axis text')
+      .style('font-family', "'Source Sans 3', sans-serif")
+      .style('font-size', '12px').style('fill', '#566573');
+    axisLayer.selectAll('.axis line, .axis .domain')
+      .style('stroke', '#aab7b8');
+
+    // Axis labels
+    svg.append('text')
+      .attr('x', margin.left + innerWidth / 2).attr('y', height - 8)
+      .attr('text-anchor', 'middle')
+      .style('font-family', "'Source Sans 3', sans-serif")
+      .style('font-size', '14px').style('font-weight', '600').style('fill', '#2c3e50')
+      .text(config.xLabel);
+
+    svg.append('text')
+      .attr('transform', 'rotate(-90)')
+      .attr('x', -(margin.top + innerHeight / 2)).attr('y', 16)
+      .attr('text-anchor', 'middle')
+      .style('font-family', "'Source Sans 3', sans-serif")
+      .style('font-size', '14px').style('font-weight', '600').style('fill', '#2c3e50')
+      .text(config.yLabel);
+
+    // State
+    let drawnPoints = [];
+    let submitted = false;
+
+    const lineGen = d3.line()
+      .x(d => xScale(d.x)).y(d => yScale(d.y))
+      .curve(d3.curveMonotoneX);
+
+    // Drawn path (dashed)
+    const drawnPath = g.append('path')
+      .attr('fill', 'none')
+      .attr('stroke', config.curveColor)
+      .attr('stroke-width', 2.5)
+      .attr('stroke-dasharray', '8,4')
+      .attr('opacity', 0.8);
+
+    // Correct line (hidden until submit)
+    const correctPathEl = g.append('path')
+      .attr('fill', 'none')
+      .attr('stroke', config.curveColor)
+      .attr('stroke-width', 3)
+      .attr('opacity', 0);
+
+    // Drag behavior
+    const drag = d3.drag()
+      .on('start', function(event) {
+        if (submitted) return;
+        drawnPoints = [];
+        const [mx, my] = d3.pointer(event, g.node());
+        const cx = Math.max(config.xDomain[0], Math.min(config.xDomain[1], xScale.invert(mx)));
+        const cy = Math.max(config.yDomain[0], Math.min(config.yDomain[1], yScale.invert(my)));
+        drawnPoints.push({ x: cx, y: cy });
+      })
+      .on('drag', function(event) {
+        if (submitted) return;
+        const [mx, my] = d3.pointer(event, g.node());
+        const cx = Math.max(config.xDomain[0], Math.min(config.xDomain[1], xScale.invert(mx)));
+        const cy = Math.max(config.yDomain[0], Math.min(config.yDomain[1], yScale.invert(my)));
+        drawnPoints.push({ x: cx, y: cy });
+        if (drawnPoints.length > 1) drawnPath.attr('d', lineGen(drawnPoints));
+      });
+
+    drawArea.call(drag);
+
+    return {
+      clear() {
+        drawnPoints = [];
+        submitted = false;
+        drawnPath.attr('d', null);
+        correctPathEl.attr('opacity', 0);
+        g.selectAll('.draw-graph__correct-label').remove();
+      },
+
+      submit(feedbackEl) {
+        if (drawnPoints.length < 3) {
+          feedbackEl.className = 'draw-graph__feedback draw-graph__feedback--warning';
+          feedbackEl.innerHTML = '<strong>Nothing drawn yet.</strong> Click and drag on the graph to draw your curve, then submit.';
+          return;
+        }
+
+        const xMin = Math.min(...drawnPoints.map(d => d.x));
+        const xMax = Math.max(...drawnPoints.map(d => d.x));
+        const coverage = (xMax - xMin) / (config.xDomain[1] - config.xDomain[0]);
+
+        if (coverage < 0.4) {
+          feedbackEl.className = 'draw-graph__feedback draw-graph__feedback--warning';
+          feedbackEl.innerHTML = '<strong>Try spanning more of the graph.</strong> ' + config.feedbackMessages.tooShort;
+          return;
+        }
+
+        // Linear regression slope
+        const n = drawnPoints.length;
+        let sumX = 0, sumY = 0, sumXY = 0, sumX2 = 0;
+        drawnPoints.forEach(d => { sumX += d.x; sumY += d.y; sumXY += d.x * d.y; sumX2 += d.x * d.x; });
+        const slope = (n * sumXY - sumX * sumY) / (n * sumX2 - sumX * sumX);
+        const slopeDir = slope > 0 ? 'positive' : 'negative';
+        const isCorrect = slopeDir === config.expectedSlope;
+
+        submitted = true;
+
+        // Show correct line
+        if (config.correctLine) {
+          const [x0, x1] = config.xDomain;
+          const pts = [];
+          for (let x = x0; x <= x1; x += (x1 - x0) / 100) {
+            const y = config.correctLine(x);
+            if (y >= config.yDomain[0] && y <= config.yDomain[1]) pts.push({ x, y });
+          }
+          correctPathEl.attr('d', lineGen(pts)).attr('opacity', 1).attr('stroke-dasharray', null);
+
+          const lastPt = pts[pts.length - 1];
+          g.append('text').attr('class', 'draw-graph__correct-label')
+            .attr('x', xScale(lastPt.x) + 8).attr('y', yScale(lastPt.y) + 4)
+            .style('font-family', "'Source Sans 3', sans-serif")
+            .style('font-size', '13px').style('font-weight', '700')
+            .style('fill', config.curveColor)
+            .text(config.expectedSlope === 'negative' ? 'D' : 'S');
+        }
+
+        if (isCorrect) {
+          feedbackEl.className = 'draw-graph__feedback draw-graph__feedback--correct';
+          feedbackEl.innerHTML = '<strong>Great job!</strong> ' + config.feedbackMessages.correct;
+        } else {
+          feedbackEl.className = 'draw-graph__feedback draw-graph__feedback--incorrect';
+          feedbackEl.innerHTML = '<strong>Not quite.</strong> ' + config.feedbackMessages.wrongSlope +
+            ' The correct curve is shown in the graph above.';
+        }
+      }
+    };
+  }
+};
+
+
+/* -------------------------------------------------------
+   INITIALIZATION
+   ------------------------------------------------------- */
+document.addEventListener('DOMContentLoaded', () => {
+  PolicyExampleSwitcher.init();
+  SidebarNav.init();
+  CheckUnderstanding.init();
+  SelfCheck.init();
+  Flashcards.init();
+});
