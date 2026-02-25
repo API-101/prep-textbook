@@ -197,19 +197,40 @@
       </ul>
 
       <h3>Graphing the Supply Curve</h3>
-      <div class="step-process">
-        <div class="step-process__step">
-          <div class="step-process__number">Method 1</div>
-          <div class="step-process__content">
-            <strong>Using the Origin and Slope:</strong> The curve passes through (0, 0). Slope is 1/15: move right 15 units and up 1 unit. Plot (15, 1), (30, 2), (45, 3), (60, 4), (75, 5). Connect with a straight line.
+      <p>Because the supply curve passes through the origin, graphing it is even more direct than demand. Two methods work well:</p>
+
+      <div class="graphing-methods">
+
+        <!-- Method 1: Origin and Slope -->
+        <div class="graphing-method">
+          <div class="graphing-method__header">
+            <span class="graphing-method__badge">Method 1</span>
+            <h4 class="graphing-method__title">Origin and Slope</h4>
+          </div>
+          <p class="graphing-method__intro">The supply curve passes through the origin (0, 0). The slope is 1/15: move right 15, up 1, and repeat until you cross the domain.</p>
+          <div class="graphing-method__step-desc" id="sm1-desc">Press ▶ Play to build the supply curve step by step.</div>
+          <div id="sm1-graph"></div>
+          <div class="graphing-method__controls">
+            <button id="sm1-play" class="graphing-method__play-btn">▶ Play</button>
           </div>
         </div>
-        <div class="step-process__step">
-          <div class="step-process__number">Method 2</div>
-          <div class="step-process__content">
-            <strong>Plotting Schedule Points:</strong> Use the supply schedule. Plot (15, 1), (30, 2), (45, 3), (60, 4), (75, 5). Connect with a straight line.
+
+        <hr class="section-divider">
+
+        <!-- Method 2: Plot the Supply Schedule -->
+        <div class="graphing-method">
+          <div class="graphing-method__header">
+            <span class="graphing-method__badge">Method 2</span>
+            <h4 class="graphing-method__title">Plot the Supply Schedule</h4>
+          </div>
+          <p class="graphing-method__intro">Each row of the supply schedule is a point on the curve. Plot all five price-quantity pairs, then connect with a straight line.</p>
+          <div class="graphing-method__step-desc" id="sm2-desc">Press ▶ Play to plot each point from the schedule.</div>
+          <div id="sm2-graph"></div>
+          <div class="graphing-method__controls">
+            <button id="sm2-play" class="graphing-method__play-btn">▶ Play</button>
           </div>
         </div>
+
       </div>
 
       <p>
@@ -332,8 +353,110 @@
       [[15,1],[30,2],[45,3],[60,4]].forEach(([q,p]) => {
         graph.addPoint(q, p, { color: '#c0392b', radius: 4 });
       });
-      graph.addPoint(0, 0, { color: '#e74c3c', radius: 5, label: 'Origin (0, 0)' });
-      graph.addLabel(58, 2.8, 'Slope = 1/15', { color: '#c0392b', fontSize: '11px' });
+      graph.addPoint(0, 0, { color: '#e74c3c', radius: 5 });
+      graph.addLabel(2, 0.35, 'Origin (0, 0)', { color: '#e74c3c', fontSize: '11px', anchor: 'start' });
+      graph.addLabel(55, 2.8, 'Slope = 1/15', { color: '#c0392b', fontSize: '11px' });
+    })();
+
+    // ===== Graphing Methods: Supply (animated) =====
+    (function() {
+      const INTERVAL = 900;
+      const supply = x => x / 15;
+
+      function makeAnimator(graph, frames, descs, descEl, playBtn) {
+        let frame = -1, timer = null;
+        const total = frames.length;
+
+        function drawFrame(i) {
+          graph.clear();
+          frames[i]();
+          descEl.innerHTML = descs[i];
+        }
+
+        function stop() { if (timer) { clearInterval(timer); timer = null; } }
+
+        function advance() {
+          frame++;
+          drawFrame(frame);
+          if (frame >= total - 1) {
+            stop();
+            playBtn.textContent = '↺ Replay';
+            playBtn.classList.add('graphing-method__play-btn--replay');
+          }
+        }
+
+        playBtn.addEventListener('click', () => {
+          if (timer) {
+            stop();
+            playBtn.textContent = '▶ Play';
+            playBtn.classList.remove('graphing-method__play-btn--replay');
+          } else if (frame >= total - 1) {
+            frame = -1;
+            graph.clear();
+            descEl.innerHTML = descs[0];
+            playBtn.textContent = '⏸ Pause';
+            playBtn.classList.remove('graphing-method__play-btn--replay');
+            timer = setInterval(advance, INTERVAL);
+          } else {
+            playBtn.textContent = '⏸ Pause';
+            playBtn.classList.remove('graphing-method__play-btn--replay');
+            timer = setInterval(advance, INTERVAL);
+          }
+        });
+      }
+
+      // --- Method 1: Origin and Slope ---
+      const s1 = EconGraph.create('#sm1-graph', {
+        xLabel: 'Quantity (millions of kg/year)', yLabel: 'Price (€/kg)',
+        xDomain: [0, 80], yDomain: [0, 6]
+      });
+      if (s1) makeAnimator(s1, [
+        function() {
+          s1.addPoint(0, 0, { color: '#e74c3c', radius: 5 });
+          s1.addLabel(2, 0.35, 'Start: Origin (0, 0)', { color: '#e74c3c', fontSize: '11px', anchor: 'start' });
+        },
+        function() {
+          s1.addPoint(0, 0, { color: '#e74c3c', radius: 5 });
+          s1.addLabel(2, 0.35, 'Start: Origin (0, 0)', { color: '#e74c3c', fontSize: '11px', anchor: 'start' });
+          [[15,1],[30,2],[45,3],[60,4],[75,5]].forEach(([q,p]) => s1.addPoint(q, p, { color: '#c0392b', radius: 4 }));
+          s1.addLabel(32, 1.6, 'Each step: right 15, up 1', { color: '#c0392b', fontSize: '11px', anchor: 'start' });
+        },
+        function() {
+          s1.addLine(supply, '#c0392b', { label: 'S', strokeWidth: 2.5 });
+          s1.addPoint(0, 0, { color: '#e74c3c', radius: 5 });
+          [[15,1],[30,2],[45,3],[60,4],[75,5]].forEach(([q,p]) => s1.addPoint(q, p, { color: '#c0392b', radius: 4 }));
+        }
+      ], [
+        'Step 1 — Plot the <strong>origin (0, 0)</strong>. At a price of zero, producers supply nothing.',
+        'Step 2 — Apply the slope: <strong>right 15, up 1</strong> repeatedly to plot (15,1), (30,2), (45,3), (60,4), (75,5).',
+        'Step 3 — Connect all points with a <strong>straight line</strong>. Supply curve S, slope = 1/15.'
+      ], document.getElementById('sm1-desc'), document.getElementById('sm1-play'));
+
+      // --- Method 2: Schedule Points ---
+      const s2 = EconGraph.create('#sm2-graph', {
+        xLabel: 'Quantity (millions of kg/year)', yLabel: 'Price (€/kg)',
+        xDomain: [0, 80], yDomain: [0, 6]
+      });
+      const schedulePoints = [[15,1],[30,2],[45,3],[60,4],[75,5]];
+      const sm2Frames = schedulePoints.map((_, i) => function() {
+        schedulePoints.slice(0, i + 1).forEach(([q, p]) => s2.addPoint(q, p, { color: '#c0392b', radius: 5 }));
+      });
+      sm2Frames.push(function() {
+        schedulePoints.forEach(([q, p]) => s2.addPoint(q, p, { color: '#c0392b', radius: 5 }));
+        s2.addLine(supply, '#c0392b', { label: 'S', strokeWidth: 2.5 });
+      });
+      const sm2Descs = [
+        'Row 1 → Plot <strong>(Q=15, P=1)</strong> — at €1/kg producers supply 15 million kg.',
+        'Row 2 → Plot <strong>(Q=30, P=2)</strong>.',
+        'Row 3 → Plot <strong>(Q=45, P=3)</strong>.',
+        'Row 4 → Plot <strong>(Q=60, P=4)</strong>.',
+        'Row 5 → Plot <strong>(Q=75, P=5)</strong>.',
+        'All five points plotted. <strong>Connect them with a straight line</strong> — the supply curve S.'
+      ];
+      if (s2) makeAnimator(s2, sm2Frames, sm2Descs,
+        document.getElementById('sm2-desc'),
+        document.getElementById('sm2-play')
+      );
     })();
 
     // ===== Interactive Supply Graph =====

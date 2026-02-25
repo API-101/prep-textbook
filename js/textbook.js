@@ -751,6 +751,14 @@ const PracticeQuiz = {
 
       container.innerHTML = html;
       bindEvents();
+      if (typeof renderMathInElement !== 'undefined') {
+        renderMathInElement(container, {
+          delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '\\(', right: '\\)', display: false}
+          ]
+        });
+      }
     }
 
     function showResults() {
@@ -775,6 +783,15 @@ const PracticeQuiz = {
           <button class="practice-quiz__btn practice-quiz__btn--primary" id="pq-retry" style="margin-left: var(--space-sm);">Try Again</button>
         </div>
       `;
+
+      if (typeof renderMathInElement !== 'undefined') {
+        renderMathInElement(container, {
+          delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '\\(', right: '\\)', display: false}
+          ]
+        });
+      }
 
       document.getElementById('pq-review')?.addEventListener('click', () => {
         state.current = 0;
@@ -892,7 +909,7 @@ const Flashcards = {
         table.querySelectorAll('tbody tr').forEach(row => {
           const cells = row.querySelectorAll('td');
           if (cells.length >= 2) {
-            terms.push({ term: cells[0].textContent.trim(), definition: cells[1].textContent.trim() });
+            terms.push({ term: cells[0].innerHTML.trim(), definition: cells[1].innerHTML.trim() });
           }
         });
         if (terms.length === 0) return;
@@ -962,8 +979,8 @@ const Flashcards = {
 
     function showCard() {
       card.classList.remove('flashcard--flipped');
-      termEl.textContent = deck[idx].term;
-      defEl.textContent = deck[idx].definition;
+      termEl.innerHTML = deck[idx].term;
+      defEl.innerHTML = deck[idx].definition;
       currentEl.textContent = idx + 1;
       dots.forEach((d, i) => {
         d.classList.toggle('flashcard-dot--active', i === idx);

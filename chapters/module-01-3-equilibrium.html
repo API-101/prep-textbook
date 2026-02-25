@@ -450,6 +450,10 @@
   <!-- Scripts -->
   <script src="../js/textbook.js"></script>
   <script>
+    // Scroll to top on every load (prevents browser scroll restoration mid-page)
+    if ('scrollRestoration' in history) { history.scrollRestoration = 'manual'; }
+    window.scrollTo(0, 0);
+
     document.addEventListener("DOMContentLoaded", function() {
       if (typeof renderMathInElement !== 'undefined') {
         renderMathInElement(document.body, {
@@ -459,7 +463,6 @@
           ]
         });
       }
-    });
 
     // ===== Static Equilibrium Graph =====
     (function() {
@@ -533,83 +536,84 @@
       update();
     })();
 
-    // ===== PRACTICE QUIZ =====
-    const quizData = [
-      {
-        type: 'short_answer',
-        text: 'Suppose that the demand for a good is given by the equation Qd = 8 – 4P. How many units are demanded at price 1?',
-        feedback: 'Plug in P = 1: Qd = 8 – 4(1) = 8 – 4 = 4 units.',
-        correctAnswer: '4'
-      },
-      {
-        type: 'short_answer',
-        text: 'Suppose that the supply for a good is given by the equation Qs = 2P + 5. How many units are supplied at price 2?',
-        feedback: 'Plug in P = 2: Qs = 2(2) + 5 = 4 + 5 = 9 units.',
-        correctAnswer: '9'
-      },
-      {
-        type: 'multiple_choice',
-        text: 'Suppose that consumers will buy 100 units at price 10 and 50 units at price 20, and the demand curve is linear. Find the equation for the demand curve so that price is a function of quantity.',
-        options: [
-          { text: 'P = 150 – 5Qd', correct: false },
-          { text: 'P = 30 + Qd/5', correct: false },
-          { text: 'P = 30 – Qd/5', correct: true },
-          { text: 'P = Qd/5 - 10', correct: false },
-          { text: 'P = –Qd/5', correct: false }
-        ],
-        feedback: 'The slope is (ΔP / ΔQ) = (20 – 10) / (50 – 100) = 10 / (–50) = –1/5. Using the point (Q = 100, P = 10): 10 = Intercept – (1/5)(100) → Intercept = 30. Therefore, P = 30 – Qd/5.'
-      },
-      {
-        type: 'multiple_choice',
-        text: 'Suppose that producers will supply 4 units at price 2, the supply curve is linear, and for each $1 increase in price, the quantity supplied increases by 4 units. Find the equation for the supply curve so that price is a function of quantity.',
-        options: [
-          { text: 'P = 4Qs – 4', correct: false },
-          { text: 'P = 4Qs – 14', correct: false },
-          { text: 'P = Qs/4', correct: false },
-          { text: 'P = Qs/4 + 1', correct: true },
-          { text: 'P = Qs/4 + 3.5', correct: false }
-        ],
-        feedback: 'The slope is 1/4. Using the point (Q = 4, P = 2): 2 = Intercept + (1/4)(4) → 2 = Intercept + 1 → Intercept = 1. Therefore, P = Qs/4 + 1.'
-      },
-      {
-        type: 'short_answer',
-        text: 'The demand curve is Qd = 8 – 4P and the supply curve is Qs = 2P + 5. What is the market equilibrium price?',
-        feedback: 'Set Qd = Qs: 8 – 4P = 2P + 5 → 8 – 5 = 2P + 4P → 3 = 6P → P = 0.5. The equilibrium price is $0.50.',
-        correctAnswer: '0.5'
-      },
-      {
-        type: 'short_answer',
-        text: 'Using the same demand and supply equations (Qd = 8 – 4P and Qs = 2P + 5), what is the market equilibrium quantity?',
-        feedback: 'Plug P = 0.5 into demand: Qd = 8 – 4(0.5) = 8 – 2 = 6 units. Verify with supply: Qs = 2(0.5) + 5 = 6 units. The equilibrium quantity is 6 units.',
-        correctAnswer: '6'
-      },
-      {
-        type: 'multiple_choice',
-        text: 'Which of the following best describes what happens at a price above the equilibrium price?',
-        options: [
-          { text: 'Quantity demanded exceeds quantity supplied, creating a shortage.', correct: false },
-          { text: 'Quantity supplied exceeds quantity demanded, creating a surplus.', correct: true },
-          { text: 'Both demand and supply increase equally.', correct: false },
-          { text: 'The demand curve shifts rightward.', correct: false },
-          { text: 'Consumers immediately purchase all available inventory.', correct: false }
-        ],
-        feedback: 'At prices above equilibrium, producers supply more than consumers demand. This excess supply (surplus) creates downward pressure on price until equilibrium is restored.'
-      },
-      {
-        type: 'multiple_choice',
-        text: 'If the demand equation is Qd = 50 – 2P, what is the quantity demanded when P = 15?',
-        options: [
-          { text: '20 units', correct: true },
-          { text: '30 units', correct: false },
-          { text: '80 units', correct: false },
-          { text: '40 units', correct: false },
-          { text: '15 units', correct: false }
-        ],
-        feedback: 'Substitute P = 15: Qd = 50 – 2(15) = 50 – 30 = 20 units.'
-      }
-    ];
+      // ===== PRACTICE QUIZ =====
+      const quizData = [
+        {
+          type: 'short_answer',
+          text: 'Suppose that the demand for a good is given by the equation \\(Q_d = 8 - 4P\\). How many units are demanded at price 1?',
+          feedback: 'Plug in \\(P = 1\\): \\(Q_d = 8 - 4(1) = 8 - 4 = 4\\) units.',
+          correctAnswer: '4'
+        },
+        {
+          type: 'short_answer',
+          text: 'Suppose that the supply for a good is given by the equation \\(Q_s = 2P + 5\\). How many units are supplied at price 2?',
+          feedback: 'Plug in \\(P = 2\\): \\(Q_s = 2(2) + 5 = 4 + 5 = 9\\) units.',
+          correctAnswer: '9'
+        },
+        {
+          type: 'multiple_choice',
+          text: 'Suppose that consumers will buy 100 units at price 10 and 50 units at price 20, and the demand curve is linear. Find the inverse demand equation \\(P\\) as a function of \\(Q_d\\).',
+          options: [
+            { text: '\\(P = 150 - 5Q_d\\)', correct: false },
+            { text: '\\(P = 30 + Q_d/5\\)', correct: false },
+            { text: '\\(P = 30 - Q_d/5\\)', correct: true },
+            { text: '\\(P = Q_d/5 - 10\\)', correct: false },
+            { text: '\\(P = -Q_d/5\\)', correct: false }
+          ],
+          feedback: 'The slope is \\(\\Delta P / \\Delta Q = (20 - 10)/(50 - 100) = -1/5\\). Using point \\((Q=100, P=10)\\): \\(10 = b - (1/5)(100)\\) gives \\(b = 30\\). Therefore \\(P = 30 - Q_d/5\\).'
+        },
+        {
+          type: 'multiple_choice',
+          text: 'Suppose producers supply 4 units at price 2, the supply curve is linear, and for each $1 increase in price, quantity supplied increases by 4 units. Find the inverse supply equation \\(P\\) as a function of \\(Q_s\\).',
+          options: [
+            { text: '\\(P = 4Q_s - 4\\)', correct: false },
+            { text: '\\(P = 4Q_s - 14\\)', correct: false },
+            { text: '\\(P = Q_s/4\\)', correct: false },
+            { text: '\\(P = Q_s/4 + 1\\)', correct: true },
+            { text: '\\(P = Q_s/4 + 3.5\\)', correct: false }
+          ],
+          feedback: 'The slope is \\(1/4\\). Using point \\((Q=4, P=2)\\): \\(2 = b + (1/4)(4)\\) gives \\(b = 1\\). Therefore \\(P = Q_s/4 + 1\\).'
+        },
+        {
+          type: 'short_answer',
+          text: 'The demand curve is \\(Q_d = 8 - 4P\\) and the supply curve is \\(Q_s = 2P + 5\\). What is the market equilibrium price?',
+          feedback: 'Set \\(Q_d = Q_s\\): \\(8 - 4P = 2P + 5 \\Rightarrow 3 = 6P \\Rightarrow P^* = 0.5\\).',
+          correctAnswer: '0.5'
+        },
+        {
+          type: 'short_answer',
+          text: 'Using the same equations (\\(Q_d = 8 - 4P\\) and \\(Q_s = 2P + 5\\)), what is the market equilibrium quantity?',
+          feedback: 'Plug \\(P^* = 0.5\\) into demand: \\(Q_d = 8 - 4(0.5) = 6\\). Verify with supply: \\(Q_s = 2(0.5) + 5 = 6\\) ✓. Equilibrium quantity is 6 units.',
+          correctAnswer: '6'
+        },
+        {
+          type: 'multiple_choice',
+          text: 'Which of the following best describes what happens at a price above the equilibrium price?',
+          options: [
+            { text: 'Quantity demanded exceeds quantity supplied, creating a shortage.', correct: false },
+            { text: 'Quantity supplied exceeds quantity demanded, creating a surplus.', correct: true },
+            { text: 'Both demand and supply increase equally.', correct: false },
+            { text: 'The demand curve shifts rightward.', correct: false },
+            { text: 'Consumers immediately purchase all available inventory.', correct: false }
+          ],
+          feedback: 'At prices above equilibrium, producers supply more than consumers demand. This excess supply (surplus) creates downward pressure on price until equilibrium is restored.'
+        },
+        {
+          type: 'multiple_choice',
+          text: 'If the demand equation is \\(Q_d = 50 - 2P\\), what is the quantity demanded when \\(P = 15\\)?',
+          options: [
+            { text: '20 units', correct: true },
+            { text: '30 units', correct: false },
+            { text: '80 units', correct: false },
+            { text: '40 units', correct: false },
+            { text: '15 units', correct: false }
+          ],
+          feedback: 'Substitute \\(P = 15\\): \\(Q_d = 50 - 2(15) = 50 - 30 = 20\\) units.'
+        }
+      ];
 
-    PracticeQuiz.create('#quiz-1', quizData, { title: 'Module 1 Practice Quiz' });
+      PracticeQuiz.create('#quiz-1', quizData, { title: 'Module 1 Practice Quiz' });
+    }); // end DOMContentLoaded
   </script>
 
 </body>
