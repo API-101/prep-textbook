@@ -260,23 +260,21 @@
         With the inverted equation \(P = 5 - Q_d/10\), we have several methods to graph the demand curve:
       </p>
 
-      <div class="step-process">
-        <div class="step-process__step">
-          <div class="step-process__number">Method 1</div>
-          <div class="step-process__content">
-            <strong>Using Intercepts:</strong> Plot the vertical intercept (0, 5) and the horizontal intercept. Setting P = 0: \(0 = 5 - Q_d/10\), so \(Q_d = 50\). Plot (50, 0). Draw a straight line through these two points.
-          </div>
+      <div class="method-demo">
+        <div class="method-demo__tabs">
+          <button class="method-demo__tab method-demo__tab--active" data-method="1">Method 1: Intercepts</button>
+          <button class="method-demo__tab" data-method="2">Method 2: Slope &amp; Point</button>
+          <button class="method-demo__tab" data-method="3">Method 3: Schedule Points</button>
         </div>
-        <div class="step-process__step">
-          <div class="step-process__number">Method 2</div>
-          <div class="step-process__content">
-            <strong>Using Slope and a Point:</strong> Plot (0, 5). Slope is -1/10: move right 10 units and down 1 unit. Plot (10, 4), (20, 3), (30, 2), (40, 1), (50, 0). Connect with a straight line.
+        <div class="method-demo__body">
+          <div class="method-demo__description" id="method-demo-desc"></div>
+          <div class="method-demo__graph-wrapper">
+            <div id="method-demo-graph"></div>
           </div>
-        </div>
-        <div class="step-process__step">
-          <div class="step-process__number">Method 3</div>
-          <div class="step-process__content">
-            <strong>Plotting Schedule Points:</strong> Use the demand schedule. Plot (40, 1), (30, 2), (20, 3), (10, 4), (0, 5). Connect with a straight line.
+          <div class="method-demo__nav">
+            <button id="method-prev-btn" class="method-demo__nav-btn" disabled>← Previous Step</button>
+            <span id="method-step-counter" class="method-demo__step-counter">Step 1 of 3</span>
+            <button id="method-next-btn" class="method-demo__nav-btn">Next Step →</button>
           </div>
         </div>
       </div>
@@ -288,20 +286,86 @@
         </p>
       </div>
 
-      <!-- DrawGraph: Demand -->
-      <h3>Try It: Draw the Demand Curve</h3>
-      <div class="draw-graph-container">
-        <div class="draw-graph-container__title">Draw the EU Sugar Demand Curve</div>
-        <div class="draw-graph-container__prompt">
-          Using what you just learned, draw the demand curve for the EU sugar market. Place <strong>price (€/kg)</strong> on the vertical axis and <strong>quantity (millions of kg/year)</strong> on the horizontal axis. Remember: the curve should slope downward from left to right.
+      <!-- Graph It: Multi-Equation Practice -->
+      <h3>Graph It: Practice Drawing Demand Curves</h3>
+      <p>
+        Below are three demand equations to graph. For each, draw the inverse demand curve with price on the vertical axis and quantity on the horizontal. Equations 1 and 2 are already in inverse form. Equation 3 requires inversion first.
+      </p>
+      <div class="graphit-container">
+        <div class="graphit-tabs">
+          <button class="graphit-tab graphit-tab--active" data-eq="1">Equation 1</button>
+          <button class="graphit-tab" data-eq="2">Equation 2</button>
+          <button class="graphit-tab graphit-tab--challenge" data-eq="3">Equation 3 ★ (invert first)</button>
         </div>
-        <div class="draw-graph-container__svg-wrapper" id="draw-graph-demand"></div>
-        <div class="draw-graph-container__controls">
-          <button id="dg-demand-submit" class="draw-graph__submit-btn">Submit</button>
-          <button id="dg-demand-clear" class="draw-graph__clear-btn">Try Again</button>
-          <span class="draw-graph-container__hint">Click and drag to draw your curve</span>
+
+        <!-- Panel 1: P = 8 − 2Q_d -->
+        <div class="graphit-panel graphit-panel--active" id="graphit-panel-1">
+          <div class="graphit-equation">
+            <div class="graphit-equation__badge">Already in inverse form</div>
+            <div>$$P = 8 - 2Q_d$$</div>
+            <div class="graphit-equation__hint">Movie ticket demand. Price ($) on vertical axis, Quantity on horizontal axis.</div>
+          </div>
+          <div id="draw-graph-gi-1"></div>
+          <div class="draw-graph-container__controls">
+            <button id="gi-submit-1" class="draw-graph__submit-btn">Submit</button>
+            <button id="gi-clear-1" class="draw-graph__clear-btn">Try Again</button>
+            <span class="draw-graph-container__hint">Click and drag to draw your curve</span>
+          </div>
+          <div id="gi-feedback-1" class="draw-graph__feedback"></div>
         </div>
-        <div id="dg-demand-feedback" class="draw-graph__feedback"></div>
+
+        <!-- Panel 2: P = 6 − 0.5Q_d -->
+        <div class="graphit-panel" id="graphit-panel-2">
+          <div class="graphit-equation">
+            <div class="graphit-equation__badge">Already in inverse form</div>
+            <div>$$P = 6 - 0.5Q_d$$</div>
+            <div class="graphit-equation__hint">Gasoline demand. Draw the curve from (0, 6) to (12, 0).</div>
+          </div>
+          <div id="draw-graph-gi-2"></div>
+          <div class="draw-graph-container__controls">
+            <button id="gi-submit-2" class="draw-graph__submit-btn">Submit</button>
+            <button id="gi-clear-2" class="draw-graph__clear-btn">Try Again</button>
+            <span class="draw-graph-container__hint">Click and drag to draw your curve</span>
+          </div>
+          <div id="gi-feedback-2" class="draw-graph__feedback"></div>
+        </div>
+
+        <!-- Panel 3: Q_d = 40 − 4P (requires inversion) -->
+        <div class="graphit-panel" id="graphit-panel-3">
+          <div class="graphit-equation graphit-equation--challenge">
+            <div class="graphit-equation__badge">Inversion required</div>
+            <div>$$Q_d = 40 - 4P$$</div>
+            <div class="graphit-equation__hint">Energy drink demand. Invert to find P as a function of Q, then graph.</div>
+          </div>
+          <details class="graphit-hint-steps">
+            <summary>Show inversion steps</summary>
+            <div class="math-steps">
+              <div class="math-step">
+                <div class="math-step__label">Start with:</div>
+                <div class="math-step__expr">$$Q_d = 40 - 4P$$</div>
+              </div>
+              <div class="math-step">
+                <div class="math-step__label">Add \(4P\) to both sides:</div>
+                <div class="math-step__expr">$$Q_d + 4P = 40$$</div>
+              </div>
+              <div class="math-step">
+                <div class="math-step__label">Subtract \(Q_d\) from both sides:</div>
+                <div class="math-step__expr">$$4P = 40 - Q_d$$</div>
+              </div>
+              <div class="math-step">
+                <div class="math-step__label">Divide both sides by 4:</div>
+                <div class="math-step__expr">$$P = 10 - \frac{Q_d}{4}$$</div>
+              </div>
+            </div>
+          </details>
+          <div id="draw-graph-gi-3"></div>
+          <div class="draw-graph-container__controls">
+            <button id="gi-submit-3" class="draw-graph__submit-btn">Submit</button>
+            <button id="gi-clear-3" class="draw-graph__clear-btn">Try Again</button>
+            <span class="draw-graph-container__hint">Click and drag to draw your curve</span>
+          </div>
+          <div id="gi-feedback-3" class="draw-graph__feedback"></div>
+        </div>
       </div>
 
       <!-- ===== DEMAND INTERACTIVE GRAPH ===== -->
@@ -337,6 +401,18 @@
         <button class="self-check__reveal-btn">Show Answer</button>
         <div class="self-check__answer">
           Substitute P = 2.5: \(Q_d = 50 - 10(2.5) = 50 - 25 = 25\) million kilograms.
+        </div>
+      </div>
+
+      <!-- Bottom Part Progress Strip -->
+      <div class="part-progress" style="margin-top: var(--space-3xl);">
+        <span class="part-progress__label">Module 1 · Part 1 of 3</span>
+        <div class="part-progress__steps">
+          <a class="part-progress__step part-progress__step--active" href="module-01-1-demand.html">Demand</a>
+          <span class="part-progress__divider">→</span>
+          <a class="part-progress__step" href="module-01-2-supply.html">Supply</a>
+          <span class="part-progress__divider">→</span>
+          <a class="part-progress__step" href="module-01-3-equilibrium.html">Equilibrium</a>
         </div>
       </div>
 
@@ -386,7 +462,8 @@
         graph.addPoint(q, p, { color: '#2e86c1', radius: 4 });
       });
       graph.addPoint(0, 5, { color: '#e74c3c', radius: 5, label: 'Vertical intercept (5)' });
-      graph.addPoint(50, 0, { color: '#e74c3c', radius: 5, label: 'Horizontal intercept (50)' });
+      graph.addPoint(50, 0, { color: '#e74c3c', radius: 5 });
+      graph.addLabel(48, 0.35, 'H. intercept (Q=50)', { color: '#e74c3c', fontSize: '11px', anchor: 'end' });
       graph.addLabel(42, 0.9, 'Slope = −1/10', { color: '#2e86c1', fontSize: '11px' });
     })();
 
@@ -421,32 +498,201 @@
       update();
     })();
 
-    // ===== DrawGraph: Demand =====
+    // ===== Method Demo =====
     (function() {
-      const dg = DrawGraph.create('#draw-graph-demand', {
+      const graph = EconGraph.create('#method-demo-graph', {
         xLabel: 'Quantity (millions of kg/year)',
         yLabel: 'Price (€/kg)',
         xDomain: [0, 60],
-        yDomain: [0, 6],
+        yDomain: [0, 6]
+      });
+      if (!graph) return;
+
+      const demand = x => 5 - x / 10;
+
+      const steps = {
+        1: [
+          function() {
+            graph.addPoint(0, 5, { color: '#e74c3c', radius: 5 });
+            graph.addLabel(1, 5.3, 'Vertical intercept (0, 5)', { color: '#e74c3c', fontSize: '11px', anchor: 'start' });
+          },
+          function() {
+            graph.addPoint(0, 5, { color: '#e74c3c', radius: 5 });
+            graph.addLabel(1, 5.3, 'Vertical intercept (0, 5)', { color: '#e74c3c', fontSize: '11px', anchor: 'start' });
+            graph.addPoint(50, 0, { color: '#e74c3c', radius: 5 });
+            graph.addLabel(48, 0.4, 'H. intercept (50, 0)', { color: '#e74c3c', fontSize: '11px', anchor: 'end' });
+          },
+          function() {
+            graph.addLine(demand, '#2e86c1', { label: 'D', strokeWidth: 2.5 });
+            graph.addPoint(0, 5, { color: '#e74c3c', radius: 5 });
+            graph.addLabel(1, 5.3, 'Vertical intercept (0, 5)', { color: '#e74c3c', fontSize: '11px', anchor: 'start' });
+            graph.addPoint(50, 0, { color: '#e74c3c', radius: 5 });
+            graph.addLabel(48, 0.4, 'H. intercept (50, 0)', { color: '#e74c3c', fontSize: '11px', anchor: 'end' });
+          }
+        ],
+        2: [
+          function() {
+            graph.addPoint(0, 5, { color: '#e74c3c', radius: 5 });
+            graph.addLabel(1, 5.3, 'Start here: (0, 5)', { color: '#e74c3c', fontSize: '11px', anchor: 'start' });
+          },
+          function() {
+            graph.addPoint(0, 5, { color: '#e74c3c', radius: 5 });
+            graph.addLabel(1, 5.3, 'Start: (0, 5)', { color: '#e74c3c', fontSize: '11px', anchor: 'start' });
+            [[10,4],[20,3],[30,2],[40,1],[50,0]].forEach(([q,p]) => {
+              graph.addPoint(q, p, { color: '#2e86c1', radius: 4 });
+            });
+            graph.addLabel(22, 2.7, 'Each step: right 10, down 1', { color: '#2e86c1', fontSize: '11px', anchor: 'start' });
+          },
+          function() {
+            graph.addLine(demand, '#2e86c1', { label: 'D', strokeWidth: 2.5 });
+            graph.addPoint(0, 5, { color: '#e74c3c', radius: 5 });
+            [[10,4],[20,3],[30,2],[40,1],[50,0]].forEach(([q,p]) => {
+              graph.addPoint(q, p, { color: '#2e86c1', radius: 4 });
+            });
+          }
+        ],
+        3: [
+          function() {
+            graph.addPoint(40, 1, { color: '#2e86c1', radius: 5 });
+            graph.addLabel(41, 1.3, 'P=1 → Q=40', { color: '#2e86c1', fontSize: '11px', anchor: 'start' });
+            graph.addPoint(30, 2, { color: '#2e86c1', radius: 5 });
+            graph.addLabel(31, 2.3, 'P=2 → Q=30', { color: '#2e86c1', fontSize: '11px', anchor: 'start' });
+          },
+          function() {
+            graph.addPoint(40, 1, { color: '#2e86c1', radius: 5 });
+            graph.addPoint(30, 2, { color: '#2e86c1', radius: 5 });
+            graph.addPoint(20, 3, { color: '#2e86c1', radius: 5 });
+            graph.addLabel(21, 3.3, 'P=3 → Q=20', { color: '#2e86c1', fontSize: '11px', anchor: 'start' });
+            graph.addPoint(10, 4, { color: '#2e86c1', radius: 5 });
+            graph.addLabel(11, 4.3, 'P=4 → Q=10', { color: '#2e86c1', fontSize: '11px', anchor: 'start' });
+            graph.addPoint(0, 5, { color: '#2e86c1', radius: 5 });
+            graph.addLabel(1, 5.3, 'P=5 → Q=0', { color: '#2e86c1', fontSize: '11px', anchor: 'start' });
+          },
+          function() {
+            [[40,1],[30,2],[20,3],[10,4],[0,5]].forEach(([q,p]) => {
+              graph.addPoint(q, p, { color: '#2e86c1', radius: 5 });
+            });
+            graph.addLine(demand, '#2e86c1', { label: 'D', strokeWidth: 2.5 });
+          }
+        ]
+      };
+
+      const descs = {
+        1: [
+          'Step 1 of 3 — Plot the <strong>vertical intercept (0, 5)</strong>. When Q = 0, P = 5 — the highest price any consumer will pay.',
+          'Step 2 of 3 — Find the <strong>horizontal intercept</strong>: set P = 0 in P = 5 − Q/10 to get Q = 50. Plot (50, 0) — the quantity demanded when price is zero.',
+          'Step 3 of 3 — Draw a <strong>straight line through the two intercepts</strong>. Every point on this line satisfies P = 5 − Q/10. This is the demand curve D.'
+        ],
+        2: [
+          'Step 1 of 3 — Plot the <strong>starting point (0, 5)</strong> — the vertical intercept. The slope of the inverse demand is −1/10.',
+          'Step 2 of 3 — Apply the slope: move <strong>right 10, down 1</strong> repeatedly. Plot (10,4), (20,3), (30,2), (40,1), (50,0).',
+          'Step 3 of 3 — Connect all points with a <strong>straight line</strong>. This is the demand curve D, with slope −1/10.'
+        ],
+        3: [
+          'Step 1 of 3 — From the demand schedule: Q = 40 when P = 1, Q = 30 when P = 2. <strong>Plot these two price-quantity pairs</strong>.',
+          'Step 2 of 3 — Add the <strong>remaining schedule points</strong>: Q = 20 at P = 3, Q = 10 at P = 4, Q = 0 at P = 5.',
+          'Step 3 of 3 — Connect all five points with a <strong>straight line</strong>. This is the demand curve D — built entirely from the schedule you already computed.'
+        ]
+      };
+
+      let currentMethod = 1;
+      let currentStep = 0;
+
+      function render() {
+        graph.clear();
+        steps[currentMethod][currentStep]();
+        const total = steps[currentMethod].length;
+        document.getElementById('method-step-counter').textContent = `Step ${currentStep + 1} of ${total}`;
+        document.getElementById('method-prev-btn').disabled = currentStep === 0;
+        document.getElementById('method-next-btn').disabled = currentStep === total - 1;
+        document.getElementById('method-demo-desc').innerHTML = descs[currentMethod][currentStep];
+      }
+
+      document.querySelectorAll('.method-demo__tab').forEach(btn => {
+        btn.addEventListener('click', function() {
+          document.querySelectorAll('.method-demo__tab').forEach(b => b.classList.remove('method-demo__tab--active'));
+          this.classList.add('method-demo__tab--active');
+          currentMethod = parseInt(this.dataset.method);
+          currentStep = 0;
+          render();
+        });
+      });
+
+      document.getElementById('method-prev-btn').addEventListener('click', () => {
+        if (currentStep > 0) { currentStep--; render(); }
+      });
+      document.getElementById('method-next-btn').addEventListener('click', () => {
+        if (currentStep < steps[currentMethod].length - 1) { currentStep++; render(); }
+      });
+
+      render();
+    })();
+
+    // ===== Graph It =====
+    (function() {
+      const gi1 = DrawGraph.create('#draw-graph-gi-1', {
+        xLabel: 'Quantity (Q\u1d48)',
+        yLabel: 'Price (P)',
+        xDomain: [0, 6],
+        yDomain: [0, 10],
         expectedSlope: 'negative',
-        correctLine: x => 5 - x / 10,
+        correctLine: x => 8 - 2 * x,
         feedbackMessages: {
-          correct: 'Your curve slopes downward from left to right — that\'s the law of demand. As price rises, consumers buy less sugar.',
-          wrongSlope: 'Demand curves slope downward: as price rises, quantity demanded falls. The correct demand curve is shown in the graph.',
-          tooShort: 'Try drawing your curve all the way across the graph from left to right.'
+          correct: 'Your curve slopes correctly downward. The demand curve P = 8 \u2212 2Q runs from (0, 8) to (4, 0).',
+          wrongSlope: 'Demand curves slope downward: as price falls, quantity demanded rises. The correct line is shown.',
+          tooShort: 'Draw your line all the way across the graph.'
         }
       });
-      if (!dg) return;
+      const gi2 = DrawGraph.create('#draw-graph-gi-2', {
+        xLabel: 'Quantity (Q\u1d48)',
+        yLabel: 'Price (P)',
+        xDomain: [0, 14],
+        yDomain: [0, 7],
+        expectedSlope: 'negative',
+        correctLine: x => 6 - 0.5 * x,
+        feedbackMessages: {
+          correct: 'Correct! The demand curve P = 6 \u2212 0.5Q runs from (0, 6) to (12, 0).',
+          wrongSlope: 'Check your direction. Demand curves slope downward.',
+          tooShort: 'Draw your line all the way across the graph.'
+        }
+      });
+      const gi3 = DrawGraph.create('#draw-graph-gi-3', {
+        xLabel: 'Quantity (Q\u1d48)',
+        yLabel: 'Price (P)',
+        xDomain: [0, 45],
+        yDomain: [0, 12],
+        expectedSlope: 'negative',
+        correctLine: x => 10 - x / 4,
+        feedbackMessages: {
+          correct: 'Correct! After inverting Q\u1d48 = 40 \u2212 4P to P = 10 \u2212 Q/4, the curve runs from (0, 10) to (40, 0).',
+          wrongSlope: 'Check your direction. After inverting, the demand curve slopes downward.',
+          tooShort: 'Draw your line all the way across the graph.'
+        }
+      });
 
-      const feedbackEl = document.getElementById('dg-demand-feedback');
-      document.getElementById('dg-demand-submit').addEventListener('click', () => {
-        dg.submit(feedbackEl);
+      document.querySelectorAll('.graphit-tab').forEach(btn => {
+        btn.addEventListener('click', function() {
+          document.querySelectorAll('.graphit-tab').forEach(b => b.classList.remove('graphit-tab--active'));
+          this.classList.add('graphit-tab--active');
+          const eq = this.dataset.eq;
+          document.querySelectorAll('.graphit-panel').forEach(p => p.classList.remove('graphit-panel--active'));
+          document.getElementById('graphit-panel-' + eq).classList.add('graphit-panel--active');
+        });
       });
-      document.getElementById('dg-demand-clear').addEventListener('click', () => {
-        dg.clear();
-        feedbackEl.textContent = '';
-        feedbackEl.className = 'draw-graph__feedback';
-      });
+
+      function wirePanel(n, dg) {
+        if (!dg) return;
+        const feedbackEl = document.getElementById('gi-feedback-' + n);
+        document.getElementById('gi-submit-' + n).addEventListener('click', () => dg.submit(feedbackEl));
+        document.getElementById('gi-clear-' + n).addEventListener('click', () => {
+          dg.clear();
+          feedbackEl.textContent = '';
+          feedbackEl.className = 'draw-graph__feedback';
+        });
+      }
+      wirePanel(1, gi1);
+      wirePanel(2, gi2);
+      wirePanel(3, gi3);
     })();
   </script>
 
