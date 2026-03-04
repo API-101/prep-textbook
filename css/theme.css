@@ -477,6 +477,93 @@ strong {
   margin-bottom: var(--space-sm);
 }
 
+/* --- Policy Context Chooser --- */
+.policy-chooser {
+  display: flex;
+  align-items: center;
+  gap: var(--space-md);
+  flex-wrap: wrap;
+  background: var(--color-primary-lighter);
+  border: 1px solid #b8d4ea;
+  border-radius: var(--radius-md);
+  padding: var(--space-md) var(--space-lg);
+  margin-bottom: var(--space-xl);
+}
+
+.policy-chooser__label {
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-primary-dark);
+  white-space: nowrap;
+}
+
+.policy-chooser__tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+}
+
+.policy-chooser__tab {
+  padding: 6px 16px;
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  background: var(--color-surface);
+  border: 1.5px solid var(--color-primary-light);
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+  white-space: nowrap;
+}
+
+.policy-chooser__tab:hover {
+  background: var(--color-primary-light);
+  color: #fff;
+}
+
+.policy-chooser__tab--active {
+  background: var(--color-primary);
+  color: #fff;
+  border-color: var(--color-primary);
+}
+
+/* --- Policy Context Indicator (compact, Parts 2 & 3) --- */
+.policy-context-indicator {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  background: var(--color-primary-lighter);
+  border: 1px solid #b8d4ea;
+  border-radius: var(--radius-sm);
+  padding: var(--space-sm) var(--space-md);
+  margin-bottom: var(--space-lg);
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  color: var(--color-primary-dark);
+}
+
+.policy-context-indicator__label {
+  font-weight: 600;
+}
+
+.policy-context-indicator__value {
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+.policy-context-indicator__link {
+  margin-left: auto;
+  font-size: 0.8rem;
+  color: var(--color-primary-light);
+  text-decoration: none;
+}
+
+.policy-context-indicator__link:hover {
+  text-decoration: underline;
+}
+
 /* --- Interactive Graph Container --- */
 .graph-container {
   background: var(--color-surface);
@@ -1939,3 +2026,37 @@ strong {
 /* Table row states for Method 3 animation */
 .gm-row--active td { background: var(--color-primary-lighter) !important; font-weight: 700; }
 .gm-row--plotted td { color: var(--color-neutral-500); }
+
+/* Step-through button controls */
+.graphing-method__controls {
+  gap: var(--space-sm);
+}
+.graphing-method__next-btn {
+  padding: var(--space-sm) var(--space-xl);
+  background: var(--color-primary);
+  color: #fff;
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 600;
+  min-width: 160px;
+  transition: background 0.15s;
+}
+.graphing-method__next-btn:hover:not(:disabled) { background: var(--color-primary-dark); }
+.graphing-method__next-btn:disabled { background: var(--color-neutral-400); cursor: default; }
+.graphing-method__next-btn--replay { background: var(--color-neutral-600); }
+.graphing-method__next-btn--replay:hover { background: var(--color-neutral-800); }
+.gm-step-counter {
+  font-size: 0.85em;
+  font-weight: 400;
+  color: var(--color-neutral-500);
+  margin-left: var(--space-xs);
+}
+
+/* Inline context switching: spans with data-context render inline when visible */
+span[data-context] { display: inline; }
+span[data-context][hidden] { display: none !important; }
+/* Ensure tbody[data-context][hidden] is fully hidden (some browsers display: table-row-group by default) */
+tbody[data-context][hidden] { display: none !important; }

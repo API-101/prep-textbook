@@ -65,6 +65,13 @@
         </div>
       </div>
 
+      <!-- Policy context indicator -->
+      <div class="policy-context-indicator">
+        <span class="policy-context-indicator__label">Policy context:</span>
+        <span class="policy-context-indicator__value">Agriculture</span>
+        <a class="policy-context-indicator__link" href="module-01-1-demand.html#policy-connections">Change context</a>
+      </div>
+
       <!-- ===== LEARNING OBJECTIVES ===== -->
       <div class="learning-objectives">
         <div class="learning-objectives__title">Learning Objectives — Part 2</div>
@@ -83,12 +90,12 @@
       <div class="definition-box">
         <div class="definition-box__term">Law of Supply</div>
         <div class="definition-box__text">
-          Holding all else equal, when the price of a good rises, the quantity supplied rises; when the price falls, the quantity supplied falls. The supply curve slopes upward from left to right.
+          Holding all else equal <em>(ceteris paribus)</em>, when the price of a good rises, the quantity supplied rises; when the price falls, the quantity supplied falls. The supply curve slopes upward from left to right.
         </div>
       </div>
 
       <p>
-        Supply describes the relationship between the price of a good and the quantity that producers are willing and able to offer for sale. Unlike the inverse relationship of demand, supply slopes upward: higher prices create stronger incentives for producers to increase output. When oil prices rise, energy companies expand drilling operations, invest in new refineries, and increase production capacity—all motivated by the expectation of higher profits. When grain prices increase, farmers allocate more land to grain cultivation rather than other crops.
+        Supply describes the relationship between the price of a good and the quantity that producers are willing and able to offer for sale. Unlike the inverse relationship of demand, supply slopes upward: higher prices create stronger incentives for producers to increase output. When the price of a good rises, producers find it profitable to expand output—by hiring more workers, running facilities longer, or diverting resources from lower-value uses. When price falls, those incentives weaken and producers scale back.
       </p>
       <p>
         Just as with demand, we can represent supply with a <strong>supply schedule</strong> (a table) or a <strong>supply curve</strong> (a graph). The upward slope reflects the law of supply: producers supply more at higher prices. This reflects economic reality: firms have costs of production, and higher prices allow them to cover those costs and earn profits even when expanding production.
@@ -96,13 +103,13 @@
 
       <!-- Check: Law of Supply MC -->
       <div class="check-understanding"
-           data-question="A farmer earns more money when sugar prices rise. According to the law of supply, what would we expect to happen?"
+           data-question="According to the law of supply, what happens when the price of a good rises?"
            data-correct="1"
-           data-explanation="The law of supply states that higher prices give producers a stronger incentive to increase output, so quantity supplied rises. This is why higher prices attract more production and sometimes new producers to a market.">
-        <div class="check-understanding__option" data-index="0">A) Farmers reduce sugar production because the market is already well-supplied.</div>
-        <div class="check-understanding__option" data-index="1">B) Farmers increase sugar production to take advantage of the higher price.</div>
+           data-explanation="The law of supply states that higher prices give producers a stronger incentive to increase output, so quantity supplied rises. Higher prices allow firms to cover costs and earn profits even when expanding production.">
+        <div class="check-understanding__option" data-index="0">A) Producers reduce output because the market is already well-supplied.</div>
+        <div class="check-understanding__option" data-index="1">B) Producers increase output to take advantage of the higher price.</div>
         <div class="check-understanding__option" data-index="2">C) Supply is unchanged because input costs have not changed.</div>
-        <div class="check-understanding__option" data-index="3">D) Quantity demanded increases as farmers sell at higher prices.</div>
+        <div class="check-understanding__option" data-index="3">D) Quantity demanded increases as producers sell at higher prices.</div>
       </div>
 
       <h3>Supply Equations and Interpretation</h3>
@@ -118,83 +125,211 @@
       <ul>
         <li><strong>\(Q_s\)</strong> is the quantity supplied</li>
         <li><strong>P</strong> is the price of the good</li>
-        <li><strong>c</strong> is the baseline quantity—the quantity supplied when price is zero. This is often zero or negative; a negative value represents a reservation price below which producers are unwilling to supply</li>
-        <li><strong>d</strong> is the slope coefficient, a positive number. It tells us how much quantity supplied increases for each unit increase in price. A larger d means producers are more responsive to price changes</li>
+        <li><strong>c</strong> is the baseline quantity — the quantity supplied when price is zero. This is often zero or negative; a negative value represents a reservation price below which producers are unwilling to supply</li>
+        <li><strong>d</strong> is the slope coefficient, a positive number. It tells us how much quantity supplied increases for each one-unit increase in price. A larger d means producers are more responsive to price changes</li>
       </ul>
       <p>
-        The positive coefficient on P is essential: it embodies the law of supply. If d = 15, it means that for every one-unit increase in price, quantity supplied increases by 15 units.
+        The positive coefficient on P is essential: it embodies the law of supply.
       </p>
 
-      <h3>Building a Supply Schedule: The EU Sugar Market</h3>
-      <p>
-        Continuing with our EU sugar example, suppose economists have estimated the supply equation:
-      </p>
-      <div class="equation-block">
-        $$Q_s = 15P$$
+      <h3>Building a Supply Schedule:
+        <span data-context="agriculture"> The EU Sugar Market</span><span data-context="healthcare" hidden> The Generic Atorvastatin Market</span><span data-context="energy" hidden> The Retail Gasoline Market</span><span data-context="criminal_justice" hidden> The Legal Cannabis Market</span>
+      </h3>
+
+      <!-- Per-context equation + units -->
+      <div data-context="agriculture">
+        <p>Continuing with our EU sugar market, suppose economists have estimated the supply equation for sugar beet farmers:</p>
+        <div class="equation-block">$$Q_s = 15P$$</div>
+        <p>Where \(Q_s\) is measured in millions of kilograms per year and P is the price in euros per kilogram. Notice that c = 0: at a price of zero, producers supply nothing — which makes economic sense. <em>Stylized illustration — numbers chosen to keep the algebra clean, not to match actual EU market volumes or intervention prices.</em></p>
       </div>
-      <p>
-        Where \(Q_s\) is measured in millions of kilograms per year, and P is the price in euros per kilogram. Notice that the constant term (c) is zero, meaning that at a price of zero, producers supply nothing—which makes economic sense.
-      </p>
 
+      <div data-context="healthcare" hidden>
+        <p>Continuing with our generic atorvastatin market, suppose economists have estimated the supply equation for generic manufacturers after patent expiry:</p>
+        <div class="equation-block">$$Q_s = 3P$$</div>
+        <p>Where \(Q_s\) is measured in millions of prescriptions per month and P is the patient's monthly co-pay in dollars (out-of-pocket after insurance). Notice that c = 0: at a co-pay of zero, producers supply nothing without some revenue stream. <em>Stylized illustration — numbers chosen to keep the algebra clean.</em></p>
+      </div>
+
+      <div data-context="energy" hidden>
+        <p>Continuing with our retail gasoline market, suppose economists have estimated the supply equation for refiners and distributors:</p>
+        <div class="equation-block">$$Q_s = 20P$$</div>
+        <p>Where \(Q_s\) is measured in billions of gallons per year and P is the price in dollars per gallon. Notice that c = 0: at a price of zero, no gasoline is supplied commercially. <em>Simplified model — in reality, refineries cannot quickly expand throughput, so short-run supply responds less strongly to price changes than this equation implies. The equation is calibrated for ease of algebra, not short-run precision.</em></p>
+      </div>
+
+      <div data-context="criminal_justice" hidden>
+        <p>Continuing with our Colorado legal cannabis market, suppose economists have estimated the supply equation for licensed cultivators and dispensaries:</p>
+        <div class="equation-block">$$Q_s = 2P$$</div>
+        <p>Where \(Q_s\) is measured in millions of grams per month and P is the price in dollars per gram. Notice that c = 0: below some positive price, no licensed producer finds it profitable to operate. <em>Illustrative rather than calibrated to Colorado data; actual market volumes and prices varied considerably across the early years of legalization.</em></p>
+      </div>
+
+      <!-- Supply Schedule Table — separate tbody per context -->
       <table class="data-table">
         <thead>
           <tr>
-            <th>Price (€/kg)</th>
-            <th>Quantity Supplied (millions of kg/year)</th>
+            <th>
+              <span data-context="agriculture">Price (€/kg)</span><span data-context="healthcare" hidden>Price ($/month co-pay)</span><span data-context="energy" hidden>Price ($/gallon)</span><span data-context="criminal_justice" hidden>Price ($/gram)</span>
+            </th>
+            <th>
+              <span data-context="agriculture">Quantity Supplied — \(Q_s = 15P\) (millions of kg/year)</span><span data-context="healthcare" hidden>Quantity Supplied — \(Q_s = 3P\) (millions of Rx/month)</span><span data-context="energy" hidden>Quantity Supplied — \(Q_s = 20P\) (billions of gal/year)</span><span data-context="criminal_justice" hidden>Quantity Supplied — \(Q_s = 2P\) (millions of g/month)</span>
+            </th>
           </tr>
         </thead>
-        <tbody>
+        <tbody data-context="agriculture">
           <tr><td>1</td><td>15(1) = 15</td></tr>
           <tr><td>2</td><td>15(2) = 30</td></tr>
           <tr><td>3</td><td>15(3) = 45</td></tr>
           <tr><td>4</td><td>15(4) = 60</td></tr>
           <tr><td>5</td><td>15(5) = 75</td></tr>
         </tbody>
+        <tbody data-context="healthcare" hidden>
+          <tr><td>2</td><td>3(2) = 6</td></tr>
+          <tr><td>4</td><td>3(4) = 12</td></tr>
+          <tr><td>6</td><td>3(6) = 18</td></tr>
+          <tr><td>8</td><td>3(8) = 24</td></tr>
+          <tr><td>10</td><td>3(10) = 30</td></tr>
+        </tbody>
+        <tbody data-context="energy" hidden>
+          <tr><td>1</td><td>20(1) = 20</td></tr>
+          <tr><td>2</td><td>20(2) = 40</td></tr>
+          <tr><td>3</td><td>20(3) = 60</td></tr>
+          <tr><td>4</td><td>20(4) = 80</td></tr>
+          <tr><td>5</td><td>20(5) = 100</td></tr>
+        </tbody>
+        <tbody data-context="criminal_justice" hidden>
+          <tr><td>2</td><td>2(2) = 4</td></tr>
+          <tr><td>4</td><td>2(4) = 8</td></tr>
+          <tr><td>6</td><td>2(6) = 12</td></tr>
+          <tr><td>8</td><td>2(8) = 16</td></tr>
+          <tr><td>10</td><td>2(10) = 20</td></tr>
+        </tbody>
       </table>
 
-      <p>
-        Notice the pattern: for each one-euro increase in price, quantity supplied increases by 15 million kilograms. The supply curve is perfectly linear, reflecting the simplifying assumption that the responsiveness to price is constant across all prices.
-      </p>
+      <div data-context="agriculture">
+        <p>Notice the pattern: for each €1 increase in price, quantity supplied increases by 15 million kilograms. The supply curve is perfectly linear, reflecting constant price responsiveness across all prices.</p>
+      </div>
+      <div data-context="healthcare" hidden>
+        <p>Notice the pattern: for each $2 increase in co-pay, quantity supplied increases by 6 million prescriptions. Higher prices attract more generic manufacturers and larger production runs — d = 3 means each $1 increase brings 3 million more Rx to market.</p>
+      </div>
+      <div data-context="energy" hidden>
+        <p>Notice the pattern: for each $1 increase in price per gallon, quantity supplied increases by 20 billion gallons. Higher prices incentivize refiners to expand throughput and attract additional crude imports.</p>
+      </div>
+      <div data-context="criminal_justice" hidden>
+        <p>Notice the pattern: for each $2 increase in price per gram, quantity supplied increases by 4 million grams. Higher prices attract more licensed cultivators and encourage expansion of existing operations — d = 2 means each $1 increase brings 2 million more grams to market.</p>
+      </div>
 
       <!-- Self-check: supply equation calculation -->
-      <div class="self-check">
-        <div class="self-check__question">
-          If the supply equation is \(Q_s = 15P\), how many millions of kilograms are supplied when the price is €3 per kilogram?
+      <div data-context="agriculture">
+        <div class="self-check">
+          <div class="self-check__question">If the supply equation is \(Q_s = 15P\), how many millions of kilograms are supplied when the price is €3 per kilogram?</div>
+          <button class="self-check__reveal-btn">Show Answer</button>
+          <div class="self-check__answer">Substitute P = 3: \(Q_s = 15(3) = 45\) million kilograms per year.</div>
         </div>
-        <button class="self-check__reveal-btn">Show Answer</button>
-        <div class="self-check__answer">
-          Substitute P = 3 into the equation: \(Q_s = 15(3) = 45\) million kilograms. At a price of €3 per kilogram, producers supply 45 million kilograms per year.
+      </div>
+      <div data-context="healthcare" hidden>
+        <div class="self-check">
+          <div class="self-check__question">If the supply equation is \(Q_s = 3P\), how many millions of prescriptions are filled when the monthly co-pay is $6?</div>
+          <button class="self-check__reveal-btn">Show Answer</button>
+          <div class="self-check__answer">Substitute P = 6: \(Q_s = 3(6) = 18\) million prescriptions per month.</div>
+        </div>
+      </div>
+      <div data-context="energy" hidden>
+        <div class="self-check">
+          <div class="self-check__question">If the supply equation is \(Q_s = 20P\), how many billions of gallons are supplied when the price is $3 per gallon?</div>
+          <button class="self-check__reveal-btn">Show Answer</button>
+          <div class="self-check__answer">Substitute P = 3: \(Q_s = 20(3) = 60\) billion gallons per year.</div>
+        </div>
+      </div>
+      <div data-context="criminal_justice" hidden>
+        <div class="self-check">
+          <div class="self-check__question">If the supply equation is \(Q_s = 2P\), how many millions of grams are supplied when the price is $6 per gram?</div>
+          <button class="self-check__reveal-btn">Show Answer</button>
+          <div class="self-check__answer">Substitute P = 6: \(Q_s = 2(6) = 12\) million grams per month.</div>
         </div>
       </div>
 
       <div class="figure">
         <div id="supply-static-graph"></div>
-        <div class="figure__caption">Figure 1.2: The supply curve for EU sugar, showing the upward slope and key schedule points. The curve passes through the origin, indicating that producers supply zero at price zero. The slope of 1/15 indicates that for every 15 million kg increase in quantity, price rises by 1 euro.</div>
+        <div class="figure__caption">Figure 1.2: The supply curve for
+          <span data-context="agriculture">EU sugar (Q_s = 15P), slope = 1/15</span><span data-context="healthcare" hidden>generic atorvastatin (Q_s = 3P), slope = 1/3</span><span data-context="energy" hidden>retail gasoline (Q_s = 20P), slope = 1/20</span><span data-context="criminal_justice" hidden>legal cannabis — Colorado (Q_s = 2P), slope = 1/2</span>,
+          showing the upward slope and key schedule points. The curve passes through the origin, indicating that producers supply zero at a price of zero.
+        </div>
       </div>
 
       <h3>From Equation to Graph: Inverting the Supply Function</h3>
       <p>
-        To graph the supply curve, we invert the supply equation so that price is a function of quantity:
+        To graph the supply curve with price on the vertical axis, we invert the supply equation so that P is a function of quantity:
       </p>
 
-      <div class="math-steps">
-        <div class="math-step">
-          <div class="math-step__label">Start with:</div>
-          <div class="math-step__expr">$$Q_s = 15P$$</div>
+      <div data-context="agriculture">
+        <div class="math-steps">
+          <div class="math-step">
+            <div class="math-step__label">Start with:</div>
+            <div class="math-step__expr">$$Q_s = 15P$$</div>
+          </div>
+          <div class="math-step">
+            <div class="math-step__label">Divide both sides by 15:</div>
+            <div class="math-step__expr">$$P = \frac{Q_s}{15}$$</div>
+          </div>
         </div>
-        <div class="math-step">
-          <div class="math-step__label">Divide both sides by 15:</div>
-          <div class="math-step__expr">$$P = \frac{Q_s}{15}$$</div>
-        </div>
+        <p>The inverted form is \(P = Q_s/15\). Key features:</p>
+        <ul>
+          <li><strong>Vertical intercept:</strong> When \(Q_s = 0\), P = 0. The supply curve passes through the origin.</li>
+          <li><strong>Slope:</strong> The coefficient on \(Q_s\) is 1/15. For every 15 million kg increase in quantity, price increases by €1.</li>
+        </ul>
       </div>
 
-      <p>
-        The inverted form is \(P = Q_s/15\). Key features:
-      </p>
-      <ul>
-        <li><strong>Vertical intercept:</strong> When \(Q_s = 0\), P = 0. The supply curve passes through the origin.</li>
-        <li><strong>Slope:</strong> The coefficient on \(Q_s\) is 1/15. For every 15 units increase in quantity, price increases by 1 euro.</li>
-      </ul>
+      <div data-context="healthcare" hidden>
+        <div class="math-steps">
+          <div class="math-step">
+            <div class="math-step__label">Start with:</div>
+            <div class="math-step__expr">$$Q_s = 3P$$</div>
+          </div>
+          <div class="math-step">
+            <div class="math-step__label">Divide both sides by 3:</div>
+            <div class="math-step__expr">$$P = \frac{Q_s}{3}$$</div>
+          </div>
+        </div>
+        <p>The inverted form is \(P = Q_s/3\). Key features:</p>
+        <ul>
+          <li><strong>Vertical intercept:</strong> When \(Q_s = 0\), P = 0. The supply curve passes through the origin.</li>
+          <li><strong>Slope:</strong> The coefficient on \(Q_s\) is 1/3. For every 3 million additional prescriptions supplied, the co-pay rises by $1.</li>
+        </ul>
+      </div>
+
+      <div data-context="energy" hidden>
+        <div class="math-steps">
+          <div class="math-step">
+            <div class="math-step__label">Start with:</div>
+            <div class="math-step__expr">$$Q_s = 20P$$</div>
+          </div>
+          <div class="math-step">
+            <div class="math-step__label">Divide both sides by 20:</div>
+            <div class="math-step__expr">$$P = \frac{Q_s}{20}$$</div>
+          </div>
+        </div>
+        <p>The inverted form is \(P = Q_s/20\). Key features:</p>
+        <ul>
+          <li><strong>Vertical intercept:</strong> When \(Q_s = 0\), P = 0. The supply curve passes through the origin.</li>
+          <li><strong>Slope:</strong> The coefficient on \(Q_s\) is 1/20. For every 20 billion additional gallons supplied, the price rises by $1.</li>
+        </ul>
+      </div>
+
+      <div data-context="criminal_justice" hidden>
+        <div class="math-steps">
+          <div class="math-step">
+            <div class="math-step__label">Start with:</div>
+            <div class="math-step__expr">$$Q_s = 2P$$</div>
+          </div>
+          <div class="math-step">
+            <div class="math-step__label">Divide both sides by 2:</div>
+            <div class="math-step__expr">$$P = \frac{Q_s}{2}$$</div>
+          </div>
+        </div>
+        <p>The inverted form is \(P = Q_s/2\). Key features:</p>
+        <ul>
+          <li><strong>Vertical intercept:</strong> When \(Q_s = 0\), P = 0. The supply curve passes through the origin.</li>
+          <li><strong>Slope:</strong> The coefficient on \(Q_s\) is 1/2. For every 2 million additional grams supplied, the price rises by $1.</li>
+        </ul>
+      </div>
 
       <h3>Graphing the Supply Curve</h3>
       <p>Because the supply curve passes through the origin, graphing it is even more direct than demand. Two methods work well:</p>
@@ -207,11 +342,13 @@
             <span class="graphing-method__badge">Method 1</span>
             <h4 class="graphing-method__title">Origin and Slope</h4>
           </div>
-          <p class="graphing-method__intro">The supply curve passes through the origin (0, 0). The slope is 1/15: move right 15, up 1, and repeat until you cross the domain.</p>
-          <div class="graphing-method__step-desc" id="sm1-desc">Press ▶ Play to build the supply curve step by step.</div>
+          <p class="graphing-method__intro">The supply curve passes through the origin (0, 0) — <em>because c = 0 in our equation, meaning producers supply nothing when the price is zero</em>. This gives us a free starting point that requires no calculation. From there, apply the slope:
+            <span data-context="agriculture">move right 15, up 1</span><span data-context="healthcare" hidden>move right 3, up 1</span><span data-context="energy" hidden>move right 20, up 1</span><span data-context="criminal_justice" hidden>move right 2, up 1</span>
+            repeatedly until you cross the domain.</p>
+          <div class="graphing-method__step-desc" id="sm1-desc">Click <strong>Next Step</strong> to build the supply curve one step at a time.</div>
           <div id="sm1-graph"></div>
           <div class="graphing-method__controls">
-            <button id="sm1-play" class="graphing-method__play-btn">▶ Play</button>
+            <button id="sm1-next" class="graphing-method__next-btn">Next Step →</button>
           </div>
         </div>
 
@@ -223,39 +360,106 @@
             <span class="graphing-method__badge">Method 2</span>
             <h4 class="graphing-method__title">Plot the Supply Schedule</h4>
           </div>
-          <p class="graphing-method__intro">Each row of the supply schedule is a point on the curve. Plot all five price-quantity pairs, then connect with a straight line.</p>
-          <div class="graphing-method__step-desc" id="sm2-desc">Press ▶ Play to plot each point from the schedule.</div>
+          <p class="graphing-method__intro">Each row of the supply schedule is a point on the curve. Plot all five price-quantity pairs, then connect them with a straight line.</p>
+          <div class="graphing-method__step-desc" id="sm2-desc">Click <strong>Next Step</strong> to plot each point from the schedule.</div>
           <div id="sm2-graph"></div>
           <div class="graphing-method__controls">
-            <button id="sm2-play" class="graphing-method__play-btn">▶ Play</button>
+            <button id="sm2-next" class="graphing-method__next-btn">Next Step →</button>
           </div>
         </div>
 
       </div>
 
-      <p>
-        The supply curve slopes upward, confirming the law of supply. Notice that it is less steep than the demand curve (which has a slope of -1/10 in absolute value). The supply curve has a slope of 1/15 ≈ 0.067. This means demand is more responsive to price changes than supply in this particular market.
-      </p>
+      <div class="callout callout--insight">
+        <div class="callout__title">Both Methods, One Line</div>
+        <p>
+          Method 1 (origin + slope) and Method 2 (schedule points) always produce the same supply curve — they are two routes to the same destination. Use whichever feels more natural. In exams, the schedule-points method is easiest to verify.
+        </p>
+      </div>
 
+      <!-- Slope comparison — per context -->
+      <div data-context="agriculture">
+        <p>
+          The supply curve slopes upward, confirming the law of supply. In the inverted form, the supply slope is 1/15 ≈ 0.067, while the demand curve has slope magnitude 1/10 = 0.10. The demand curve is steeper — meaning demand quantity is more sensitive to price changes than supply in this market.
+        </p>
+      </div>
+      <div data-context="healthcare" hidden>
+        <p>
+          The supply curve slopes upward, confirming the law of supply. In the inverted form, the supply slope is 1/3 ≈ 0.33, while the demand curve has slope magnitude 1/2 = 0.50. The demand curve is steeper — meaning quantity demanded is more price-sensitive than quantity supplied in this market.
+        </p>
+      </div>
+      <div data-context="energy" hidden>
+        <p>
+          The supply curve slopes upward, confirming the law of supply. In the inverted form, the supply slope is 1/20 = 0.05, while the demand curve has slope magnitude 1/30 ≈ 0.033. The supply curve is steeper here — meaning quantity supplied is more price-sensitive than quantity demanded in this simplified model. In reality, short-run gasoline consumers respond very little to price changes (they still need to commute regardless), so the actual demand curve would be much steeper. This is a modeling simplification for algebraic clarity.
+        </p>
+      </div>
+      <div data-context="criminal_justice" hidden>
+        <p>
+          The supply curve slopes upward, confirming the law of supply. In the inverted form, both supply and demand have slope magnitude 1/2 = 0.50 — they are equally steep. Supply and demand are equally price-responsive in this model, producing a symmetric market geometry when we overlay the two curves in Part 3.
+        </p>
+      </div>
+
+      <!-- UX-NOTE: The callout uses "supply curve shifts" as an example without explaining what causes a shift — this is left for Module 2. Consider adding one concrete non-example: "If the price of oil rises and fewer gallons are offered at every price, that is a change in supply — not a change in quantity supplied. You will learn what causes such shifts in Module 2." This would make the distinction feel less abstract at this stage. -->
       <div class="callout callout--insight">
         <div class="callout__title">Important Distinction: Supply vs. Quantity Supplied</div>
         <p>
-          "Supply" refers to the entire curve—the full relationship between price and quantity supplied. "Quantity supplied" refers to a specific point on that curve at a particular price. When the supply curve shifts (which we will explore in Module 2), economists say "supply increased" or "supply decreased." Movements along the supply curve due to price changes are changes in "quantity supplied," not changes in "supply."
+          "Supply" refers to the entire curve — the full relationship between price and quantity supplied. "Quantity supplied" refers to a specific point on that curve at a particular price. When the supply curve shifts (which we will explore in Module 2), economists say "supply increased" or "supply decreased." Movements along the supply curve due to price changes are changes in "quantity supplied," not changes in "supply."
+        </p>
+      </div>
+
+      <!-- ===== POLICY PARALLEL ===== -->
+      <h3 id="policy-parallel">Supply in Your Policy Context</h3>
+
+      <div class="ctx-block" data-context="agriculture">
+        <p>
+          In the EU sugar market, the supply equation \(Q_s = 15P\) reflects the behavior of European sugar beet farmers: higher prices induce more production. The supply curve passes through the origin, meaning no sugar is produced at a price of zero — consistent with economic logic. This simple linear supply function will underpin our analysis of the CAP price support in Part 3.
+        </p>
+      </div>
+
+      <div class="ctx-block" data-context="healthcare" hidden>
+        <p>
+          In the generic atorvastatin market, the supply side changed dramatically after patent expiry in November 2011. Before expiry: one manufacturer (Pfizer), constrained production, high price. After expiry: dozens of FDA-approved generic firms entered, each able to produce at large scale and low average cost. In our model, \(Q_s = 3P\) with d = 3 captures the aggregate responsiveness of all generic manufacturers: higher prices attract more production. In Part 3 we will overlay this supply curve with the demand curve and find the price and quantity at which the two sides of the market are in balance — and see precisely how much prices fell and quantities rose after patent expiry, exactly as the Hatch-Waxman Act intended.
+        </p>
+      </div>
+
+      <div class="ctx-block" data-context="energy" hidden>
+        <p>
+          In the retail gasoline market, supply is shaped by the refining and distribution sector. In the short run, refineries respond slowly to price changes — they take time to expand capacity, and pipelines and tankers have fixed throughput. But over longer horizons, higher prices do attract more production. In our model, \(Q_s = 20P\) captures this price responsiveness in a simplified way. The 1973 OPEC oil embargo effectively reduced the amount of crude reaching US refineries — producers could supply far less gasoline at every price level than before. Part 3 will show what happens to price and quantity when the amount producers can supply at every price suddenly falls.
+        </p>
+      </div>
+
+      <!-- UX-NOTE: The phrase "how the tax burden is split between consumers and producers" previews Module 3 incidence analysis. The forward-reference is intentional, but consider whether students at this stage have enough context to make it meaningful, or whether a shorter teaser ("Part 3 will show which side of the market ends up paying more") would be less confusing. -->
+      <div class="ctx-block" data-context="criminal_justice" hidden>
+        <p>
+          In the Colorado legal cannabis market, supply comes from licensed cultivators and dispensaries regulated by the state. Higher prices attract more licensed producers and larger harvests, consistent with the law of supply. In our model, \(Q_s = 2P\) captures this relationship. Colorado's cannabis taxes include a 15% wholesale excise tax and a special retail sales tax (10% when legal sales began in January 2014 under Amendment 64, raised to 15% in 2017); <em>the "15% plus 15%" figures sometimes cited reflect the post-2017 rates.</em> Together these taxes create a wedge between the price consumers pay and the revenue producers keep. In Part 3 we will see how this tax drives a gap between the two prices, and how the size of d (price responsiveness) determines how the tax burden is split between consumers and producers.
         </p>
       </div>
 
       <!-- DrawGraph: Supply -->
       <h3>Try It: Draw the Supply Curve</h3>
+      <p>You have now seen two methods for graphing a supply curve: starting at the origin and stepping along the slope (Method 1), and plotting points from the supply schedule (Method 2). Both produce the same line. Use whichever approach feels most natural — the goal is to accurately place an upward-sloping straight line that passes through the origin.</p>
       <div class="draw-graph-container">
-        <div class="draw-graph-container__title">Draw the EU Sugar Supply Curve</div>
-        <div class="draw-graph-container__prompt">
-          Using what you just learned, draw the supply curve for the EU sugar market. Place <strong>price (€/kg)</strong> on the vertical axis and <strong>quantity (millions of kg/year)</strong> on the horizontal axis. Remember: the supply curve slopes <em>upward</em> from left to right.
+        <div class="draw-graph-container__title">Draw the
+          <span data-context="agriculture">EU Sugar</span><span data-context="healthcare" hidden>Generic Atorvastatin</span><span data-context="energy" hidden>Retail Gasoline</span><span data-context="criminal_justice" hidden>Legal Cannabis</span>
+          Supply Curve
+        </div>
+        <div data-context="agriculture" class="draw-graph-container__prompt">
+          Draw the supply curve for the EU sugar market. Price (€/kg) is on the vertical axis; quantity (millions of kg/year) is on the horizontal axis. The curve passes through the origin and slopes upward with slope 1/15.
+        </div>
+        <div data-context="healthcare" hidden class="draw-graph-container__prompt">
+          Draw the supply curve for the generic atorvastatin market. Price ($/month co-pay) is on the vertical axis; quantity (millions of Rx/month) is on the horizontal axis. The curve passes through the origin and slopes upward with slope 1/3.
+        </div>
+        <div data-context="energy" hidden class="draw-graph-container__prompt">
+          Draw the supply curve for the retail gasoline market. Price ($/gallon) is on the vertical axis; quantity (billions of gal/year) is on the horizontal axis. The curve passes through the origin and slopes upward with slope 1/20.
+        </div>
+        <div data-context="criminal_justice" hidden class="draw-graph-container__prompt">
+          Draw the supply curve for the Colorado legal cannabis market. Price ($/gram) is on the vertical axis; quantity (millions of g/month) is on the horizontal axis. The curve passes through the origin and slopes upward with slope 1/2.
         </div>
         <div class="draw-graph-container__svg-wrapper" id="draw-graph-supply"></div>
         <div class="draw-graph-container__controls">
           <button id="dg-supply-submit" class="draw-graph__submit-btn">Submit</button>
           <button id="dg-supply-clear" class="draw-graph__clear-btn">Try Again</button>
-          <span class="draw-graph-container__hint">Click and drag to draw your curve</span>
+          <span class="draw-graph-container__hint">Click to place two endpoints — your line will connect them.</span>
         </div>
         <div id="dg-supply-feedback" class="draw-graph__feedback"></div>
       </div>
@@ -265,7 +469,7 @@
       <div class="graph-container">
         <div class="graph-container__title">Supply Curve Explorer</div>
         <div class="graph-container__description">
-          Adjust the intercept (c) and slope (d) to see how the supply curve shifts and rotates. The equation is \(Q_s = c + dP\), which we invert to \(P = -(c/d) + (1/d)Q_s\) for graphing. A higher intercept shifts the curve rightward. A higher slope coefficient makes producers more responsive to price.
+          Adjust the intercept (c) and slope coefficient (d) to see how the supply curve shifts and rotates. The equation is \(Q_s = c + dP\), which inverts to \(P = -(c/d) + (1/d)Q_s\) for graphing. A higher intercept (c &gt; 0) shifts the curve rightward — producers supply more at every price. A higher d makes the curve flatter (more elastic supply).
         </div>
         <div class="graph-container__svg-wrapper" id="supply-graph"></div>
         <div class="graph-container__controls">
@@ -276,23 +480,70 @@
           </div>
           <div class="graph-control">
             <label class="graph-control__label">Slope coefficient (d): Responsiveness to price</label>
-            <input type="range" class="graph-control__slider" id="supply-slope" min="2" max="30" step="2" value="15">
+            <input type="range" class="graph-control__slider" id="supply-slope" min="1" max="30" step="1" value="15">
             <span class="graph-control__value" id="supply-slope-value">15</span>
           </div>
         </div>
       </div>
 
-      <p>
-        The graph shows the EU sugar supply curve with default values: c = 0 and d = 15. Try adjusting the intercept: a positive value shifts the entire curve rightward, meaning producers supply more at every price. Adjusting the slope coefficient changes how responsive producers are to price movements.
-      </p>
+      <!-- UX-NOTE: The agriculture interactive description is functional but generic. A more grounded suggestion — e.g., "try setting c = 10 to simulate a fertilizer subsidy that lowers production costs and shifts the supply curve right" — would tie the slider experiment to a specific CAP policy mechanism and better prepare students for Module 2 supply-shifter analysis. -->
+      <!-- Per-context interactive description -->
+      <div data-context="agriculture">
+        <p>The graph shows the EU sugar supply curve with default values c = 0 and d = 15, giving \(Q_s = 15P\). Try adjusting the intercept: a positive c shifts the curve rightward — farmers supply more at every price (perhaps due to a productivity improvement). Increasing d makes the curve flatter, meaning producers are more responsive to price signals.</p>
+      </div>
+      <div data-context="healthcare" hidden>
+        <p>The graph shows the generic atorvastatin supply curve with default values c = 0 and d = 3, giving \(Q_s = 3P\). A higher d reflects more generic manufacturers in the market — the slope coefficient d represents the collective responsiveness of all generic producers. Increasing c shifts the curve right, as might happen if manufacturing costs fall.</p>
+      </div>
+      <div data-context="energy" hidden>
+        <p>The graph shows the retail gasoline supply curve with default values c = 0 and d = 20, giving \(Q_s = 20P\). Try setting c to a negative value: this represents a supply contraction (like an embargo that reduces the amount reaching the market at any given price). This is exactly what happened in 1973 — use this slider to visualize the supply shock.</p>
+      </div>
+      <div data-context="criminal_justice" hidden>
+        <p>The graph shows the Colorado legal cannabis supply curve with default values c = 0 and d = 2, giving \(Q_s = 2P\). A higher d reflects more licensed producers entering the market over time. Decreasing d represents a more restricted market — fewer licensed producers, each responding less vigorously to price signals.</p>
+      </div>
 
-      <div class="self-check">
-        <div class="self-check__question">
-          Using the supply equation \(Q_s = 15P\), how much does quantity supplied increase if price rises from €2 to €4 per kilogram?
+      <!-- Bottom self-check — per context -->
+      <div data-context="agriculture">
+        <div class="self-check">
+          <div class="self-check__question">
+            In the EU sugar supply equation \(Q_s = 15P\), the slope coefficient d = 15. What does this number tell you about sugar beet farmers as a group — and how would a larger value of d change your interpretation of their behavior?
+          </div>
+          <button class="self-check__reveal-btn">Show Answer</button>
+          <div class="self-check__answer">
+            d = 15 means that for every €1 increase in price, farmers collectively supply 15 million more kilograms per year. A larger d would mean producers are more responsive to price signals: the same price increase triggers a much larger increase in output. This could reflect things like easily expandable farmland, low costs of switching between crops, or a large number of farms that can pivot quickly. A smaller d means the same price increase yields little extra output — perhaps because production capacity is fixed in the short run.
+          </div>
         </div>
-        <button class="self-check__reveal-btn">Show Answer</button>
-        <div class="self-check__answer">
-          At P = 2: \(Q_s = 15(2) = 30\) million kg. At P = 4: \(Q_s = 15(4) = 60\) million kg. Quantity supplied increases by 30 million kilograms — a doubling of output in response to a doubling of price.
+      </div>
+      <div data-context="healthcare" hidden>
+        <div class="self-check">
+          <div class="self-check__question">
+            The generic atorvastatin supply equation has d = 3. What does this coefficient represent, and why might d be much larger several years after patent expiry than in the months immediately following it?
+          </div>
+          <button class="self-check__reveal-btn">Show Answer</button>
+          <div class="self-check__answer">
+            d = 3 means each $1 increase in the monthly co-pay brings 3 million additional prescriptions to market. It captures the collective price-responsiveness of all generic manufacturers. In the first months after patent expiry, few generics have FDA approval, so d is small — the market responds weakly to higher prices. Several years later, many manufacturers are approved, production lines are running, and the same price increase can trigger a much larger supply response. d therefore rises over time as the generic industry scales up, which is why generic prices typically fall steeply in the years following patent expiry.
+          </div>
+        </div>
+      </div>
+      <div data-context="energy" hidden>
+        <div class="self-check">
+          <div class="self-check__question">
+            The gasoline supply equation uses d = 20, but a footnote notes that actual short-run supply responds much less strongly to price. What does this gap between model and reality tell you about the limitations of a single slope coefficient? When is a high-d supply equation a reasonable simplification, and when is it misleading?
+          </div>
+          <button class="self-check__reveal-btn">Show Answer</button>
+          <div class="self-check__answer">
+            A high d means producers respond strongly to price changes: each extra dollar per gallon calls forth 20 billion more gallons. In reality, refineries cannot quickly expand throughput — pipelines, storage tanks, and refining capacity are all fixed in the short run. So d overstates actual short-run responsiveness. A high-d equation is a reasonable simplification for long-run analysis (where capacity can be built) or for illustrating how supply curves work without making the algebra complex. It becomes misleading when used to predict how quickly supply would respond to a sudden price spike — in the short run, the supply curve is much steeper than our model implies.
+          </div>
+        </div>
+      </div>
+      <div data-context="criminal_justice" hidden>
+        <div class="self-check">
+          <div class="self-check__question">
+            In the Colorado legal cannabis supply equation \(Q_s = 2P\), d = 2. Colorado's licensing regime limits who can legally grow and sell. How does that regulatory constraint show up in the value of d — and what would you expect to happen to d if the state significantly expanded the number of licenses?
+          </div>
+          <button class="self-check__reveal-btn">Show Answer</button>
+          <div class="self-check__answer">
+            d = 2 reflects the price-responsiveness of all licensed producers combined. Because licensing is restricted, the number of firms that can respond to higher prices is capped: when prices rise, existing licensees can expand somewhat, but new entrants cannot join freely. This keeps d relatively low. If the state issued many more licenses, more producers could enter the market in response to price signals, and the same $1 increase in price would call forth more than 2 million additional grams — d would rise. Regulatory constraints are therefore one real-world factor that directly shapes the slope of a supply curve.
+          </div>
         </div>
       </div>
 
@@ -337,168 +588,258 @@
       }
     });
 
+    // ===== Per-context supply configuration =====
+    var SUPPLY_CONTEXTS = {
+      agriculture: {
+        xLabel: 'Quantity (millions of kg/year)', yLabel: 'Price (€/kg)',
+        xDomain: [0, 90], yDomain: [0, 6],
+        fn: function(x) { return x / 15; },
+        schedulePoints: [[15,1],[30,2],[45,3],[60,4],[75,5]],
+        slopeLabel: '1/15', stepDesc: 'right 15, up 1',
+        dfltC: 0, dfltD: 15
+      },
+      healthcare: {
+        xLabel: 'Quantity (millions of Rx/month)', yLabel: 'Price ($/month co-pay)',
+        xDomain: [0, 40], yDomain: [0, 14],
+        fn: function(x) { return x / 3; },
+        schedulePoints: [[6,2],[12,4],[18,6],[24,8],[30,10]],
+        slopeLabel: '1/3', stepDesc: 'right 3, up 1',
+        dfltC: 0, dfltD: 3
+      },
+      energy: {
+        xLabel: 'Quantity (billions of gal/year)', yLabel: 'Price ($/gallon)',
+        xDomain: [0, 120], yDomain: [0, 6],
+        fn: function(x) { return x / 20; },
+        schedulePoints: [[20,1],[40,2],[60,3],[80,4],[100,5]],
+        slopeLabel: '1/20', stepDesc: 'right 20, up 1',
+        dfltC: 0, dfltD: 20
+      },
+      criminal_justice: {
+        xLabel: 'Quantity (millions of g/month)', yLabel: 'Price ($/gram)',
+        xDomain: [0, 24], yDomain: [0, 12],
+        fn: function(x) { return x / 2; },
+        schedulePoints: [[4,2],[8,4],[12,6],[16,8],[20,10]],
+        slopeLabel: '1/2', stepDesc: 'right 2, up 1',
+        dfltC: 0, dfltD: 2
+      }
+    };
+
+    function getCurrentContext() {
+      return localStorage.getItem('api101-policy-context') || 'agriculture';
+    }
+
     // ===== Static Supply Graph =====
-    (function() {
-      const graph = EconGraph.create('#supply-static-graph', {
-        xLabel: 'Quantity (millions of kg/year)',
-        yLabel: 'Price (€/kg)',
-        xDomain: [0, 80],
-        yDomain: [0, 6]
+    function buildStaticSupplyGraph(key) {
+      var el = document.getElementById('supply-static-graph');
+      if (!el) return;
+      el.innerHTML = '';
+      var cfg = SUPPLY_CONTEXTS[key] || SUPPLY_CONTEXTS.agriculture;
+      var graph = EconGraph.create('#supply-static-graph', {
+        xLabel: cfg.xLabel, yLabel: cfg.yLabel,
+        xDomain: cfg.xDomain, yDomain: cfg.yDomain
       });
       if (!graph) return;
 
-      const supply = x => x / 15;
-      graph.addLine(supply, '#c0392b', { label: 'S', strokeWidth: 2.5 });
-
-      [[15,1],[30,2],[45,3],[60,4]].forEach(([q,p]) => {
-        graph.addPoint(q, p, { color: '#c0392b', radius: 4 });
+      graph.addLine(cfg.fn, '#c0392b', { label: 'S', strokeWidth: 2.5 });
+      cfg.schedulePoints.forEach(function(pt) {
+        graph.addPoint(pt[0], pt[1], { color: '#c0392b', radius: 4 });
       });
       graph.addPoint(0, 0, { color: '#e74c3c', radius: 5 });
-      graph.addLabel(2, 0.35, 'Origin (0, 0)', { color: '#e74c3c', fontSize: '11px', anchor: 'start' });
-      graph.addLabel(55, 2.8, 'Slope = 1/15', { color: '#c0392b', fontSize: '11px' });
-    })();
 
-    // ===== Graphing Methods: Supply (animated) =====
-    (function() {
-      const INTERVAL = 900;
-      const supply = x => x / 15;
+      var yMax = cfg.yDomain[1];
+      graph.addLabel(cfg.xDomain[1] * 0.02, yMax * 0.07, 'Origin (0, 0)', {
+        color: '#e74c3c', fontSize: '11px', anchor: 'start'
+      });
+      var midX = cfg.xDomain[1] * 0.55;
+      graph.addLabel(midX, cfg.fn(midX) + yMax * 0.05, 'Slope = ' + cfg.slopeLabel, {
+        color: '#c0392b', fontSize: '11px'
+      });
+    }
 
-      function makeAnimator(graph, frames, descs, descEl, playBtn) {
-        let frame = -1, timer = null;
-        const total = frames.length;
+    // ===== Step-through helper =====
+    function makeStepThrough(graph, frames, descs, descEl, btn) {
+      var frame = -1;
+      var total = frames.length;
 
-        function drawFrame(i) {
-          graph.clear();
-          frames[i]();
-          descEl.innerHTML = descs[i];
-        }
+      function drawFrame(i) {
+        graph.clear();
+        frames[i]();
+        descEl.innerHTML = descs[i] + ' <span class="gm-step-counter">(' + (i + 1) + ' of ' + total + ')</span>';
+      }
 
-        function stop() { if (timer) { clearInterval(timer); timer = null; } }
+      function reset() {
+        frame = -1;
+        graph.clear();
+        descEl.innerHTML = 'Click <strong>Next Step</strong> to build the curve one step at a time.';
+        btn.textContent = 'Next Step →';
+        btn.classList.remove('graphing-method__next-btn--replay');
+      }
 
-        function advance() {
+      btn.addEventListener('click', function() {
+        if (frame >= total - 1) {
+          reset();
+        } else {
           frame++;
           drawFrame(frame);
           if (frame >= total - 1) {
-            stop();
-            playBtn.textContent = '↺ Replay';
-            playBtn.classList.add('graphing-method__play-btn--replay');
+            btn.textContent = '↺ Reset';
+            btn.classList.add('graphing-method__next-btn--replay');
           }
         }
+      });
 
-        playBtn.addEventListener('click', () => {
-          if (timer) {
-            stop();
-            playBtn.textContent = '▶ Play';
-            playBtn.classList.remove('graphing-method__play-btn--replay');
-          } else if (frame >= total - 1) {
-            frame = -1;
-            graph.clear();
-            descEl.innerHTML = descs[0];
-            playBtn.textContent = '⏸ Pause';
-            playBtn.classList.remove('graphing-method__play-btn--replay');
-            timer = setInterval(advance, INTERVAL);
-          } else {
-            playBtn.textContent = '⏸ Pause';
-            playBtn.classList.remove('graphing-method__play-btn--replay');
-            timer = setInterval(advance, INTERVAL);
+      reset();
+    }
+
+    function rebuildBtn(id) {
+      var old = document.getElementById(id);
+      if (!old) return null;
+      var fresh = old.cloneNode(true);
+      old.parentNode.replaceChild(fresh, old);
+      return fresh;
+    }
+
+    // ===== Graphing Methods: Supply =====
+    function buildSupplyMethods(key) {
+      var cfg = SUPPLY_CONTEXTS[key] || SUPPLY_CONTEXTS.agriculture;
+      var sp = cfg.schedulePoints;
+
+      // Method 1: Origin and Slope
+      var sm1El = document.getElementById('sm1-graph');
+      if (sm1El) sm1El.innerHTML = '';
+      var s1 = EconGraph.create('#sm1-graph', {
+        xLabel: 'Quantity', yLabel: 'Price',
+        xDomain: cfg.xDomain, yDomain: cfg.yDomain
+      });
+      var sm1btn = rebuildBtn('sm1-next');
+      var sm1desc = document.getElementById('sm1-desc');
+      if (s1 && sm1btn && sm1desc) {
+        var yMax = cfg.yDomain[1];
+        makeStepThrough(s1, [
+          function() {
+            s1.addPoint(0, 0, { color: '#e74c3c', radius: 5 });
+            s1.addLabel(cfg.xDomain[1] * 0.02, yMax * 0.07, 'Start: Origin (0, 0)', {
+              color: '#e74c3c', fontSize: '11px', anchor: 'start'
+            });
+          },
+          function() {
+            s1.addPoint(0, 0, { color: '#e74c3c', radius: 5 });
+            s1.addLabel(cfg.xDomain[1] * 0.02, yMax * 0.07, 'Start: Origin (0, 0)', {
+              color: '#e74c3c', fontSize: '11px', anchor: 'start'
+            });
+            sp.forEach(function(pt) { s1.addPoint(pt[0], pt[1], { color: '#c0392b', radius: 4 }); });
+            s1.addLabel(sp[1][0], sp[1][1] + yMax * 0.06, 'Each step: ' + cfg.stepDesc, {
+              color: '#c0392b', fontSize: '11px', anchor: 'start'
+            });
+          },
+          function() {
+            s1.addLine(cfg.fn, '#c0392b', { label: 'S', strokeWidth: 2.5 });
+            s1.addPoint(0, 0, { color: '#e74c3c', radius: 5 });
+            sp.forEach(function(pt) { s1.addPoint(pt[0], pt[1], { color: '#c0392b', radius: 4 }); });
           }
-        });
+        ], [
+          'Step 1 — Plot the <strong>origin (0, 0)</strong>. The supply curve starts here: at a price of zero, producers supply nothing.',
+          'Step 2 — Apply the slope (<strong>' + cfg.stepDesc + '</strong>) repeatedly to plot additional points.',
+          'Step 3 — Connect all points with a <strong>straight line</strong>. Supply curve S, slope = ' + cfg.slopeLabel + '.'
+        ], sm1desc, sm1btn);
       }
 
-      // --- Method 1: Origin and Slope ---
-      const s1 = EconGraph.create('#sm1-graph', {
-        xLabel: 'Quantity (millions of kg/year)', yLabel: 'Price (€/kg)',
-        xDomain: [0, 80], yDomain: [0, 6]
+      // Method 2: Schedule Points
+      var sm2El = document.getElementById('sm2-graph');
+      if (sm2El) sm2El.innerHTML = '';
+      var s2 = EconGraph.create('#sm2-graph', {
+        xLabel: 'Quantity', yLabel: 'Price',
+        xDomain: cfg.xDomain, yDomain: cfg.yDomain
       });
-      if (s1) makeAnimator(s1, [
-        function() {
-          s1.addPoint(0, 0, { color: '#e74c3c', radius: 5 });
-          s1.addLabel(2, 0.35, 'Start: Origin (0, 0)', { color: '#e74c3c', fontSize: '11px', anchor: 'start' });
-        },
-        function() {
-          s1.addPoint(0, 0, { color: '#e74c3c', radius: 5 });
-          s1.addLabel(2, 0.35, 'Start: Origin (0, 0)', { color: '#e74c3c', fontSize: '11px', anchor: 'start' });
-          [[15,1],[30,2],[45,3],[60,4],[75,5]].forEach(([q,p]) => s1.addPoint(q, p, { color: '#c0392b', radius: 4 }));
-          s1.addLabel(32, 1.6, 'Each step: right 15, up 1', { color: '#c0392b', fontSize: '11px', anchor: 'start' });
-        },
-        function() {
-          s1.addLine(supply, '#c0392b', { label: 'S', strokeWidth: 2.5 });
-          s1.addPoint(0, 0, { color: '#e74c3c', radius: 5 });
-          [[15,1],[30,2],[45,3],[60,4],[75,5]].forEach(([q,p]) => s1.addPoint(q, p, { color: '#c0392b', radius: 4 }));
-        }
-      ], [
-        'Step 1 — Plot the <strong>origin (0, 0)</strong>. At a price of zero, producers supply nothing.',
-        'Step 2 — Apply the slope: <strong>right 15, up 1</strong> repeatedly to plot (15,1), (30,2), (45,3), (60,4), (75,5).',
-        'Step 3 — Connect all points with a <strong>straight line</strong>. Supply curve S, slope = 1/15.'
-      ], document.getElementById('sm1-desc'), document.getElementById('sm1-play'));
-
-      // --- Method 2: Schedule Points ---
-      const s2 = EconGraph.create('#sm2-graph', {
-        xLabel: 'Quantity (millions of kg/year)', yLabel: 'Price (€/kg)',
-        xDomain: [0, 80], yDomain: [0, 6]
-      });
-      const schedulePoints = [[15,1],[30,2],[45,3],[60,4],[75,5]];
-      const sm2Frames = schedulePoints.map((_, i) => function() {
-        schedulePoints.slice(0, i + 1).forEach(([q, p]) => s2.addPoint(q, p, { color: '#c0392b', radius: 5 }));
-      });
-      sm2Frames.push(function() {
-        schedulePoints.forEach(([q, p]) => s2.addPoint(q, p, { color: '#c0392b', radius: 5 }));
-        s2.addLine(supply, '#c0392b', { label: 'S', strokeWidth: 2.5 });
-      });
-      const sm2Descs = [
-        'Row 1 → Plot <strong>(Q=15, P=1)</strong> — at €1/kg producers supply 15 million kg.',
-        'Row 2 → Plot <strong>(Q=30, P=2)</strong>.',
-        'Row 3 → Plot <strong>(Q=45, P=3)</strong>.',
-        'Row 4 → Plot <strong>(Q=60, P=4)</strong>.',
-        'Row 5 → Plot <strong>(Q=75, P=5)</strong>.',
-        'All five points plotted. <strong>Connect them with a straight line</strong> — the supply curve S.'
-      ];
-      if (s2) makeAnimator(s2, sm2Frames, sm2Descs,
-        document.getElementById('sm2-desc'),
-        document.getElementById('sm2-play')
-      );
-    })();
+      var sm2btn = rebuildBtn('sm2-next');
+      var sm2desc = document.getElementById('sm2-desc');
+      if (s2 && sm2btn && sm2desc) {
+        var sm2Frames = sp.map(function(_, i) {
+          return function() {
+            sp.slice(0, i + 1).forEach(function(pt) {
+              s2.addPoint(pt[0], pt[1], { color: '#c0392b', radius: 5 });
+            });
+          };
+        });
+        sm2Frames.push(function() {
+          sp.forEach(function(pt) { s2.addPoint(pt[0], pt[1], { color: '#c0392b', radius: 5 }); });
+          s2.addLine(cfg.fn, '#c0392b', { label: 'S', strokeWidth: 2.5 });
+        });
+        var sm2Descs = sp.map(function(pt, i) {
+          return 'Row ' + (i + 1) + ' → Plot <strong>(Q=' + pt[0] + ', P=' + pt[1] + ')</strong>.';
+        });
+        sm2Descs.push('All five points plotted. <strong>Connect them with a straight line</strong> — the supply curve S.');
+        makeStepThrough(s2, sm2Frames, sm2Descs, sm2desc, sm2btn);
+      }
+    }
 
     // ===== Interactive Supply Graph =====
-    (function() {
-      const graph = EconGraph.create('#supply-graph', {
-        xLabel: 'Quantity (millions of kg/year)',
-        yLabel: 'Price (€/kg)',
-        xDomain: [0, 100],
-        yDomain: [0, 6]
+    var _supplyInteractiveUpdate = null;
+
+    function buildInteractiveSupplyGraph(key) {
+      var cfg = SUPPLY_CONTEXTS[key] || SUPPLY_CONTEXTS.agriculture;
+      var el = document.getElementById('supply-graph');
+      if (!el) return;
+      el.innerHTML = '';
+
+      var graph = EconGraph.create('#supply-graph', {
+        xLabel: cfg.xLabel, yLabel: cfg.yLabel,
+        xDomain: [0, cfg.xDomain[1] * 1.1],
+        yDomain: cfg.yDomain
       });
       if (!graph) return;
 
+      var cSlider = document.getElementById('supply-intercept');
+      var dSlider = document.getElementById('supply-slope');
+
+      // Remove old listener
+      if (_supplyInteractiveUpdate) {
+        cSlider.removeEventListener('input', _supplyInteractiveUpdate);
+        dSlider.removeEventListener('input', _supplyInteractiveUpdate);
+      }
+
+      // Set defaults for this context
+      cSlider.value = cfg.dfltC;
+      dSlider.value = cfg.dfltD;
+      document.getElementById('supply-intercept-value').textContent = cfg.dfltC;
+      document.getElementById('supply-slope-value').textContent = cfg.dfltD;
+
       function update() {
         graph.clear();
-        const c = parseFloat(document.getElementById('supply-intercept').value);
-        const d = parseFloat(document.getElementById('supply-slope').value);
+        var c = parseFloat(cSlider.value);
+        var d = parseFloat(dSlider.value);
         document.getElementById('supply-intercept-value').textContent = c.toFixed(0);
         document.getElementById('supply-slope-value').textContent = d.toFixed(0);
 
-        const supply = x => (x - c) / d;
+        var supply = function(x) { return (x - c) / d; };
         graph.addLine(supply, '#c0392b', { label: 'S', className: 'dynamic', strokeWidth: 2.5 });
 
-        const qDemo = 30, pDemo = supply(30);
-        if (pDemo > 0 && pDemo < 6) {
+        // Show a representative schedule point
+        var qDemo = cfg.schedulePoints[2][0];
+        var pDemo = supply(qDemo);
+        if (pDemo > 0 && pDemo < cfg.yDomain[1]) {
           graph.addPoint(qDemo, pDemo, { color: '#c0392b', radius: 5, className: 'dynamic' });
         }
       }
 
-      document.getElementById('supply-intercept').addEventListener('input', update);
-      document.getElementById('supply-slope').addEventListener('input', update);
+      _supplyInteractiveUpdate = update;
+      cSlider.addEventListener('input', update);
+      dSlider.addEventListener('input', update);
       update();
-    })();
+    }
 
     // ===== DrawGraph: Supply =====
     (function() {
-      const dg = DrawGraph.create('#draw-graph-supply', {
-        xLabel: 'Quantity (millions of kg/year)',
-        yLabel: 'Price (€/kg)',
-        xDomain: [0, 80],
-        yDomain: [0, 6],
+      var ctxKey = getCurrentContext();
+      var cfg = SUPPLY_CONTEXTS[ctxKey] || SUPPLY_CONTEXTS.agriculture;
+
+      var dg = DrawGraph.create('#draw-graph-supply', {
+        xLabel: cfg.xLabel,
+        yLabel: cfg.yLabel,
+        xDomain: cfg.xDomain,
+        yDomain: cfg.yDomain,
         expectedSlope: 'positive',
-        correctLine: x => x / 15,
+        correctLine: cfg.fn,
         feedbackMessages: {
           correct: 'Your curve slopes upward from left to right — that\'s the law of supply. Higher prices give producers more incentive to produce.',
           wrongSlope: 'Supply curves slope upward: as price rises, producers supply more. The correct supply curve is shown in the graph.',
@@ -507,16 +848,36 @@
       });
       if (!dg) return;
 
-      const feedbackEl = document.getElementById('dg-supply-feedback');
-      document.getElementById('dg-supply-submit').addEventListener('click', () => {
+      var feedbackEl = document.getElementById('dg-supply-feedback');
+      document.getElementById('dg-supply-submit').addEventListener('click', function() {
         dg.submit(feedbackEl);
       });
-      document.getElementById('dg-supply-clear').addEventListener('click', () => {
+      document.getElementById('dg-supply-clear').addEventListener('click', function() {
         dg.clear();
         feedbackEl.textContent = '';
         feedbackEl.className = 'draw-graph__feedback';
       });
     })();
+
+    // ===== Initial builds =====
+    buildStaticSupplyGraph(getCurrentContext());
+    buildSupplyMethods(getCurrentContext());
+    buildInteractiveSupplyGraph(getCurrentContext());
+
+    // ===== Rebuild on context switch =====
+    document.addEventListener('policyContextChanged', function(e) {
+      buildStaticSupplyGraph(e.detail);
+      buildSupplyMethods(e.detail);
+      buildInteractiveSupplyGraph(e.detail);
+      if (typeof renderMathInElement !== 'undefined') {
+        renderMathInElement(document.body, {
+          delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '\\(', right: '\\)', display: false}
+          ]
+        });
+      }
+    });
   </script>
 
 </body>

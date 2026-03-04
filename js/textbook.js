@@ -1154,14 +1154,13 @@ const DrawGraph = {
       .text(config.yLabel);
 
     // State
-    let drawnPoints = [];
+    let points = [];   // 0, 1, or 2 {x, y} data-space points
     let submitted = false;
 
     const lineGen = d3.line()
-      .x(d => xScale(d.x)).y(d => yScale(d.y))
-      .curve(d3.curveMonotoneX);
+      .x(d => xScale(d.x)).y(d => yScale(d.y));
 
-    // Drawn path (dashed)
+    // Drawn line (dashed — user's line)
     const drawnPath = g.append('path')
       .attr('fill', 'none')
       .attr('stroke', config.curveColor)
@@ -1176,46 +1175,70 @@ const DrawGraph = {
       .attr('stroke-width', 3)
       .attr('opacity', 0);
 
-    // Drag behavior
-    const drag = d3.drag()
-      .on('start', function(event) {
-        if (submitted) return;
-        drawnPoints = [];
-        const [mx, my] = d3.pointer(event, g.node());
-        const cx = Math.max(config.xDomain[0], Math.min(config.xDomain[1], xScale.invert(mx)));
-        const cy = Math.max(config.yDomain[0], Math.min(config.yDomain[1], yScale.invert(my)));
-        drawnPoints.push({ x: cx, y: cy });
-      })
-      .on('drag', function(event) {
-        if (submitted) return;
-        const [mx, my] = d3.pointer(event, g.node());
-        const cx = Math.max(config.xDomain[0], Math.min(config.xDomain[1], xScale.invert(mx)));
-        const cy = Math.max(config.yDomain[0], Math.min(config.yDomain[1], yScale.invert(my)));
-        drawnPoints.push({ x: cx, y: cy });
-        if (drawnPoints.length > 1) drawnPath.attr('d', lineGen(drawnPoints));
-      });
+    // Dot group (rendered above paths)
+    const dotsGroup = g.append('g').attr('class', 'draw-graph__dots');
 
-    drawArea.call(drag);
+    // Extend a line defined by two data-space points to domain edges
+    function extendedLinePoints(p1, p2) {
+      const [x0, x1] = config.xDomain;
+      const slope = (p2.y - p1.y) / (p2.x - p1.x);
+      const intercept = p1.y - slope * p1.x;
+      return [
+        { x: x0, y: slope * x0 + intercept },
+        { x: x1, y: slope * x1 + intercept }
+      ];
+    }
+
+    function redrawUserLine() {
+      if (points.length < 2) { drawnPath.attr('d', null); return; }
+      drawnPath.attr('d', lineGen(extendedLinePoints(points[0], points[1])));
+    }
+
+    function redrawDots() {
+      dotsGroup.selectAll('circle').remove();
+      points.forEach(p => {
+        dotsGroup.append('circle')
+          .attr('cx', xScale(p.x)).attr('cy', yScale(p.y))
+          .attr('r', 6)
+          .attr('fill', config.curveColor)
+          .attr('stroke', '#fff')
+          .attr('stroke-width', 2);
+      });
+    }
+
+    // Click handler — two-point model
+    drawArea.on('click', function(event) {
+      if (submitted || points.length >= 2) return;
+      const [mx, my] = d3.pointer(event, g.node());
+      const cx = Math.max(config.xDomain[0], Math.min(config.xDomain[1], xScale.invert(mx)));
+      const cy = Math.max(config.yDomain[0], Math.min(config.yDomain[1], yScale.invert(my)));
+      points.push({ x: cx, y: cy });
+      redrawDots();
+      redrawUserLine();
+      if (points.length >= 2) drawArea.style('cursor', 'default');
+    });
 
     return {
       clear() {
-        drawnPoints = [];
+        points = [];
         submitted = false;
         drawnPath.attr('d', null);
         correctPathEl.attr('opacity', 0);
+        dotsGroup.selectAll('circle').remove();
         g.selectAll('.draw-graph__correct-label').remove();
+        drawArea.style('cursor', 'crosshair');
       },
 
       submit(feedbackEl) {
-        if (drawnPoints.length < 3) {
+        if (points.length < 2) {
           feedbackEl.className = 'draw-graph__feedback draw-graph__feedback--warning';
-          feedbackEl.innerHTML = '<strong>Nothing drawn yet.</strong> Click and drag on the graph to draw your curve, then submit.';
+          feedbackEl.innerHTML = '<strong>Place two points first.</strong> Click once to set your first endpoint, then click again to set the second.';
           return;
         }
 
-        const xMin = Math.min(...drawnPoints.map(d => d.x));
-        const xMax = Math.max(...drawnPoints.map(d => d.x));
-        const coverage = (xMax - xMin) / (config.xDomain[1] - config.xDomain[0]);
+        const [p1, p2] = points;
+        const domainWidth = config.xDomain[1] - config.xDomain[0];
+        const coverage = Math.abs(p2.x - p1.x) / domainWidth;
 
         if (coverage < 0.4) {
           feedbackEl.className = 'draw-graph__feedback draw-graph__feedback--warning';
@@ -1223,15 +1246,12 @@ const DrawGraph = {
           return;
         }
 
-        // Linear regression slope
-        const n = drawnPoints.length;
-        let sumX = 0, sumY = 0, sumXY = 0, sumX2 = 0;
-        drawnPoints.forEach(d => { sumX += d.x; sumY += d.y; sumXY += d.x * d.y; sumX2 += d.x * d.x; });
-        const slope = (n * sumXY - sumX * sumY) / (n * sumX2 - sumX * sumX);
+        const slope = (p2.y - p1.y) / (p2.x - p1.x);
         const slopeDir = slope > 0 ? 'positive' : 'negative';
         const isCorrect = slopeDir === config.expectedSlope;
 
         submitted = true;
+        drawArea.style('cursor', 'default');
 
         // Show correct line
         if (config.correctLine) {
@@ -1267,10 +1287,78 @@ const DrawGraph = {
 
 
 /* -------------------------------------------------------
+   POLICY CONTEXT SELECTOR
+   Persists the student's chosen policy context across all
+   three Module 1 parts via localStorage. Shows/hides
+   .ctx-block[data-context] elements accordingly.
+   ------------------------------------------------------- */
+const PolicyContextSelector = {
+  STORAGE_KEY: 'api101-policy-context',
+  DEFAULT: 'agriculture',
+
+  LABELS: {
+    agriculture:      'Agriculture',
+    healthcare:       'Healthcare',
+    energy:           'Energy Policy',
+    criminal_justice: 'Criminal Justice'
+  },
+
+  init() {
+    const current = localStorage.getItem(this.STORAGE_KEY) || this.DEFAULT;
+    this._apply(current);
+    this._renderChooser(current);
+    this._renderIndicator(current);
+  },
+
+  _apply(key) {
+    document.querySelectorAll('[data-context]').forEach(el => {
+      el.hidden = (el.dataset.context !== key);
+    });
+    const indicator = document.querySelector('.policy-context-indicator__value');
+    if (indicator) indicator.textContent = this.LABELS[key] || key;
+    localStorage.setItem(this.STORAGE_KEY, key);
+    document.dispatchEvent(new CustomEvent('policyContextChanged', { detail: key }));
+  },
+
+  _renderChooser(current) {
+    const container = document.querySelector('.policy-chooser');
+    if (!container) return;
+    container.innerHTML = '';
+    const label = document.createElement('span');
+    label.className = 'policy-chooser__label';
+    label.textContent = 'Choose your policy context:';
+    container.appendChild(label);
+    const tabs = document.createElement('div');
+    tabs.className = 'policy-chooser__tabs';
+    Object.entries(this.LABELS).forEach(([key, name]) => {
+      const btn = document.createElement('button');
+      btn.className = 'policy-chooser__tab' + (key === current ? ' policy-chooser__tab--active' : '');
+      btn.textContent = name;
+      btn.addEventListener('click', () => {
+        this._apply(key);
+        tabs.querySelectorAll('.policy-chooser__tab').forEach(b => b.classList.remove('policy-chooser__tab--active'));
+        btn.classList.add('policy-chooser__tab--active');
+        const ind = document.querySelector('.policy-context-indicator__value');
+        if (ind) ind.textContent = this.LABELS[key];
+      });
+      tabs.appendChild(btn);
+    });
+    container.appendChild(tabs);
+  },
+
+  _renderIndicator(current) {
+    const el = document.querySelector('.policy-context-indicator__value');
+    if (el) el.textContent = this.LABELS[current] || current;
+  }
+};
+
+
+/* -------------------------------------------------------
    INITIALIZATION
    ------------------------------------------------------- */
 document.addEventListener('DOMContentLoaded', () => {
   PolicyExampleSwitcher.init();
+  PolicyContextSelector.init();
   SidebarNav.init();
   CheckUnderstanding.init();
   SelfCheck.init();
