@@ -1,0 +1,61 @@
+ In the previous videos, we developed the model of supply and demand that illustrates how the quantity of a good or a service produced and consumed varies with its price.
+ Now, we'll turn our attention to the many other factors that can influence the supply and demand for a good or a service.
+ We'll consider how supply and demand change with factors other than price change.
+ We'll start by considering factors that shift demand, and we'll use the tools and intuition of our mark to predict how equilibrium prices and quantities will change in response.
+ When the price of a good or a service changes, the quantity demanded varies along the demand curve.
+ But what if we want to consider how the quantity demanded changes in response to factors other than price?
+ If something other than price changes, one would expect the quantity demanded would change at every price.
+ The economy is referred to this as a shift in demand. For example, in our market for sugar in the EU, if consumers taste for a change so that most people prefer to use artificial sweetness, then demand for sugar might shift.
+ If the assigned readings discuss several additional factors that might shift demand, including changes in the composition of the population, changes in income or ability to pay, changes in the prices of compliments and substance goods, and many others.
+ Another thing that can cause a shift in demand is government policy.
+ In the cap example, the EU's agricultural buyback policy directs the government to produce large quantities of sugar, regardless of the market price.
+ This action can be considered a shift in demand.
+ Now, we'll focus on modeling the hypothetical shift in demand created by the EU's buyback policy.
+ Let's start by recreating the model for the sugar market in the EU that we developed in our previous videos.
+ I've already graphed the supply and the demand functions here, and marked the equilibrium price and quantity.
+ Now, let's imagine that the EU government implements a policy in which it pledges to buy 25 kilos of sugar, regardless of the market price.
+ In this case, the quantity of sugar demanded would be 25 kilos higher at every price.
+ We can modify the demand equation to affect the government purchase by adding 25.
+ We've spent these calculations up in the interest of time.
+ We have the old equation, and now I've added 25 to reflect the fact that the EU's government pledges to buy 25 kilos of sugar, regardless of the market price.
+ Now, let's graph this new demand curve on the graph we've already started.
+ We can use the same method as before to graph the demand curve, but the only difference is now we'll be using this new modified demand equation.
+ First, let's invert this new function, so we have price as a function of quantity.
+ Next, we'll find the new Y intercept as before.
+ We'll use the same process before, where we plug zero in for the quantity demanded, and find the price at which the quantity demanded is zero.
+ In this case, we plug in zero, and you see that the price is 7.5, because the second term graphs out, and so the new Y intercept is going to be at a price of 7.5.
+ We're roughly right here.
+ Now, we can use the slope to find another point on the line, and then we can connect those dots.
+ So, as before, we have a slope of negative 1 over 10, which indicates that if the price were to decrease by 1 year per kilogram of sugar, we would expect 10 more kilogram of sugar to be demanded.
+ And so, our initial price for the Y intercept is 7.5.
+ So, if that price were to decrease by 1, you would go from 7.5 to 6.5, and then we would expect the quantity demanded to increase by 10 from zero to 10.
+ And so, the next point we have on our line is 6.5 and 10, which is roughly right here.
+ And then we can continue to use the slope to find additional points on this line as well.
+ So, if we decrease once again from 6.5 to 5.5, we would expect the quantity demanded to increase further by 10, and this is the same as before as well.
+ And we can do this over and over, and find several additional points on our line.
+ And now that we have several points on our line, we can simply connect the dots and get our full demand curve.
+ And finally, let's label this new equilibrium point that we found, where the supply curve intersects with this new demand curve as point B.
+ As you can see, this new demand curve has the same slope of the original, but it shifted outward, hence the name shift in demand.
+ This occurs because the quantity demanded is 25 units higher than before at every price.
+ Now, let's find the new equilibrium price and quantity under this hypothetical agricultural buyback policy.
+ First, let's set the new equation for the quantity demanded equal to the quantity supplied equation and find the new equilibrium price.
+ So, we want to set the equation for quantity supplied, which is 15P, equal to this new equation, which gives us 75 minus 10P.
+ And so, we'll add 10P to both sides, and divide both sides by 25.
+ And see that the new price at the equilibrium is equal to 3, which is roughly what we saw in our graph.
+ Next, we can plug this new price into the demand or the supply equations to solve for the new quantity.
+ I'm going to choose the supply equation first, just because it's shorter, but either one should give you the same exact answer.
+ So, we can plug in our price of 3.
+ See that the new quantity is 45.
+ But again, if I've done this using our new demand equation, I should get the same answer.
+ And again, this is roughly what we see on our graph as well.
+ Now that we've graphed the shift in demand and solve for the new equilibrium price and quantity, let's think a bit about the buyback policies impact on domestic producers and consumers.
+ The first thing to notice is that the quantity of sugar traded at the new equilibrium is higher than it was the old equilibrium price.
+ This should not be surprising as the government's pledge increases the demand for sugar drastically at every price.
+ Interestingly, at the new equilibrium, the quantity of sugar sold is only 15 units higher than it was, even though the government committed to increasing, purchasing by 25 kilos.
+ This is because increasing the supply to meet this new demand required a price increase that pulled additional producers into the market.
+ At this new higher price, private consumers, whose demand is sensitive to price, demand less sugar, and this partially offsets the increase in demand induced by the government buyback program.
+ Our model predicts that the buyback will achieve its goal of supporting sugar producers by increasing the amount that they can sell and the price that they receive for the goods that they sell.
+ It also highlights that the support for producers comes at the cost of higher prices for consumers and reduced non-governmental sugar consumption.
+ In this video, we explored how to model factors other than price that influence demand.
+ We built on the example of the market for sugar in the EU, and using the example of the EU's agricultural buyback program, model a shift in demand and discuss the characteristics of the new equilibrium.
+ In the next video, we'll turn our attention to modeling factors that cause shifts in supply.
