@@ -69,13 +69,6 @@
         </div>
       </div>
 
-      <!-- Policy context indicator -->
-      <div class="policy-context-indicator">
-        <span class="policy-context-indicator__label">Policy context:</span>
-        <span class="policy-context-indicator__value">Agriculture</span>
-        <a class="policy-context-indicator__link" href="module-01-1-demand.html#policy-connections">Change context</a>
-      </div>
-
       <!-- ===== LEARNING OBJECTIVES ===== -->
       <div class="learning-objectives">
         <div class="learning-objectives__title">Learning Objectives — Part 3</div>
@@ -85,6 +78,11 @@
           <li>Graph supply and demand together and identify the equilibrium point</li>
           <li>Apply demand-supply analysis to understand real-world policy, such as the EU Common Agricultural Policy</li>
         </ul>
+      </div>
+      <div class="callout callout--example">
+        <div class="callout__title">Quick Recap</div>
+        <p><strong>You already know:</strong> how demand works on the buyer side of the sugar market and how supply works on the producer side.</p>
+        <p><strong>This part adds:</strong> the point where those two sides meet, what happens when price is away from that point, and how that logic explains the CAP surplus.</p>
       </div>
 
       <!-- ===== EQUILIBRIUM ===== -->
@@ -103,6 +101,9 @@
       </p>
       <p>
         Markets in equilibrium tend to stay in equilibrium unless something external changes (which we will explore in Module 2). When a market is not in equilibrium, the imbalance creates incentives for buyers and sellers to adjust. If price is too high, unsold inventory accumulates, and sellers lower prices to clear it. If price is too low, buyers search frantically for products, and prices rise. This process is not always instantaneous, but the tendency is toward equilibrium.
+      </p>
+      <p>
+        For the CAP, equilibrium gives us the benchmark the policy disrupts. Without that benchmark, we cannot say whether the guaranteed price is above the market level, how large the resulting surplus is, or why the government must buy the excess output.
       </p>
 
       <h3>Finding Equilibrium Algebraically</h3>
@@ -138,6 +139,12 @@
           Equilibrium: \(P^* = 2\) and \(Q^* = 30\)
           <span data-context="agriculture">million kg/year.</span><span data-context="healthcare" hidden>million prescriptions/month.</span><span data-context="energy" hidden>billion gallons/year.</span><span data-context="criminal_justice" hidden>million grams/month.</span>
         </div>
+      </div>
+      <div class="callout callout--insight">
+        <div class="callout__title">What to Notice</div>
+        <p>
+          Equilibrium is not a separate formula you memorize apart from demand and supply. It comes directly from combining the two relationships you already built in Parts 1 and 2. The logic is simple: find the price at which buyers and sellers want the same quantity, then check the quantity in both equations.
+        </p>
       </div>
 
       <h3>Worked Example:
@@ -226,6 +233,12 @@
           Students often confuse "surplus" (excess of quantity supplied over quantity demanded at a given price) with "consumer surplus" (the benefit consumers receive from buying at a price below their maximum willingness to pay). These are entirely different concepts. A market "surplus" pushes price downward. "Consumer surplus" is a measure of value created by trade, which we will explore in Module 3.
         </p>
       </div>
+      <div class="callout callout--warning">
+        <div class="callout__title">Common Mistake</div>
+        <p>
+          Students often reverse surplus and shortage. The fastest way to stay oriented is to ask two questions at the chosen price: how much do buyers want, and how much do sellers want to provide? If price is above equilibrium, sellers want to sell more than buyers want to buy, so the result is a <em>surplus</em>. If price is below equilibrium, buyers want more than sellers provide, so the result is a <em>shortage</em>.
+        </p>
+      </div>
 
       <!-- Check: surplus or shortage -->
       <div class="check-understanding"
@@ -262,6 +275,8 @@
           </div>
         </div>
         <div class="graph-container__info" id="equilibrium-info">
+          <p><strong>Current demand:</strong> <span id="eq-demand-display">Q_d = 50 - 10P</span></p>
+          <p><strong>Current supply:</strong> <span id="eq-supply-display">Q_s = 0 + 15P</span></p>
           <p><strong>Equilibrium Price (\(P^*\)):</strong> <span id="eq-price-display">€2.00</span></p>
           <p><strong>Equilibrium Quantity (\(Q^*\)):</strong> <span id="eq-quantity-display">30</span> million kg</p>
         </div>
@@ -307,6 +322,12 @@
         </p>
         <p>
           The CAP example demonstrates a crucial lesson: understanding demand and supply is essential for predicting the real-world effects of policy. A well-intentioned policy designed to help farmers created surpluses, inefficient production, environmental problems, international trade distortions, and massive costs to taxpayers. By applying supply-and-demand analysis, we can predict these consequences <em>before</em> implementing a policy, and design better alternatives.
+        </p>
+      </div>
+      <div class="callout callout--insight">
+        <div class="callout__title">What to Notice</div>
+        <p>
+          The CAP application is just the same market logic in policy language. At the supported price, buyers move to one point on the demand curve and sellers move to a different point on the supply curve. The gap between those two points is the surplus the government has to absorb.
         </p>
       </div>
 
@@ -375,7 +396,7 @@
       </p>
       <div class="callout callout--example">
         <div class="callout__title">Quiz Instructions</div>
-        <p>This practice quiz contains 8 questions (multiple choice and short answer). After you answer each question, you will receive immediate feedback. Work through all questions and review the feedback carefully.</p>
+        <p>This practice quiz contains 8 questions (multiple choice and short answer). The early questions check core algebra and graphing skills; the final questions bring those skills back to the sugar market and the CAP logic. After you answer each question, you will receive immediate feedback.</p>
       </div>
 
       <div id="quiz-1"></div>
@@ -588,6 +609,8 @@
         const c = parseFloat(document.getElementById('eq-supply-intercept').value);
         document.getElementById('eq-demand-intercept-value').textContent = a.toFixed(0);
         document.getElementById('eq-supply-intercept-value').textContent = c.toFixed(0);
+        document.getElementById('eq-demand-display').textContent = 'Q_d = ' + a.toFixed(0) + ' - 10P';
+        document.getElementById('eq-supply-display').textContent = 'Q_s = ' + c.toFixed(0) + ' + 15P';
 
         const demand = x => (a / 10) - (x / 10);
         const supply = x => (x - c) / 15;
@@ -670,27 +693,21 @@
         },
         {
           type: 'multiple_choice',
-          text: 'Which of the following best describes what happens at a price above the equilibrium price?',
+          text: 'In the EU sugar market, suppose the government sets a price support at \\(P = 3\\) when the curves are \\(Q_d = 50 - 10P\\) and \\(Q_s = 15P\\). What happens in the market?',
           options: [
-            { text: 'Quantity demanded exceeds quantity supplied, creating a shortage.', correct: false },
-            { text: 'Quantity supplied exceeds quantity demanded, creating a surplus.', correct: true },
-            { text: 'Both demand and supply increase equally.', correct: false },
-            { text: 'The demand curve shifts rightward.', correct: false },
-            { text: 'Consumers immediately purchase all available inventory.', correct: false }
+            { text: 'A shortage of 25 million kilograms emerges.', correct: false },
+            { text: 'A surplus of 25 million kilograms emerges.', correct: true },
+            { text: 'The market remains in equilibrium at the supported price.', correct: false },
+            { text: 'Demand and supply both shift rightward.', correct: false },
+            { text: 'Consumers buy 45 million kilograms at the supported price.', correct: false }
           ],
-          feedback: 'At prices above equilibrium, producers supply more than consumers demand. This excess supply (surplus) creates downward pressure on price until equilibrium is restored.'
+          feedback: 'At \\(P = 3\\), quantity demanded is \\(50 - 10(3) = 20\\) and quantity supplied is \\(15(3) = 45\\). Since sellers want to sell 45 but buyers only want 20, the market has a surplus of 25 million kilograms. Under the CAP, the government would have to absorb that excess output.'
         },
         {
-          type: 'multiple_choice',
-          text: 'If the demand equation is \\(Q_d = 50 - 2P\\), what is the quantity demanded when \\(P = 15\\)?',
-          options: [
-            { text: '20 units', correct: true },
-            { text: '30 units', correct: false },
-            { text: '80 units', correct: false },
-            { text: '40 units', correct: false },
-            { text: '15 units', correct: false }
-          ],
-          feedback: 'Substitute \\(P = 15\\): \\(Q_d = 50 - 2(15) = 50 - 30 = 20\\) units.'
+          type: 'short_answer',
+          text: 'Continuing the CAP example, if the government buys the entire surplus at the supported price of \\(€3\\) per kilogram, how much does it spend on the 25 million kilogram surplus?',
+          feedback: 'Government spending equals price times the purchased surplus: \\(€3 \\times 25\\) million kilograms = \\(€75\\) million. This is the simplest version of the CAP fiscal-cost logic you just studied.',
+          correctAnswer: '75'
         }
       ];
 

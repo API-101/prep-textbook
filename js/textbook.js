@@ -1073,6 +1073,7 @@ const DrawGraph = {
       feedbackMessages: {
         correct: 'Your curve slopes in the right direction.',
         wrongSlope: 'Check the slope direction.',
+        wrongIntercept: 'Your slope direction is right, but the line is not anchored to the correct points.',
         tooShort: 'Try drawing all the way across the graph.'
       }
     };
@@ -1248,7 +1249,28 @@ const DrawGraph = {
 
         const slope = (p2.y - p1.y) / (p2.x - p1.x);
         const slopeDir = slope > 0 ? 'positive' : 'negative';
-        const isCorrect = slopeDir === config.expectedSlope;
+        const intercept = p1.y - slope * p1.x;
+        const userLine = x => slope * x + intercept;
+        let isCorrect = slopeDir === config.expectedSlope;
+
+        if (config.correctLine) {
+          const [x0, x1] = config.xDomain;
+          const samples = 6;
+          const diffs = [];
+          for (let i = 0; i <= samples; i++) {
+            const x = x0 + ((x1 - x0) * i / samples);
+            const expectedY = config.correctLine(x);
+            const userY = userLine(x);
+            if (isFinite(expectedY) && isFinite(userY)) {
+              diffs.push(Math.abs(expectedY - userY));
+            }
+          }
+          if (diffs.length) {
+            const meanAbsDiff = diffs.reduce((sum, diff) => sum + diff, 0) / diffs.length;
+            const yRange = config.yDomain[1] - config.yDomain[0];
+            isCorrect = isCorrect && (meanAbsDiff / yRange) < 0.12;
+          }
+        }
 
         submitted = true;
         drawArea.style('cursor', 'default');
@@ -1277,7 +1299,10 @@ const DrawGraph = {
           feedbackEl.innerHTML = '<strong>Great job!</strong> ' + config.feedbackMessages.correct;
         } else {
           feedbackEl.className = 'draw-graph__feedback draw-graph__feedback--incorrect';
-          feedbackEl.innerHTML = '<strong>Not quite.</strong> ' + config.feedbackMessages.wrongSlope +
+          const diagnosis = slopeDir !== config.expectedSlope
+            ? config.feedbackMessages.wrongSlope
+            : config.feedbackMessages.wrongIntercept;
+          feedbackEl.innerHTML = '<strong>Not quite.</strong> ' + diagnosis +
             ' The correct curve is shown in the graph above.';
         }
       }

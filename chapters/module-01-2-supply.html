@@ -65,13 +65,6 @@
         </div>
       </div>
 
-      <!-- Policy context indicator -->
-      <div class="policy-context-indicator">
-        <span class="policy-context-indicator__label">Policy context:</span>
-        <span class="policy-context-indicator__value">Agriculture</span>
-        <a class="policy-context-indicator__link" href="module-01-1-demand.html#policy-connections">Change context</a>
-      </div>
-
       <!-- ===== LEARNING OBJECTIVES ===== -->
       <div class="learning-objectives">
         <div class="learning-objectives__title">Learning Objectives — Part 2</div>
@@ -81,6 +74,11 @@
           <li>Build a supply schedule from a linear supply equation and interpret the slope</li>
           <li>Distinguish between "supply" (the full curve) and "quantity supplied" (a point on the curve)</li>
         </ul>
+      </div>
+      <div class="callout callout--example">
+        <div class="callout__title">Quick Recap</div>
+        <p><strong>You already know:</strong> how to read a demand equation, build a demand schedule, invert the equation, and graph the buyer side of the sugar market.</p>
+        <p><strong>This part adds:</strong> the producer side of that same market, so you can bring both curves together in Part 3 and analyze the CAP price support.</p>
       </div>
 
       <!-- ===== SUPPLY ===== -->
@@ -99,6 +97,9 @@
       </p>
       <p>
         Just as with demand, we can represent supply with a <strong>supply schedule</strong> (a table) or a <strong>supply curve</strong> (a graph). The upward slope reflects the law of supply: producers supply more at higher prices. This reflects economic reality: firms have costs of production, and higher prices allow them to cover those costs and earn profits even when expanding production.
+      </p>
+      <p>
+        In the CAP setting, this is the other half of the story: if the policy guarantees a higher sugar price, farmers respond by producing more. Part 3 will show why combining that upward-sloping supply curve with the downward-sloping demand curve creates surplus.
       </p>
 
       <!-- Check: Law of Supply MC -->
@@ -206,6 +207,12 @@
       <div data-context="agriculture">
         <p>Notice the pattern: for each €1 increase in price, quantity supplied increases by 15 million kilograms. The supply curve is perfectly linear, reflecting constant price responsiveness across all prices.</p>
       </div>
+      <div class="callout callout--insight">
+        <div class="callout__title">What to Notice</div>
+        <p>
+          The schedule makes the law of supply visible in the same way the demand table did in Part 1. Every €1 increase in price brings 15 million more kilograms of sugar to market. In CAP terms, this is why a guaranteed high price encourages overproduction rather than simply preserving the old output level.
+        </p>
+      </div>
       <div data-context="healthcare" hidden>
         <p>Notice the pattern: for each $2 increase in co-pay, quantity supplied increases by 6 million prescriptions. Higher prices attract more generic manufacturers and larger production runs — d = 3 means each $1 increase brings 3 million more Rx to market.</p>
       </div>
@@ -276,6 +283,12 @@
           <li><strong>Slope:</strong> The coefficient on \(Q_s\) is 1/15. For every 15 million kg increase in quantity, price increases by €1.</li>
         </ul>
       </div>
+      <div class="callout callout--insight">
+        <div class="callout__title">What to Notice</div>
+        <p>
+          Supply is simpler to invert here than demand because the equation has no constant term: \(Q_s = 15P\) becomes \(P = Q_s/15\). That immediately tells you two things students should internalize: the curve passes through the origin, and its slope is positive.
+        </p>
+      </div>
 
       <div data-context="healthcare" hidden>
         <div class="math-steps">
@@ -345,10 +358,16 @@
           <p class="graphing-method__intro">The supply curve passes through the origin (0, 0) — <em>because c = 0 in our equation, meaning producers supply nothing when the price is zero</em>. This gives us a free starting point that requires no calculation. From there, apply the slope:
             <span data-context="agriculture">move right 15, up 1</span><span data-context="healthcare" hidden>move right 3, up 1</span><span data-context="energy" hidden>move right 20, up 1</span><span data-context="criminal_justice" hidden>move right 2, up 1</span>
             repeatedly until you cross the domain.</p>
-          <div class="graphing-method__step-desc" id="sm1-desc">Click <strong>Next Step</strong> to build the supply curve one step at a time.</div>
-          <div id="sm1-graph"></div>
-          <div class="graphing-method__controls">
-            <button id="sm1-next" class="graphing-method__next-btn">Next Step →</button>
+          <div class="demo-layout">
+            <div class="demo-layout__graph-col">
+              <div id="sm1-graph"></div>
+              <div class="graphing-method__controls">
+                <button id="sm1-next" class="graphing-method__next-btn">Next Step →</button>
+              </div>
+            </div>
+            <div class="demo-layout__desc-col">
+              <div class="demo-step-panel" id="sm1-desc">Click <strong>Next Step →</strong> to build the supply curve one step at a time.</div>
+            </div>
           </div>
         </div>
 
@@ -361,10 +380,16 @@
             <h4 class="graphing-method__title">Plot the Supply Schedule</h4>
           </div>
           <p class="graphing-method__intro">Each row of the supply schedule is a point on the curve. Plot all five price-quantity pairs, then connect them with a straight line.</p>
-          <div class="graphing-method__step-desc" id="sm2-desc">Click <strong>Next Step</strong> to plot each point from the schedule.</div>
-          <div id="sm2-graph"></div>
-          <div class="graphing-method__controls">
-            <button id="sm2-next" class="graphing-method__next-btn">Next Step →</button>
+          <div class="demo-layout">
+            <div class="demo-layout__graph-col">
+              <div id="sm2-graph"></div>
+              <div class="graphing-method__controls">
+                <button id="sm2-next" class="graphing-method__next-btn">Next Step →</button>
+              </div>
+            </div>
+            <div class="demo-layout__desc-col">
+              <div class="demo-step-panel" id="sm2-desc">Click <strong>Next Step →</strong> to plot each point from the schedule.</div>
+            </div>
           </div>
         </div>
 
@@ -404,6 +429,12 @@
         <div class="callout__title">Important Distinction: Supply vs. Quantity Supplied</div>
         <p>
           "Supply" refers to the entire curve — the full relationship between price and quantity supplied. "Quantity supplied" refers to a specific point on that curve at a particular price. When the supply curve shifts (which we will explore in Module 2), economists say "supply increased" or "supply decreased." Movements along the supply curve due to price changes are changes in "quantity supplied," not changes in "supply."
+        </p>
+      </div>
+      <div class="callout callout--warning">
+        <div class="callout__title">Common Mistake</div>
+        <p>
+          Two errors show up repeatedly here. First, students sometimes draw supply downward because they are still thinking about demand. Second, they say "supply increased" when price rises. In Module 1, a price rise means a movement <em>along</em> the supply curve, so only <em>quantity supplied</em> increases.
         </p>
       </div>
 
@@ -484,6 +515,10 @@
             <span class="graph-control__value" id="supply-slope-value">15</span>
           </div>
         </div>
+        <div class="graph-container__info">
+          <p><strong>Current supply:</strong> <span id="supply-equation-display">Q_s = 0 + 15P</span></p>
+          <p><strong>Graph form:</strong> <span id="supply-inverse-display">P = (Q - 0) / 15</span></p>
+        </div>
       </div>
 
       <!-- UX-NOTE: The agriculture interactive description is functional but generic. A more grounded suggestion — e.g., "try setting c = 10 to simulate a fertilizer subsidy that lowers production costs and shifts the supply curve right" — would tie the slider experiment to a specific CAP policy mechanism and better prepare students for Module 2 supply-shifter analysis. -->
@@ -546,6 +581,9 @@
           </div>
         </div>
       </div>
+      <p>
+        You now have the seller side of the same sugar market: how much producers want to bring to market at each price, how to read that from the equation, and how to graph it. Part 3 overlays this supply curve on the demand curve from Part 1 so you can locate equilibrium and then apply the result back to the CAP price-support system.
+      </p>
 
       <!-- Bottom Part Progress Strip -->
       <div class="part-progress" style="margin-top: var(--space-3xl);">
@@ -625,7 +663,7 @@
     };
 
     function getCurrentContext() {
-      return localStorage.getItem('api101-policy-context') || 'agriculture';
+      return 'agriculture';
     }
 
     // ===== Static Supply Graph =====
@@ -664,13 +702,13 @@
       function drawFrame(i) {
         graph.clear();
         frames[i]();
-        descEl.innerHTML = descs[i] + ' <span class="gm-step-counter">(' + (i + 1) + ' of ' + total + ')</span>';
+        descEl.innerHTML = '<span class="gm-step-counter">Step ' + (i + 1) + ' of ' + total + '</span>' + descs[i];
       }
 
       function reset() {
         frame = -1;
         graph.clear();
-        descEl.innerHTML = 'Click <strong>Next Step</strong> to build the curve one step at a time.';
+        descEl.innerHTML = 'Click <strong>Next Step →</strong> to walk through the graph one step at a time.';
         btn.textContent = 'Next Step →';
         btn.classList.remove('graphing-method__next-btn--replay');
       }
@@ -810,6 +848,8 @@
         var d = parseFloat(dSlider.value);
         document.getElementById('supply-intercept-value').textContent = c.toFixed(0);
         document.getElementById('supply-slope-value').textContent = d.toFixed(0);
+        document.getElementById('supply-equation-display').textContent = 'Q_s = ' + c.toFixed(0) + ' + ' + d.toFixed(0) + 'P';
+        document.getElementById('supply-inverse-display').textContent = 'P = (Q - ' + c.toFixed(0) + ') / ' + d.toFixed(0);
 
         var supply = function(x) { return (x - c) / d; };
         graph.addLine(supply, '#c0392b', { label: 'S', className: 'dynamic', strokeWidth: 2.5 });
@@ -843,6 +883,7 @@
         feedbackMessages: {
           correct: 'Your curve slopes upward from left to right — that\'s the law of supply. Higher prices give producers more incentive to produce.',
           wrongSlope: 'Supply curves slope upward: as price rises, producers supply more. The correct supply curve is shown in the graph.',
+          wrongIntercept: 'Your line slopes upward correctly, but it is not anchored to the right point. Check that the curve passes through the origin and matches the intended step pattern.',
           tooShort: 'Try drawing your curve all the way across the graph from left to right.'
         }
       });
@@ -864,20 +905,6 @@
     buildSupplyMethods(getCurrentContext());
     buildInteractiveSupplyGraph(getCurrentContext());
 
-    // ===== Rebuild on context switch =====
-    document.addEventListener('policyContextChanged', function(e) {
-      buildStaticSupplyGraph(e.detail);
-      buildSupplyMethods(e.detail);
-      buildInteractiveSupplyGraph(e.detail);
-      if (typeof renderMathInElement !== 'undefined') {
-        renderMathInElement(document.body, {
-          delimiters: [
-            {left: '$$', right: '$$', display: true},
-            {left: '\\(', right: '\\)', display: false}
-          ]
-        });
-      }
-    });
   </script>
 
 </body>
