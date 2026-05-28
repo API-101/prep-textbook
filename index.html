@@ -11,6 +11,7 @@
       --home-muted: #57534e;
       --home-rule: #d8d4cf;
       --home-tint: #f6f7f8;
+      --home-path-bg: #ede3de;
       --home-crimson: #a51c30;
       --home-crimson-dark: #7f1424;
       --home-gold: #b28b00;
@@ -130,9 +131,10 @@
     }
 
     .home-content {
-      max-width: 72rem;
-      margin: 0 auto;
-      padding: var(--space-3xl) var(--space-xl);
+      max-width: none;
+      margin: 0;
+      padding: var(--space-3xl) max(var(--space-xl), calc((100vw - 72rem) / 2 + var(--space-xl)));
+      background: var(--home-path-bg);
       display: grid;
       grid-template-columns: 14rem minmax(0, 1fr);
       gap: var(--space-3xl);
@@ -162,13 +164,14 @@
 
     .module-path {
       border-top: 2px solid var(--home-ink);
+      background: #fff;
     }
 
     .path-item {
       display: grid;
       grid-template-columns: 8.5rem minmax(0, 1fr) 9rem;
       gap: var(--space-xl);
-      padding: var(--space-xl) 0;
+      padding: var(--space-xl);
       border-bottom: 1px solid var(--home-rule);
       color: inherit;
       text-decoration: none;
@@ -227,7 +230,6 @@
     .path-item--checkpoint {
       grid-template-columns: 8.5rem minmax(0, 1fr) 9rem;
       background: #f8f8f8;
-      box-shadow: inset 4px 0 0 #d8b547;
     }
 
     .path-item--checkpoint:hover {
@@ -235,7 +237,7 @@
     }
 
     .path-item--checkpoint .path-item__eyebrow {
-      color: var(--home-gold);
+      color: var(--home-crimson);
     }
 
     .home-footer {
@@ -261,6 +263,8 @@
 
       .home-content {
         gap: var(--space-xl);
+        padding-left: var(--space-xl);
+        padding-right: var(--space-xl);
       }
 
       .path-heading {
