@@ -699,6 +699,25 @@ strong {
   margin: var(--space-xl) 0;
   text-align: center;
 }
+
+.figure img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto;
+}
+
+.figure--photo {
+  background: #fafafa;
+  border: 1px solid var(--color-neutral-200);
+  padding: var(--space-md);
+  text-align: left;
+}
+
+.figure--photo img {
+  width: 100%;
+}
+
 .figure__caption {
   font-size: 0.8125rem;
   color: var(--color-neutral-600);
