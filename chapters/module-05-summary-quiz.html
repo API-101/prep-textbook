@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Module 5 Summary and Practice Quiz — API-101 Preparation</title>
+  <link rel="stylesheet" href="../css/theme.css?v=2">
+</head>
+<body>
+  <nav class="site-nav">
+    <a href="../index.html" class="site-nav__brand" aria-label="Harvard Kennedy School"><img class="site-nav__logo" src="../assets/images/hks-logo.svg" alt="Harvard Kennedy School"></a>
+    <ul class="site-nav__links">
+      <li><a href="../index.html">Home</a></li>
+<li><a href="https://canvas.harvard.edu/courses/174583">Canvas</a></li>
+<li><a href="https://pingpong.hks.harvard.edu/group/723?assistant=3506">Ping Pong</a></li>
+    </ul>
+  </nav>
+
+  <div class="page-wrapper">
+    <aside class="sidebar">
+      <span class="sidebar__part-label">Module 5 Quiz</span>
+      <a href="#summary" class="sidebar__link sidebar__link--active">Summary</a>
+      <a href="#practice-quiz" class="sidebar__link">Practice Quiz</a>
+      <a href="#canvas-reflection" class="sidebar__link">Final Reflection</a>
+
+      <span class="sidebar__part-label" style="margin-top: var(--space-2xl);">Learning Path</span>
+      <a href="module-01-1-demand.html" class="sidebar__link">1. Demand Basics</a>
+      <a href="module-01-2-supply.html" class="sidebar__link">2. Supply Basics</a>
+      <a href="module-01-3-equilibrium.html" class="sidebar__link">3. Equilibrium Basics</a>
+      <a href="modules-1-3-summary-quiz.html" class="sidebar__link">Modules 1-3 Quiz</a>
+      <a href="module-02-demand-supply-shifters.html" class="sidebar__link">4. Demand &amp; Supply Shifters</a>
+      <a href="module-04-summary-quiz.html" class="sidebar__link">Module 4 Quiz</a>
+      <a href="module-03-consumer-producer-surplus.html" class="sidebar__link">5. Consumer &amp; Producer Surplus</a>
+      <a href="module-05-summary-quiz.html" class="sidebar__link" style="font-weight:600; color: var(--color-primary);">Module 5 Quiz</a>
+    </aside>
+
+    <main class="main-content">
+      <header class="chapter-header">
+        <div class="chapter-header__part">Module 5</div>
+        <div class="chapter-header__number">Summary and Practice Quiz</div>
+        <h1 class="chapter-header__title">Consumer and Producer Surplus</h1>
+        <p class="chapter-header__subtitle">Review welfare analysis and the policy tradeoffs created by price controls.</p>
+      </header>
+
+      <h2 id="summary">Summary</h2>
+      <p>Consumer surplus measures the value buyers receive above what they pay. Producer surplus measures the value sellers receive above the minimum they would accept. Social surplus is the sum of the two.</p>
+      <p>Policies such as price floors can redistribute surplus across groups, but they can also reduce total surplus by preventing mutually beneficial transactions. That lost value is deadweight loss.</p>
+
+      <h2 id="practice-quiz">Practice Quiz</h2>
+      <p>This quiz uses the Canvas-derived consumer and producer surplus question bank.</p>
+      <div id="practice-quiz-container"></div>
+
+      <h2 id="canvas-reflection">Final Reflection</h2>
+      <div class="callout callout--insight">
+        <div class="callout__title">Return to Canvas</div>
+        <p>After completing this quiz, return to the Canvas site to complete the final reflection for the summer preparation sequence.</p>
+      </div>
+
+      <nav class="chapter-nav">
+        <a href="module-03-consumer-producer-surplus.html" class="chapter-nav__link chapter-nav__link--prev">
+          <span class="chapter-nav__direction">&larr; Previous</span>
+          <span class="chapter-nav__title">Module 5: Consumer &amp; Producer Surplus</span>
+        </a>
+        <a href="../index.html" class="chapter-nav__link chapter-nav__link--next">
+          <span class="chapter-nav__direction">Finish &rarr;</span>
+          <span class="chapter-nav__title">Back to Home</span>
+        </a>
+      </nav>
+    </main>
+  </div>
+
+  <script src="../js/textbook.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      PracticeQuiz.loadFromJson('#practice-quiz-container', '../source-materials/quizzes/module3-quiz.json', {
+        title: 'Module 5 Practice Quiz'
+      });
+    });
+  </script>
+</body>
+</html>

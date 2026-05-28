@@ -3,44 +3,17 @@
    Core JavaScript Framework
 
    MODULES:
-   1. PolicyExampleSwitcher - tabbed policy domain examples
-   2. EconGraph - D3.js graph utilities for econ diagrams
-   3. SidebarNav - active section tracking
-   4. ChapterLoader - chapter metadata and navigation
+   1. EconGraph - D3.js graph utilities for econ diagrams
+   2. SidebarNav - active section tracking
+   3. CheckUnderstanding - inline multiple-choice feedback
+   4. PracticeQuiz - standalone quiz rendering
+   5. SelfCheck - reveal-answer checks
+   6. CumulativeGlossary and Flashcards - key terms study tools
+   7. DrawGraph - click-to-draw graph practice
    ============================================================ */
 
 /* -------------------------------------------------------
-   1. POLICY EXAMPLE SWITCHER
-   Handles the tabbed interface for policy domain examples
-   (healthcare, energy, criminal justice, etc.)
-   ------------------------------------------------------- */
-const PolicyExampleSwitcher = {
-  init() {
-    document.querySelectorAll('.policy-example').forEach(container => {
-      const tabs = container.querySelectorAll('.policy-example__tab');
-      const panels = container.querySelectorAll('.policy-example__panel');
-
-      tabs.forEach(tab => {
-        tab.addEventListener('click', () => {
-          const target = tab.dataset.panel;
-
-          // Deactivate all
-          tabs.forEach(t => t.classList.remove('policy-example__tab--active'));
-          panels.forEach(p => p.classList.remove('policy-example__panel--active'));
-
-          // Activate selected
-          tab.classList.add('policy-example__tab--active');
-          const panel = container.querySelector(`[data-panel-id="${target}"]`);
-          if (panel) panel.classList.add('policy-example__panel--active');
-        });
-      });
-    });
-  }
-};
-
-
-/* -------------------------------------------------------
-   2. ECON GRAPH — D3.js Utility Library
+   1. ECON GRAPH — D3.js Utility Library
    Clean, consistent economics graph primitives.
    All graphs use this for uniform styling.
    ------------------------------------------------------- */
@@ -474,87 +447,7 @@ const SidebarNav = {
 
 
 /* -------------------------------------------------------
-   4. CHAPTER METADATA
-   Complete textbook structure for navigation and cross-refs
-   ------------------------------------------------------- */
-const TextbookStructure = {
-  title: 'Microeconomics for Policy',
-  subtitle: 'An Interactive Approach',
-  institution: '',
-  courseCode: '',
-  parts: [
-    {
-      number: 1,
-      title: 'Foundations of Microeconomic Analysis',
-      chapters: [
-        { number: 1, title: 'Economic Models and Equilibrium', slug: 'ch01-economic-models-equilibrium' }
-      ]
-    },
-    {
-      number: 2,
-      title: 'Demand, Supply, and Price Mechanisms',
-      chapters: [
-        { number: 2, title: 'Elasticity and Market Responsiveness', slug: 'ch02-elasticity-market-responsiveness' },
-        { number: 3, title: 'Policy Applications: Market Interventions', slug: 'ch03-policy-applications-market-interventions' }
-      ]
-    },
-    {
-      number: 3,
-      title: 'Consumer and Producer Behavior',
-      chapters: [
-        { number: 4, title: 'Consumer Preferences and Choice', slug: 'ch04-consumer-preferences-choice' },
-        { number: 5, title: 'Policy Instruments: Subsidies and Cash Transfers', slug: 'ch05-policy-instruments-subsidies-transfers' },
-        { number: 6, title: 'Choice Under Uncertainty and Risk', slug: 'ch06-choice-uncertainty-risk' },
-        { number: 7, title: 'Producer Behavior and Costs', slug: 'ch07-producer-behavior-costs' }
-      ]
-    },
-    {
-      number: 4,
-      title: 'Market Structure and Market Power',
-      chapters: [
-        { number: 8, title: 'Monopoly and Monopsony Power', slug: 'ch08-monopoly-monopsony-power' },
-        { number: 9, title: 'Price Discrimination and Market Segmentation', slug: 'ch09-price-discrimination-segmentation' },
-        { number: 10, title: 'Market Power in Supply Chains', slug: 'ch10-market-power-supply-chains' }
-      ]
-    },
-    {
-      number: 5,
-      title: 'Strategic Interaction and Coordination',
-      chapters: [
-        { number: 11, title: 'Strategic Behavior and Game Theory', slug: 'ch11-strategic-behavior-game-theory' },
-        { number: 12, title: 'Public Goods and Coordination Failures', slug: 'ch12-public-goods-coordination-failures' }
-      ]
-    },
-    {
-      number: 6,
-      title: 'Market Failures and Policy Solutions',
-      chapters: [
-        { number: 13, title: 'Asymmetric Information and Market Selection', slug: 'ch13-asymmetric-information-selection' },
-        { number: 14, title: 'Externalities and Environmental Policy', slug: 'ch14-externalities-environmental-policy' },
-        { number: 15, title: 'Integration and Course Synthesis', slug: 'ch15-integration-synthesis' }
-      ]
-    }
-  ],
-
-  /** Get all chapters flat */
-  getAllChapters() {
-    return this.parts.flatMap(p => p.chapters.map(c => ({ ...c, partNumber: p.number, partTitle: p.title })));
-  },
-
-  /** Get next/prev chapter for navigation */
-  getAdjacentChapters(chapterNumber) {
-    const all = this.getAllChapters();
-    const idx = all.findIndex(c => c.number === chapterNumber);
-    return {
-      prev: idx > 0 ? all[idx - 1] : null,
-      next: idx < all.length - 1 ? all[idx + 1] : null
-    };
-  }
-};
-
-
-/* -------------------------------------------------------
-   5. CHECK FOR UNDERSTANDING
+   4. CHECK FOR UNDERSTANDING
    Interactive multiple-choice quiz with instant feedback.
    Usage in HTML:
      <div class="check-understanding" data-question="What happens to..."
@@ -626,7 +519,7 @@ const CheckUnderstanding = {
 
 
 /* -------------------------------------------------------
-   6. PRACTICE QUIZ ENGINE
+   5. PRACTICE QUIZ ENGINE
    Multi-question quiz with progress, feedback, scoring.
    Usage:
      PracticeQuiz.create('#quiz-container', questions)
@@ -858,9 +751,33 @@ const PracticeQuiz = {
   }
 };
 
+PracticeQuiz.loadFromJson = function(selector, url, opts = {}) {
+  const container = document.querySelector(selector);
+  if (!container) return;
+
+  container.innerHTML = '<p style="color: #7f8c8d; font-style: italic;">Loading quiz questions...</p>';
+
+  fetch(url)
+    .then(response => {
+      if (!response.ok) throw new Error(`Unable to load ${url}`);
+      return response.json();
+    })
+    .then(questions => {
+      this.create(selector, questions, opts);
+    })
+    .catch(() => {
+      container.innerHTML = `
+        <div class="callout callout--warning">
+          <div class="callout__title">Quiz could not load</div>
+          <p>Start the site with <code>python3 -m http.server 8000</code> and open <code>http://localhost:8000</code> so the quiz JSON files can load.</p>
+        </div>
+      `;
+    });
+};
+
 
 /* -------------------------------------------------------
-   7. SELF-CHECK (Reveal Answer)
+   6. SELF-CHECK (Reveal Answer)
    Usage:
      <div class="self-check">
        <div class="self-check__question">What happens when...</div>
@@ -879,7 +796,7 @@ const SelfCheck = {
       if (!container.querySelector('.self-check__header')) {
         const header = document.createElement('div');
         header.className = 'self-check__header';
-        header.textContent = 'Self-Check';
+        header.textContent = 'Self-Check Your Understanding';
         container.insertBefore(header, container.firstChild);
       }
 
@@ -887,6 +804,92 @@ const SelfCheck = {
         answer.classList.toggle('self-check__answer--visible');
         btn.textContent = answer.classList.contains('self-check__answer--visible') ? 'Hide Answer' : 'Show Answer';
       });
+    });
+  }
+};
+
+
+/* -------------------------------------------------------
+   7. CUMULATIVE KEY TERMS
+   Generates consistent glossary tables and flashcard launchers.
+   ------------------------------------------------------- */
+const CumulativeGlossary = {
+  terms: [
+    { module: 1, term: 'Ceteris Paribus', definition: 'Latin for "all else equal"; the assumption that all variables except those being studied are held constant.' },
+    { module: 1, term: 'Demand', definition: 'The relationship between price and the quantity consumers are willing and able to purchase.' },
+    { module: 1, term: 'Demand Curve', definition: 'A graph showing the relationship between price and quantity demanded, with quantity on the horizontal axis and price on the vertical axis.' },
+    { module: 1, term: 'Demand Schedule', definition: 'A table showing quantities demanded at a range of prices.' },
+    { module: 1, term: 'Law of Demand', definition: 'Holding all else equal, a higher price leads to a lower quantity demanded, and a lower price leads to a higher quantity demanded.' },
+    { module: 1, term: 'Price', definition: 'What a buyer pays for one unit of a good or service.' },
+    { module: 1, term: 'Quantity Demanded', definition: 'The number of units consumers are willing to purchase at a given price.' },
+    { module: 2, term: 'Law of Supply', definition: 'Holding all else equal, a higher price leads to a greater quantity supplied, and a lower price leads to a lower quantity supplied.' },
+    { module: 2, term: 'Quantity Supplied', definition: 'The number of units producers are willing to sell at a given price.' },
+    { module: 2, term: 'Supply', definition: 'The relationship between price and the quantity producers are willing and able to sell.' },
+    { module: 2, term: 'Supply Curve', definition: 'A graph showing the relationship between price and quantity supplied, with quantity on the horizontal axis and price on the vertical axis.' },
+    { module: 2, term: 'Supply Schedule', definition: 'A table showing quantities supplied at a range of prices.' },
+    { module: 3, term: 'Equilibrium', definition: 'The price and quantity where quantity demanded equals quantity supplied.' },
+    { module: 3, term: 'Equilibrium Price', definition: 'The price at which quantity demanded equals quantity supplied.' },
+    { module: 3, term: 'Equilibrium Quantity', definition: 'The quantity bought and sold at the equilibrium price.' },
+    { module: 3, term: 'Excess Demand', definition: 'A situation where quantity demanded exceeds quantity supplied at the current price; also called a shortage.' },
+    { module: 3, term: 'Excess Supply', definition: 'A situation where quantity supplied exceeds quantity demanded at the current price; also called a surplus.' },
+    { module: 3, term: 'Shortage', definition: 'At the existing price, quantity demanded exceeds quantity supplied; also called excess demand.' },
+    { module: 3, term: 'Surplus', definition: 'At the existing price, quantity supplied exceeds quantity demanded; also called excess supply.' },
+    { module: 4, term: 'Complements', definition: 'Goods often used together, so consumption of one tends to increase consumption of the other.' },
+    { module: 4, term: 'Demand Shifter', definition: 'A factor other than the good\'s own price that changes quantity demanded at every price.' },
+    { module: 4, term: 'Factors of Production', definition: 'Labor, materials, machinery, and other inputs used to produce goods and services.' },
+    { module: 4, term: 'Inferior Good', definition: 'A good whose quantity demanded falls as income rises and rises as income falls.' },
+    { module: 4, term: 'Inputs', definition: 'Resources used to produce goods and services; also called factors of production.' },
+    { module: 4, term: 'Movement Along a Curve', definition: 'A change in quantity demanded or supplied caused by a change in the good\'s own price.' },
+    { module: 4, term: 'Normal Good', definition: 'A good whose quantity demanded rises as income rises and falls as income falls.' },
+    { module: 4, term: 'Shift in Demand', definition: 'A change in an economic factor other than price that causes a different quantity to be demanded at every price.' },
+    { module: 4, term: 'Shift in Supply', definition: 'A change in an economic factor other than price that causes a different quantity to be supplied at every price.' },
+    { module: 4, term: 'Substitute', definition: 'A good that can replace another to some extent, so greater consumption of one can mean less consumption of the other.' },
+    { module: 4, term: 'Supply Shifter', definition: 'A factor other than the good\'s own price that changes quantity supplied at every price.' },
+    { module: 5, term: 'Allocative Efficiency', definition: 'An outcome where resources are allocated to their highest-value uses and total surplus is maximized.' },
+    { module: 5, term: 'Consumer Surplus', definition: 'The benefit consumers receive from buying a good, measured by willingness to pay minus the amount actually paid.' },
+    { module: 5, term: 'Deadweight Loss', definition: 'The reduction in total surplus caused by an inefficient outcome or policy.' },
+    { module: 5, term: 'Economic Surplus', definition: 'Another name for social surplus or total surplus.' },
+    { module: 5, term: 'Producer Surplus', definition: 'The benefit producers receive from selling a good, measured by the price received minus the minimum price they would accept.' },
+    { module: 5, term: 'Social Surplus', definition: 'The sum of consumer surplus and producer surplus.' },
+    { module: 5, term: 'Total Surplus', definition: 'Another name for social surplus: the total economic benefit generated in a market.' }
+  ],
+
+  init() {
+    document.querySelectorAll('[data-glossary-through]').forEach(container => {
+      const through = parseInt(container.dataset.glossaryThrough, 10);
+      const current = parseInt(container.dataset.currentModule || through, 10);
+      const terms = this.terms.filter(item => item.module <= through);
+      const anchor = container.id || 'key-terms';
+      const tableId = `${anchor}-table`;
+
+      container.innerHTML = `
+        <h2>Key Terms</h2>
+        <p>This cumulative list includes terms introduced through Module ${through}. Terms introduced in this module are marked as new.</p>
+        <table class="glossary-table" id="${tableId}">
+          <thead>
+            <tr>
+              <th>Term</th>
+              <th>Definition</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${terms.map(item => `
+              <tr>
+                <td>${item.term}</td>
+                <td>${item.definition}</td>
+                <td>${item.module === current ? '<span class="term-status term-status--new">New in this module</span>' : '<span class="term-status">Review</span>'}</td>
+              </tr>
+            `).join('')}
+          </tbody>
+        </table>
+        <div class="flashcard-launcher">
+          <button class="flashcard-launcher__btn" data-table="${tableId}">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M12 4v16"/></svg>
+            Study as Flashcards
+          </button>
+        </div>
+      `;
     });
   }
 };
@@ -1045,7 +1048,7 @@ const Flashcards = {
 
 
 /* -------------------------------------------------------
-   9. DRAW GRAPH
+   8. DRAW GRAPH
    Freehand curve-drawing widget for pedagogical exercises.
    Usage:
      const dg = DrawGraph.create('#container-id', {
@@ -1312,80 +1315,12 @@ const DrawGraph = {
 
 
 /* -------------------------------------------------------
-   POLICY CONTEXT SELECTOR
-   Persists the student's chosen policy context across all
-   three Module 1 parts via localStorage. Shows/hides
-   .ctx-block[data-context] elements accordingly.
-   ------------------------------------------------------- */
-const PolicyContextSelector = {
-  STORAGE_KEY: 'api101-policy-context',
-  DEFAULT: 'agriculture',
-
-  LABELS: {
-    agriculture:      'Agriculture',
-    healthcare:       'Healthcare',
-    energy:           'Energy Policy',
-    criminal_justice: 'Criminal Justice'
-  },
-
-  init() {
-    const current = localStorage.getItem(this.STORAGE_KEY) || this.DEFAULT;
-    this._apply(current);
-    this._renderChooser(current);
-    this._renderIndicator(current);
-  },
-
-  _apply(key) {
-    document.querySelectorAll('[data-context]').forEach(el => {
-      el.hidden = (el.dataset.context !== key);
-    });
-    const indicator = document.querySelector('.policy-context-indicator__value');
-    if (indicator) indicator.textContent = this.LABELS[key] || key;
-    localStorage.setItem(this.STORAGE_KEY, key);
-    document.dispatchEvent(new CustomEvent('policyContextChanged', { detail: key }));
-  },
-
-  _renderChooser(current) {
-    const container = document.querySelector('.policy-chooser');
-    if (!container) return;
-    container.innerHTML = '';
-    const label = document.createElement('span');
-    label.className = 'policy-chooser__label';
-    label.textContent = 'Choose your policy context:';
-    container.appendChild(label);
-    const tabs = document.createElement('div');
-    tabs.className = 'policy-chooser__tabs';
-    Object.entries(this.LABELS).forEach(([key, name]) => {
-      const btn = document.createElement('button');
-      btn.className = 'policy-chooser__tab' + (key === current ? ' policy-chooser__tab--active' : '');
-      btn.textContent = name;
-      btn.addEventListener('click', () => {
-        this._apply(key);
-        tabs.querySelectorAll('.policy-chooser__tab').forEach(b => b.classList.remove('policy-chooser__tab--active'));
-        btn.classList.add('policy-chooser__tab--active');
-        const ind = document.querySelector('.policy-context-indicator__value');
-        if (ind) ind.textContent = this.LABELS[key];
-      });
-      tabs.appendChild(btn);
-    });
-    container.appendChild(tabs);
-  },
-
-  _renderIndicator(current) {
-    const el = document.querySelector('.policy-context-indicator__value');
-    if (el) el.textContent = this.LABELS[current] || current;
-  }
-};
-
-
-/* -------------------------------------------------------
    INITIALIZATION
    ------------------------------------------------------- */
 document.addEventListener('DOMContentLoaded', () => {
-  PolicyExampleSwitcher.init();
-  PolicyContextSelector.init();
   SidebarNav.init();
   CheckUnderstanding.init();
   SelfCheck.init();
+  CumulativeGlossary.init();
   Flashcards.init();
 });

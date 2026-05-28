@@ -1,834 +1,552 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Module 1 · Part 1: Demand — API-101 Preparation</title>
-  <link rel="stylesheet" href="../css/theme.css?v=2">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
-  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
-  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Module 1: Demand Basics — API-101 Preparation</title>
+<link href="../css/theme.css?v=2" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" rel="stylesheet"/>
+<script defer="" src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer="" src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
 </head>
 <body>
-
-  <!-- Navigation Bar -->
-  <nav class="site-nav">
-    <a href="../index.html" class="site-nav__brand">API-101 <span>Preparation</span></a>
-    <ul class="site-nav__links">
-      <li><a href="../index.html">Home</a></li>
-    </ul>
-  </nav>
-
-  <!-- Page Wrapper -->
-  <div class="page-wrapper">
-
-    <!-- Sidebar -->
-    <aside class="sidebar">
-      <span class="sidebar__part-label">Module 1 · Part 1 of 3</span>
-      <a href="#introduction" class="sidebar__link sidebar__link--active">Introduction</a>
-      <a href="#policy-connections" class="sidebar__link">Policy Connections</a>
-      <a href="#demand" class="sidebar__link">Understanding Demand</a>
-      <a href="#demand-interactive" class="sidebar__link">Demand Graph</a>
-
-      <span class="sidebar__part-label" style="margin-top: var(--space-2xl);">Module 1 Parts</span>
-      <a href="module-01-1-demand.html" class="sidebar__link" style="font-weight:600; color: var(--color-primary);">Part 1: Demand</a>
-      <a href="module-01-2-supply.html" class="sidebar__link">Part 2: Supply</a>
-      <a href="module-01-3-equilibrium.html" class="sidebar__link">Part 3: Equilibrium</a>
-
-      <span class="sidebar__part-label" style="margin-top: var(--space-2xl);">All Modules</span>
-      <a href="#" class="sidebar__link" style="font-weight:600; color: var(--color-primary);">1. Demand, Supply, Equilibrium</a>
-      <a href="module-02-demand-supply-shifters.html" class="sidebar__link">2. Demand &amp; Supply Shifters</a>
-      <a href="module-03-consumer-producer-surplus.html" class="sidebar__link">3. Consumer &amp; Producer Surplus</a>
-    </aside>
-
-    <!-- Main Content -->
-    <main class="main-content">
-
-      <!-- ===== MODULE HEADER ===== -->
-      <header class="chapter-header">
-        <div class="chapter-header__part">Preparation Module 1 · Part 1 of 3</div>
-        <div class="chapter-header__number">Module 1</div>
-        <h1 class="chapter-header__title">The Basics of Demand, Supply, and Equilibrium</h1>
-        <p class="chapter-header__subtitle">
+<!-- Navigation Bar -->
+<nav class="site-nav">
+<a class="site-nav__brand" href="../index.html" aria-label="Harvard Kennedy School"><img class="site-nav__logo" src="../assets/images/hks-logo.svg" alt="Harvard Kennedy School"></a>
+<ul class="site-nav__links">
+<li><a href="../index.html">Home</a></li>
+<li><a href="https://canvas.harvard.edu/courses/174583">Canvas</a></li>
+<li><a href="https://pingpong.hks.harvard.edu/group/723?assistant=3506">Ping Pong</a></li>
+</ul>
+</nav>
+<!-- Page Wrapper -->
+<div class="page-wrapper">
+<!-- Sidebar -->
+<aside class="sidebar">
+<span class="sidebar__part-label">Module 1</span>
+<a class="sidebar__link sidebar__link--active" href="#introduction">Introduction</a>
+<a class="sidebar__link" href="#policy-connections">Policy Connection</a>
+<a class="sidebar__link" href="#demand">Understanding Demand</a>
+<a class="sidebar__link" href="#demand-interactive">Interactive Practice</a>
+<a class="sidebar__link" href="#key-terms">Key Terms</a>
+<span class="sidebar__part-label" style="margin-top: var(--space-2xl);">Learning Path</span>
+<a class="sidebar__link" href="module-01-1-demand.html" style="font-weight:600; color: var(--color-primary);">1. Demand Basics</a>
+<a class="sidebar__link" href="module-01-2-supply.html">2. Supply Basics</a>
+<a class="sidebar__link" href="module-01-3-equilibrium.html">3. Equilibrium Basics</a>
+<a class="sidebar__link" href="modules-1-3-summary-quiz.html">Modules 1-3 Quiz</a>
+<a class="sidebar__link" href="module-02-demand-supply-shifters.html">4. Demand & Supply Shifters</a>
+<a class="sidebar__link" href="module-04-summary-quiz.html">Module 4 Quiz</a>
+<a class="sidebar__link" href="module-03-consumer-producer-surplus.html">5. Consumer & Producer Surplus</a>
+<a class="sidebar__link" href="module-05-summary-quiz.html">Module 5 Quiz</a>
+</aside>
+<!-- Main Content -->
+<main class="main-content">
+<!-- ===== MODULE HEADER ===== -->
+<header class="chapter-header">
+<div class="chapter-header__part">Preparation Module 1</div>
+<div class="chapter-header__number">Module 1</div>
+<h1 class="chapter-header__title">Demand Basics</h1>
+<p class="chapter-header__subtitle">
           The foundation of economic analysis: understanding how prices emerge from the interaction of buyers and sellers, and why policymakers need these tools to evaluate policy interventions.
         </p>
-      </header>
-
-      <!-- Part Progress Strip -->
-      <div class="part-progress">
-        <span class="part-progress__label">Module 1 · Part 1 of 3</span>
-        <div class="part-progress__steps">
-          <a class="part-progress__step part-progress__step--active" href="module-01-1-demand.html">Demand</a>
-          <span class="part-progress__divider">→</span>
-          <a class="part-progress__step" href="module-01-2-supply.html">Supply</a>
-          <span class="part-progress__divider">→</span>
-          <a class="part-progress__step" href="module-01-3-equilibrium.html">Equilibrium</a>
-        </div>
-      </div>
-
-      <!-- ===== LEARNING OBJECTIVES ===== -->
-      <div class="learning-objectives">
-        <div class="learning-objectives__title">Learning Objectives — Part 1</div>
-        <ul>
-          <li>Explain the Law of Demand and understand why the demand curve slopes downward</li>
-          <li>Construct a demand curve from a demand equation, including inverting the function for graphing</li>
-          <li>Build a demand schedule from a linear demand equation</li>
-          <li>Apply demand analysis to understand real-world policy through a concrete market example</li>
-        </ul>
-      </div>
-
-      <!-- ===== INTRODUCTION ===== -->
-      <h2 id="introduction">Introduction</h2>
-      <p>
-        Welcome to the first of three modules designed to prepare you for API-101 at the Harvard Kennedy School. This module introduces the core building blocks of microeconomic analysis: demand, supply, and equilibrium. These concepts form the analytical foundation for virtually every policy question you will encounter in the course.
+</header>
+<!-- Part Progress Strip -->
+<div class="part-progress">
+<span class="part-progress__label">Modules 1-3 Foundations</span>
+<div class="part-progress__steps">
+<a class="part-progress__step part-progress__step--active" href="module-01-1-demand.html">Module 1: Demand</a>
+<span class="part-progress__divider">→</span>
+<a class="part-progress__step" href="module-01-2-supply.html">Module 2: Supply</a>
+<span class="part-progress__divider">→</span>
+<a class="part-progress__step" href="module-01-3-equilibrium.html">Module 3: Equilibrium</a>
+</div>
+</div>
+<!-- ===== LEARNING OBJECTIVES ===== -->
+<div class="learning-objectives">
+<div class="learning-objectives__title">Learning Objectives</div>
+<ul>
+<li>Explain the Law of Demand and understand why the demand curve slopes downward</li>
+<li>Construct a demand curve from a demand equation, including inverting the function for graphing</li>
+<li>Build a demand schedule from a linear demand equation</li>
+<li>Apply demand analysis to understand real-world policy through a concrete market example</li>
+</ul>
+</div>
+<!-- ===== INTRODUCTION ===== -->
+<h2 id="introduction">Introduction</h2>
+<p>
+        Welcome to the first module in the API-101 preparation sequence for the Harvard Kennedy School. This module introduces demand, the buyer side of the supply-and-demand framework. These concepts form the analytical foundation for the CAP example that runs through the sequence.
       </p>
-      <p>
+<p>
         Economics is fundamentally a framework for understanding choices and their consequences. When a government implements a policy—whether it is setting a minimum wage, imposing a tariff, or subsidizing an industry—the policy operates through supply and demand mechanisms. To predict and evaluate the effects of policy, you must understand how buyers and sellers respond to incentives, and how prices coordinate their actions.
       </p>
-      <p>
-        Each section combines reading material, interactive demonstrations, and self-check opportunities. We will use the European sugar market as our primary worked example throughout, building your understanding step by step. By the end of this module, you will be able to graph demand and supply curves, solve for equilibrium algebraically, interpret what happens when markets are out of balance, and connect these concepts to real policy choices.
+<p>
+        Each section combines reading material, interactive demonstrations, and self-check opportunities. We will use the European sugar market as our primary worked example throughout, building your understanding step by step. By the end of this module, you will be able to read, calculate, and graph the demand side of the CAP sugar example.
       </p>
-      <p>
-        <strong>Estimated time for this part: 20–25 minutes.</strong>
-      </p>
-
-      <hr class="section-divider">
-
-      <!-- ===== POLICY CONNECTIONS ===== -->
-      <h2 id="policy-connections">Policy Connections</h2>
-
-      <!-- Agriculture (default) -->
-      <div class="ctx-block" data-context="agriculture">
-        <h3>What's Under the CAP?</h3>
-        <p>
+<p>
+<strong>Estimated time for this part: 20–25 minutes.</strong>
+</p>
+<hr class="section-divider"/>
+<!-- ===== POLICY CONNECTIONS ===== -->
+<h2 id="policy-connections">Policy Connection</h2>
+<h3>What's Under the CAP?</h3>
+<p>
           Economics provides a framework for thinking about the impact of decisions and market forces on complex policy scenarios. Throughout these modules, we will use the European Union's Common Agricultural Policy (CAP) as a running example to connect foundational economics to real-world policy. The CAP offers an excellent case study because it illustrates how government intervention, even when well-intentioned, can create unintended economic consequences that supply-and-demand analysis helps us understand.
         </p>
-        <h4>The EU Common Agricultural Policy: Origins and Structure</h4>
-        <p>
+<h4>The EU Common Agricultural Policy: Origins and Structure</h4>
+<p>
           The Common Agricultural Policy, established in 1962, is one of the oldest and most significant policy interventions in modern markets. The EU created the CAP to address what policymakers saw as critical concerns: ensuring a stable food supply for Europe's consumers and guaranteeing decent living standards for the continent's farmers. In the decades after World War II, food security was a genuine policy priority, and agriculture represented a much larger share of employment and output than it does today.
         </p>
-        <p>
+<p>
           The original CAP operated through a system of <strong>price supports</strong>: the government would set a guaranteed minimum price for various agricultural products. If the market price fell below this guaranteed price, the government would step in and purchase the unsold surplus at the guaranteed price, storing it or sometimes disposing of it. This policy succeeded in boosting farm incomes and agricultural output—perhaps too well. Over time, the guaranteed prices created powerful incentives for farmers to expand production far beyond what the market demanded at any reasonable price. The result was massive, persistent surpluses.
         </p>
-        <p>
+<p>
           By the 1980s and 1990s, the oversupply had reached absurd proportions. Europe accumulated what the press nicknamed "Butter Mountains"—enormous stockpiles of stored butter—and "Wine Lakes"—vast quantities of unsellable wine. Beginning in the 1990s, the CAP underwent significant reforms, shifting toward <strong>direct payments</strong> to farmers that are partially decoupled from production. However, the original CAP structure with price supports provides an excellent lens for understanding how markets work—which is exactly what we will develop in this module.
         </p>
-        <div class="callout callout--insight">
-          <div class="callout__title">Why Start with the CAP?</div>
-          <p>
-            When you understand demand and supply, you can predict why price supports above equilibrium create surpluses. By the end of Part 3, you will be able to calculate exactly how large those surpluses were, at what fiscal cost to EU taxpayers, and why the policy had to change. These tools are the foundation for the rest of the preparation sequence and for policy analysis more broadly.
+<div class="callout callout--insight">
+<div class="callout__title">Why Start with the CAP?</div>
+<p>
+            When you understand demand and supply, you can predict why price supports above equilibrium create surpluses. By the end of Module 3, you will be able to calculate exactly how large those surpluses were, at what fiscal cost to EU taxpayers, and why the policy had to change. These tools are the foundation for the rest of the preparation sequence and for policy analysis more broadly.
           </p>
-        </div>
-      </div>
+</div>
 
-      <!-- Healthcare -->
-      <div class="ctx-block" data-context="healthcare" hidden>
-        <h3>When the Price of a Drug Falls 85% Overnight</h3>
-        <p>
-          When Pfizer's patent on Lipitor expired in November 2011, something remarkable happened: the price of <strong>atorvastatin</strong>—a cholesterol-lowering medication taken by millions of Americans—fell by roughly 85% within months. Pharmacies that had rarely stocked it suddenly kept large supplies. Doctors wrote more prescriptions. Patients who had previously skipped doses or gone without could now afford the drug.
-        </p>
-        <h4>What Changed When the Patent Expired?</h4>
-        <p>
-          For more than a decade, Pfizer was the only company legally allowed to sell atorvastatin in the United States. When the patent expired, dozens of other manufacturers received FDA approval to produce and sell the same drug. Suddenly, instead of one seller, buyers had many sellers competing for their business. All that competition created powerful pressure for prices to fall—and fall they did.
-        </p>
-        <p>
-          The Drug Price Competition and Patent Term Restoration Act of 1984 (the Hatch-Waxman Act) created the legal process that makes this happen for every major drug whose patent expires. It is one of the most consequential pieces of health policy legislation in American history—and its effects play out in a way that supply-and-demand analysis describes precisely. Throughout this module, we will develop the tools to understand exactly why competition drives prices down and what determines how far.
-        </p>
-        <div class="callout callout--insight">
-          <div class="callout__title">Why the Generic Drug Market?</div>
-          <p>
-            The atorvastatin example illustrates a pattern that repeats across the pharmaceutical industry: patents expire, competitors enter, prices fall, more patients are treated. By the end of Part 3, you will be able to use our model to analyze how a government price ceiling on prescription drugs would create a shortage—and why that outcome is surprisingly similar to what happened with gasoline in the 1970s.
-          </p>
-        </div>
-      </div>
 
-      <!-- Energy -->
-      <div class="ctx-block" data-context="energy" hidden>
-        <h3>Lines at the Gas Station: The 1970s Energy Crisis</h3>
-        <p>
-          In the fall of 1973, Arab oil-producing nations declared an embargo against the United States, sharply cutting the flow of crude oil to American refiners. Gasoline became scarce. Drivers waited in lines for hours—sometimes wrapping around the block—to fill their tanks. Some stations ran dry and closed. State governments resorted to <strong>odd-even rationing</strong>: drivers with odd-numbered license plates could only buy on odd-numbered days, and even-numbered plates on even days.
-        </p>
-        <h4>Why Did Price Controls Make It Worse?</h4>
-        <p>
-          What made the shortage so severe was not just the oil cutoff—it was that President Nixon had already imposed economy-wide price controls in August 1971, which covered gasoline and petroleum products. Those controls kept the official price of gasoline artificially low even as the underlying oil became scarce. The result: buyers wanted far more gasoline than sellers could profitably supply at the controlled price. The gap showed up not as a higher price, but as empty stations and long lines.
-        </p>
-        <p>
-          When price controls were finally lifted, in stages through the late 1970s and early 1980s, prices rose—but the lines disappeared. Markets can handle scarcity, but only if price signals are allowed to function. This is one of the clearest lessons from twentieth-century economic policy, and it is exactly what supply-and-demand analysis predicts. Throughout this module, we will develop the tools to understand why prices matter and what happens when they are prevented from adjusting.
-        </p>
-        <div class="callout callout--insight">
-          <div class="callout__title">Why the Gasoline Market?</div>
-          <p>
-            The 1970s energy crisis is perhaps the most vivid real-world demonstration of what happens when policy holds prices below where buyers and sellers would naturally agree. By the end of Part 3, you will be able to calculate exactly how large a shortage the price controls created, and why lifting them—though painful—restored balance to the market.
-          </p>
-        </div>
-      </div>
 
-      <!-- Criminal Justice / Drug Policy -->
-      <div class="ctx-block" data-context="criminal_justice" hidden>
-        <h3>From Prohibition to Dispensaries: Colorado's Cannabis Market</h3>
-        <p>
-          When Colorado voters passed Amendment 64 in November 2012, they did something unusual: they created a brand-new legal market where no legal market had existed before. Before the amendment, all cannabis transactions in Colorado were illegal. Afterward, licensed cultivators and dispensaries could grow and sell cannabis openly—subject to health regulations, licensing requirements, and taxes.
-        </p>
-        <h4>What Happened After Legalization?</h4>
-        <p>
-          Prices of legal cannabis fell substantially over the years following legalization as more sellers entered the market and production techniques improved. At the same time, Colorado imposed significant taxes—combining excise and sales taxes to roughly 30% of the purchase price. This tax makes legal cannabis more expensive for consumers than it would otherwise be. Higher prices mean some buyers purchase less, or turn to informal channels instead.
-        </p>
-        <p>
-          State policymakers face a real tradeoff: higher taxes generate more revenue per unit sold, but they also raise the price consumers pay, which reduces how much they buy through legal channels. The same tradeoff appears in tobacco, alcohol, and carbon policy. Throughout this module, we will develop the tools to understand this tradeoff precisely—how much does a tax raise the price consumers pay, how much does it reduce the quantity sold, and who ultimately bears the cost?
-        </p>
-        <div class="callout callout--insight">
-          <div class="callout__title">Why the Cannabis Market?</div>
-          <p>
-            Colorado's cannabis market is a rare natural experiment: a brand-new competitive market created by policy. By the end of Part 3, you will be able to use our model to analyze how Colorado's excise tax affects the price consumers pay, the quantity sold, and what share of the tax burden falls on buyers versus sellers—insights that generalize directly to tobacco, alcohol, and carbon taxes.
-          </p>
-        </div>
-      </div>
 
-      <hr class="section-divider">
 
-      <!-- ===== DEMAND ===== -->
-      <h2 id="demand">Understanding Demand</h2>
 
-      <h3>The Law of Demand</h3>
-      <div class="definition-box">
-        <div class="definition-box__term">Law of Demand</div>
-        <div class="definition-box__text">
+
+<hr class="section-divider"/>
+<!-- ===== DEMAND ===== -->
+<h2 id="demand">Understanding Demand</h2>
+<h3>The Law of Demand</h3>
+<div class="definition-box">
+<div class="definition-box__term">Law of Demand</div>
+<div class="definition-box__text">
           Holding all else equal — <em>ceteris paribus</em>, a Latin phrase economists use to mean "all other things held constant" — when the price of a good rises, the quantity demanded falls; when the price falls, the quantity demanded rises. The relationship is inverse, and the demand curve slopes downward from left to right.
         </div>
-      </div>
-
-      <p>
+</div>
+<p>
         Economists use the term "demand" to describe the relationship between price and the quantity that consumers are willing and able to purchase. This relationship is based on needs, wants, and the ability to pay. When the price of a product increases, consumers typically respond by purchasing less of it—a phenomenon we see everywhere, from gasoline prices to concert tickets to smartphone models. When the price falls, they purchase more.
       </p>
-      <div data-context="agriculture">
-        <p>The law of demand reflects rational economic behavior: consumers face trade-offs. When sugar becomes more expensive, households might consume less directly, switch to artificial sweeteners, or purchase fewer sugary products overall. Bakeries and beverage manufacturers might reduce their use of sugar or develop alternative recipes. Some potential customers may be priced out of the market entirely. Conversely, when sugar becomes cheaper, all these decisions reverse—consumers purchase more.</p>
-        <p>That CAP connection matters immediately: if policy keeps the sugar price above the market-clearing level, this demand relationship tells us that buyers will purchase less sugar, not more.</p>
-      </div>
-      <div data-context="healthcare" hidden>
-        <p>The law of demand reflects rational economic behavior: consumers face trade-offs. When a prescription drug becomes more expensive, some patients may skip doses, split pills, or ask their doctor for a cheaper alternative. Insurance plans may remove it from their preferred formulary. Some lower-income patients may be priced out of the drug entirely. Conversely, when the price falls—as it did dramatically after generic atorvastatin entered the market—more patients fill their prescriptions, and more completely.</p>
-      </div>
-      <div data-context="energy" hidden>
-        <p>The law of demand reflects rational economic behavior: consumers face trade-offs. When gasoline becomes more expensive, drivers may combine errands, carpool more, switch to public transit, or eventually trade in a gas-guzzler for a more fuel-efficient vehicle. Businesses reduce delivery frequency or pass higher costs on to consumers. Some discretionary trips simply don't happen. Conversely, when gasoline becomes cheaper, all these adjustments reverse—people drive more.</p>
-      </div>
-      <div data-context="criminal_justice" hidden>
-        <p>The law of demand reflects rational economic behavior: consumers face trade-offs. When legal cannabis becomes more expensive—because of a tax increase, for example—some consumers buy less, others switch to informal channels, and some reduce their use altogether. Conversely, when the price of legal cannabis falls, more consumers find it worthwhile to buy from licensed dispensaries. The law of demand captures this inverse relationship between price and quantity purchased.</p>
-      </div>
-      <p>
+
+<p>The law of demand reflects rational economic behavior: consumers face trade-offs. When sugar becomes more expensive, households might consume less directly, switch to artificial sweeteners, or purchase fewer sugary products overall. Bakeries and beverage manufacturers might reduce their use of sugar or develop alternative recipes. Some potential customers may be priced out of the market entirely. Conversely, when sugar becomes cheaper, all these decisions reverse—consumers purchase more.</p>
+<p>That CAP connection matters immediately: if policy keeps the sugar price above the market-clearing level, this demand relationship tells us that buyers will purchase less sugar, not more.</p>
+
+
+
+
+<p>
         A <strong>demand schedule</strong> is a table showing the quantity demanded at various price levels. When you plot these price-quantity pairs on a graph, you create a <strong>demand curve</strong>. By convention in economics, we place quantity on the horizontal axis (x-axis) and price on the vertical axis (y-axis). This convention—which is opposite to typical mathematical practice where the independent variable goes on the x-axis—has historical roots and is universal in economics. The resulting downward-sloping line illustrates the law of demand visually.
       </p>
-
-      <h3>Demand Equations: Reading the Math</h3>
-      <p>
+<h3>Demand Equations: Reading the Math</h3>
+<p>
         Linear demand relationships can be expressed algebraically in standard form as:
       </p>
-      <div class="equation-block">
+<div class="equation-block">
         $$Q_d = a - bP$$
       </div>
-      <p>
+<p>
         In this equation:
       </p>
-      <ul>
-        <li><strong>\(Q_d\)</strong> is the quantity demanded (the dependent variable in mathematical terms, though we place it on the horizontal axis when graphing)</li>
-        <li><strong>P</strong> is the price of the good</li>
-        <li><strong>a</strong> is the quantity intercept — the quantity demanded when price equals zero. On a graph with quantity on the horizontal axis, this is where the demand curve meets the horizontal axis. It represents the maximum quantity consumers would buy if the good were free</li>
-        <li><strong>b</strong> is the slope coefficient, a positive number. It tells us how much quantity demanded decreases for each one-unit increase in price. The negative sign in front of bP ensures the relationship is inverse — higher price, lower quantity demanded</li>
-      </ul>
-      <p>
+<ul>
+<li><strong>\(Q_d\)</strong> is the quantity demanded (the dependent variable in mathematical terms, though we place it on the horizontal axis when graphing)</li>
+<li><strong>P</strong> is the price of the good</li>
+<li><strong>a</strong> is the quantity intercept — the quantity demanded when price equals zero. On a graph with quantity on the horizontal axis, this is where the demand curve meets the horizontal axis. It represents the maximum quantity consumers would buy if the good were free</li>
+<li><strong>b</strong> is the slope coefficient, a positive number. It tells us how much quantity demanded decreases for each one-unit increase in price. The negative sign in front of bP ensures the relationship is inverse — higher price, lower quantity demanded</li>
+</ul>
+<p>
         The negative coefficient on P is crucial: it embodies the law of demand. If b = 10, it means that for every one-unit increase in price, quantity demanded falls by 10 units.
       </p>
+<h3>Building a Demand Schedule:
+         The EU Sugar Market
+</h3>
 
-      <h3>Building a Demand Schedule:
-        <span data-context="agriculture"> The EU Sugar Market</span><span data-context="healthcare" hidden> The Generic Atorvastatin Market</span><span data-context="energy" hidden> The Retail Gasoline Market</span><span data-context="criminal_justice" hidden> The Legal Cannabis Market</span>
-      </h3>
+<p>Let's work with a concrete example that will anchor our understanding throughout this module. Imagine the demand for <strong>sugar</strong> in the European Union during a particular year. Suppose economists have estimated the demand equation:</p>
 
-      <div data-context="agriculture">
-        <p>Let's work with a concrete example that will anchor our understanding throughout this module. Imagine the demand for <strong>sugar</strong> in the European Union during a particular year. Suppose economists have estimated the demand equation:</p>
-      </div>
-      <div data-context="healthcare" hidden>
-        <p>Let's work with a concrete example that will anchor our understanding throughout this module. Imagine the demand for <strong>generic atorvastatin</strong> (a widely prescribed cholesterol-lowering drug) in the US after patent expiry. Suppose economists have estimated the demand equation:</p>
-      </div>
-      <div data-context="energy" hidden>
-        <p>Let's work with a concrete example that will anchor our understanding throughout this module. Imagine the demand for <strong>retail gasoline</strong> in a US regional market during a given year. Suppose economists have estimated the demand equation:</p>
-      </div>
-      <div data-context="criminal_justice" hidden>
-        <p>Let's work with a concrete example that will anchor our understanding throughout this module. Imagine the demand for <strong>legal retail cannabis</strong> in Colorado after Amendment 64 (2012). Suppose economists have estimated the demand equation:</p>
-      </div>
 
-      <div data-context="agriculture">
-        <div class="equation-block">$$Q_d = 50 - 10P$$</div>
-        <p>Where \(Q_d\) is measured in millions of kilograms per year, and P is the price in euros per kilogram. <em>Note: this is a stylized illustration — the numbers are chosen to keep the algebra clean, not to match actual EU market volumes or intervention prices.</em></p>
-      </div>
-      <div data-context="healthcare" hidden>
-        <div class="equation-block">$$Q_d = 50 - 2P$$</div>
-        <p>Where \(Q_d\) is measured in millions of prescriptions per month, and P is the patient's monthly <strong>co-pay</strong> in dollars — the out-of-pocket cost after insurance coverage, not the pharmacy's retail price. <em>Note: this is a stylized illustration with simplified numbers.</em></p>
-      </div>
-      <div data-context="energy" hidden>
-        <div class="equation-block">$$Q_d = 150 - 30P$$</div>
-        <p>Where \(Q_d\) is measured in billions of gallons per year, and P is the price in dollars per gallon. <em>Note: this is a simplified model — the slope is steeper than real-world estimates (actual short-run price elasticity of gasoline demand is much lower), but it keeps the algebra tractable and illustrates the concept clearly.</em></p>
-      </div>
-      <div data-context="criminal_justice" hidden>
-        <div class="equation-block">$$Q_d = 20 - 2P$$</div>
-        <p>Where \(Q_d\) is measured in millions of grams per month, and P is the price in dollars per gram. <em>Note: the numbers are illustrative rather than calibrated to Colorado sales data; actual Colorado legal cannabis prices were $8–15/gram in the early years.</em></p>
-      </div>
 
-      <p>We can build a demand schedule by plugging in different prices:</p>
 
-      <table class="data-table">
-        <thead>
-          <tr>
-            <th><span data-context="agriculture">Price (€/kg)</span><span data-context="healthcare" hidden>Price ($/month)</span><span data-context="energy" hidden>Price ($/gallon)</span><span data-context="criminal_justice" hidden>Price ($/gram)</span></th>
-            <th><span data-context="agriculture">Quantity Demanded (millions of kg/year)</span><span data-context="healthcare" hidden>Quantity Demanded (millions of prescriptions/year)</span><span data-context="energy" hidden>Quantity Demanded (billions of gallons/year)</span><span data-context="criminal_justice" hidden>Quantity Demanded (millions of grams/month)</span></th>
-          </tr>
-        </thead>
-        <tbody data-context="agriculture">
-          <tr><td>1</td><td>50 − 10(1) = 40</td></tr>
-          <tr><td>2</td><td>50 − 10(2) = 30</td></tr>
-          <tr><td>3</td><td>50 − 10(3) = 20</td></tr>
-          <tr><td>4</td><td>50 − 10(4) = 10</td></tr>
-          <tr><td>5</td><td>50 − 10(5) = 0</td></tr>
-        </tbody>
-        <tbody data-context="healthcare" hidden>
-          <tr><td>5</td><td>50 − 2(5) = 40</td></tr>
-          <tr><td>10</td><td>50 − 2(10) = 30</td></tr>
-          <tr><td>15</td><td>50 − 2(15) = 20</td></tr>
-          <tr><td>20</td><td>50 − 2(20) = 10</td></tr>
-          <tr><td>25</td><td>50 − 2(25) = 0</td></tr>
-        </tbody>
-        <tbody data-context="energy" hidden>
-          <tr><td>1</td><td>150 − 30(1) = 120</td></tr>
-          <tr><td>2</td><td>150 − 30(2) = 90</td></tr>
-          <tr><td>3</td><td>150 − 30(3) = 60</td></tr>
-          <tr><td>4</td><td>150 − 30(4) = 30</td></tr>
-          <tr><td>5</td><td>150 − 30(5) = 0</td></tr>
-        </tbody>
-        <tbody data-context="criminal_justice" hidden>
-          <tr><td>2</td><td>20 − 2(2) = 16</td></tr>
-          <tr><td>4</td><td>20 − 2(4) = 12</td></tr>
-          <tr><td>6</td><td>20 − 2(6) = 8</td></tr>
-          <tr><td>8</td><td>20 − 2(8) = 4</td></tr>
-          <tr><td>10</td><td>20 − 2(10) = 0</td></tr>
-        </tbody>
-      </table>
 
-      <div data-context="agriculture">
-        <p>Notice the pattern: each time price increases by €1 per kg, quantity demanded falls by 10 million kilograms. At a price of €5/kg, quantity demanded reaches zero — no consumer is willing to buy sugar at that price.</p>
-      </div>
-      <div class="callout callout--insight">
-        <div class="callout__title">What to Notice</div>
-        <p>
+<div class="equation-block">$$Q_d = 50 - 10P$$</div>
+<p>Where \(Q_d\) is measured in millions of kilograms per year, and P is the price in euros per kilogram. <em>Note: this is a stylized illustration — the numbers are chosen to keep the algebra clean, not to match actual EU market volumes or intervention prices.</em></p>
+
+
+
+
+<p>We can build a demand schedule by plugging in different prices:</p>
+<table class="data-table">
+<thead>
+<tr>
+<th>Price (€/kg)</th>
+<th>Quantity Demanded (millions of kg/year)</th>
+</tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>50 − 10(1) = 40</td></tr>
+<tr><td>2</td><td>50 − 10(2) = 30</td></tr>
+<tr><td>3</td><td>50 − 10(3) = 20</td></tr>
+<tr><td>4</td><td>50 − 10(4) = 10</td></tr>
+<tr><td>5</td><td>50 − 10(5) = 0</td></tr>
+</tbody>
+
+
+
+</table>
+
+<p>Notice the pattern: each time price increases by €1 per kg, quantity demanded falls by 10 million kilograms. At a price of €5/kg, quantity demanded reaches zero — no consumer is willing to buy sugar at that price.</p>
+
+<div class="callout callout--insight">
+<div class="callout__title">What to Notice</div>
+<p>
           The table is not just arithmetic practice. It shows the law of demand in a concrete pattern: every €1 increase in price reduces quantity demanded by 10 million kilograms. That regular movement is exactly what the slope coefficient captures, and it is the buyer side of the surplus problem we will return to under the CAP.
         </p>
-      </div>
-      <!-- Check: Law of Demand MC -->
-      <div class="check-understanding"
-           data-question="Looking at the sugar demand schedule, which statement best captures the law of demand?"
-           data-correct="1"
-           data-explanation="The schedule shows an inverse relationship between price and quantity demanded: as price rises, quantity demanded falls, holding all else equal.">
-        <div class="check-understanding__option" data-index="0">A) When price rises, quantity demanded also rises.</div>
-        <div class="check-understanding__option" data-index="1">B) When price rises, quantity demanded falls.</div>
-        <div class="check-understanding__option" data-index="2">C) Quantity demanded is unaffected by price.</div>
-        <div class="check-understanding__option" data-index="3">D) Price and quantity demanded always move together in the same direction.</div>
-      </div>
-      <div data-context="healthcare" hidden>
-        <p>Notice the pattern: each time monthly cost increases by $5, quantity demanded falls by 10 million prescriptions per month. At $25/month, demand reaches zero in this model — the drug is unaffordable for the last remaining patients at that price.</p>
-      </div>
-      <div data-context="energy" hidden>
-        <p>Notice the pattern: each time price increases by $1 per gallon, quantity demanded falls by 30 billion gallons per year. At $5/gallon, quantity demanded reaches zero in this simplified model — drivers and businesses have fully switched to alternatives or curtailed travel.</p>
-      </div>
-      <div data-context="criminal_justice" hidden>
-        <p>Notice the pattern: each time price increases by $2 per gram, quantity demanded falls by 4 million grams per month. At $10/gram, legal cannabis demand reaches zero in this model — the remaining buyers have shifted to the informal market or reduced consumption.</p>
-      </div>
+</div>
+<!-- Check: Law of Demand MC -->
+<div class="check-understanding" data-correct="1" data-explanation="The schedule shows an inverse relationship between price and quantity demanded: as price rises, quantity demanded falls, holding all else equal." data-question="Looking at the sugar demand schedule, which statement best captures the law of demand?">
+<div class="check-understanding__option" data-index="0">A) When price rises, quantity demanded also rises.</div>
+<div class="check-understanding__option" data-index="1">B) When price rises, quantity demanded falls.</div>
+<div class="check-understanding__option" data-index="2">C) Quantity demanded is unaffected by price.</div>
+<div class="check-understanding__option" data-index="3">D) Price and quantity demanded always move together in the same direction.</div>
+</div>
 
-      <!-- Self-check: demand equation calculation -->
-      <div data-context="agriculture">
-        <div class="self-check">
-          <div class="self-check__question">If the demand equation is \(Q_d = 50 - 10P\), what is the quantity demanded when the price is €3.50 per kilogram?</div>
-          <button class="self-check__reveal-btn">Show Answer</button>
-          <div class="self-check__answer">Substitute P = 3.5: \(Q_d = 50 - 10(3.5) = 50 - 35 = 15\) million kilograms per year.</div>
-        </div>
-      </div>
-      <div data-context="healthcare" hidden>
-        <div class="self-check">
-          <div class="self-check__question">If the demand equation is \(Q_d = 50 - 2P\), what is the quantity of prescriptions demanded when the monthly cost is $12.50?</div>
-          <button class="self-check__reveal-btn">Show Answer</button>
-          <div class="self-check__answer">Substitute P = 12.5: \(Q_d = 50 - 2(12.5) = 50 - 25 = 25\) million prescriptions per month.</div>
-        </div>
-      </div>
-      <div data-context="energy" hidden>
-        <div class="self-check">
-          <div class="self-check__question">If the demand equation is \(Q_d = 150 - 30P\), what is the quantity of gasoline demanded when the price is $3.50 per gallon?</div>
-          <button class="self-check__reveal-btn">Show Answer</button>
-          <div class="self-check__answer">Substitute P = 3.5: \(Q_d = 150 - 30(3.5) = 150 - 105 = 45\) billion gallons per year.</div>
-        </div>
-      </div>
-      <div data-context="criminal_justice" hidden>
-        <div class="self-check">
-          <div class="self-check__question">If the demand equation is \(Q_d = 20 - 2P\), what is the quantity of legal cannabis demanded when the price is $5 per gram?</div>
-          <button class="self-check__reveal-btn">Show Answer</button>
-          <div class="self-check__answer">Substitute P = 5: \(Q_d = 20 - 2(5) = 20 - 10 = 10\) million grams per month.</div>
-        </div>
-      </div>
 
-      <div class="figure">
-        <div id="demand-static-graph"></div>
-        <div class="figure__caption">Figure 1.1: The demand curve for
-          <span data-context="agriculture">EU sugar</span><span data-context="healthcare" hidden>generic atorvastatin</span><span data-context="energy" hidden>retail gasoline</span><span data-context="criminal_justice" hidden>legal cannabis (Colorado)</span>,
+
+<!-- Self-check: demand equation calculation -->
+
+<div class="self-check">
+<div class="self-check__question">If the demand equation is \(Q_d = 50 - 10P\), what is the quantity demanded when the price is €3.50 per kilogram?</div>
+<button class="self-check__reveal-btn">Show Answer</button>
+<div class="self-check__answer">Substitute P = 3.5: \(Q_d = 50 - 10(3.5) = 50 - 35 = 15\) million kilograms per year.</div>
+</div>
+
+
+
+
+<div class="figure">
+<div id="demand-static-graph"></div>
+<div class="figure__caption">Figure 1.1: The demand curve for
+          EU sugar,
           showing the downward slope and key schedule points. The vertical intercept
-          (<span data-context="agriculture">P = 5, i.e., €5/kg</span><span data-context="healthcare" hidden>P = 25, i.e., $25/month</span><span data-context="energy" hidden>P = 5, i.e., $5/gallon</span><span data-context="criminal_justice" hidden>P = 10, i.e., $10/gram</span>)
+          (P = 5, i.e., €5/kg)
           represents the maximum price consumers will pay; the horizontal intercept
-          (<span data-context="agriculture">Q = 50 million kg</span><span data-context="healthcare" hidden>Q = 50 million Rx</span><span data-context="energy" hidden>Q = 150 billion gallons</span><span data-context="criminal_justice" hidden>Q = 20 million grams</span>)
+          (Q = 50 million kg)
           represents the quantity demanded when price is zero.</div>
-      </div>
-
-      <h3>From Equation to Graph: Inverting the Demand Function</h3>
-      <p>
+</div>
+<h3>From Equation to Graph: Inverting the Demand Function</h3>
+<p>
         To graph the demand curve, we need to invert the demand equation so that price (P) is expressed as a function of quantity (\(Q_d\)). This is necessary because we place price on the vertical axis. Let's work through the algebra step by step.
       </p>
+<!-- Agriculture -->
 
-      <!-- Agriculture -->
-      <div data-context="agriculture">
-        <div class="math-steps">
-          <div class="math-step">
-            <div class="math-step__label">Start with:</div>
-            <div class="math-step__expr">$$Q_d = 50 - 10P$$</div>
-          </div>
-          <div class="math-step">
-            <div class="math-step__label">Add \(10P\) to both sides:</div>
-            <div class="math-step__expr">$$Q_d + 10P = 50$$</div>
-          </div>
-          <div class="math-step">
-            <div class="math-step__label">Subtract \(Q_d\) from both sides:</div>
-            <div class="math-step__expr">$$10P = 50 - Q_d$$</div>
-          </div>
-          <div class="math-step">
-            <div class="math-step__label">Divide both sides by 10:</div>
-            <div class="math-step__expr">$$P = 5 - \frac{Q_d}{10}$$</div>
-          </div>
-        </div>
-        <p>The inverted form is \(P = 5 - Q_d/10\). Two key features:</p>
-        <ul>
-          <li><strong>Vertical intercept:</strong> When \(Q_d = 0\), P = 5. The demand curve crosses the price axis at €5/kg — the highest price any consumer will pay.</li>
-          <li><strong>Slope:</strong> The coefficient on \(Q_d\) is −1/10. For every 10-million-kg increase in quantity, price falls by €1.</li>
-        </ul>
-      </div>
-      <div class="callout callout--insight">
-        <div class="callout__title">What to Notice</div>
-        <p>
+<div class="math-steps">
+<div class="math-step">
+<div class="math-step__label">Start with:</div>
+<div class="math-step__expr">$$Q_d = 50 - 10P$$</div>
+</div>
+<div class="math-step">
+<div class="math-step__label">Add \(10P\) to both sides:</div>
+<div class="math-step__expr">$$Q_d + 10P = 50$$</div>
+</div>
+<div class="math-step">
+<div class="math-step__label">Subtract \(Q_d\) from both sides:</div>
+<div class="math-step__expr">$$10P = 50 - Q_d$$</div>
+</div>
+<div class="math-step">
+<div class="math-step__label">Divide both sides by 10:</div>
+<div class="math-step__expr">$$P = 5 - \frac{Q_d}{10}$$</div>
+</div>
+</div>
+<p>The inverted form is \(P = 5 - Q_d/10\). Two key features:</p>
+<ul>
+<li><strong>Vertical intercept:</strong> When \(Q_d = 0\), P = 5. The demand curve crosses the price axis at €5/kg — the highest price any consumer will pay.</li>
+<li><strong>Slope:</strong> The coefficient on \(Q_d\) is −1/10. For every 10-million-kg increase in quantity, price falls by €1.</li>
+</ul>
+
+<div class="callout callout--insight">
+<div class="callout__title">What to Notice</div>
+<p>
           Inverting the equation does not change the economics. It is the same demand relationship, rewritten so it fits the standard economics graph with quantity on the horizontal axis and price on the vertical axis. This is why the transcript spends time on inversion: it is the bridge between algebra and the graph.
         </p>
-      </div>
+</div>
 
-      <!-- Healthcare -->
-      <div data-context="healthcare" hidden>
-        <div class="math-steps">
-          <div class="math-step">
-            <div class="math-step__label">Start with:</div>
-            <div class="math-step__expr">$$Q_d = 50 - 2P$$</div>
-          </div>
-          <div class="math-step">
-            <div class="math-step__label">Add \(2P\) to both sides:</div>
-            <div class="math-step__expr">$$Q_d + 2P = 50$$</div>
-          </div>
-          <div class="math-step">
-            <div class="math-step__label">Subtract \(Q_d\) from both sides:</div>
-            <div class="math-step__expr">$$2P = 50 - Q_d$$</div>
-          </div>
-          <div class="math-step">
-            <div class="math-step__label">Divide both sides by 2:</div>
-            <div class="math-step__expr">$$P = 25 - \frac{Q_d}{2}$$</div>
-          </div>
-        </div>
-        <p>The inverted form is \(P = 25 - Q_d/2\). Two key features:</p>
-        <ul>
-          <li><strong>Vertical intercept:</strong> When \(Q_d = 0\), P = 25. The demand curve crosses the price axis at $25/month — the highest monthly cost any patient will pay before going without.</li>
-          <li><strong>Slope:</strong> The coefficient on \(Q_d\) is −1/2. For every 2-million-prescription increase in quantity, price falls by $1.</li>
-        </ul>
-      </div>
 
-      <!-- Energy -->
-      <div data-context="energy" hidden>
-        <div class="math-steps">
-          <div class="math-step">
-            <div class="math-step__label">Start with:</div>
-            <div class="math-step__expr">$$Q_d = 150 - 30P$$</div>
-          </div>
-          <div class="math-step">
-            <div class="math-step__label">Add \(30P\) to both sides:</div>
-            <div class="math-step__expr">$$Q_d + 30P = 150$$</div>
-          </div>
-          <div class="math-step">
-            <div class="math-step__label">Subtract \(Q_d\) from both sides:</div>
-            <div class="math-step__expr">$$30P = 150 - Q_d$$</div>
-          </div>
-          <div class="math-step">
-            <div class="math-step__label">Divide both sides by 30:</div>
-            <div class="math-step__expr">$$P = 5 - \frac{Q_d}{30}$$</div>
-          </div>
-        </div>
-        <p>The inverted form is \(P = 5 - Q_d/30\). Two key features:</p>
-        <ul>
-          <li><strong>Vertical intercept:</strong> When \(Q_d = 0\), P = 5. The demand curve crosses the price axis at $5/gallon — the highest price at which any consumer is still willing to buy.</li>
-          <li><strong>Slope:</strong> The coefficient on \(Q_d\) is −1/30. For every 30-billion-gallon increase in quantity, price falls by $1.</li>
-        </ul>
-      </div>
 
-      <!-- Cannabis -->
-      <div data-context="criminal_justice" hidden>
-        <div class="math-steps">
-          <div class="math-step">
-            <div class="math-step__label">Start with:</div>
-            <div class="math-step__expr">$$Q_d = 20 - 2P$$</div>
-          </div>
-          <div class="math-step">
-            <div class="math-step__label">Add \(2P\) to both sides:</div>
-            <div class="math-step__expr">$$Q_d + 2P = 20$$</div>
-          </div>
-          <div class="math-step">
-            <div class="math-step__label">Subtract \(Q_d\) from both sides:</div>
-            <div class="math-step__expr">$$2P = 20 - Q_d$$</div>
-          </div>
-          <div class="math-step">
-            <div class="math-step__label">Divide both sides by 2:</div>
-            <div class="math-step__expr">$$P = 10 - \frac{Q_d}{2}$$</div>
-          </div>
-        </div>
-        <p>The inverted form is \(P = 10 - Q_d/2\). Two key features:</p>
-        <ul>
-          <li><strong>Vertical intercept:</strong> When \(Q_d = 0\), P = 10. The demand curve crosses the price axis at $10/gram — the highest price at which any consumer will buy legal cannabis.</li>
-          <li><strong>Slope:</strong> The coefficient on \(Q_d\) is −1/2. For every 2-million-gram increase in quantity, price falls by $1.</li>
-        </ul>
-      </div>
 
-      <h3>Graphing the Demand Curve</h3>
-      <p>
+
+
+<h3>Graphing the Demand Curve</h3>
+<p>
         With the inverted equation
-        <span data-context="agriculture">\(P = 5 - Q_d/10\)</span><span data-context="healthcare" hidden>\(P = 25 - Q_d/2\)</span><span data-context="energy" hidden>\(P = 5 - Q_d/30\)</span><span data-context="criminal_justice" hidden>\(P = 10 - Q_d/2\)</span>,
+        \(P = 5 - Q_d/10\),
         we have several methods to graph the demand curve:
       </p>
-
-      <div class="graphing-methods">
-
-        <!-- Method 1: Two Intercepts -->
-        <div class="graphing-method">
-          <div class="graphing-method__header">
-            <span class="graphing-method__badge">Method 1</span>
-            <h4 class="graphing-method__title">Two Intercepts</h4>
-          </div>
-          <p class="graphing-method__intro">Plot the vertical intercept
-            (<span data-context="agriculture">0, 5</span><span data-context="healthcare" hidden>0, 25</span><span data-context="energy" hidden>0, 5</span><span data-context="criminal_justice" hidden>0, 10</span>)
+<div class="graphing-methods">
+<!-- Method 1: Two Intercepts -->
+<div class="graphing-method">
+<div class="graphing-method__header">
+<span class="graphing-method__badge">Method 1</span>
+<h4 class="graphing-method__title">Two Intercepts</h4>
+</div>
+<p class="graphing-method__intro">Plot the vertical intercept
+            (0, 5)
             and the horizontal intercept
-            (<span data-context="agriculture">50, 0</span><span data-context="healthcare" hidden>50, 0</span><span data-context="energy" hidden>150, 0</span><span data-context="criminal_justice" hidden>20, 0</span>),
+            (50, 0),
             then connect with a straight line.</p>
-          <div class="demo-layout">
-            <div class="demo-layout__graph-col">
-              <div id="gm1-graph"></div>
-              <div class="graphing-method__controls">
-                <button id="gm1-next" class="graphing-method__next-btn">Next Step →</button>
-              </div>
-            </div>
-            <div class="demo-layout__desc-col">
-              <div class="demo-step-panel" id="gm1-desc">Click <strong>Next Step →</strong> to build the demand curve one step at a time.</div>
-            </div>
-          </div>
-        </div>
-
-        <hr class="section-divider">
-
-        <!-- Method 2: Slope and a Point -->
-        <div class="graphing-method">
-          <div class="graphing-method__header">
-            <span class="graphing-method__badge">Method 2</span>
-            <h4 class="graphing-method__title">Slope and a Point</h4>
-          </div>
-          <p class="graphing-method__intro">We need one known point to anchor the line and the slope to extend it. The vertical intercept is the easiest known point — it comes straight from the inverted equation when you set Q = 0. Start there:
-            (<span data-context="agriculture">0, 5</span><span data-context="healthcare" hidden>0, 25</span><span data-context="energy" hidden>0, 5</span><span data-context="criminal_justice" hidden>0, 10</span>).
+<div class="demo-layout">
+<div class="demo-layout__graph-col">
+<div id="gm1-graph"></div>
+<div class="graphing-method__controls">
+<button class="graphing-method__next-btn" id="gm1-next">Next Step →</button>
+</div>
+</div>
+<div class="demo-layout__desc-col">
+<div class="demo-step-panel" id="gm1-desc">Click <strong>Next Step →</strong> to build the demand curve one step at a time.</div>
+</div>
+</div>
+</div>
+<hr class="section-divider"/>
+<!-- Method 2: Slope and a Point -->
+<div class="graphing-method">
+<div class="graphing-method__header">
+<span class="graphing-method__badge">Method 2</span>
+<h4 class="graphing-method__title">Slope and a Point</h4>
+</div>
+<p class="graphing-method__intro">We need one known point to anchor the line and the slope to extend it. The vertical intercept is the easiest known point — it comes straight from the inverted equation when you set Q = 0. Start there:
+            (0, 5).
             Then apply the slope repeatedly:
-            <span data-context="agriculture">−1/10 means move right 10 units, down 1 unit</span><span data-context="healthcare" hidden>−1/2 means move right 2 units, down 1 unit</span><span data-context="energy" hidden>−1/30 means move right 30 units, down 1 unit</span><span data-context="criminal_justice" hidden>−1/2 means move right 2 units, down 1 unit</span>.
+            −1/10 means move right 10 units, down 1 unit.
             Each step traces out another point on the line; repeat until you reach the horizontal axis.</p>
-          <div class="demo-layout">
-            <div class="demo-layout__graph-col">
-              <div id="gm2-graph"></div>
-              <div class="graphing-method__controls">
-                <button id="gm2-next" class="graphing-method__next-btn">Next Step →</button>
-              </div>
-            </div>
-            <div class="demo-layout__desc-col">
-              <div class="demo-step-panel" id="gm2-desc">Click <strong>Next Step →</strong> to build the demand curve one step at a time.</div>
-            </div>
-          </div>
-        </div>
-
-        <hr class="section-divider">
-
-        <!-- Method 3: Plot the Demand Schedule -->
-        <div class="graphing-method">
-          <div class="graphing-method__header">
-            <span class="graphing-method__badge">Method 3</span>
-            <h4 class="graphing-method__title">Plot the Demand Schedule</h4>
-          </div>
-          <p class="graphing-method__intro">Each row of the demand schedule is a point. Plot all five price-quantity pairs, then connect with a straight line.</p>
-          <div class="demo-layout">
-            <div class="demo-layout__graph-col">
-              <div class="graphing-method__schedule-graph">
-                <div class="graphing-method__table-wrap">
-                  <table class="data-table" id="gm3-table">
-                    <thead>
-                      <tr>
-                        <th><span data-context="agriculture">Price (€/kg)</span><span data-context="healthcare" hidden>Price ($/mo)</span><span data-context="energy" hidden>Price ($/gal)</span><span data-context="criminal_justice" hidden>Price ($/g)</span></th>
-                        <th><span data-context="agriculture">Qty (mil. kg)</span><span data-context="healthcare" hidden>Qty (mil. Rx)</span><span data-context="energy" hidden>Qty (bil. gal)</span><span data-context="criminal_justice" hidden>Qty (mil. g)</span></th>
-                      </tr>
-                    </thead>
-                    <!-- UX-NOTE: These table rows are hardcoded to agriculture defaults (P=1..5, Q=40..0). The JS in buildGraphingMethods() updates them when context changes, but a student who changes context before JS runs may briefly see wrong values. -->
-                    <tbody>
-                      <tr id="gm3-row-0"><td>1</td><td>40</td></tr>
-                      <tr id="gm3-row-1"><td>2</td><td>30</td></tr>
-                      <tr id="gm3-row-2"><td>3</td><td>20</td></tr>
-                      <tr id="gm3-row-3"><td>4</td><td>10</td></tr>
-                      <tr id="gm3-row-4"><td>5</td><td>0</td></tr>
-                    </tbody>
-                  </table>
-                </div>
-                <div class="graphing-method__graph-wrap">
-                  <div id="gm3-graph"></div>
-                </div>
-              </div>
-              <div class="graphing-method__controls">
-                <button id="gm3-next" class="graphing-method__next-btn">Next Step →</button>
-              </div>
-            </div>
-            <div class="demo-layout__desc-col">
-              <div class="demo-step-panel" id="gm3-desc">Click <strong>Next Step →</strong> to plot each row of the schedule onto the graph.</div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-
-      <!-- UX-NOTE: The "demand" vs. "quantity demanded" distinction first appears informally at line ~205 ("the relationship between price and the quantity...") and in the demand-schedule section. A single parenthetical note at first use — e.g., "the quantity demanded (a specific amount at one price, distinct from 'demand' which means the entire relationship)" — would reduce confusion when students first encounter the terms, and let this callout serve as a consolidating reminder rather than a first introduction. -->
-      <div class="callout callout--example">
-        <div class="callout__title">All Three Methods, One Line</div>
-        <p>
+<div class="demo-layout">
+<div class="demo-layout__graph-col">
+<div id="gm2-graph"></div>
+<div class="graphing-method__controls">
+<button class="graphing-method__next-btn" id="gm2-next">Next Step →</button>
+</div>
+</div>
+<div class="demo-layout__desc-col">
+<div class="demo-step-panel" id="gm2-desc">Click <strong>Next Step →</strong> to build the demand curve one step at a time.</div>
+</div>
+</div>
+</div>
+<hr class="section-divider"/>
+<!-- Method 3: Plot the Demand Schedule -->
+<div class="graphing-method">
+<div class="graphing-method__header">
+<span class="graphing-method__badge">Method 3</span>
+<h4 class="graphing-method__title">Plot the Demand Schedule</h4>
+</div>
+<p class="graphing-method__intro">Each row of the demand schedule is a point. Plot all five price-quantity pairs, then connect with a straight line.</p>
+<div class="demo-layout">
+<div class="demo-layout__graph-col">
+<div class="graphing-method__schedule-graph">
+<div class="graphing-method__table-wrap">
+<table class="data-table" id="gm3-table">
+<thead>
+<tr>
+<th>Price (€/kg)</th>
+<th>Qty (mil. kg)</th>
+</tr>
+</thead>
+<tbody>
+<tr id="gm3-row-0"><td>1</td><td>40</td></tr>
+<tr id="gm3-row-1"><td>2</td><td>30</td></tr>
+<tr id="gm3-row-2"><td>3</td><td>20</td></tr>
+<tr id="gm3-row-3"><td>4</td><td>10</td></tr>
+<tr id="gm3-row-4"><td>5</td><td>0</td></tr>
+</tbody>
+</table>
+</div>
+<div class="graphing-method__graph-wrap">
+<div id="gm3-graph"></div>
+</div>
+</div>
+<div class="graphing-method__controls">
+<button class="graphing-method__next-btn" id="gm3-next">Next Step →</button>
+</div>
+</div>
+<div class="demo-layout__desc-col">
+<div class="demo-step-panel" id="gm3-desc">Click <strong>Next Step →</strong> to plot each row of the schedule onto the graph.</div>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout--example">
+<div class="callout__title">All Three Methods, One Line</div>
+<p>
           Notice that Methods 1, 2, and 3 all produce exactly the same demand curve — because there is only one straight line consistent with the equation. The intercept method is fastest when you have the inverted equation. The slope-and-a-point method is useful when you know one coordinate and the slope. The schedule method is most intuitive because it mirrors the data you would collect in a real study. Choose whichever approach you find clearest; you will use all three at different points in the course.
         </p>
-      </div>
-
-      <!-- UX-NOTE: Consider adding a visual "compare all three" toggle that overlays the three method graphs on one coordinate system, so students can see the lines are identical. This would be a high-value interactive addition. -->
-      <div class="callout callout--insight">
-        <div class="callout__title">Important Distinction: Demand vs. Quantity Demanded</div>
-        <p>
+</div>
+<div class="callout callout--insight">
+<div class="callout__title">Important Distinction: Demand vs. Quantity Demanded</div>
+<p>
           "Demand" refers to the entire relationship between price and quantity — the entire demand curve. "Quantity demanded" refers to a specific amount at a specific price: one point on that curve. When economists say "demand increased," they mean the entire curve shifted. When price changes and consumers respond by buying more or less, <em>quantity demanded</em> changes but <em>demand</em> (the curve itself) does not. This distinction becomes crucial in Module 2.
         </p>
-      </div>
-      <div class="callout callout--warning">
-        <div class="callout__title">Common Mistake</div>
-        <p>
+</div>
+<div class="callout callout--warning">
+<div class="callout__title">Common Mistake</div>
+<p>
           Students often mix up the intercepts because the graph uses economics conventions, not standard algebra conventions. For demand, the price intercept belongs on the vertical axis and the quantity intercept belongs on the horizontal axis. A second common mistake is to say "demand changed" when only price changed; in that case, only <em>quantity demanded</em> changes.
         </p>
-      </div>
-
-      <!-- Graph It: Multi-Equation Practice -->
-      <h3>Graph It: Practice Drawing Demand Curves</h3>
-      <p>
+</div>
+<!-- Graph It: Multi-Equation Practice -->
+<h3>Graph It: Practice Drawing Demand Curves</h3>
+<p>
         You have now seen three methods for graphing a demand curve — intercepts, slope-and-a-point, and plotting the schedule. Now it's your turn. Use whichever method feels most natural; all three will produce the same line.
       </p>
-      <p>
+<p>
         Below are three demand equations to graph. For each, draw the inverse demand curve with price on the vertical axis and quantity on the horizontal. Equations 1 and 2 are already in inverse form. Equation 3 requires inversion first. <strong>Click two points on the graph to place your line, then press Submit.</strong>
-      </p>
-      <div class="graphit-container">
-        <div class="graphit-tabs">
-          <button class="graphit-tab graphit-tab--active" data-eq="1">Equation 1</button>
-          <button class="graphit-tab" data-eq="2">Equation 2</button>
-          <button class="graphit-tab graphit-tab--challenge" data-eq="3">Equation 3 ★ (invert first)</button>
-        </div>
-
-        <!-- Panel 1: P = 8 − 2Q_d -->
-        <div class="graphit-panel graphit-panel--active" id="graphit-panel-1">
-          <div class="graphit-equation">
-            <div class="graphit-equation__badge">Already in inverse form</div>
-            <div>$$P = 8 - 2Q_d$$</div>
-            <div class="graphit-equation__hint">Sugar demand in a smaller regional market. Price on the vertical axis, quantity on the horizontal axis.</div>
-          </div>
-          <div id="draw-graph-gi-1"></div>
-          <div class="draw-graph-container__controls">
-            <button id="gi-submit-1" class="draw-graph__submit-btn">Submit</button>
-            <button id="gi-clear-1" class="draw-graph__clear-btn">Try Again</button>
-            <span class="draw-graph-container__hint">Click to place two endpoints — your line will connect them.</span>
-          </div>
-          <div id="gi-feedback-1" class="draw-graph__feedback"></div>
-        </div>
-
-        <!-- Panel 2: P = 6 − 0.5Q_d -->
-        <div class="graphit-panel" id="graphit-panel-2">
-          <div class="graphit-equation">
-            <div class="graphit-equation__badge">Already in inverse form</div>
-            <div>$$P = 6 - 0.5Q_d$$</div>
-            <div class="graphit-equation__hint">Sugar demand in a second market. Find the intercepts first, then place your two points.</div>
-          </div>
-          <div id="draw-graph-gi-2"></div>
-          <div class="draw-graph-container__controls">
-            <button id="gi-submit-2" class="draw-graph__submit-btn">Submit</button>
-            <button id="gi-clear-2" class="draw-graph__clear-btn">Try Again</button>
-            <span class="draw-graph-container__hint">Click to place two endpoints — your line will connect them.</span>
-          </div>
-          <div id="gi-feedback-2" class="draw-graph__feedback"></div>
-        </div>
-
-        <!-- Panel 3: Q_d = 40 − 4P (requires inversion) -->
-        <div class="graphit-panel" id="graphit-panel-3">
-          <div class="graphit-equation graphit-equation--challenge">
-            <div class="graphit-equation__badge">Inversion required</div>
-            <div>$$Q_d = 40 - 4P$$</div>
-            <div class="graphit-equation__hint">Demand for a supported crop. Invert to find P as a function of Q, then graph.</div>
-          </div>
-          <details class="graphit-hint-steps">
-            <summary>Show inversion steps</summary>
-            <div class="math-steps">
-              <div class="math-step">
-                <div class="math-step__label">Start with:</div>
-                <div class="math-step__expr">$$Q_d = 40 - 4P$$</div>
-              </div>
-              <div class="math-step">
-                <div class="math-step__label">Add \(4P\) to both sides:</div>
-                <div class="math-step__expr">$$Q_d + 4P = 40$$</div>
-              </div>
-              <div class="math-step">
-                <div class="math-step__label">Subtract \(Q_d\) from both sides:</div>
-                <div class="math-step__expr">$$4P = 40 - Q_d$$</div>
-              </div>
-              <div class="math-step">
-                <div class="math-step__label">Divide both sides by 4:</div>
-                <div class="math-step__expr">$$P = 10 - \frac{Q_d}{4}$$</div>
-              </div>
-            </div>
-          </details>
-          <div id="draw-graph-gi-3"></div>
-          <div class="draw-graph-container__controls">
-            <button id="gi-submit-3" class="draw-graph__submit-btn">Submit</button>
-            <button id="gi-clear-3" class="draw-graph__clear-btn">Try Again</button>
-            <span class="draw-graph-container__hint">Click to place two endpoints — your line will connect them.</span>
-          </div>
-          <div id="gi-feedback-3" class="draw-graph__feedback"></div>
-        </div>
-      </div>
-
-      <!-- ===== DEMAND INTERACTIVE GRAPH ===== -->
-      <h3 id="demand-interactive">Interactive: Exploring Demand Curves</h3>
-      <div class="graph-container">
-        <div class="graph-container__title">Demand Curve Explorer</div>
-        <div class="graph-container__description">
+</p>
+<div class="graphit-container">
+<div class="graphit-tabs">
+<button class="graphit-tab graphit-tab--active" data-eq="1">Equation 1</button>
+<button class="graphit-tab" data-eq="2">Equation 2</button>
+<button class="graphit-tab graphit-tab--challenge" data-eq="3">Equation 3 ★ (invert first)</button>
+</div>
+<!-- Panel 1: P = 8 − 2Q_d -->
+<div class="graphit-panel graphit-panel--active" id="graphit-panel-1">
+<div class="graphit-equation">
+<div class="graphit-equation__badge">Already in inverse form</div>
+<div>$$P = 8 - 2Q_d$$</div>
+<div class="graphit-equation__hint">Sugar demand in a smaller regional market. Price on the vertical axis, quantity on the horizontal axis.</div>
+</div>
+<div id="draw-graph-gi-1"></div>
+<div class="draw-graph-container__controls">
+<button class="draw-graph__submit-btn" id="gi-submit-1">Submit</button>
+<button class="draw-graph__clear-btn" id="gi-clear-1">Try Again</button>
+<span class="draw-graph-container__hint">Click to place two endpoints — your line will connect them.</span>
+</div>
+<div class="draw-graph__feedback" id="gi-feedback-1"></div>
+</div>
+<!-- Panel 2: P = 6 − 0.5Q_d -->
+<div class="graphit-panel" id="graphit-panel-2">
+<div class="graphit-equation">
+<div class="graphit-equation__badge">Already in inverse form</div>
+<div>$$P = 6 - 0.5Q_d$$</div>
+<div class="graphit-equation__hint">Sugar demand in a second market. Find the intercepts first, then place your two points.</div>
+</div>
+<div id="draw-graph-gi-2"></div>
+<div class="draw-graph-container__controls">
+<button class="draw-graph__submit-btn" id="gi-submit-2">Submit</button>
+<button class="draw-graph__clear-btn" id="gi-clear-2">Try Again</button>
+<span class="draw-graph-container__hint">Click to place two endpoints — your line will connect them.</span>
+</div>
+<div class="draw-graph__feedback" id="gi-feedback-2"></div>
+</div>
+<!-- Panel 3: Q_d = 40 − 4P (requires inversion) -->
+<div class="graphit-panel" id="graphit-panel-3">
+<div class="graphit-equation graphit-equation--challenge">
+<div class="graphit-equation__badge">Inversion required</div>
+<div>$$Q_d = 40 - 4P$$</div>
+<div class="graphit-equation__hint">Demand for a supported crop. Invert to find P as a function of Q, then graph.</div>
+</div>
+<details class="graphit-hint-steps">
+<summary>Show inversion steps</summary>
+<div class="math-steps">
+<div class="math-step">
+<div class="math-step__label">Start with:</div>
+<div class="math-step__expr">$$Q_d = 40 - 4P$$</div>
+</div>
+<div class="math-step">
+<div class="math-step__label">Add \(4P\) to both sides:</div>
+<div class="math-step__expr">$$Q_d + 4P = 40$$</div>
+</div>
+<div class="math-step">
+<div class="math-step__label">Subtract \(Q_d\) from both sides:</div>
+<div class="math-step__expr">$$4P = 40 - Q_d$$</div>
+</div>
+<div class="math-step">
+<div class="math-step__label">Divide both sides by 4:</div>
+<div class="math-step__expr">$$P = 10 - \frac{Q_d}{4}$$</div>
+</div>
+</div>
+</details>
+<div id="draw-graph-gi-3"></div>
+<div class="draw-graph-container__controls">
+<button class="draw-graph__submit-btn" id="gi-submit-3">Submit</button>
+<button class="draw-graph__clear-btn" id="gi-clear-3">Try Again</button>
+<span class="draw-graph-container__hint">Click to place two endpoints — your line will connect them.</span>
+</div>
+<div class="draw-graph__feedback" id="gi-feedback-3"></div>
+</div>
+</div>
+<!-- ===== DEMAND INTERACTIVE GRAPH ===== -->
+<h3 id="demand-interactive">Interactive Practice: Exploring Demand Curves</h3>
+<div class="graph-container">
+<div class="graph-container__title">Demand Curve Explorer</div>
+<div class="graph-container__description">
           Adjust the intercept (a) and slope (b) to see how the demand curve changes. The equation shown is \(Q_d = a - bP\), which we invert to \(P = (a/b) - (Q/b)\) for graphing. Increasing the intercept (a) shifts the curve rightward. Increasing the slope coefficient (b) makes the curve <em>flatter</em> — because the inverted slope is \(-1/b\), which shrinks in magnitude as b grows.
         </div>
-        <div class="graph-container__svg-wrapper" id="demand-graph"></div>
-        <div class="graph-container__controls">
-          <div class="graph-control">
-            <label class="graph-control__label">Intercept (a): Quantity at P=0</label>
-            <input type="range" class="graph-control__slider" id="demand-intercept" min="10" max="200" step="5" value="50">
-            <span class="graph-control__value" id="demand-intercept-value">50</span>
-          </div>
-          <div class="graph-control">
-            <label class="graph-control__label">Slope coefficient (b): Units lost per 1-unit price increase</label>
-            <input type="range" class="graph-control__slider" id="demand-slope" min="2" max="40" step="2" value="10">
-            <span class="graph-control__value" id="demand-slope-value">10</span>
-          </div>
-        </div>
-        <div class="graph-container__info">
-          <p><strong>Current demand:</strong> <span id="demand-equation-display">Q_d = 50 - 10P</span></p>
-          <p><strong>Graph form:</strong> <span id="demand-inverse-display">P = 5.00 - Q/10</span></p>
-        </div>
-      </div>
+<div class="graph-container__svg-wrapper" id="demand-graph"></div>
+<div class="graph-container__controls">
+<div class="graph-control">
+<label class="graph-control__label">Intercept (a): Quantity at P=0</label>
+<input class="graph-control__slider" id="demand-intercept" max="200" min="10" step="5" type="range" value="50"/>
+<span class="graph-control__value" id="demand-intercept-value">50</span>
+</div>
+<div class="graph-control">
+<label class="graph-control__label">Slope coefficient (b): Units lost per 1-unit price increase</label>
+<input class="graph-control__slider" id="demand-slope" max="40" min="2" step="2" type="range" value="10"/>
+<span class="graph-control__value" id="demand-slope-value">10</span>
+</div>
+</div>
+<div class="graph-container__info">
+<p><strong>Current demand:</strong> <span id="demand-equation-display">Q_d = 50 - 10P</span></p>
+<p><strong>Graph form:</strong> <span id="demand-inverse-display">P = 5.00 - Q/10</span></p>
+</div>
+</div>
 
-      <div data-context="agriculture">
-        <p>The graph starts with values matching our EU sugar example: a = 50, b = 10. Try adjusting the sliders to see how the curve responds. Increasing the intercept (a) shifts the demand curve rightward — more quantity demanded at every price. Increasing the slope coefficient (b) makes the curve <em>flatter</em> (the inverted slope is −1/b, so larger b means a gentler slope), though consumers become more responsive to price in quantity terms.</p>
-      </div>
-      <div data-context="healthcare" hidden>
-        <p>The graph starts with values matching our atorvastatin example: a = 50, b = 2. Try adjusting the sliders. Increasing the intercept (a) shifts demand rightward — for instance, an aging population increases demand at every price. Increasing the slope coefficient (b) makes the curve <em>flatter</em> on the graph (inverted slope = −1/b), though patients become more responsive to price in quantity terms.</p>
-      </div>
-      <div data-context="energy" hidden>
-        <p>The graph starts with values matching our gasoline example: a = 150, b = 30. Try adjusting the sliders. A higher intercept means more total driving demand. Increasing b makes the inverted demand curve <em>flatter</em> on the graph (the graphed slope is −1/b, so larger b shrinks the slope's magnitude), even though more gallons are given up per dollar of price increase in quantity terms.</p>
-      </div>
-      <div data-context="criminal_justice" hidden>
-        <p>The graph starts with values matching our Colorado cannabis example: a = 20, b = 2. Try adjusting the sliders. A higher intercept reflects greater underlying demand. Increasing b makes the inverted demand curve <em>flatter</em> on the graph (graphed slope = −1/b), even though a larger b means more grams are given up per dollar of price increase.</p>
-      </div>
+<p>The graph starts with values matching our EU sugar example: a = 50, b = 10. Try adjusting the sliders to see how the curve responds. Increasing the intercept (a) shifts the demand curve rightward — more quantity demanded at every price. Increasing the slope coefficient (b) makes the curve <em>flatter</em> (the inverted slope is −1/b, so larger b means a gentler slope), though consumers become more responsive to price in quantity terms.</p>
 
-      <div data-context="agriculture">
-        <div class="self-check">
-          <div class="self-check__question">The demand equation is \(Q_d = 50 - 10P\). Without drawing the graph, identify: (a) the price at which quantity demanded reaches zero, and (b) the quantity demanded when the price is zero. Which of these appears on the vertical axis of the demand curve, and which appears on the horizontal axis?</div>
-          <button class="self-check__reveal-btn">Show Answer</button>
-          <div class="self-check__answer">
-            <p>(a) Set \(Q_d = 0\): \(0 = 50 - 10P \Rightarrow P = 5\). When price reaches €5/kg, no one buys sugar. This is the <strong>vertical intercept</strong> — where the demand curve meets the price axis.</p>
-            <p>(b) Set \(P = 0\): \(Q_d = 50 - 10(0) = 50\). At a price of zero, consumers would demand 50 million kg. This is the <strong>horizontal intercept</strong> — where the curve meets the quantity axis.</p>
-            <p>In other words: the maximum willingness-to-pay (€5) is read off the vertical axis; the maximum quantity demanded at zero cost (50 million kg) is read off the horizontal axis.</p>
-          </div>
-        </div>
-      </div>
-      <div data-context="healthcare" hidden>
-        <div class="self-check">
-          <div class="self-check__question">The demand equation is \(Q_d = 50 - 2P\). Without drawing the graph, identify: (a) the monthly cost at which demand reaches zero, and (b) the quantity demanded when the monthly cost is zero. Which value is the vertical intercept on the demand curve?</div>
-          <button class="self-check__reveal-btn">Show Answer</button>
-          <div class="self-check__answer">
-            <p>(a) Set \(Q_d = 0\): \(0 = 50 - 2P \Rightarrow P = 25\). At $25/month, no prescriptions are filled. This is the <strong>vertical intercept</strong> — the highest price any patient will pay.</p>
-            <p>(b) Set \(P = 0\): \(Q_d = 50\). At zero cost, 50 million prescriptions would be filled — the <strong>horizontal intercept</strong>.</p>
-            <p>The vertical intercept ($25) represents the maximum willingness-to-pay; the horizontal intercept (50 million Rx) is the quantity at zero price.</p>
-          </div>
-        </div>
-      </div>
-      <div data-context="energy" hidden>
-        <div class="self-check">
-          <div class="self-check__question">The demand equation is \(Q_d = 150 - 30P\). Without drawing the graph, identify: (a) the price at which gasoline demand reaches zero, and (b) the quantity demanded when price is zero. Which value would you plot on the vertical axis to start drawing the demand curve?</div>
-          <button class="self-check__reveal-btn">Show Answer</button>
-          <div class="self-check__answer">
-            <p>(a) Set \(Q_d = 0\): \(0 = 150 - 30P \Rightarrow P = 5\). At $5/gallon, demand reaches zero in this model. This is the <strong>vertical intercept</strong> — where the curve hits the price axis.</p>
-            <p>(b) Set \(P = 0\): \(Q_d = 150\) billion gallons. This is the <strong>horizontal intercept</strong>.</p>
-            <p>To start drawing, you would plot (0, 5) on the vertical axis — the highest price drivers would pay — and (150, 0) on the horizontal axis, then connect the two points.</p>
-          </div>
-        </div>
-      </div>
-      <div data-context="criminal_justice" hidden>
-        <div class="self-check">
-          <div class="self-check__question">The demand equation is \(Q_d = 20 - 2P\). Without drawing the graph, identify: (a) the price per gram at which legal cannabis demand reaches zero, and (b) the quantity demanded at a price of zero. How do these two values define the endpoints of the demand curve on your graph?</div>
-          <button class="self-check__reveal-btn">Show Answer</button>
-          <div class="self-check__answer">
-            <p>(a) Set \(Q_d = 0\): \(0 = 20 - 2P \Rightarrow P = 10\). At $10/gram, no one buys legal cannabis in this model. This is the <strong>vertical intercept</strong>: the point (Q=0, P=10).</p>
-            <p>(b) Set \(P = 0\): \(Q_d = 20\) million grams/month. This is the <strong>horizontal intercept</strong>: the point (Q=20, P=0).</p>
-            <p>These two intercepts are the endpoints of the demand curve on the graph — plot (0, 10) and (20, 0), then draw a straight line between them.</p>
-          </div>
-        </div>
-      </div>
-      <p>
-        You now have the buyer side of the sugar market in hand: how much households and firms want to buy at each price, how to represent that relationship with an equation, and how to graph it. Part 2 adds the producer side of the same market so that, in Part 3, we can bring the two together and analyze the CAP price support directly.
+
+
+
+
+<div class="self-check">
+<div class="self-check__question">The demand equation is \(Q_d = 50 - 10P\). Without drawing the graph, identify: (a) the price at which quantity demanded reaches zero, and (b) the quantity demanded when the price is zero. Which of these appears on the vertical axis of the demand curve, and which appears on the horizontal axis?</div>
+<button class="self-check__reveal-btn">Show Answer</button>
+<div class="self-check__answer">
+<p>(a) Set \(Q_d = 0\): \(0 = 50 - 10P \Rightarrow P = 5\). When price reaches €5/kg, no one buys sugar. This is the <strong>vertical intercept</strong> — where the demand curve meets the price axis.</p>
+<p>(b) Set \(P = 0\): \(Q_d = 50 - 10(0) = 50\). At a price of zero, consumers would demand 50 million kg. This is the <strong>horizontal intercept</strong> — where the curve meets the quantity axis.</p>
+<p>In other words: the maximum willingness-to-pay (€5) is read off the vertical axis; the maximum quantity demanded at zero cost (50 million kg) is read off the horizontal axis.</p>
+</div>
+</div>
+
+
+
+
+<p>
+        You now have the buyer side of the sugar market in hand: how much households and firms want to buy at each price, how to represent that relationship with an equation, and how to graph it. Module 2 adds the producer side of the same market so that, in Module 3, we can bring the two together and analyze the CAP price support directly.
       </p>
-
-      <!-- Bottom Part Progress Strip -->
-      <div class="part-progress" style="margin-top: var(--space-3xl);">
-        <span class="part-progress__label">Module 1 · Part 1 of 3</span>
-        <div class="part-progress__steps">
-          <a class="part-progress__step part-progress__step--active" href="module-01-1-demand.html">Demand</a>
-          <span class="part-progress__divider">→</span>
-          <a class="part-progress__step" href="module-01-2-supply.html">Supply</a>
-          <span class="part-progress__divider">→</span>
-          <a class="part-progress__step" href="module-01-3-equilibrium.html">Equilibrium</a>
-        </div>
-      </div>
-
-      <!-- Part Navigation -->
-      <nav class="chapter-nav">
-        <a href="../index.html" class="chapter-nav__link chapter-nav__link--prev">
-          <span class="chapter-nav__direction">&larr; Back</span>
-          <span class="chapter-nav__title">Home</span>
-        </a>
-        <a href="module-01-2-supply.html" class="chapter-nav__link chapter-nav__link--next">
-          <span class="chapter-nav__direction">Next &rarr;</span>
-          <span class="chapter-nav__title">Part 2: Understanding Supply</span>
-        </a>
-      </nav>
-
-    </main>
-  </div>
-
-  <!-- Scripts -->
-  <script src="../js/textbook.js"></script>
-  <script>
+<section data-current-module="1" data-glossary-through="1" id="key-terms"></section>
+<!-- Bottom Progress Strip -->
+<div class="part-progress" style="margin-top: var(--space-3xl);">
+<span class="part-progress__label">Modules 1-3 Foundations</span>
+<div class="part-progress__steps">
+<a class="part-progress__step part-progress__step--active" href="module-01-1-demand.html">Module 1: Demand</a>
+<span class="part-progress__divider">→</span>
+<a class="part-progress__step" href="module-01-2-supply.html">Module 2: Supply</a>
+<span class="part-progress__divider">→</span>
+<a class="part-progress__step" href="module-01-3-equilibrium.html">Module 3: Equilibrium</a>
+</div>
+</div>
+<!-- Part Navigation -->
+<nav class="chapter-nav">
+<a class="chapter-nav__link chapter-nav__link--prev" href="../index.html">
+<span class="chapter-nav__direction">← Back</span>
+<span class="chapter-nav__title">Home</span>
+</a>
+<a class="chapter-nav__link chapter-nav__link--next" href="module-01-2-supply.html">
+<span class="chapter-nav__direction">Next →</span>
+<span class="chapter-nav__title">Module 2: Supply Basics</span>
+</a>
+</nav>
+</main>
+</div>
+<!-- Scripts -->
+<script src="../js/textbook.js"></script>
+<script>
     document.addEventListener("DOMContentLoaded", function() {
       if (typeof renderMathInElement !== 'undefined') {
         renderMathInElement(document.body, {
@@ -840,65 +558,23 @@
       }
     });
 
-    // ===== Per-context demand configurations =====
-    var DEMAND_CONTEXTS = {
-      agriculture: {
-        xLabel: 'Quantity (millions of kg/year)',
-        yLabel: 'Price (€/kg)',
-        xDomain: [0, 60], yDomain: [0, 6],
-        fn: function(x) { return 5 - x / 10; },
-        schedulePoints: [[40,1],[30,2],[20,3],[10,4],[0,5]],
-        vi: [0, 5], hi: [50, 0],
-        slopeLabel: 'Each step: right 10, down 1',
-        slopeDesc: '−1/10',
-        interactiveDefaults: { a: 50, b: 10 },
-        interactiveYDomain: [0, 6]
-      },
-      healthcare: {
-        xLabel: 'Quantity (millions of prescriptions/month)',
-        yLabel: 'Price ($/month)',
-        xDomain: [0, 60], yDomain: [0, 30],
-        fn: function(x) { return 25 - x / 2; },
-        schedulePoints: [[40,5],[30,10],[20,15],[10,20],[0,25]],
-        vi: [0, 25], hi: [50, 0],
-        slopeLabel: 'Each step: right 2, down 1',
-        slopeDesc: '−1/2',
-        interactiveDefaults: { a: 50, b: 2 },
-        interactiveYDomain: [0, 30]
-      },
-      energy: {
-        xLabel: 'Quantity (billions of gallons/year)',
-        yLabel: 'Price ($/gallon)',
-        xDomain: [0, 160], yDomain: [0, 6],
-        fn: function(x) { return 5 - x / 30; },
-        schedulePoints: [[120,1],[90,2],[60,3],[30,4],[0,5]],
-        vi: [0, 5], hi: [150, 0],
-        slopeLabel: 'Each step: right 30, down 1',
-        slopeDesc: '−1/30',
-        interactiveDefaults: { a: 150, b: 30 },
-        interactiveYDomain: [0, 6]
-      },
-      criminal_justice: {
-        xLabel: 'Quantity (millions of grams/month)',
-        yLabel: 'Price ($/gram)',
-        xDomain: [0, 25], yDomain: [0, 12],
-        fn: function(x) { return 10 - x / 2; },
-        schedulePoints: [[16,2],[12,4],[8,6],[4,8],[0,10]],
-        vi: [0, 10], hi: [20, 0],
-        slopeLabel: 'Each step: right 2, down 1',
-        slopeDesc: '−1/2',
-        interactiveDefaults: { a: 20, b: 2 },
-        interactiveYDomain: [0, 12]
-      }
+    // ===== CAP sugar demand configuration =====
+    var DEMAND_CONFIG = {
+      xLabel: 'Quantity (millions of kg/year)',
+      yLabel: 'Price (€/kg)',
+      xDomain: [0, 60], yDomain: [0, 6],
+      fn: function(x) { return 5 - x / 10; },
+      schedulePoints: [[40,1],[30,2],[20,3],[10,4],[0,5]],
+      vi: [0, 5], hi: [50, 0],
+      slopeLabel: 'Each step: right 10, down 1',
+      slopeDesc: '−1/10',
+      interactiveDefaults: { a: 50, b: 10 },
+      interactiveYDomain: [0, 6]
     };
 
-    function getCurrentContext() {
-      return 'agriculture';
-    }
-
     // ===== Static Demand Graph =====
-    function buildStaticDemandGraph(key) {
-      var cfg = DEMAND_CONTEXTS[key] || DEMAND_CONTEXTS.agriculture;
+    function buildStaticDemandGraph() {
+      var cfg = DEMAND_CONFIG;
       var container = document.getElementById('demand-static-graph');
       if (!container) return;
       container.innerHTML = '';
@@ -938,14 +614,14 @@
         { color: '#2e86c1', fontSize: '11px' });
     }
 
-    buildStaticDemandGraph(getCurrentContext());
+    buildStaticDemandGraph();
 
     // ===== Interactive Demand Graph =====
     var _interactiveGraph = null;
     var _interactiveUpdate = null;
 
-    function buildInteractiveDemandGraph(key) {
-      var cfg = DEMAND_CONTEXTS[key] || DEMAND_CONTEXTS.agriculture;
+    function buildInteractiveDemandGraph() {
+      var cfg = DEMAND_CONFIG;
       var container = document.getElementById('demand-graph');
       if (!container) return;
       container.innerHTML = '';
@@ -967,7 +643,7 @@
       });
       if (!_interactiveGraph) return;
 
-      // Set slider defaults for this context
+      // Set slider defaults for the CAP sugar example
       if (aSlider) aSlider.value = cfg.interactiveDefaults.a;
       if (bSlider) bSlider.value = cfg.interactiveDefaults.b;
 
@@ -997,7 +673,7 @@
       update();
     }
 
-    buildInteractiveDemandGraph(getCurrentContext());
+    buildInteractiveDemandGraph();
 
     // ===== Graphing Methods (step-through) =====
     function makeStepThrough(graph, frames, descs, descEl, btn, onFrame) {
@@ -1044,8 +720,8 @@
       return fresh;
     }
 
-    function buildGraphingMethods(key) {
-      var cfg = DEMAND_CONTEXTS[key] || DEMAND_CONTEXTS.agriculture;
+    function buildGraphingMethods() {
+      var cfg = DEMAND_CONFIG;
       var fn = cfg.fn;
       var vi = cfg.vi, hi = cfg.hi;
       var sp = cfg.schedulePoints; // [[Q,P], ...]
@@ -1196,7 +872,7 @@
       }
     }
 
-    buildGraphingMethods(getCurrentContext());
+    buildGraphingMethods();
 
     // ===== Graph It =====
     (function() {
@@ -1268,6 +944,5 @@
       wirePanel(3, gi3);
     })();
   </script>
-
 </body>
 </html>

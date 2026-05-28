@@ -1,558 +1,357 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Module 1 · Part 3: Equilibrium — API-101 Preparation</title>
-  <link rel="stylesheet" href="../css/theme.css?v=2">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
-  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
-  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Module 3: Equilibrium Basics — API-101 Preparation</title>
+<link href="../css/theme.css?v=2" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" rel="stylesheet"/>
+<script defer="" src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+<script defer="" src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
 </head>
 <body>
-
-  <!-- Navigation Bar -->
-  <nav class="site-nav">
-    <a href="../index.html" class="site-nav__brand">API-101 <span>Preparation</span></a>
-    <ul class="site-nav__links">
-      <li><a href="../index.html">Home</a></li>
-    </ul>
-  </nav>
-
-  <!-- Page Wrapper -->
-  <div class="page-wrapper">
-
-    <!-- Sidebar -->
-    <aside class="sidebar">
-      <span class="sidebar__part-label">Module 1 · Part 3 of 3</span>
-      <a href="#equilibrium" class="sidebar__link sidebar__link--active">Market Equilibrium</a>
-      <a href="#equilibrium-interactive" class="sidebar__link">Equilibrium Graph</a>
-      <a href="#cap-return" class="sidebar__link">Returning to the CAP</a>
-      <a href="#practice-quiz" class="sidebar__link">Practice Quiz</a>
-      <a href="#key-terms" class="sidebar__link">Key Terms</a>
-      <a href="#summary" class="sidebar__link">Summary</a>
-
-      <span class="sidebar__part-label" style="margin-top: var(--space-2xl);">Module 1 Parts</span>
-      <a href="module-01-1-demand.html" class="sidebar__link">Part 1: Demand</a>
-      <a href="module-01-2-supply.html" class="sidebar__link">Part 2: Supply</a>
-      <a href="module-01-3-equilibrium.html" class="sidebar__link" style="font-weight:600; color: var(--color-primary);">Part 3: Equilibrium</a>
-
-      <span class="sidebar__part-label" style="margin-top: var(--space-2xl);">All Modules</span>
-      <a href="module-01-1-demand.html" class="sidebar__link" style="font-weight:600; color: var(--color-primary);">1. Demand, Supply, Equilibrium</a>
-      <a href="module-02-demand-supply-shifters.html" class="sidebar__link">2. Demand &amp; Supply Shifters</a>
-      <a href="module-03-consumer-producer-surplus.html" class="sidebar__link">3. Consumer &amp; Producer Surplus</a>
-    </aside>
-
-    <!-- Main Content -->
-    <main class="main-content">
-
-      <!-- ===== MODULE HEADER ===== -->
-      <header class="chapter-header">
-        <div class="chapter-header__part">Preparation Module 1 · Part 3 of 3</div>
-        <div class="chapter-header__number">Module 1</div>
-        <h1 class="chapter-header__title">The Basics of Demand, Supply, and Equilibrium</h1>
-        <p class="chapter-header__subtitle">
-          In Parts 1 and 2 you built demand and supply curves separately. Now we bring them together: finding market equilibrium, interpreting surplus and shortage, and applying these tools to the EU Common Agricultural Policy.
+<!-- Navigation Bar -->
+<nav class="site-nav">
+<a class="site-nav__brand" href="../index.html" aria-label="Harvard Kennedy School"><img class="site-nav__logo" src="../assets/images/hks-logo.svg" alt="Harvard Kennedy School"></a>
+<ul class="site-nav__links">
+<li><a href="../index.html">Home</a></li>
+<li><a href="https://canvas.harvard.edu/courses/174583">Canvas</a></li>
+<li><a href="https://pingpong.hks.harvard.edu/group/723?assistant=3506">Ping Pong</a></li>
+</ul>
+</nav>
+<!-- Page Wrapper -->
+<div class="page-wrapper">
+<!-- Sidebar -->
+<aside class="sidebar">
+<span class="sidebar__part-label">Module 3</span>
+<a class="sidebar__link sidebar__link--active" href="#equilibrium">Market Equilibrium</a>
+<a class="sidebar__link" href="#equilibrium-interactive">Interactive Practice</a>
+<a class="sidebar__link" href="#cap-return">Policy Connection</a>
+<a class="sidebar__link" href="#key-terms">Key Terms</a>
+<a class="sidebar__link" href="#summary">Summary</a>
+<span class="sidebar__part-label" style="margin-top: var(--space-2xl);">Learning Path</span>
+<a class="sidebar__link" href="module-01-1-demand.html">1. Demand Basics</a>
+<a class="sidebar__link" href="module-01-2-supply.html">2. Supply Basics</a>
+<a class="sidebar__link" href="module-01-3-equilibrium.html" style="font-weight:600; color: var(--color-primary);">3. Equilibrium Basics</a>
+<a class="sidebar__link" href="modules-1-3-summary-quiz.html">Modules 1-3 Quiz</a>
+<a class="sidebar__link" href="module-02-demand-supply-shifters.html">4. Demand & Supply Shifters</a>
+<a class="sidebar__link" href="module-04-summary-quiz.html">Module 4 Quiz</a>
+<a class="sidebar__link" href="module-03-consumer-producer-surplus.html">5. Consumer & Producer Surplus</a>
+<a class="sidebar__link" href="module-05-summary-quiz.html">Module 5 Quiz</a>
+</aside>
+<!-- Main Content -->
+<main class="main-content">
+<!-- ===== MODULE HEADER ===== -->
+<header class="chapter-header">
+<div class="chapter-header__part">Preparation Module 3</div>
+<div class="chapter-header__number">Module 3</div>
+<h1 class="chapter-header__title">Equilibrium Basics</h1>
+<p class="chapter-header__subtitle">
+          In Modules 1 and 2 you built demand and supply curves separately. Now we bring them together: finding market equilibrium, interpreting surplus and shortage, and applying these tools to the EU Common Agricultural Policy.
         </p>
-      </header>
-
-      <!-- Part Progress Strip -->
-      <div class="part-progress">
-        <span class="part-progress__label">Module 1 · Part 3 of 3</span>
-        <div class="part-progress__steps">
-          <a class="part-progress__step" href="module-01-1-demand.html">Demand</a>
-          <span class="part-progress__divider">→</span>
-          <a class="part-progress__step" href="module-01-2-supply.html">Supply</a>
-          <span class="part-progress__divider">→</span>
-          <a class="part-progress__step part-progress__step--active" href="module-01-3-equilibrium.html">Equilibrium</a>
-        </div>
-      </div>
-
-      <!-- ===== LEARNING OBJECTIVES ===== -->
-      <div class="learning-objectives">
-        <div class="learning-objectives__title">Learning Objectives — Part 3</div>
-        <ul>
-          <li>Identify and solve for equilibrium price and quantity algebraically</li>
-          <li>Interpret market conditions when price is above or below equilibrium (surplus and shortage)</li>
-          <li>Graph supply and demand together and identify the equilibrium point</li>
-          <li>Apply demand-supply analysis to understand real-world policy, such as the EU Common Agricultural Policy</li>
-        </ul>
-      </div>
-      <div class="callout callout--example">
-        <div class="callout__title">Quick Recap</div>
-        <p><strong>You already know:</strong> how demand works on the buyer side of the sugar market and how supply works on the producer side.</p>
-        <p><strong>This part adds:</strong> the point where those two sides meet, what happens when price is away from that point, and how that logic explains the CAP surplus.</p>
-      </div>
-
-      <!-- ===== EQUILIBRIUM ===== -->
-      <h2 id="equilibrium">Market Equilibrium</h2>
-
-      <h3>What is Equilibrium?</h3>
-      <div class="definition-box">
-        <div class="definition-box__term">Market Equilibrium</div>
-        <div class="definition-box__text">
+</header>
+<!-- Part Progress Strip -->
+<div class="part-progress">
+<span class="part-progress__label">Modules 1-3 Foundations</span>
+<div class="part-progress__steps">
+<a class="part-progress__step" href="module-01-1-demand.html">Module 1: Demand</a>
+<span class="part-progress__divider">→</span>
+<a class="part-progress__step" href="module-01-2-supply.html">Module 2: Supply</a>
+<span class="part-progress__divider">→</span>
+<a class="part-progress__step part-progress__step--active" href="module-01-3-equilibrium.html">Module 3: Equilibrium</a>
+</div>
+</div>
+<!-- ===== LEARNING OBJECTIVES ===== -->
+<div class="learning-objectives">
+<div class="learning-objectives__title">Learning Objectives</div>
+<ul>
+<li>Identify and solve for equilibrium price and quantity algebraically</li>
+<li>Interpret market conditions when price is above or below equilibrium (surplus and shortage)</li>
+<li>Graph supply and demand together and identify the equilibrium point</li>
+<li>Apply demand-supply analysis to understand real-world policy, such as the EU Common Agricultural Policy</li>
+</ul>
+</div>
+<div class="callout callout--example">
+<div class="callout__title">Quick Recap</div>
+<p><strong>You already know:</strong> how demand works on the buyer side of the sugar market and how supply works on the producer side.</p>
+<p><strong>This part adds:</strong> the point where those two sides meet, what happens when price is away from that point, and how that logic explains the CAP surplus.</p>
+</div>
+<!-- ===== EQUILIBRIUM ===== -->
+<h2 id="equilibrium">Market Equilibrium</h2>
+<h3>What is Equilibrium?</h3>
+<div class="definition-box">
+<div class="definition-box__term">Market Equilibrium</div>
+<div class="definition-box__text">
           The price and quantity at which the quantity demanded equals the quantity supplied (\(Q_d = Q_s\)). At equilibrium, there is no inherent tendency for the price to change. Graphically, equilibrium is the point where the demand and supply curves intersect.
         </div>
-      </div>
-
-      <p>
+</div>
+<p>
         Equilibrium is the "resting point" of a market—the unique price where the plans of consumers and producers align perfectly. At any other price, one side of the market will be frustrated: either excess demand (shortage) or excess supply (surplus). Market forces—the actions of frustrated buyers and sellers—push price toward equilibrium until balance is restored.
       </p>
-      <p>
-        Markets in equilibrium tend to stay in equilibrium unless something external changes (which we will explore in Module 2). When a market is not in equilibrium, the imbalance creates incentives for buyers and sellers to adjust. If price is too high, unsold inventory accumulates, and sellers lower prices to clear it. If price is too low, buyers search frantically for products, and prices rise. This process is not always instantaneous, but the tendency is toward equilibrium.
+<p>
+        Markets in equilibrium tend to stay in equilibrium unless something external changes (which we will explore in Module 4). When a market is not in equilibrium, the imbalance creates incentives for buyers and sellers to adjust. If price is too high, unsold inventory accumulates, and sellers lower prices to clear it. If price is too low, buyers search frantically for products, and prices rise. This process is not always instantaneous, but the tendency is toward equilibrium.
       </p>
-      <p>
+<p>
         For the CAP, equilibrium gives us the benchmark the policy disrupts. Without that benchmark, we cannot say whether the guaranteed price is above the market level, how large the resulting surplus is, or why the government must buy the excess output.
       </p>
-
-      <h3>Finding Equilibrium Algebraically</h3>
-      <p>
+<h3>Finding Equilibrium Algebraically</h3>
+<p>
         To find the equilibrium price and quantity, set quantity demanded equal to quantity supplied and solve for the price:
       </p>
-      <div class="equation-block">
+<div class="equation-block">
         $$Q_d = Q_s$$
         $$a - bP = c + dP$$
         $$a - c = dP + bP$$
         $$a - c = (b + d)P$$
         $$P^* = \frac{a - c}{b + d}$$
       </div>
-      <p>
+<p>
         Once you have found the equilibrium price \(P^*\), substitute it back into either the demand or supply equation to find the equilibrium quantity \(Q^*\):
       </p>
-      <div class="equation-block">
+<div class="equation-block">
         $$Q^* = a - bP^* \quad \text{or} \quad Q^* = c + dP^*$$
       </div>
-      <p>
+<p>
         Both equations should yield the same \(Q^*\). Many instructors recommend plugging the equilibrium price into both equations as a check—if you get different quantities, you have made an error.
       </p>
-
-      <!-- Self-check: find equilibrium -->
-      <div class="self-check">
-        <div class="self-check__question">
+<!-- Self-check: find equilibrium -->
+<div class="self-check">
+<div class="self-check__question">
           Set \(Q_d = 50 - 10P\) equal to \(Q_s = 15P\) and solve for the equilibrium price and quantity.
         </div>
-        <button class="self-check__reveal-btn">Show Answer</button>
-        <div class="self-check__answer">
-          Set \(Q_d = Q_s\): \(50 - 10P = 15P\) → \(50 = 25P\) → \(P^* = 2\)<span data-context="agriculture"> €/kg</span><span data-context="healthcare" hidden> $/month</span><span data-context="energy" hidden> $/gallon</span><span data-context="criminal_justice" hidden> $/gram</span>.<br><br>
-          Substitute back: \(Q^* = 15(2) = 30\). Check with demand: \(Q^* = 50 - 10(2) = 30\) ✓<br><br>
+<button class="self-check__reveal-btn">Show Answer</button>
+<div class="self-check__answer">
+          Set \(Q_d = Q_s\): \(50 - 10P = 15P\) → \(50 = 25P\) → \(P^* = 2\) €/kg.<br/><br/>
+          Substitute back: \(Q^* = 15(2) = 30\). Check with demand: \(Q^* = 50 - 10(2) = 30\) ✓<br/><br/>
           Equilibrium: \(P^* = 2\) and \(Q^* = 30\)
-          <span data-context="agriculture">million kg/year.</span><span data-context="healthcare" hidden>million prescriptions/month.</span><span data-context="energy" hidden>billion gallons/year.</span><span data-context="criminal_justice" hidden>million grams/month.</span>
-        </div>
-      </div>
-      <div class="callout callout--insight">
-        <div class="callout__title">What to Notice</div>
-        <p>
-          Equilibrium is not a separate formula you memorize apart from demand and supply. It comes directly from combining the two relationships you already built in Parts 1 and 2. The logic is simple: find the price at which buyers and sellers want the same quantity, then check the quantity in both equations.
+          million kg/year.
+</div>
+</div>
+<div class="callout callout--insight">
+<div class="callout__title">What to Notice</div>
+<p>
+          Equilibrium is not a separate formula you memorize apart from demand and supply. It comes directly from combining the two relationships you already built in Modules 1 and 2. The logic is simple: find the price at which buyers and sellers want the same quantity, then check the quantity in both equations.
         </p>
-      </div>
-
-      <h3>Worked Example:
-        <span data-context="agriculture">EU Sugar Market Equilibrium</span><span data-context="healthcare" hidden>Generic Atorvastatin Market Equilibrium</span><span data-context="energy" hidden>Retail Gasoline Market Equilibrium</span><span data-context="criminal_justice" hidden>Legal Cannabis Market Equilibrium</span>
-      </h3>
-      <div class="callout callout--example">
-        <div class="callout__title">Example: Finding Equilibrium in the
-          <span data-context="agriculture">Sugar</span><span data-context="healthcare" hidden>Atorvastatin</span><span data-context="energy" hidden>Gasoline</span><span data-context="criminal_justice" hidden>Cannabis</span>
+</div>
+<h3>Worked Example:
+        EU Sugar Market Equilibrium
+</h3>
+<div class="callout callout--example">
+<div class="callout__title">Example: Finding Equilibrium in the
+          Sugar
           Market
         </div>
-        <p>
+<p>
           Using our
-          <span data-context="agriculture">EU sugar</span><span data-context="healthcare" hidden>generic atorvastatin</span><span data-context="energy" hidden>retail gasoline</span><span data-context="criminal_justice" hidden>legal cannabis</span>
+          EU sugar
           market example, find the equilibrium price and quantity.
         </p>
-        <p style="margin-top: var(--space-md);">
-          <strong>Given:</strong><br>
-          Demand: \(Q_d = 50 - 10P\)<br>
-          Supply: \(Q_s = 15P\)<br><br>
-
-          <strong>Step 1: Set \(Q_d = Q_s\) and solve for P:</strong><br>
-          \(50 - 10P = 15P\)<br>
-          \(50 = 15P + 10P\)<br>
-          \(50 = 25P\)<br>
-          \(P^* = 50/25 = 2\)<br><br>
-
-          <strong>Step 2: Find \(Q^*\) by substituting \(P^* = 2\) into the demand equation:</strong><br>
-          \(Q^* = 50 - 10(2) = 50 - 20 = 30\)<br><br>
-
-          <strong>Step 3: Verify by substituting \(P^* = 2\) into the supply equation:</strong><br>
-          \(Q^* = 15(2) = 30\) ✓<br><br>
-
-          <strong>Conclusion:</strong> The equilibrium price is
-          <span data-context="agriculture">€2 per kilogram, and the equilibrium quantity is 30 million kilograms per year.</span><span data-context="healthcare" hidden>$2 per month's supply, and the equilibrium quantity is 30 million prescriptions per month.</span><span data-context="energy" hidden>$2 per gallon, and the equilibrium quantity is 30 billion gallons per year.</span><span data-context="criminal_justice" hidden>$2 per gram, and the equilibrium quantity is 30 million grams per month.</span>
-        </p>
-      </div>
-
-      <h3>Graphing Supply and Demand Together</h3>
-      <p>
+<p style="margin-top: var(--space-md);">
+<strong>Given:</strong><br/>
+          Demand: \(Q_d = 50 - 10P\)<br/>
+          Supply: \(Q_s = 15P\)<br/><br/>
+<strong>Step 1: Set \(Q_d = Q_s\) and solve for P:</strong><br/>
+          \(50 - 10P = 15P\)<br/>
+          \(50 = 15P + 10P\)<br/>
+          \(50 = 25P\)<br/>
+          \(P^* = 50/25 = 2\)<br/><br/>
+<strong>Step 2: Find \(Q^*\) by substituting \(P^* = 2\) into the demand equation:</strong><br/>
+          \(Q^* = 50 - 10(2) = 50 - 20 = 30\)<br/><br/>
+<strong>Step 3: Verify by substituting \(P^* = 2\) into the supply equation:</strong><br/>
+          \(Q^* = 15(2) = 30\) ✓<br/><br/>
+<strong>Conclusion:</strong> The equilibrium price is
+          €2 per kilogram, and the equilibrium quantity is 30 million kilograms per year.
+</p>
+</div>
+<h3>Graphing Supply and Demand Together</h3>
+<p>
         When we graph both the demand and supply curves on the same axes, their intersection point is the equilibrium:
       </p>
-      <ul>
-        <li>The demand curve \(P = 5 - Q_d/10\) slopes downward, crossing the vertical axis at P = 5 and the horizontal axis at Q = 50.</li>
-        <li>The supply curve \(P = Q_s/15\) slopes upward from the origin.</li>
-        <li>They intersect at the equilibrium point (\(Q^* = 30\), \(P^* = 2\)).</li>
-      </ul>
-
-      <div class="figure">
-        <div id="equilibrium-static-graph"></div>
-        <div class="figure__caption">Figure 1.3: The equilibrium for the
-          <span data-context="agriculture">EU sugar market. The demand (blue) and supply (red) curves intersect at E*, where \(P^* = €2\)/kg and \(Q^* = 30\) million kg/year.</span><span data-context="healthcare" hidden>generic atorvastatin market. The demand (blue) and supply (red) curves intersect at E*, where \(P^* = \$2\)/month and \(Q^* = 30\) million prescriptions/month.</span><span data-context="energy" hidden>retail gasoline market. The demand (blue) and supply (red) curves intersect at E*, where \(P^* = \$2\)/gallon and \(Q^* = 30\) billion gallons/year.</span><span data-context="criminal_justice" hidden>legal cannabis market (Colorado). The demand (blue) and supply (red) curves intersect at E*, where \(P^* = \$2\)/gram and \(Q^* = 30\) million grams/month.</span>
+<ul>
+<li>The demand curve \(P = 5 - Q_d/10\) slopes downward, crossing the vertical axis at P = 5 and the horizontal axis at Q = 50.</li>
+<li>The supply curve \(P = Q_s/15\) slopes upward from the origin.</li>
+<li>They intersect at the equilibrium point (\(Q^* = 30\), \(P^* = 2\)).</li>
+</ul>
+<div class="figure">
+<div id="equilibrium-static-graph"></div>
+<div class="figure__caption">Figure 1.3: The equilibrium for the
+          EU sugar market. The demand (blue) and supply (red) curves intersect at E*, where \(P^* = €2\)/kg and \(Q^* = 30\) million kg/year.
           The dashed lines project the equilibrium to the axes. Above equilibrium, there is a surplus; below equilibrium, there is a shortage.</div>
-      </div>
-
-      <h3>Surplus and Shortage Dynamics</h3>
-      <div class="definition-box">
-        <div class="definition-box__term">Surplus (Excess Supply)</div>
-        <div class="definition-box__text">
+</div>
+<h3>Surplus and Shortage Dynamics</h3>
+<div class="definition-box">
+<div class="definition-box__term">Surplus (Excess Supply)</div>
+<div class="definition-box__text">
           When the market price is above the equilibrium price, quantity supplied exceeds quantity demanded. Producers have unsold inventory. Sellers reduce prices, creating downward pressure until the market reaches equilibrium.
         </div>
-      </div>
-
-      <div class="definition-box">
-        <div class="definition-box__term">Shortage (Excess Demand)</div>
-        <div class="definition-box__text">
+</div>
+<div class="definition-box">
+<div class="definition-box__term">Shortage (Excess Demand)</div>
+<div class="definition-box__text">
           When the market price is below the equilibrium price, quantity demanded exceeds quantity supplied. Consumers want more than producers are willing to supply. Buyers bid prices up, creating upward pressure until equilibrium is restored.
         </div>
-      </div>
+</div>
 
-      <div data-context="agriculture">
-        <p>Let's use our sugar market to illustrate. Suppose the government sets a price floor at €3/kg. At this price, \(Q_d = 50 - 10(3) = 20\) million kg, while \(Q_s = 15(3) = 45\) million kg. The surplus is 25 million kg of unsold sugar. At €1/kg, \(Q_d = 40\) million kg but \(Q_s = 15\) million kg — a shortage of 25 million kg, pushing price back up to equilibrium.</p>
-      </div>
-      <div data-context="healthcare" hidden>
-        <p>Let's use our atorvastatin market to illustrate. At $3/month: \(Q_d = 50 - 10(3) = 20\) million prescriptions, \(Q_s = 15(3) = 45\) million. A surplus of 25 million prescriptions — manufacturers are producing more than patients demand at that price. At $1/month: \(Q_d = 40\) but \(Q_s = 15\) million — a shortage of 25 million prescriptions, bidding price back up to the $2 equilibrium.</p>
-      </div>
-      <div data-context="energy" hidden>
-        <p>Let's use our gasoline market to illustrate. At $3/gallon: \(Q_d = 50 - 10(3) = 20\) billion gallons, \(Q_s = 15(3) = 45\) billion. A surplus of 25 billion gallons — refiners are supplying more than drivers demand at that price. At $1/gallon: \(Q_d = 40\) but \(Q_s = 15\) billion gallons — a shortage of 25 billion gallons, exactly what happens when price controls keep gas below equilibrium.</p>
-      </div>
-      <div data-context="criminal_justice" hidden>
-        <p>Let's use our cannabis market to illustrate. At $3/gram: \(Q_d = 50 - 10(3) = 20\) million grams, \(Q_s = 15(3) = 45\) million. A surplus of 25 million grams — dispensaries have excess inventory. At $1/gram: \(Q_d = 40\) but \(Q_s = 15\) million grams — a shortage of 25 million grams; buyers shift to the informal market or forgo consumption, pushing the legal-market price back to equilibrium.</p>
-      </div>
+<p>Let's use our sugar market to illustrate. Suppose the government sets a price floor at €3/kg. At this price, \(Q_d = 50 - 10(3) = 20\) million kg, while \(Q_s = 15(3) = 45\) million kg. The surplus is 25 million kg of unsold sugar. At €1/kg, \(Q_d = 40\) million kg but \(Q_s = 15\) million kg — a shortage of 25 million kg, pushing price back up to equilibrium.</p>
 
-      <div class="callout callout--warning">
-        <div class="callout__title">Common Misconception</div>
-        <p>
-          Students often confuse "surplus" (excess of quantity supplied over quantity demanded at a given price) with "consumer surplus" (the benefit consumers receive from buying at a price below their maximum willingness to pay). These are entirely different concepts. A market "surplus" pushes price downward. "Consumer surplus" is a measure of value created by trade, which we will explore in Module 3.
+
+
+
+<div class="callout callout--warning">
+<div class="callout__title">Common Misconception</div>
+<p>
+          Students often confuse "surplus" (excess of quantity supplied over quantity demanded at a given price) with "consumer surplus" (the benefit consumers receive from buying at a price below their maximum willingness to pay). These are entirely different concepts. A market "surplus" pushes price downward. "Consumer surplus" is a measure of value created by trade, which we will explore in Module 5.
         </p>
-      </div>
-      <div class="callout callout--warning">
-        <div class="callout__title">Common Mistake</div>
-        <p>
+</div>
+<div class="callout callout--warning">
+<div class="callout__title">Common Mistake</div>
+<p>
           Students often reverse surplus and shortage. The fastest way to stay oriented is to ask two questions at the chosen price: how much do buyers want, and how much do sellers want to provide? If price is above equilibrium, sellers want to sell more than buyers want to buy, so the result is a <em>surplus</em>. If price is below equilibrium, buyers want more than sellers provide, so the result is a <em>shortage</em>.
         </p>
-      </div>
-
-      <!-- Check: surplus or shortage -->
-      <div class="check-understanding"
-           data-question="At a price of 3 (above equilibrium) with Qd = 50 − 10P and Qs = 15P, what is the market condition?"
-           data-correct="1"
-           data-explanation="At P = 3: Qs = 15(3) = 45 and Qd = 50 − 10(3) = 20. Since Qs (45) > Qd (20), there is a surplus of 25 units. This excess supply creates downward pressure on the price, pushing it back toward the equilibrium of P* = 2.">
-        <div class="check-understanding__option" data-index="0">A) A shortage of 25 million kg, so prices will rise.</div>
-        <div class="check-understanding__option" data-index="1">B) A surplus of 25 million kg, so prices will fall.</div>
-        <div class="check-understanding__option" data-index="2">C) The market is in equilibrium at this price.</div>
-        <div class="check-understanding__option" data-index="3">D) A shortage of 45 million kg, so prices will rise.</div>
-      </div>
-
-      <!-- ===== EQUILIBRIUM INTERACTIVE GRAPH ===== -->
-      <h2 id="equilibrium-interactive">Interactive: Demand, Supply, and Equilibrium</h2>
-
-      <div class="graph-container">
-        <div class="graph-container__title">Combined Market: Finding Equilibrium</div>
-        <div class="graph-container__description">
+</div>
+<!-- Check: surplus or shortage -->
+<div class="check-understanding" data-correct="1" data-explanation="At P = 3: Qs = 15(3) = 45 and Qd = 50 − 10(3) = 20. Since Qs (45) > Qd (20), there is a surplus of 25 units. This excess supply creates downward pressure on the price, pushing it back toward the equilibrium of P* = 2." data-question="At a price of 3 (above equilibrium) with Qd = 50 − 10P and Qs = 15P, what is the market condition?">
+<div class="check-understanding__option" data-index="0">A) A shortage of 25 million kg, so prices will rise.</div>
+<div class="check-understanding__option" data-index="1">B) A surplus of 25 million kg, so prices will fall.</div>
+<div class="check-understanding__option" data-index="2">C) The market is in equilibrium at this price.</div>
+<div class="check-understanding__option" data-index="3">D) A shortage of 45 million kg, so prices will rise.</div>
+</div>
+<!-- ===== EQUILIBRIUM INTERACTIVE GRAPH ===== -->
+<h2 id="equilibrium-interactive">Interactive Practice: Demand, Supply, and Equilibrium</h2>
+<div class="graph-container">
+<div class="graph-container__title">Combined Market: Finding Equilibrium</div>
+<div class="graph-container__description">
           This graph shows both demand (blue) and supply (red) curves for the
-          <span data-context="agriculture">EU sugar</span><span data-context="healthcare" hidden>generic atorvastatin</span><span data-context="energy" hidden>retail gasoline</span><span data-context="criminal_justice" hidden>legal cannabis</span>
+          EU sugar
           market. Adjust the demand intercept and supply intercept to see how equilibrium price (\(P^*\)) and quantity (\(Q^*\)) change. The dark point marks the equilibrium intersection.
         </div>
-        <div class="graph-container__svg-wrapper" id="equilibrium-graph"></div>
-        <div class="graph-container__controls">
-          <div class="graph-control">
-            <label class="graph-control__label">Demand Intercept (a): Max willingness to pay</label>
-            <input type="range" class="graph-control__slider" id="eq-demand-intercept" min="40" max="120" step="5" value="50">
-            <span class="graph-control__value" id="eq-demand-intercept-value">50</span>
-          </div>
-          <div class="graph-control">
-            <label class="graph-control__label">Supply Intercept (c): Baseline supply</label>
-            <input type="range" class="graph-control__slider" id="eq-supply-intercept" min="-10" max="30" step="5" value="0">
-            <span class="graph-control__value" id="eq-supply-intercept-value">0</span>
-          </div>
-        </div>
-        <div class="graph-container__info" id="equilibrium-info">
-          <p><strong>Current demand:</strong> <span id="eq-demand-display">Q_d = 50 - 10P</span></p>
-          <p><strong>Current supply:</strong> <span id="eq-supply-display">Q_s = 0 + 15P</span></p>
-          <p><strong>Equilibrium Price (\(P^*\)):</strong> <span id="eq-price-display">€2.00</span></p>
-          <p><strong>Equilibrium Quantity (\(Q^*\)):</strong> <span id="eq-quantity-display">30</span> million kg</p>
-        </div>
-      </div>
-
-      <p>
+<div class="graph-container__svg-wrapper" id="equilibrium-graph"></div>
+<div class="graph-container__controls">
+<div class="graph-control">
+<label class="graph-control__label">Demand Intercept (a): Max willingness to pay</label>
+<input class="graph-control__slider" id="eq-demand-intercept" max="120" min="40" step="5" type="range" value="50"/>
+<span class="graph-control__value" id="eq-demand-intercept-value">50</span>
+</div>
+<div class="graph-control">
+<label class="graph-control__label">Supply Intercept (c): Baseline supply</label>
+<input class="graph-control__slider" id="eq-supply-intercept" max="30" min="-10" step="5" type="range" value="0"/>
+<span class="graph-control__value" id="eq-supply-intercept-value">0</span>
+</div>
+</div>
+<div class="graph-container__info" id="equilibrium-info">
+<p><strong>Current demand:</strong> <span id="eq-demand-display">Q_d = 50 - 10P</span></p>
+<p><strong>Current supply:</strong> <span id="eq-supply-display">Q_s = 0 + 15P</span></p>
+<p><strong>Equilibrium Price (\(P^*\)):</strong> <span id="eq-price-display">€2.00</span></p>
+<p><strong>Equilibrium Quantity (\(Q^*\)):</strong> <span id="eq-quantity-display">30</span> million kg</p>
+</div>
+</div>
+<p>
         As you change the demand intercept (a), observe how the entire demand curve shifts rightward (higher a) or leftward (lower a). As you change the supply intercept (c), the supply curve shifts. Notice:
       </p>
-      <ul>
-        <li>Increasing the demand intercept raises both equilibrium price and quantity.</li>
-        <li>Increasing the supply intercept increases equilibrium quantity but lowers equilibrium price. More supply lowers prices.</li>
-      </ul>
-
-      <div class="self-check">
-        <div class="self-check__question">
+<ul>
+<li>Increasing the demand intercept raises both equilibrium price and quantity.</li>
+<li>Increasing the supply intercept increases equilibrium quantity but lowers equilibrium price. More supply lowers prices.</li>
+</ul>
+<div class="self-check">
+<div class="self-check__question">
           If the demand equation changes to \(Q_d = 70 - 10P\) (demand intercept increases from 50 to 70) and supply stays at \(Q_s = 15P\), what is the new equilibrium price and quantity?
         </div>
-        <button class="self-check__reveal-btn">Show Answer</button>
-        <div class="self-check__answer">
+<button class="self-check__reveal-btn">Show Answer</button>
+<div class="self-check__answer">
           Set \(70 - 10P = 15P\): \(70 = 25P\), so \(P^* = 2.8\). Then \(Q^* = 15(2.8) = 42\) million kg. Both price and quantity increased: higher demand (higher intercept) raises both the equilibrium price and equilibrium quantity.
         </div>
-      </div>
+</div>
+<hr class="section-divider"/>
+<!-- ===== RETURNING TO POLICY ===== -->
+<h2 id="cap-return">Applying Equilibrium Analysis to Policy</h2>
+<!-- Agriculture -->
 
-      <hr class="section-divider">
-
-      <!-- ===== RETURNING TO POLICY ===== -->
-      <h2 id="cap-return">Applying Equilibrium Analysis to Policy</h2>
-
-      <!-- Agriculture -->
-      <div class="ctx-block" data-context="agriculture">
-        <h3>Returning to the CAP: Price Supports and Surplus</h3>
-        <p>
+<h3>Returning to the CAP: Price Supports and Surplus</h3>
+<p>
           Now that you understand demand, supply, and equilibrium, we can return to the EU Common Agricultural Policy and apply our analytical tools. Recall that the original CAP operated through <strong>price supports</strong>: the government guaranteed a minimum price for agricultural products. If the market price fell below this guaranteed price, the government purchased the unsold surplus at the guaranteed price.
         </p>
-        <p>
+<p>
           Using our sugar market example, imagine the EU government sets a price support at €3 per kilogram, above the equilibrium price of €2. At a price of €3, quantity demanded falls to \(Q_d = 50 - 10(3) = 20\) million kg, while quantity supplied rises to \(Q_s = 15(3) = 45\) million kg. A surplus of 25 million kilograms emerges. Without government action, this surplus would push prices downward. But the government steps in and purchases the 25 million kilograms at €3/kg, spending \(25 \times 3 = 75\) million euros. Moreover, the government must store this purchased sugar—incurring additional storage costs—or attempt to sell it at steep discounts.
         </p>
-        <p>
+<p>
           This example illustrates why the CAP created enormous costs. The surplus is not a one-time problem: as long as the price support remains above equilibrium, surpluses continue to accumulate year after year. Multiply €75 million by the number of years the policy ran, add storage costs across multiple commodities (sugar, butter, wine, grains, dairy), and across 27 EU member states, and the fiscal burden becomes staggering. The CAP consumed roughly 40% of the entire EU budget for decades.
         </p>
-        <p>
+<p>
           Moreover, the CAP created unintended consequences beyond fiscal cost. Guaranteed prices incentivized farmers to specialize in supported commodities even when inefficient. The EU's surplus production was sometimes dumped on world markets at prices below cost, harming farmers in developing countries. It led to environmental problems from intensive production. And it benefited large producers disproportionately.
         </p>
-        <p>
+<p>
           The CAP example demonstrates a crucial lesson: understanding demand and supply is essential for predicting the real-world effects of policy. A well-intentioned policy designed to help farmers created surpluses, inefficient production, environmental problems, international trade distortions, and massive costs to taxpayers. By applying supply-and-demand analysis, we can predict these consequences <em>before</em> implementing a policy, and design better alternatives.
         </p>
-      </div>
-      <div class="callout callout--insight">
-        <div class="callout__title">What to Notice</div>
-        <p>
+
+<div class="callout callout--insight">
+<div class="callout__title">What to Notice</div>
+<p>
           The CAP application is just the same market logic in policy language. At the supported price, buyers move to one point on the demand curve and sellers move to a different point on the supply curve. The gap between those two points is the surplus the government has to absorb.
         </p>
-      </div>
+</div>
 
-      <!-- Healthcare -->
-      <div class="ctx-block" data-context="healthcare" hidden>
-        <h3>Drug Price Ceilings: Shortages from Below-Equilibrium Policy</h3>
-        <p>
-          Now that you understand equilibrium, we can apply our model to pharmaceutical pricing. The equilibrium in the generic atorvastatin market was reached competitively after patent expiry: many manufacturers, transparent pricing, quantity supplied equal to quantity demanded. But suppose Congress imposed a <strong>price ceiling</strong> — a legal maximum price — on prescription generic statins at a price below the competitive equilibrium.
-        </p>
-        <p>
-          Using our model: suppose equilibrium is at P* = €2 (representing competitive generic price) and Q* = 30 (millions of monthly prescriptions). If a price ceiling is set at P = €1, then:
-          \(Q_d = 50 - 10(1) = 40\) million prescriptions demanded, but \(Q_s = 15(1) = 15\) million supplied. A <strong>shortage of 25 million prescriptions</strong> results — exactly the same arithmetic as a CAP price floor, but in the opposite direction.
-        </p>
-        <p>
-          This is not hypothetical: price ceiling proposals for pharmaceuticals are a live policy debate. The supply-and-demand analysis predicts that if ceilings are set below equilibrium, manufacturers exit or reduce production, creating chronic drug shortages. Evidence from countries with strict price controls shows persistent shortages of controlled drugs. Policymakers must weigh the benefits of lower prices against the quantity-reduction effects that harm patients who cannot access the drug at all.
-        </p>
-        <div class="callout callout--insight">
-          <div class="callout__title">Key Lesson</div>
-          <p>Whether a price control is a floor (above equilibrium → surplus) or a ceiling (below equilibrium → shortage), supply-and-demand analysis predicts the outcome precisely. The math is the same; only the direction of the distortion differs.</p>
-        </div>
-      </div>
 
-      <!-- Energy -->
-      <div class="ctx-block" data-context="energy" hidden>
-        <h3>Nixon's Price Controls: Engineering a Shortage</h3>
-        <p>
-          With demand, supply, and equilibrium in hand, we can now fully analyze the 1970s gasoline crisis. Before the 1973 oil embargo, the US gasoline market was near equilibrium: supply and demand intersected at some price P* and quantity Q*. The OPEC embargo shifted the supply curve leftward — at every price, refiners could supply less crude, so gasoline output fell.
-        </p>
-        <p>
-          Using our model: suppose equilibrium before the embargo was P* = €2, Q* = 30. After the supply shock, imagine the supply equation shifted so equilibrium would require P = €4 to clear the market. But Nixon's price controls kept the legal price at P = €2. At P = €2 with the new (contracted) supply:
-          \(Q_s = 15(2) = 30\) would apply to the old supply, but with the new, restricted supply, perhaps only 15 million units are supplied. Meanwhile \(Q_d = 50 - 10(2) = 30\) million demanded. The result: a chronic <strong>shortage</strong> — long gas lines, rationing, economic disruption.
-        </p>
-        <p>
-          When President Carter began deregulating prices in 1979 (completed by Reagan in 1981), the market adjusted toward the new equilibrium. Prices rose, but shortages disappeared. Supply-and-demand analysis told exactly what would happen — and did. This is one of the clearest real-world experiments in the economics of price controls.
-        </p>
-        <div class="callout callout--insight">
-          <div class="callout__title">Key Lesson</div>
-          <p>A price ceiling below equilibrium creates a shortage proportional to the gap between quantity demanded and quantity supplied at the ceiling price. The economics of the CAP (surplus from a price floor) and the gasoline crisis (shortage from a price ceiling) are mirror images of the same model.</p>
-        </div>
-      </div>
 
-      <!-- Criminal Justice -->
-      <div class="ctx-block" data-context="criminal_justice" hidden>
-        <h3>Excise Taxes in the Cannabis Market: Who Pays?</h3>
-        <p>
-          With demand, supply, and equilibrium established, we can analyze Colorado's cannabis tax policy. After Amendment 64, the competitive equilibrium price (before taxes) would be set by the intersection of demand and supply. Let's call it P* = €2 per gram and Q* = 30 million grams per month.
-        </p>
-        <p>
-          Colorado's ~30% excise tax on cannabis acts like a <strong>price wedge</strong>: it drives a gap between what consumers pay (\(P_d\)) and what producers receive (\(P_s\)), with \(P_d - P_s = \text{tax}\). At the new equilibrium with tax: quantity exchanged falls below Q*, consumers pay more than P*, and producers receive less than P*.
-        </p>
-        <p>
-          Using our numbers: if the tax is $1.20 per gram (approximately 30% of $4), then \(Q_d = 50 - 10(P_d)\) and \(Q_s = 15(P_s)\), with \(P_d = P_s + 1.20\). Setting \(Q_d = Q_s\) and substituting: \(50 - 10(P_s + 1.20) = 15P_s\), giving \(P_s = 26.4/25 ≈ 1.66\) and \(P_d ≈ 2.86\). Quantity falls to Q ≈ 21.4 million grams. The tax raised prices for consumers and reduced revenue for producers, with some buyers exiting the legal market — potentially back to the illegal market.
-        </p>
-        <div class="callout callout--insight">
-          <div class="callout__title">Key Lesson</div>
-          <p>Excise taxes reduce equilibrium quantity and create a gap between consumer and producer prices. The incidence (who bears the burden) depends on the relative slopes of supply and demand — a topic explored further in Module 2.</p>
-        </div>
-      </div>
 
-      <hr class="section-divider">
 
-      <!-- ===== PRACTICE QUIZ ===== -->
-      <h2 id="practice-quiz">Practice Quiz: Demand, Supply, and Equilibrium</h2>
-      <p>
-        Test your understanding with this interactive practice quiz. It covers demand equations, supply equations, equilibrium calculations, and interpreting surplus and shortage conditions. Take your time with each question, and use the feedback to deepen your understanding.
-      </p>
-      <div class="callout callout--example">
-        <div class="callout__title">Quiz Instructions</div>
-        <p>This practice quiz contains 8 questions (multiple choice and short answer). The early questions check core algebra and graphing skills; the final questions bring those skills back to the sugar market and the CAP logic. After you answer each question, you will receive immediate feedback.</p>
-      </div>
 
-      <div id="quiz-1"></div>
-
-      <hr class="section-divider">
-
-      <!-- ===== KEY TERMS ===== -->
-      <h2 id="key-terms">Key Terms Glossary</h2>
-      <p>
-        Mastering the terminology of demand and supply analysis is essential for all that follows in microeconomics.
-      </p>
-
-      <table class="glossary-table">
-        <thead>
-          <tr>
-            <th>Term</th>
-            <th>Definition</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Ceteris Paribus</td>
-            <td>Latin for "all else equal"; the assumption that all variables except those being studied are held constant. Allows us to isolate the relationship between price and quantity.</td>
-          </tr>
-          <tr>
-            <td>Demand</td>
-            <td>The relationship between price and the quantity that consumers are willing and able to purchase, shown as a demand curve or demand schedule. Encompasses all points on the curve.</td>
-          </tr>
-          <tr>
-            <td>Demand Curve</td>
-            <td>A graph showing the inverse relationship between price (vertical axis) and quantity demanded (horizontal axis). Slopes downward from left to right.</td>
-          </tr>
-          <tr>
-            <td>Demand Schedule</td>
-            <td>A table listing the quantities demanded at different price levels.</td>
-          </tr>
-          <tr>
-            <td>Equilibrium</td>
-            <td>The price and quantity at which quantity demanded equals quantity supplied (\(Q_d = Q_s\)). The intersection of supply and demand curves.</td>
-          </tr>
-          <tr>
-            <td>Equilibrium Price (\(P^*\))</td>
-            <td>The price at which the market clears—quantity demanded equals quantity supplied.</td>
-          </tr>
-          <tr>
-            <td>Equilibrium Quantity (\(Q^*\))</td>
-            <td>The quantity bought and sold at the equilibrium price, where the market clears with no excess supply or demand.</td>
-          </tr>
-          <tr>
-            <td>Law of Demand</td>
-            <td>Holding all else constant, when price rises, quantity demanded falls, and when price falls, quantity demanded rises.</td>
-          </tr>
-          <tr>
-            <td>Law of Supply</td>
-            <td>Holding all else constant, when price rises, quantity supplied rises, and when price falls, quantity supplied falls.</td>
-          </tr>
-          <tr>
-            <td>Quantity Demanded</td>
-            <td>A specific point on the demand curve showing the quantity consumers will buy at a particular price. Different from "demand," which refers to the entire curve.</td>
-          </tr>
-          <tr>
-            <td>Quantity Supplied</td>
-            <td>A specific point on the supply curve showing the quantity producers will sell at a particular price. Different from "supply," which refers to the entire curve.</td>
-          </tr>
-          <tr>
-            <td>Shortage (Excess Demand)</td>
-            <td>When quantity demanded exceeds quantity supplied at the current price, creating upward pressure on price.</td>
-          </tr>
-          <tr>
-            <td>Supply</td>
-            <td>The relationship between price and the quantity that producers are willing and able to offer for sale, shown as a supply curve or supply schedule.</td>
-          </tr>
-          <tr>
-            <td>Supply Curve</td>
-            <td>A graph showing the positive relationship between price (vertical axis) and quantity supplied (horizontal axis). Slopes upward from left to right.</td>
-          </tr>
-          <tr>
-            <td>Supply Schedule</td>
-            <td>A table listing the quantities supplied at different price levels.</td>
-          </tr>
-          <tr>
-            <td>Surplus (Excess Supply)</td>
-            <td>When quantity supplied exceeds quantity demanded at the current price, creating downward pressure on price.</td>
-          </tr>
-        </tbody>
-      </table>
-
-      <div class="flashcard-launcher">
-        <button class="flashcard-launcher__btn">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M12 4v16"/></svg>
-          Study as Flashcards
-        </button>
-      </div>
-
-      <hr class="section-divider">
-
-      <!-- ===== SUMMARY ===== -->
-      <h2 id="summary">Module Summary</h2>
-      <p>
+<hr class="section-divider"/>
+<section data-current-module="3" data-glossary-through="3" id="key-terms"></section>
+<hr class="section-divider"/>
+<!-- ===== SUMMARY ===== -->
+<h2 id="summary">Module Summary</h2>
+<p>
         In this module, you learned the foundational tools of supply and demand analysis, the analytical framework that underlies nearly all policy questions in microeconomics.
       </p>
-
-      <p>
-        <strong>Demand</strong> represents how buyers respond to price. The law of demand tells us that quantity demanded falls as price rises. We express demand as \(Q_d = a - bP\) and graphically as a downward-sloping curve. To graph demand, invert the equation to get P as a function of Q. The vertical intercept shows the highest price consumers will pay; the horizontal intercept shows quantity demanded when price is zero.
+<p>
+<strong>Demand</strong> represents how buyers respond to price. The law of demand tells us that quantity demanded falls as price rises. We express demand as \(Q_d = a - bP\) and graphically as a downward-sloping curve. To graph demand, invert the equation to get P as a function of Q. The vertical intercept shows the highest price consumers will pay; the horizontal intercept shows quantity demanded when price is zero.
       </p>
-
-      <p>
-        <strong>Supply</strong> represents how sellers respond to price. The law of supply tells us that quantity supplied rises as price rises. We express supply as \(Q_s = c + dP\) and graphically as an upward-sloping curve. Like demand, invert supply to graph it with price on the vertical axis.
+<p>
+<strong>Supply</strong> represents how sellers respond to price. The law of supply tells us that quantity supplied rises as price rises. We express supply as \(Q_s = c + dP\) and graphically as an upward-sloping curve. Like demand, invert supply to graph it with price on the vertical axis.
       </p>
-
-      <p>
-        <strong>Equilibrium</strong> occurs where demand and supply intersect. At \(P^*\) and \(Q^*\), quantity demanded equals quantity supplied. Find equilibrium by setting \(Q_d = Q_s\) and solving for \(P^*\), then substituting to find \(Q^*\). Always verify by plugging \(P^*\) into both equations.
+<p>
+<strong>Equilibrium</strong> occurs where demand and supply intersect. At \(P^*\) and \(Q^*\), quantity demanded equals quantity supplied. Find equilibrium by setting \(Q_d = Q_s\) and solving for \(P^*\), then substituting to find \(Q^*\). Always verify by plugging \(P^*\) into both equations.
       </p>
-
-      <p>
+<p>
         When price is <strong>above equilibrium</strong>: surplus (excess supply). Prices fall toward equilibrium. When price is <strong>below equilibrium</strong>: shortage (excess demand). Prices rise toward equilibrium.
       </p>
-
-      <p>
+<p>
         The EU Common Agricultural Policy demonstrates why these tools matter. Price supports above equilibrium created persistent surpluses that cost taxpayers billions, distorted production decisions, and harmed developing-country farmers. Supply-and-demand analysis allows us to predict these consequences before implementing policy—which is why these tools are central to the work at HKS.
       </p>
-
-      <p>
-        In Module 2, we will explore what happens when factors beyond price—consumer preferences, technology, input costs—cause the demand or supply curves to shift. We will trace the effects on market equilibrium and examine the policy implications.
+<p>
+        After the Modules 1-3 summary and practice quiz, Module 4 explores what happens when factors beyond price—consumer preferences, technology, input costs—cause the demand or supply curves to shift. We will trace the effects on market equilibrium and examine the policy implications.
       </p>
-
-      <!-- Bottom Part Progress Strip -->
-      <div class="part-progress" style="margin-top: var(--space-3xl);">
-        <span class="part-progress__label">Module 1 · Part 3 of 3</span>
-        <div class="part-progress__steps">
-          <a class="part-progress__step" href="module-01-1-demand.html">Demand</a>
-          <span class="part-progress__divider">→</span>
-          <a class="part-progress__step" href="module-01-2-supply.html">Supply</a>
-          <span class="part-progress__divider">→</span>
-          <a class="part-progress__step part-progress__step--active" href="module-01-3-equilibrium.html">Equilibrium</a>
-        </div>
-      </div>
-
-      <!-- Chapter Navigation -->
-      <nav class="chapter-nav">
-        <a href="module-01-2-supply.html" class="chapter-nav__link chapter-nav__link--prev">
-          <span class="chapter-nav__direction">&larr; Previous</span>
-          <span class="chapter-nav__title">Part 2: Understanding Supply</span>
-        </a>
-        <a href="module-02-demand-supply-shifters.html" class="chapter-nav__link chapter-nav__link--next">
-          <span class="chapter-nav__direction">Next &rarr;</span>
-          <span class="chapter-nav__title">Module 2: Demand &amp; Supply Shifters</span>
-        </a>
-      </nav>
-
-    </main>
-  </div>
-
-  <!-- Scripts -->
-  <script src="../js/textbook.js"></script>
-  <script>
+<!-- Bottom Progress Strip -->
+<div class="part-progress" style="margin-top: var(--space-3xl);">
+<span class="part-progress__label">Modules 1-3 Foundations</span>
+<div class="part-progress__steps">
+<a class="part-progress__step" href="module-01-1-demand.html">Module 1: Demand</a>
+<span class="part-progress__divider">→</span>
+<a class="part-progress__step" href="module-01-2-supply.html">Module 2: Supply</a>
+<span class="part-progress__divider">→</span>
+<a class="part-progress__step part-progress__step--active" href="module-01-3-equilibrium.html">Module 3: Equilibrium</a>
+<span class="part-progress__divider">→</span>
+<a class="part-progress__step" href="modules-1-3-summary-quiz.html">Summary & Quiz</a>
+</div>
+</div>
+<!-- Chapter Navigation -->
+<nav class="chapter-nav">
+<a class="chapter-nav__link chapter-nav__link--prev" href="module-01-2-supply.html">
+<span class="chapter-nav__direction">← Previous</span>
+<span class="chapter-nav__title">Module 2: Supply Basics</span>
+</a>
+<a class="chapter-nav__link chapter-nav__link--next" href="modules-1-3-summary-quiz.html">
+<span class="chapter-nav__direction">Next →</span>
+<span class="chapter-nav__title">Modules 1-3 Summary & Practice Quiz</span>
+</a>
+</nav>
+</main>
+</div>
+<!-- Scripts -->
+<script src="../js/textbook.js"></script>
+<script>
     // Scroll to top on every load (prevents browser scroll restoration mid-page)
     if ('scrollRestoration' in history) { history.scrollRestoration = 'manual'; }
     window.scrollTo(0, 0);
@@ -711,9 +510,8 @@
         }
       ];
 
-      PracticeQuiz.create('#quiz-1', quizData, { title: 'Module 1 Practice Quiz' });
+      PracticeQuiz.create('#quiz-1', quizData, { title: 'Modules 1-3 Practice Quiz' });
     }); // end DOMContentLoaded
   </script>
-
 </body>
 </html>
