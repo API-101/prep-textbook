@@ -13,13 +13,9 @@
    - Surface:    #ffffff  (cards)
 
    TYPOGRAPHY:
-   - Headings: 'Source Serif 4', Georgia, serif
-   - Body:     'Source Sans 3', -apple-system, sans-serif
-   - Code/Math:'JetBrains Mono', 'Fira Code', monospace
+   - Headings: 'Spezia Serif', serif
+   - Body/UI:  'Public Sans', sans-serif
    ============================================================ */
-
-/* --- Imports --- */
-@import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,300;0,400;0,600;0,700;1,400;1,600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&family=JetBrains+Mono:wght@400;600&display=swap');
 
 /* --- CSS Custom Properties --- */
 :root {
@@ -63,9 +59,9 @@
   --color-equilibrium: #1a5276;
 
   /* Typography */
-  --font-heading: 'Source Serif 4', Georgia, 'Times New Roman', serif;
-  --font-body: 'Source Sans 3', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  --font-mono: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
+  --font-heading: 'Spezia Serif', 'Times New Roman', serif;
+  --font-body: 'Public Sans', sans-serif;
+  --font-mono: 'Public Sans', sans-serif;
 
   /* Spacing */
   --space-xs: 0.25rem;

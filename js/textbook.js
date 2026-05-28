@@ -109,7 +109,7 @@ const EconGraph = {
 
     // Style axes
     g.selectAll('.axis text')
-      .style('font-family', "'Source Sans 3', sans-serif")
+      .style('font-family', "'Public Sans', sans-serif")
       .style('font-size', '12px')
       .style('fill', '#566573');
 
@@ -122,7 +122,7 @@ const EconGraph = {
       .attr('x', margin.left + innerWidth / 2)
       .attr('y', height - 8)
       .attr('text-anchor', 'middle')
-      .style('font-family', "'Source Sans 3', sans-serif")
+      .style('font-family', "'Public Sans', sans-serif")
       .style('font-size', '14px')
       .style('font-weight', '600')
       .style('fill', '#2c3e50')
@@ -134,7 +134,7 @@ const EconGraph = {
       .attr('x', -(margin.top + innerHeight / 2))
       .attr('y', 16)
       .attr('text-anchor', 'middle')
-      .style('font-family', "'Source Sans 3', sans-serif")
+      .style('font-family', "'Public Sans', sans-serif")
       .style('font-size', '14px')
       .style('font-weight', '600')
       .style('fill', '#2c3e50')
@@ -164,7 +164,7 @@ const EconGraph = {
       .call(d3.axisLeft(yScale).ticks(8));
 
     axisLayer.selectAll('.axis text')
-      .style('font-family', "'Source Sans 3', sans-serif")
+      .style('font-family', "'Public Sans', sans-serif")
       .style('font-size', '12px')
       .style('fill', '#566573');
     axisLayer.selectAll('.axis line, .axis .domain')
@@ -260,7 +260,7 @@ const EconGraph = {
       const labelText = labelG.append('text')
         .attr('x', ctx.xScale(lastPoint.x) + 8)
         .attr('y', ctx.yScale(lastPoint.y) + 4)
-        .style('font-family', "'Source Sans 3', sans-serif")
+        .style('font-family', "'Public Sans', sans-serif")
         .style('font-size', '13px')
         .style('font-weight', '700')
         .style('fill', color)
@@ -341,7 +341,7 @@ const EconGraph = {
       const labelText = labelG.append('text')
         .attr('x', ctx.xScale(x) + labelOffset.dx)
         .attr('y', ctx.yScale(y) + labelOffset.dy)
-        .style('font-family', "'Source Sans 3', sans-serif")
+        .style('font-family', "'Public Sans', sans-serif")
         .style('font-size', '13px')
         .style('font-weight', '700')
         .style('fill', color)
@@ -396,7 +396,7 @@ const EconGraph = {
       .attr('x', ctx.xScale(x))
       .attr('y', ctx.yScale(y))
       .attr('text-anchor', anchor)
-      .style('font-family', "'Source Sans 3', sans-serif")
+      .style('font-family', "'Public Sans', sans-serif")
       .style('font-size', fontSize)
       .style('font-weight', fontWeight)
       .style('fill', color)
@@ -1136,7 +1136,7 @@ const DrawGraph = {
       .call(d3.axisLeft(yScale).ticks(8));
 
     axisLayer.selectAll('.axis text')
-      .style('font-family', "'Source Sans 3', sans-serif")
+      .style('font-family', "'Public Sans', sans-serif")
       .style('font-size', '12px').style('fill', '#566573');
     axisLayer.selectAll('.axis line, .axis .domain')
       .style('stroke', '#aab7b8');
@@ -1145,7 +1145,7 @@ const DrawGraph = {
     svg.append('text')
       .attr('x', margin.left + innerWidth / 2).attr('y', height - 8)
       .attr('text-anchor', 'middle')
-      .style('font-family', "'Source Sans 3', sans-serif")
+      .style('font-family', "'Public Sans', sans-serif")
       .style('font-size', '14px').style('font-weight', '600').style('fill', '#2c3e50')
       .text(config.xLabel);
 
@@ -1153,7 +1153,7 @@ const DrawGraph = {
       .attr('transform', 'rotate(-90)')
       .attr('x', -(margin.top + innerHeight / 2)).attr('y', 16)
       .attr('text-anchor', 'middle')
-      .style('font-family', "'Source Sans 3', sans-serif")
+      .style('font-family', "'Public Sans', sans-serif")
       .style('font-size', '14px').style('font-weight', '600').style('fill', '#2c3e50')
       .text(config.yLabel);
 
@@ -1291,7 +1291,7 @@ const DrawGraph = {
           const lastPt = pts[pts.length - 1];
           g.append('text').attr('class', 'draw-graph__correct-label')
             .attr('x', xScale(lastPt.x) + 8).attr('y', yScale(lastPt.y) + 4)
-            .style('font-family', "'Source Sans 3', sans-serif")
+            .style('font-family', "'Public Sans', sans-serif")
             .style('font-size', '13px').style('font-weight', '700')
             .style('fill', config.curveColor)
             .text(config.expectedSlope === 'negative' ? 'D' : 'S');
