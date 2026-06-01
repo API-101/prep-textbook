@@ -93,27 +93,41 @@
 <p>
         Linear supply relationships typically take the form:
       </p>
-<div class="equation-block">
+<div class="equation-explainer">
+<div class="equation-explainer__formula">
         $$Q_s = c + dP$$
-      </div>
-<p>
-        In this equation:
-      </p>
-<ul>
-<li><strong>\(Q_s\)</strong> is the quantity supplied</li>
-<li><strong>P</strong> is the price of the good</li>
-<li><strong>c</strong> is the baseline quantity — the quantity supplied when price is zero. This is often zero or negative; a negative value represents a reservation price below which producers are unwilling to supply</li>
-<li><strong>d</strong> is the slope coefficient, a positive number. It tells us how much quantity supplied increases for each one-unit increase in price. A larger d means producers are more responsive to price changes</li>
-</ul>
-<p>
-        The positive coefficient on P is essential: it embodies the law of supply.
-      </p>
+        <p class="equation-explainer__read">Quantity supplied equals the baseline quantity producers bring to market, plus the additional quantity they supply as price rises.</p>
+</div>
+<div class="equation-explainer__parts">
+<div class="equation-part">
+<span class="equation-part__symbol">\(Q_s\)</span>
+<span class="equation-part__label">Outcome</span>
+<p class="equation-part__text">The quantity supplied at a particular price. On the graph, this is read on the horizontal axis.</p>
+</div>
+<div class="equation-part">
+<span class="equation-part__symbol">\(c\)</span>
+<span class="equation-part__label">Quantity Intercept</span>
+<p class="equation-part__text">The baseline quantity producers supply when price is zero. This may be zero or negative.</p>
+</div>
+<div class="equation-part">
+<span class="equation-part__symbol">\(d\)</span>
+<span class="equation-part__label">Price Response</span>
+<p class="equation-part__text">How many units quantity supplied rises when price increases by one unit. Larger values mean producers respond more sharply.</p>
+</div>
+<div class="equation-part">
+<span class="equation-part__symbol">\(P\)</span>
+<span class="equation-part__label">Price</span>
+<p class="equation-part__text">The price producers receive. In economics graphs, price is placed on the vertical axis.</p>
+</div>
+</div>
+<p class="equation-explainer__note"><strong>The positive sign captures the direct relationship.</strong> It turns a higher price into a higher quantity supplied, which is exactly the law of supply.</p>
+</div>
 <h3>Building a Supply Schedule:
          The EU Sugar Market
 </h3>
 
 <p>Continuing with our EU sugar market, suppose economists have estimated the supply equation for sugar beet farmers:</p>
-<div class="equation-block">$$Q_s = 15P$$</div>
+<p class="equation-display">\(Q_s = 15P\)</p>
 <p>Where \(Q_s\) is measured in millions of kilograms per year and P is the price in euros per kilogram. Notice that c = 0: at a price of zero, producers supply nothing — which makes economic sense. <em>Stylized illustration — numbers chosen to keep the algebra clean, not to match actual EU market volumes or intervention prices.</em></p>
 
 
@@ -184,11 +198,28 @@ Quantity Supplied — \(Q_s = 15P\) (millions of kg/year)
 <div class="math-step__expr">$$P = \frac{Q_s}{15}$$</div>
 </div>
 </div>
-<p>The inverted form is \(P = Q_s/15\). Key features:</p>
-<ul>
-<li><strong>Vertical intercept:</strong> When \(Q_s = 0\), P = 0. The supply curve passes through the origin.</li>
-<li><strong>Slope:</strong> The coefficient on \(Q_s\) is 1/15. For every 15 million kg increase in quantity, price increases by €1.</li>
-</ul>
+<p>The inverted form is \(P = Q_s/15\). Two features tell us how to draw the line:</p>
+<table class="equation-feature-table">
+<thead>
+<tr>
+<th>Feature</th>
+<th>Value</th>
+<th>How to read it</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Vertical intercept</td>
+<td>\(P = 0\)</td>
+<td>When \(Q_s = 0\), the curve crosses the price axis at zero. The supply curve passes through the origin.</td>
+</tr>
+<tr>
+<td>Slope</td>
+<td>\(1/15\)</td>
+<td>For every 15-million-kg increase in quantity, price increases by €1.</td>
+</tr>
+</tbody>
+</table>
 
 <div class="callout callout--insight">
 <div class="callout__title">What to Notice</div>
@@ -239,6 +270,23 @@ Quantity Supplied — \(Q_s = 15P\) (millions of kg/year)
 </div>
 <div class="demo-layout__desc-col">
 <div class="demo-step-panel" id="sm2-desc">Click <strong>Next Step →</strong> to plot each point from the schedule.</div>
+<div class="graphing-method__table-wrap">
+<table class="data-table" id="sm2-table">
+<thead>
+<tr>
+<th>Price (€/kg)</th>
+<th>Qty (mil. kg)</th>
+</tr>
+</thead>
+<tbody>
+<tr id="sm2-row-0"><td>1</td><td>15</td></tr>
+<tr id="sm2-row-1"><td>2</td><td>30</td></tr>
+<tr id="sm2-row-2"><td>3</td><td>45</td></tr>
+<tr id="sm2-row-3"><td>4</td><td>60</td></tr>
+<tr id="sm2-row-4"><td>5</td><td>75</td></tr>
+</tbody>
+</table>
+</div>
 </div>
 </div>
 </div>
@@ -321,8 +369,8 @@ Quantity Supplied — \(Q_s = 15P\) (millions of kg/year)
 </div>
 </div>
 <div class="graph-container__info">
-<p><strong>Current supply:</strong> <span id="supply-equation-display">Q_s = 0 + 15P</span></p>
-<p><strong>Graph form:</strong> <span id="supply-inverse-display">P = (Q - 0) / 15</span></p>
+<p><strong>Current supply:</strong> <span id="supply-equation-display">\(Q_s = 0 + 15P\)</span></p>
+<p><strong>Graph form:</strong> <span id="supply-inverse-display">\(P = (Q_s - 0) / 15\)</span></p>
 </div>
 </div>
 <p>The graph shows the EU sugar supply curve with default values c = 0 and d = 15, giving \(Q_s = 15P\). Try adjusting the intercept: a positive c shifts the curve rightward — farmers supply more at every price (perhaps due to a productivity improvement). Increasing d makes the curve flatter, meaning producers are more responsive to price signals.</p>
@@ -411,7 +459,7 @@ Quantity Supplied — \(Q_s = 15P\) (millions of kg/year)
     }
 
     // ===== Step-through helper =====
-    function makeStepThrough(graph, frames, descs, descEl, btn) {
+    function makeStepThrough(graph, frames, descs, descEl, btn, onFrame) {
       var frame = -1;
       var total = frames.length;
 
@@ -419,11 +467,13 @@ Quantity Supplied — \(Q_s = 15P\) (millions of kg/year)
         graph.clear();
         frames[i]();
         descEl.innerHTML = '<span class="gm-step-counter">Step ' + (i + 1) + ' of ' + total + '</span>' + descs[i];
+        if (onFrame) onFrame(i);
       }
 
       function reset() {
         frame = -1;
         graph.clear();
+        if (onFrame) onFrame(-1);
         descEl.innerHTML = 'Click <strong>Next Step →</strong> to walk through the graph one step at a time.';
         btn.textContent = 'Next Step →';
         btn.classList.remove('graphing-method__next-btn--replay');
@@ -508,6 +558,25 @@ Quantity Supplied — \(Q_s = 15P\) (millions of kg/year)
       var sm2btn = rebuildBtn('sm2-next');
       var sm2desc = document.getElementById('sm2-desc');
       if (s2 && sm2btn && sm2desc) {
+        function highlightScheduleRows(frameIndex) {
+          for (var j = 0; j < 5; j++) {
+            var row = document.getElementById('sm2-row-' + j);
+            if (!row) continue;
+            row.classList.remove('gm-row--active', 'gm-row--plotted');
+            if (frameIndex < 0) continue;
+            if (j < frameIndex) row.classList.add('gm-row--plotted');
+            else if (j === frameIndex) row.classList.add('gm-row--active');
+          }
+          if (frameIndex >= 5) {
+            for (var k = 0; k < 5; k++) {
+              var plottedRow = document.getElementById('sm2-row-' + k);
+              if (plottedRow) {
+                plottedRow.classList.remove('gm-row--active');
+                plottedRow.classList.add('gm-row--plotted');
+              }
+            }
+          }
+        }
         var sm2Frames = sp.map(function(_, i) {
           return function() {
             sp.slice(0, i + 1).forEach(function(pt) {
@@ -523,7 +592,7 @@ Quantity Supplied — \(Q_s = 15P\) (millions of kg/year)
           return 'Row ' + (i + 1) + ' → Plot <strong>(Q=' + pt[0] + ', P=' + pt[1] + ')</strong>.';
         });
         sm2Descs.push('All five points plotted. <strong>Connect them with a straight line</strong> — the supply curve S.');
-        makeStepThrough(s2, sm2Frames, sm2Descs, sm2desc, sm2btn);
+        makeStepThrough(s2, sm2Frames, sm2Descs, sm2desc, sm2btn, highlightScheduleRows);
       }
     }
 
@@ -564,8 +633,17 @@ Quantity Supplied — \(Q_s = 15P\) (millions of kg/year)
         var d = parseFloat(dSlider.value);
         document.getElementById('supply-intercept-value').textContent = c.toFixed(0);
         document.getElementById('supply-slope-value').textContent = d.toFixed(0);
-        document.getElementById('supply-equation-display').textContent = 'Q_s = ' + c.toFixed(0) + ' + ' + d.toFixed(0) + 'P';
-        document.getElementById('supply-inverse-display').textContent = 'P = (Q - ' + c.toFixed(0) + ') / ' + d.toFixed(0);
+        var equationDisplay = document.getElementById('supply-equation-display');
+        var inverseDisplay = document.getElementById('supply-inverse-display');
+        var supplyExpression = 'Q_s = ' + c.toFixed(0) + ' + ' + d.toFixed(0) + 'P';
+        var inverseExpression = 'P = \\frac{Q_s - (' + c.toFixed(0) + ')}{' + d.toFixed(0) + '}';
+        if (typeof katex !== 'undefined') {
+          katex.render(supplyExpression, equationDisplay, { throwOnError: false });
+          katex.render(inverseExpression, inverseDisplay, { throwOnError: false });
+        } else {
+          equationDisplay.textContent = supplyExpression;
+          inverseDisplay.textContent = 'P = (Q_s - ' + c.toFixed(0) + ') / ' + d.toFixed(0);
+        }
 
         var supply = function(x) { return (x - c) / d; };
         graph.addLine(supply, '#c0392b', { label: 'S', className: 'dynamic', strokeWidth: 2.5 });
