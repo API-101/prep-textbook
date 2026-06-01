@@ -471,7 +471,7 @@ const CheckUnderstanding = {
       // Build header
       const header = document.createElement('div');
       header.className = 'check-understanding__header';
-      header.innerHTML = '<span class="check-understanding__icon">&#9998;</span> Check Your Understanding';
+      header.textContent = 'Self-Check Your Understanding';
       container.insertBefore(header, container.firstChild);
 
       // Build question text
@@ -875,7 +875,7 @@ const CumulativeGlossary = {
           </thead>
           <tbody>
             ${terms.map(item => `
-              <tr>
+              <tr data-module="${item.module}">
                 <td>${item.term}</td>
                 <td>${item.definition}</td>
                 <td>${item.module === current ? '<span class="term-status term-status--new">New in this module</span>' : '<span class="term-status">Review</span>'}</td>
@@ -884,7 +884,8 @@ const CumulativeGlossary = {
           </tbody>
         </table>
         <div class="flashcard-launcher">
-          <button class="flashcard-launcher__btn" data-table="${tableId}">
+          ${current > 1 ? '<p>Flashcards below help you study these new terms.</p>' : ''}
+          <button class="flashcard-launcher__btn" data-table="${tableId}" data-current-module="${current}">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M12 4v16"/></svg>
             Study as Flashcards
           </button>
@@ -907,9 +908,11 @@ const Flashcards = {
         const tableId = btn.dataset.table;
         const table = tableId ? document.getElementById(tableId) : btn.closest('section, .content')?.querySelector('.glossary-table') || document.querySelector('.glossary-table');
         if (!table) return;
+        const currentModule = btn.dataset.currentModule;
 
         const terms = [];
-        table.querySelectorAll('tbody tr').forEach(row => {
+        const rows = currentModule ? table.querySelectorAll(`tbody tr[data-module="${currentModule}"]`) : table.querySelectorAll('tbody tr');
+        rows.forEach(row => {
           const cells = row.querySelectorAll('td');
           if (cells.length >= 2) {
             terms.push({ term: cells[0].innerHTML.trim(), definition: cells[1].innerHTML.trim() });

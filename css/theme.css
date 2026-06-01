@@ -1097,8 +1097,8 @@ strong {
 
 /* --- Check for Understanding --- */
 .check-understanding {
-  background: #f8f9fa;
-  border: 2px solid var(--color-neutral-200);
+  background: linear-gradient(135deg, #f0f7fd 0%, #f8fafe 100%);
+  border: 2px solid var(--color-primary-lighter);
   border-radius: var(--radius-md);
   margin: var(--space-2xl) 0;
   padding: var(--space-lg);
@@ -1110,10 +1110,6 @@ strong {
   font-weight: 700;
   color: var(--color-primary);
   margin-bottom: var(--space-sm);
-}
-
-.check-understanding__icon {
-  margin-right: 0.4em;
 }
 
 .check-understanding__question {
@@ -1428,6 +1424,12 @@ strong {
   margin-bottom: var(--space-md);
   line-height: 1.55;
 }
+.self-check__guidance {
+  font-size: 0.875rem;
+  color: var(--color-neutral-600);
+  margin: calc(-1 * var(--space-xs)) 0 var(--space-md);
+  line-height: 1.5;
+}
 .self-check__reveal-btn {
   display: inline-block;
   padding: 0.4rem 1rem;
@@ -1542,8 +1544,16 @@ strong {
 /* --- Flashcard Study Mode --- */
 .flashcard-launcher {
   display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
+  gap: var(--space-sm);
   margin: var(--space-lg) 0;
+}
+.flashcard-launcher p {
+  margin: 0;
+  color: var(--color-neutral-600);
+  font-size: 0.9375rem;
 }
 .flashcard-launcher__btn {
   display: inline-flex;
@@ -1965,7 +1975,13 @@ strong {
 /* --- Graphing Methods (animated) --- */
 .graphing-methods { margin: var(--space-xl) 0; }
 
-.graphing-method { margin-bottom: var(--space-xl); }
+.graphing-method {
+  background: var(--color-surface);
+  border: 1px solid var(--color-neutral-200);
+  border-radius: var(--radius-sm);
+  padding: var(--space-lg);
+  margin-bottom: var(--space-lg);
+}
 
 .graphing-method__header {
   display: flex;
@@ -1974,15 +1990,16 @@ strong {
   margin-bottom: var(--space-xs);
 }
 .graphing-method__badge {
-  background: var(--color-primary);
-  color: #fff;
+  background: var(--color-neutral-100);
+  border: 1px solid var(--color-neutral-300);
+  color: var(--color-neutral-600);
   font-size: 0.75rem;
   font-weight: 700;
   padding: 0.2rem 0.6rem;
   border-radius: var(--radius-sm);
   font-family: var(--font-mono);
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0;
   white-space: nowrap;
 }
 .graphing-method__title {
