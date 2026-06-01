@@ -185,17 +185,13 @@ const EconGraph = {
     ctx.addShaded = (data, color, opts = {}) => this.addShaded(ctx, data, color, opts);
 
     /**
-     * Clear all dynamic elements from the graph.
-     * Call this at the top of every slider/input update function.
-     * Removes .dynamic elements AND all .graph-label groups to prevent
-     * any label duplication from stale references.
+     * Clear plotted content while preserving the graph frame.
+     * Call this before redrawing slider updates or step-through frames.
      */
     ctx.clear = () => {
-      ctx.g.selectAll('.dynamic').remove();
-      ctx.g.selectAll('.graph-label').remove();
+      ctx.g.selectAll('.graph-line, .graph-area, .graph-point, .graph-reference, .graph-label, .dynamic').remove();
       if (ctx.axisLayer) {
-        ctx.axisLayer.selectAll('.dynamic').remove();
-        ctx.axisLayer.selectAll('.graph-label').remove();
+        ctx.axisLayer.selectAll('.graph-label, .dynamic').remove();
       }
     };
 
@@ -326,7 +322,7 @@ const EconGraph = {
     } = opts;
 
     ctx.g.append('circle')
-      .attr('class', className)
+      .attr('class', `graph-point ${className}`)
       .attr('cx', ctx.xScale(x))
       .attr('cy', ctx.yScale(y))
       .attr('r', radius)
@@ -365,7 +361,7 @@ const EconGraph = {
 
     ctx.g.append('path')
       .datum(points)
-      .attr('class', className)
+      .attr('class', `graph-reference ${className}`)
       .attr('d', line)
       .attr('fill', 'none')
       .attr('stroke', color)

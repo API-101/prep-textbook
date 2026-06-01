@@ -586,6 +586,34 @@ strong {
 .equation-block .katex {
   font-size: 1.15em;
 }
+.equation-display {
+  margin: var(--space-lg) 0;
+  text-align: center;
+  font-size: 1.15rem;
+}
+
+.equation-feature-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: var(--space-lg) 0;
+  font-size: 0.9375rem;
+}
+.equation-feature-table th,
+.equation-feature-table td {
+  padding: var(--space-sm) var(--space-md);
+  border-bottom: 1px solid var(--color-neutral-200);
+  text-align: left;
+  vertical-align: top;
+}
+.equation-feature-table th {
+  color: var(--color-neutral-700);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+}
+.equation-feature-table td:first-child {
+  font-weight: 700;
+  color: var(--color-neutral-800);
+}
 
 /* --- Annotated Equation Explainers --- */
 .equation-explainer {
@@ -700,11 +728,8 @@ strong {
 }
 /* Math steps: two-column layout for algebra walkthroughs */
 .math-steps {
-  background: #fafafa;
-  border-radius: 0;
-  padding: var(--space-lg);
   margin: var(--space-lg) 0;
-  border-left: 3px solid var(--color-hks-crimson);
+  border-top: 1px solid var(--color-neutral-200);
 }
 .math-step {
   display: flex;
@@ -2028,10 +2053,10 @@ strong {
   align-items: center;
 }
 .graphing-method__schedule-graph {
-  display: flex;
+  display: grid;
+  grid-template-columns: 180px minmax(0, 1fr);
   gap: var(--space-lg);
   align-items: flex-start;
-  flex-wrap: wrap;
   margin-bottom: var(--space-sm);
 }
 .graphing-method__table-wrap {
@@ -2039,7 +2064,7 @@ strong {
   min-width: 180px;
 }
 .graphing-method__table-wrap .data-table { margin: 0; }
-.graphing-method__graph-wrap { flex: 1; min-width: 280px; }
+.graphing-method__graph-wrap { min-width: 0; }
 .graphing-method__controls {
   display: flex;
   justify-content: center;
@@ -2128,4 +2153,5 @@ strong {
 @media (max-width: 700px) {
   .demo-layout { grid-template-columns: 1fr; }
   .demo-layout__desc-col { position: static; }
+  .graphing-method__schedule-graph { grid-template-columns: 1fr; }
 }

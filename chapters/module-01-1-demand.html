@@ -160,7 +160,7 @@
 <p class="equation-part__text">The price buyers face. In economics graphs, price is placed on the vertical axis.</p>
 </div>
 </div>
-<p class="equation-explainer__note"><strong>The minus sign is the key economic idea.</strong> It turns a higher price into a lower quantity demanded, which is exactly the law of demand.</p>
+<p class="equation-explainer__note"><strong>The minus sign captures the inverse relationship.</strong> It turns a higher price into a lower quantity demanded, which is exactly the law of demand.</p>
 </div>
 <h3>Building a Demand Schedule:
          The EU Sugar Market
@@ -172,7 +172,7 @@
 
 
 
-<div class="equation-block">$$Q_d = 50 - 10P$$</div>
+<p class="equation-display">\(Q_d = 50 - 10P\)</p>
 <p>Where \(Q_d\) is measured in millions of kilograms per year, and P is the price in euros per kilogram. <em>Note: this is a stylized illustration — the numbers are chosen to keep the algebra clean, not to match actual EU market volumes or intervention prices.</em></p>
 <div class="equation-translation">
 <div class="equation-translation__label">Read the equation in words</div>
@@ -266,11 +266,28 @@
 <div class="math-step__expr">$$P = 5 - \frac{Q_d}{10}$$</div>
 </div>
 </div>
-<p>The inverted form is \(P = 5 - Q_d/10\). Two key features:</p>
-<ul>
-<li><strong>Vertical intercept:</strong> When \(Q_d = 0\), P = 5. The demand curve crosses the price axis at €5/kg — the highest price any consumer will pay.</li>
-<li><strong>Slope:</strong> The coefficient on \(Q_d\) is −1/10. For every 10-million-kg increase in quantity, price falls by €1.</li>
-</ul>
+<p>The inverted form is \(P = 5 - Q_d/10\). Two features tell us how to draw the line:</p>
+<table class="equation-feature-table">
+<thead>
+<tr>
+<th>Feature</th>
+<th>Value</th>
+<th>How to read it</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Vertical intercept</td>
+<td>\(P = 5\)</td>
+<td>When \(Q_d = 0\), the curve crosses the price axis at €5/kg: the highest price any consumer will pay.</td>
+</tr>
+<tr>
+<td>Slope</td>
+<td>\(-1/10\)</td>
+<td>For every 10-million-kg increase in quantity, price falls by €1.</td>
+</tr>
+</tbody>
+</table>
 
 <div class="callout callout--insight">
 <div class="callout__title">What to Notice</div>
@@ -498,8 +515,8 @@
 </div>
 </div>
 <div class="graph-container__info">
-<p><strong>Current demand:</strong> <span id="demand-equation-display">Q_d = 50 - 10P</span></p>
-<p><strong>Graph form:</strong> <span id="demand-inverse-display">P = 5.00 - Q/10</span></p>
+<p><strong>Current demand:</strong> <span id="demand-equation-display">\(Q_d = 50 - 10P\)</span></p>
+<p><strong>Graph form:</strong> <span id="demand-inverse-display">\(P = 5.00 - Q_d/10\)</span></p>
 </div>
 </div>
 
@@ -650,8 +667,17 @@
         var b = parseFloat(document.getElementById('demand-slope').value);
         document.getElementById('demand-intercept-value').textContent = a.toFixed(0);
         document.getElementById('demand-slope-value').textContent = b.toFixed(0);
-        document.getElementById('demand-equation-display').textContent = 'Q_d = ' + a.toFixed(0) + ' - ' + b.toFixed(0) + 'P';
-        document.getElementById('demand-inverse-display').textContent = 'P = ' + (a / b).toFixed(2) + ' - Q/' + b.toFixed(0);
+        var equationDisplay = document.getElementById('demand-equation-display');
+        var inverseDisplay = document.getElementById('demand-inverse-display');
+        var demandExpression = 'Q_d = ' + a.toFixed(0) + ' - ' + b.toFixed(0) + 'P';
+        var inverseExpression = 'P = ' + (a / b).toFixed(2) + ' - \\frac{Q_d}{' + b.toFixed(0) + '}';
+        if (typeof katex !== 'undefined') {
+          katex.render(demandExpression, equationDisplay, { throwOnError: false });
+          katex.render(inverseExpression, inverseDisplay, { throwOnError: false });
+        } else {
+          equationDisplay.textContent = demandExpression;
+          inverseDisplay.textContent = 'P = ' + (a / b).toFixed(2) + ' - Q_d/' + b.toFixed(0);
+        }
 
         var demand = function(x) { return (a / b) - (x / b); };
         _interactiveGraph.addLine(demand, '#2e86c1', { label: 'D', className: 'dynamic', strokeWidth: 2.5 });
