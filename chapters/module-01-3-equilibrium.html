@@ -172,11 +172,32 @@
 <p>
         When we graph both the demand and supply curves on the same axes, their intersection point is the equilibrium:
       </p>
-<ul>
-<li>The demand curve \(P = 5 - Q_d/10\) slopes downward, crossing the vertical axis at P = 5 and the horizontal axis at Q = 50.</li>
-<li>The supply curve \(P = Q_s/15\) slopes upward from the origin.</li>
-<li>They intersect at the equilibrium point (\(Q^* = 30\), \(P^* = 2\)).</li>
-</ul>
+<table class="equation-feature-table">
+<thead>
+<tr>
+<th>Graph element</th>
+<th>Equation</th>
+<th>How to read it</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Demand curve</td>
+<td>\(P = 5 - Q_d/10\)</td>
+<td>Downward sloping. It crosses the price axis at \(P = 5\) and the quantity axis at \(Q = 50\).</td>
+</tr>
+<tr>
+<td>Supply curve</td>
+<td>\(P = Q_s/15\)</td>
+<td>Upward sloping. It starts at the origin because producers supply zero when price is zero.</td>
+</tr>
+<tr>
+<td>Equilibrium</td>
+<td>\((Q^* = 30, P^* = 2)\)</td>
+<td>The intersection point where quantity demanded equals quantity supplied.</td>
+</tr>
+</tbody>
+</table>
 <div class="figure">
 <div id="equilibrium-static-graph"></div>
 <div class="figure__caption">Figure 1.3: The equilibrium for the
@@ -228,7 +249,7 @@
 <div class="graph-container__description">
           This graph shows both demand (blue) and supply (red) curves for the
           EU sugar
-          market. Adjust the demand intercept and supply intercept to see how equilibrium price (\(P^*\)) and quantity (\(Q^*\)) change. The dark point marks the equilibrium intersection.
+          market. Adjust the intercepts and slope coefficients to see how equilibrium price (\(P^*\)) and quantity (\(Q^*\)) change. The dark point marks the equilibrium intersection.
         </div>
 <div class="graph-container__svg-wrapper" id="equilibrium-graph"></div>
 <div class="graph-container__controls">
@@ -238,9 +259,19 @@
 <span class="graph-control__value" id="eq-demand-intercept-value">50</span>
 </div>
 <div class="graph-control">
+<label class="graph-control__label">Demand Slope Coefficient (b): Units lost per price increase</label>
+<input class="graph-control__slider" id="eq-demand-slope" max="30" min="4" step="1" type="range" value="10"/>
+<span class="graph-control__value" id="eq-demand-slope-value">10</span>
+</div>
+<div class="graph-control">
 <label class="graph-control__label">Supply Intercept (c): Baseline supply</label>
 <input class="graph-control__slider" id="eq-supply-intercept" max="30" min="-10" step="5" type="range" value="0"/>
 <span class="graph-control__value" id="eq-supply-intercept-value">0</span>
+</div>
+<div class="graph-control">
+<label class="graph-control__label">Supply Slope Coefficient (d): Responsiveness to price</label>
+<input class="graph-control__slider" id="eq-supply-slope" max="30" min="4" step="1" type="range" value="15"/>
+<span class="graph-control__value" id="eq-supply-slope-value">15</span>
 </div>
 </div>
 <div class="graph-container__info" id="equilibrium-info">
@@ -251,12 +282,34 @@
 </div>
 </div>
 <p>
-        As you change the demand intercept (a), observe how the entire demand curve shifts rightward (higher a) or leftward (lower a). As you change the supply intercept (c), the supply curve shifts. Notice:
+        As you change the intercepts, the curves shift. As you change the slope coefficients, the curves rotate because buyers or sellers become more or less responsive to price. Notice:
       </p>
-<ul>
-<li>Increasing the demand intercept raises both equilibrium price and quantity.</li>
-<li>Increasing the supply intercept increases equilibrium quantity but lowers equilibrium price. More supply lowers prices.</li>
-</ul>
+<table class="equation-feature-table">
+<thead>
+<tr>
+<th>Control</th>
+<th>What changes</th>
+<th>Typical equilibrium effect</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Demand intercept \(a\)</td>
+<td>Shifts the demand curve right or left.</td>
+<td>A higher \(a\) raises both equilibrium price and equilibrium quantity.</td>
+</tr>
+<tr>
+<td>Supply intercept \(c\)</td>
+<td>Shifts the supply curve right or left.</td>
+<td>A higher \(c\) increases equilibrium quantity and lowers equilibrium price.</td>
+</tr>
+<tr>
+<td>Slope coefficients \(b\) and \(d\)</td>
+<td>Rotate the curves by changing price responsiveness.</td>
+<td>Price and quantity can move in different directions depending on which side becomes more responsive.</td>
+</tr>
+</tbody>
+</table>
 <div class="self-check">
 <div class="self-check__question">
           If the demand equation changes to \(Q_d = 70 - 10P\) (demand intercept increases from 50 to 70) and supply stays at \(Q_s = 15P\), what is the new equilibrium price and quantity?
@@ -394,13 +447,17 @@
       function update() {
         graph.clear();
         const a = parseFloat(document.getElementById('eq-demand-intercept').value);
+        const b = parseFloat(document.getElementById('eq-demand-slope').value);
         const c = parseFloat(document.getElementById('eq-supply-intercept').value);
+        const d = parseFloat(document.getElementById('eq-supply-slope').value);
         document.getElementById('eq-demand-intercept-value').textContent = a.toFixed(0);
+        document.getElementById('eq-demand-slope-value').textContent = b.toFixed(0);
         document.getElementById('eq-supply-intercept-value').textContent = c.toFixed(0);
+        document.getElementById('eq-supply-slope-value').textContent = d.toFixed(0);
         const demandDisplay = document.getElementById('eq-demand-display');
         const supplyDisplay = document.getElementById('eq-supply-display');
-        const demandExpression = 'Q_d = ' + a.toFixed(0) + ' - 10P';
-        const supplyExpression = 'Q_s = ' + c.toFixed(0) + ' + 15P';
+        const demandExpression = 'Q_d = ' + a.toFixed(0) + ' - ' + b.toFixed(0) + 'P';
+        const supplyExpression = 'Q_s = ' + c.toFixed(0) + ' + ' + d.toFixed(0) + 'P';
         if (typeof katex !== 'undefined') {
           katex.render(demandExpression, demandDisplay, { throwOnError: false });
           katex.render(supplyExpression, supplyDisplay, { throwOnError: false });
@@ -409,15 +466,15 @@
           supplyDisplay.textContent = supplyExpression;
         }
 
-        const demand = x => (a / 10) - (x / 10);
-        const supply = x => (x - c) / 15;
+        const demand = x => (a / b) - (x / b);
+        const supply = x => (x - c) / d;
 
         graph.addLine(demand, '#2e86c1', { label: 'D', className: 'dynamic', strokeWidth: 2.5 });
         graph.addLine(supply, '#c0392b', { label: 'S', className: 'dynamic', strokeWidth: 2.5 });
 
-        // Equilibrium: a - 10P = c + 15P => P* = (a - c) / 25
-        const eqP = (a - c) / 25;
-        const eqQ = c + 15 * eqP;
+        // Equilibrium: a - bP = c + dP => P* = (a - c) / (b + d)
+        const eqP = (a - c) / (b + d);
+        const eqQ = c + d * eqP;
 
         if (eqQ > 0 && eqP > 0 && eqQ < 100 && eqP < 6) {
           graph.addPoint(eqQ, eqP, {
@@ -430,11 +487,16 @@
           graph.addLabel(-6, eqP, `P* = €${eqP.toFixed(2)}`, { color: '#1a5276', fontSize: '12px', fontWeight: '600', anchor: 'end', className: 'dynamic' });
           document.getElementById('eq-price-display').textContent = '€' + eqP.toFixed(2);
           document.getElementById('eq-quantity-display').textContent = eqQ.toFixed(0);
+        } else {
+          document.getElementById('eq-price-display').textContent = 'Outside graph';
+          document.getElementById('eq-quantity-display').textContent = 'Outside graph';
         }
       }
 
       document.getElementById('eq-demand-intercept').addEventListener('input', update);
+      document.getElementById('eq-demand-slope').addEventListener('input', update);
       document.getElementById('eq-supply-intercept').addEventListener('input', update);
+      document.getElementById('eq-supply-slope').addEventListener('input', update);
       update();
     })();
 
