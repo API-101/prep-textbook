@@ -617,23 +617,25 @@ strong {
 }
 .equation-feature-table--graphing th:nth-child(1),
 .equation-feature-table--graphing td:nth-child(1) {
-  width: 24%;
+  width: 18%;
 }
 .equation-feature-table--graphing th:nth-child(2),
 .equation-feature-table--graphing td:nth-child(2) {
-  width: 40%;
+  width: 48%;
+  white-space: nowrap;
 }
 .equation-feature-table--graphing th:nth-child(3),
 .equation-feature-table--graphing td:nth-child(3) {
-  width: 36%;
+  width: 34%;
 }
 .equation-feature-table--quantities th:nth-child(1),
 .equation-feature-table--quantities td:nth-child(1) {
-  width: 22%;
+  width: 16%;
 }
 .equation-feature-table--quantities th:nth-child(2),
 .equation-feature-table--quantities td:nth-child(2) {
-  width: 48%;
+  width: 54%;
+  white-space: nowrap;
 }
 .equation-feature-table--quantities th:nth-child(3),
 .equation-feature-table--quantities td:nth-child(3) {
