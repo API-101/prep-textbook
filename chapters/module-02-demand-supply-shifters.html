@@ -34,7 +34,6 @@
       <a href="#policy-connections" class="sidebar__link">Policy Connection</a>
       <a href="#demonstrations" class="sidebar__link">Step-by-Step Graphing</a>
       <a href="#four-step-process" class="sidebar__link">The Four-Step Process</a>
-      <a href="#interactive-graphs" class="sidebar__link">Interactive Practice</a>
       <a href="#key-terms" class="sidebar__link">Key Terms</a>
 
       <span class="sidebar__part-label" style="margin-top: var(--space-2xl);">Learning Path</span>
@@ -320,13 +319,13 @@
       <p>
         Consider the EU sugar market from Module 1. The government pledges to buy 25 kilograms of sugar regardless of the market price. In this model, that government purchase adds 25 units to quantity demanded at every price. Start from the Module 1 baseline:
       </p>
-      <div class="equation-block">
+      <div class="equation-line">
         $$Q_d = 50 - 10P \qquad Q_s = 15P$$
       </div>
       <p>
         Modifying the demand equation to include the government's 25-unit commitment:
       </p>
-      <div class="equation-block">
+      <div class="equation-line">
         $$Q_d' = (50 + 25) - 10P = 75 - 10P$$
       </div>
 
@@ -369,13 +368,13 @@
       <p>
         Start from the Southern African sugar market (a separate market with different equations):
       </p>
-      <div class="equation-block">
+      <div class="equation-line">
         $$Q_d = 75 - 15P \qquad Q_s = 10P$$
       </div>
       <p>
         The original equilibrium is \(P^* = 3\) €/kg, \(Q^* = 30\) million kg/year. The EU's 15-unit commitment shifts supply outward:
       </p>
-      <div class="equation-block">
+      <div class="equation-line">
         $$Q_s' = 15 + 10P$$
       </div>
 
@@ -418,38 +417,38 @@
         When an economic event affects demand or supply, use this systematic four-step process to predict the new equilibrium price and quantity. It works for any market and any type of change.
       </p>
 
-      <div class="step-process">
-        <div class="step-process__step">
-          <div class="step-process__number">1</div>
-          <div class="step-process__title">Draw the Initial Equilibrium</div>
-          <p>
-            Sketch the original demand and supply curves and mark the equilibrium point where they intersect. Label the original equilibrium price (P*) and quantity (Q*). This is your baseline for comparison.
-          </p>
-        </div>
+      <p>
+        The example below uses a drought in the wheat market. The same process works for any demand or supply shock.
+      </p>
 
-        <div class="step-process__step">
-          <div class="step-process__number">2</div>
-          <div class="step-process__title">Identify What Changed</div>
-          <p>
-            Read the scenario carefully. Is the change an event that affects <strong>demand</strong> (tastes, income, substitute prices, etc.) or <strong>supply</strong> (input costs, technology, regulations, etc.)? Or does it affect both? Be precise about which factor has changed.
-          </p>
-        </div>
+      <div class="process-graph-grid">
+        <section class="process-graph-step">
+          <div class="process-graph-step__label">Step 1</div>
+          <h3 class="process-graph-step__title">Draw the Initial Equilibrium</h3>
+          <div class="process-graph-step__graph" id="four-step-graph-1"></div>
+          <p>Start with the original demand and supply curves. Mark the first intersection as \(E^*\), with baseline price \(P^*\) and quantity \(Q^*\).</p>
+        </section>
 
-        <div class="step-process__step">
-          <div class="step-process__number">3</div>
-          <div class="step-process__title">Determine the Direction of Shift</div>
-          <p>
-            Does the change cause the affected curve to shift right (increase) or left (decrease)? For example: higher input costs → supply decreases → curve shifts left. Lower incomes for a normal good → demand decreases → curve shifts left. Government enters as a buyer → demand increases → curve shifts right.
-          </p>
-        </div>
+        <section class="process-graph-step">
+          <div class="process-graph-step__label">Step 2</div>
+          <h3 class="process-graph-step__title">Identify What Changed</h3>
+          <div class="process-graph-step__graph" id="four-step-graph-2"></div>
+          <p>A drought affects production conditions, not buyers' willingness to buy. That means the supply curve is the curve that changes.</p>
+        </section>
 
-        <div class="step-process__step">
-          <div class="step-process__number">4</div>
-          <div class="step-process__title">Find and Compare the New Equilibrium</div>
-          <p>
-            Mark the new intersection point of the curves. Compare the new equilibrium price and quantity to the original. Did price rise or fall? Did quantity rise or fall? State your conclusion clearly. If both curves shifted, you may be certain about one variable but not the other.
-          </p>
-        </div>
+        <section class="process-graph-step">
+          <div class="process-graph-step__label">Step 3</div>
+          <h3 class="process-graph-step__title">Determine the Direction of Shift</h3>
+          <div class="process-graph-step__graph" id="four-step-graph-3"></div>
+          <p>Because the drought makes production harder, supply decreases. The supply curve shifts left: at every price, sellers provide less wheat.</p>
+        </section>
+
+        <section class="process-graph-step">
+          <div class="process-graph-step__label">Step 4</div>
+          <h3 class="process-graph-step__title">Find and Compare the New Equilibrium</h3>
+          <div class="process-graph-step__graph" id="four-step-graph-4"></div>
+          <p>The new intersection is \(E'\). Price rises and quantity falls. The demand curve did not shift; buyers move along demand in response to the higher price.</p>
+        </section>
       </div>
 
       <div class="check-understanding"
@@ -460,34 +459,6 @@
         <div class="check-understanding__option" data-index="1">Price falls, quantity falls</div>
         <div class="check-understanding__option" data-index="2">Price rises, quantity falls</div>
         <div class="check-understanding__option" data-index="3">Price rises, quantity rises</div>
-      </div>
-
-      <!-- ===== INTERACTIVE GRAPHS ===== -->
-      <h2 id="interactive-graphs">Interactive Practice</h2>
-
-      <div class="graph-container">
-        <div class="graph-container__title">Interactive Practice: Demand &amp; Supply Shifter Sandbox</div>
-        <div class="graph-container__description">
-          Use both sliders to shift demand and supply in the EU sugar market. Drag each slider left (decrease) or right (increase). When both curves are at zero the graph shows the original Module 1 baseline; moving either slider applies a shift and reveals the new equilibrium. Try: what happens when a government buyback (demand +20) coincides with a drought (supply −10)?
-        </div>
-        <div class="graph-container__svg-wrapper" id="combined-shifter-graph"></div>
-        <div class="graph-container__controls">
-          <div class="graph-control">
-            <label class="graph-control__label">Demand Shift (million kg)</label>
-            <input type="range" class="graph-control__slider" id="combined-demand-slider" min="-20" max="20" step="5" value="0">
-            <span class="graph-control__value" id="combined-demand-display">0</span>
-          </div>
-          <div class="graph-control">
-            <label class="graph-control__label">Supply Shift (million kg)</label>
-            <input type="range" class="graph-control__slider" id="combined-supply-slider" min="-20" max="20" step="5" value="0">
-            <span class="graph-control__value" id="combined-supply-display">0</span>
-          </div>
-        </div>
-        <div class="graph-container__readouts">
-          <p><strong>Original market:</strong> <span id="combined-original-display">Q<sub>d</sub> = 50 &minus; 10P;&nbsp; Q<sub>s</sub> = 15P</span></p>
-          <p><strong>Current curves:</strong> <span id="combined-curves-display">Q<sub>d</sub> = 50 &minus; 10P;&nbsp; Q<sub>s</sub> = 15P</span></p>
-          <p><strong>Equilibrium:</strong> <span id="combined-equilibrium-display">P* = 2.00,&nbsp; Q* = 30</span></p>
-        </div>
       </div>
 
       <section id="key-terms" data-glossary-through="4" data-current-module="4"></section>
@@ -541,22 +512,6 @@
         // className: 'dynamic' ensures these are cleared by graph.clear()
         graph.addDashedLine([{ x: q, y: p }, { x: q, y: 0 }], color, { strokeWidth: 1.2, className: 'dynamic' });
         graph.addDashedLine([{ x: q, y: p }, { x: 0, y: p }], color, { strokeWidth: 1.2, className: 'dynamic' });
-      }
-
-      // Return HTML strings so subscripts render as true subscripts (use with .innerHTML)
-      function fmtDemand(intercept, slope, primed) {
-        return 'Q<sub>d</sub>' + (primed ? '\u2032' : '') + ' = ' + intercept + ' \u2212 ' + slope + 'P';
-      }
-
-      function fmtSupply(intercept, slope, primed) {
-        var base = 'Q<sub>s</sub>' + (primed ? '\u2032' : '');
-        if (intercept === 0) return base + ' = ' + slope + 'P';
-        if (intercept > 0)  return base + ' = ' + intercept + ' + ' + slope + 'P';
-        return base + ' = ' + intercept + ' + ' + slope + 'P';
-      }
-
-      function fmtQ(v) {
-        return Math.abs(v - Math.round(v)) < 0.001 ? String(Math.round(v)) : v.toFixed(1);
       }
 
       /* ---------- makeStepThrough (same pattern as Module 1) ---------- */
@@ -704,6 +659,68 @@
         g.addLine(Sp, '#c0392b', { label: "S'", strokeWidth: 2.5, dashed: true });
         // Label centered between curves at Q=50: S(50)=2.5, S'(50)=1.75 → midpoint 2.125
         g.addLabel(50, 2.125, '\u27A1 shift right', { color: '#c0392b', fontSize: '11px', fontWeight: '700', anchor: 'middle' });
+      })();
+
+      /* -- Four-step process: drought supply shock -- */
+      (function() {
+        var demand = function(x) { return 6 - x / 15; };
+        var supply = function(x) { return x / 12; };
+        var supplyLeft = function(x) { return (x + 18) / 12; };
+        var originalQ = 43.2;
+        var originalP = 3.12;
+        var newQ = 32.4;
+        var newP = 3.84;
+
+        function createStepGraph(selector) {
+          return EconGraph.create(selector, {
+            xLabel: 'Quantity',
+            yLabel: 'Price',
+            xDomain: [0, 75],
+            yDomain: [0, 7],
+            height: 340
+          });
+        }
+
+        function drawOriginal(graph, faded) {
+          graph.addLine(demand, faded ? '#8aa9bf' : '#2e86c1', { label: 'D', strokeWidth: faded ? 1.6 : 2.5, dashed: faded });
+          graph.addLine(supply, faded ? '#d9aaa4' : '#c0392b', { label: 'S', strokeWidth: faded ? 1.6 : 2.5, dashed: faded });
+          graph.addPoint(originalQ, originalP, { color: faded ? '#8a8f94' : '#1a5276', radius: faded ? 4 : 6, label: 'E*' });
+          addEqGuides(graph, originalQ, originalP, faded ? '#8a8f94' : '#1a5276');
+        }
+
+        var g1 = createStepGraph('#four-step-graph-1');
+        if (g1) {
+          drawOriginal(g1, false);
+          g1.addLabel(19, 5.2, 'Baseline market', { color: '#1a5276', fontSize: '11px', fontWeight: '700', anchor: 'middle' });
+        }
+
+        var g2 = createStepGraph('#four-step-graph-2');
+        if (g2) {
+          drawOriginal(g2, false);
+          g2.addLabel(54, 4.45, 'Drought affects supply', { color: '#c0392b', fontSize: '11px', fontWeight: '700', anchor: 'middle' });
+          g2.addDashedLine([{ x: 56, y: 4.1 }, { x: 43, y: 4.1 }], '#c0392b', { strokeWidth: 2, className: 'dynamic' });
+        }
+
+        var g3 = createStepGraph('#four-step-graph-3');
+        if (g3) {
+          g3.addLine(demand, '#2e86c1', { label: 'D', strokeWidth: 2.5 });
+          g3.addLine(supply, '#d9aaa4', { label: 'S', strokeWidth: 1.6, dashed: true });
+          g3.addShaded({ xRange: [0, 63], yTop: supplyLeft, yBottom: supply }, '#c0392b', { opacity: 0.09 });
+          g3.addLine(supplyLeft, '#c0392b', { label: "S'", strokeWidth: 2.5 });
+          g3.addLabel(31, 3.55, 'Supply shifts left', { color: '#c0392b', fontSize: '11px', fontWeight: '700', anchor: 'middle' });
+        }
+
+        var g4 = createStepGraph('#four-step-graph-4');
+        if (g4) {
+          g4.addLine(demand, '#2e86c1', { label: 'D', strokeWidth: 2.5 });
+          g4.addLine(supply, '#d9aaa4', { label: 'S', strokeWidth: 1.6, dashed: true });
+          g4.addLine(supplyLeft, '#c0392b', { label: "S'", strokeWidth: 2.5 });
+          g4.addPoint(originalQ, originalP, { color: '#8a8f94', radius: 4, label: 'E*' });
+          g4.addPoint(newQ, newP, { color: '#1a5276', radius: 6, label: "E'" });
+          addEqGuides(g4, newQ, newP, '#1a5276');
+          g4.addLabel(54, 4.9, 'Price rises', { color: '#1a5276', fontSize: '11px', fontWeight: '700', anchor: 'middle' });
+          g4.addLabel(28, 1.35, 'Quantity falls', { color: '#1a5276', fontSize: '11px', fontWeight: '700', anchor: 'middle' });
+        }
       })();
 
       /* =============================================================
@@ -889,62 +906,6 @@
         var dm2Desc = document.getElementById('dm2-desc');
         var dm2Btn  = rebuildBtn('dm2-next');
         if (dm2Desc && dm2Btn) makeStepThrough(dm2, dm2Frames, dm2Descs, dm2Desc, dm2Btn);
-      })();
-
-      /* =============================================================
-         INTERACTIVE: COMBINED SHIFTER SANDBOX
-         ============================================================= */
-      (function() {
-        var g = EconGraph.create('#combined-shifter-graph', {
-          xLabel: 'Quantity (millions of kg/year)',
-          yLabel: 'Price (\u20AC/kg)',
-          xDomain: [0, 100],
-          yDomain: [0, 8]
-        });
-        if (!g) return;
-
-        var baseDI = 50, dSlope = 10, baseSI = 0, sSlope = 15;
-        var baseD  = function(x) { return baseDI / dSlope - x / dSlope; };
-        var baseS  = function(x) { return (x - baseSI) / sSlope; };
-        var origP  = (baseDI - baseSI) / (dSlope + sSlope);
-        var origQ  = baseSI + sSlope * origP;
-
-        function update() {
-          g.clear();
-          var dShift = parseFloat(document.getElementById('combined-demand-slider').value);
-          var sShift = parseFloat(document.getElementById('combined-supply-slider').value);
-          var newDI  = baseDI + dShift;
-          var newSI  = baseSI + sShift;
-          var newD   = function(x) { return newDI / dSlope - x / dSlope; };
-          var newS   = function(x) { return (x - newSI) / sSlope; };
-          var newP   = (newDI - newSI) / (dSlope + sSlope);
-          var newQ   = newSI + sSlope * newP;
-
-          document.getElementById('combined-demand-display').textContent = dShift > 0 ? '+' + dShift : String(dShift);
-          document.getElementById('combined-supply-display').textContent = sShift > 0 ? '+' + sShift : String(sShift);
-          document.getElementById('combined-curves-display').innerHTML =
-            fmtDemand(newDI, dSlope, dShift !== 0) + ';&nbsp; ' + fmtSupply(newSI, sSlope, sShift !== 0);
-          document.getElementById('combined-equilibrium-display').innerHTML =
-            'P* = ' + newP.toFixed(2) + ',&nbsp; Q* = ' + fmtQ(newQ);
-
-          if (dShift !== 0 || sShift !== 0) {
-            g.addLine(baseD, '#2e86c1', { label: 'D', strokeWidth: 1.5, dashed: true, className: 'dynamic' });
-            g.addLine(baseS, '#c0392b', { label: 'S', strokeWidth: 1.5, dashed: true, className: 'dynamic' });
-            g.addPoint(origQ, origP, { color: '#999', label: 'E', radius: 4, className: 'dynamic' });
-          }
-
-          g.addLine(newD, '#2e86c1', { label: dShift === 0 ? 'D' : "D'", strokeWidth: 2.5, className: 'dynamic' });
-          g.addLine(newS, '#c0392b', { label: sShift === 0 ? 'S' : "S'", strokeWidth: 2.5, className: 'dynamic' });
-
-          if (newQ > 0 && newP > 0 && newQ < 100 && newP < 8) {
-            g.addPoint(newQ, newP, { color: '#1a5276', label: dShift === 0 && sShift === 0 ? 'E*' : "E'", className: 'dynamic' });
-            addEqGuides(g, newQ, newP);
-          }
-        }
-
-        document.getElementById('combined-demand-slider').addEventListener('input', update);
-        document.getElementById('combined-supply-slider').addEventListener('input', update);
-        update();
       })();
 
       /* =============================================================

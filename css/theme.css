@@ -572,6 +572,47 @@ strong {
   margin-top: var(--space-xs);
 }
 
+.process-graph-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-xl) var(--space-lg);
+  margin: var(--space-xl) 0;
+}
+
+.process-graph-step {
+  border-top: 4px solid var(--color-primary-light);
+  padding-top: var(--space-md);
+}
+
+.process-graph-step__label {
+  color: var(--color-primary);
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0;
+  margin-bottom: var(--space-xs);
+  text-transform: uppercase;
+}
+
+.process-graph-step__title {
+  color: var(--color-neutral-800);
+  font-family: var(--font-heading);
+  font-size: 1.0625rem;
+  font-weight: 700;
+  margin: 0 0 var(--space-sm);
+}
+
+.process-graph-step__graph {
+  min-height: 300px;
+  margin-bottom: var(--space-sm);
+}
+
+.process-graph-step p {
+  color: var(--color-neutral-700);
+  font-size: 0.9rem;
+  line-height: 1.55;
+  margin: 0;
+}
+
 .graph-control {
   display: flex;
   flex-direction: column;
@@ -669,6 +710,17 @@ strong {
   margin: 0.3em 0;
 }
 .equation-block .katex {
+  font-size: 1.15em;
+}
+.equation-line {
+  margin: var(--space-md) 0 var(--space-lg);
+  text-align: center;
+  overflow-x: auto;
+}
+.equation-line .katex-display {
+  margin: 0;
+}
+.equation-line .katex {
   font-size: 1.15em;
 }
 .equation-display {
@@ -2363,7 +2415,8 @@ strong {
 }
 @media (max-width: 700px) {
   .shift-showcase,
-  .shift-figure-grid {
+  .shift-figure-grid,
+  .process-graph-grid {
     grid-template-columns: 1fr;
   }
 
@@ -2375,7 +2428,8 @@ strong {
   }
 
   .shift-showcase__graph,
-  .shift-figure__graph {
+  .shift-figure__graph,
+  .process-graph-step__graph {
     min-height: 280px;
   }
 
