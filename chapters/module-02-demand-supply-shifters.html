@@ -523,6 +523,14 @@
           graph.clear();
           frames[i]();
           descEl.innerHTML = '<span class="gm-step-counter">Step ' + (i + 1) + ' of ' + total + '</span>' + descs[i];
+          if (typeof renderMathInElement !== 'undefined') {
+            renderMathInElement(descEl, {
+              delimiters: [
+                { left: '$$', right: '$$', display: true },
+                { left: '\\(', right: '\\)', display: false }
+              ]
+            });
+          }
           if (onFrame) onFrame(i);
         }
 
@@ -666,10 +674,10 @@
         var demand = function(x) { return 6 - x / 15; };
         var supply = function(x) { return x / 12; };
         var supplyLeft = function(x) { return (x + 18) / 12; };
-        var originalQ = 43.2;
-        var originalP = 3.12;
-        var newQ = 32.4;
-        var newP = 3.84;
+        var originalQ = 40;
+        var originalP = 10 / 3;
+        var newQ = 30;
+        var newP = 4;
 
         function createStepGraph(selector) {
           return EconGraph.create(selector, {
@@ -777,11 +785,11 @@
 
         var dm1Descs = [
           '<strong>Step 1 — Original market</strong><br>'
-          + 'Draw Q<sub>d</sub> = 50 \u2212 10P and Q<sub>s</sub> = 15P.<br>'
+          + 'Draw \\(Q_d = 50 - 10P\\) and \\(Q_s = 15P\\).<br>'
           + 'Solve for equilibrium by setting Q<sub>d</sub> = Q<sub>s</sub>:<br>'
-          + '<code>50 \u2212 10P = 15P</code><br>'
-          + '<code>50 = 25P</code><br>'
-          + '<code>P* = 2, &nbsp;Q* = 30</code><br>'
+          + '<span class="demo-equation">\\(50 - 10P = 15P\\)</span>'
+          + '<span class="demo-equation">\\(50 = 25P\\)</span>'
+          + '<span class="demo-equation">\\(P^* = 2,\\ Q^* = 30\\)</span>'
           + 'Plot E* at (30, 2).',
 
           '<strong>Step 2 — Identify the shift</strong><br>'
@@ -793,9 +801,10 @@
 
           '<strong>Step 3 — Write the new equation</strong><br>'
           + 'EU intervention adds 25 million kg at every price:<br>'
-          + '<code>Q<sub>d</sub>\u2032 = (50 + 25) \u2212 10P = 75 \u2212 10P</code><br>'
+          + '<span class="demo-equation">\\(Q_d^{\\prime} = (50 + 25) - 10P\\)</span>'
+          + '<span class="demo-equation">\\(Q_d^{\\prime} = 75 - 10P\\)</span>'
           + 'Invert to get P as a function of Q:<br>'
-          + '<code>P = 7.5 \u2212 Q/10</code><br>'
+          + '<span class="demo-equation">\\(P = 7.5 - Q/10\\)</span>'
           + 'The y-intercept rises from 5 \u2192 <strong>7.5</strong>. Plot it.',
 
           '<strong>Step 4 — Draw D\u2032</strong><br>'
@@ -805,9 +814,9 @@
 
           '<strong>Step 5 — New equilibrium</strong><br>'
           + 'Set Q<sub>d</sub>\u2032 = Q<sub>s</sub>:<br>'
-          + '<code>75 \u2212 10P = 15P</code><br>'
-          + '<code>75 = 25P</code><br>'
-          + '<code>P\u2032 = 3, &nbsp;Q\u2032 = 45</code><br>'
+          + '<span class="demo-equation">\\(75 - 10P = 15P\\)</span>'
+          + '<span class="demo-equation">\\(75 = 25P\\)</span>'
+          + '<span class="demo-equation">\\(P^{\\prime} = 3,\\ Q^{\\prime} = 45\\)</span>'
           + 'Mark E\u2032. Price rose \u20AC2 \u2192 \u20AC3; quantity rose 30 \u2192 45.'
         ];
 
@@ -870,11 +879,11 @@
 
         var dm2Descs = [
           '<strong>Step 1 — Southern African market</strong><br>'
-          + 'Draw Q<sub>d</sub> = 75 \u2212 15P and Q<sub>s</sub> = 10P.<br>'
+          + 'Draw \\(Q_d = 75 - 15P\\) and \\(Q_s = 10P\\).<br>'
           + 'Set Q<sub>d</sub> = Q<sub>s</sub> to find equilibrium:<br>'
-          + '<code>75 \u2212 15P = 10P</code><br>'
-          + '<code>75 = 25P</code><br>'
-          + '<code>P* = 3, &nbsp;Q* = 30</code><br>'
+          + '<span class="demo-equation">\\(75 - 15P = 10P\\)</span>'
+          + '<span class="demo-equation">\\(75 = 25P\\)</span>'
+          + '<span class="demo-equation">\\(P^* = 3,\\ Q^* = 30\\)</span>'
           + 'Plot E* at (30, 3).',
 
           '<strong>Step 2 — Identify the shift</strong><br>'
@@ -885,9 +894,10 @@
 
           '<strong>Step 3 — Write the new equation</strong><br>'
           + 'EU adds 15 million kg at every price:<br>'
-          + '<code>Q<sub>s</sub>\u2032 = (0 + 15) + 10P = 15 + 10P</code><br>'
+          + '<span class="demo-equation">\\(Q_s^{\\prime} = (0 + 15) + 10P\\)</span>'
+          + '<span class="demo-equation">\\(Q_s^{\\prime} = 15 + 10P\\)</span>'
           + 'Invert to get P as a function of Q:<br>'
-          + '<code>P = (Q \u2212 15) / 10</code><br>'
+          + '<span class="demo-equation">\\(P = (Q - 15)/10\\)</span>'
           + 'The x-intercept shifts from 0 \u2192 <strong>15</strong>. Plot it.',
 
           '<strong>Step 4 — Draw S\u2032</strong><br>'
@@ -897,9 +907,9 @@
 
           '<strong>Step 5 — New equilibrium</strong><br>'
           + 'Set Q<sub>d</sub> = Q<sub>s</sub>\u2032:<br>'
-          + '<code>75 \u2212 15P = 15 + 10P</code><br>'
-          + '<code>60 = 25P</code><br>'
-          + '<code>P\u2032 = 2.4, &nbsp;Q\u2032 = 39</code><br>'
+          + '<span class="demo-equation">\\(75 - 15P = 15 + 10P\\)</span>'
+          + '<span class="demo-equation">\\(60 = 25P\\)</span>'
+          + '<span class="demo-equation">\\(P^{\\prime} = 2.4,\\ Q^{\\prime} = 39\\)</span>'
           + 'Mark E\u2032. Price fell \u20AC3 \u2192 \u20AC2.40; quantity rose 30 \u2192 39.'
         ];
 

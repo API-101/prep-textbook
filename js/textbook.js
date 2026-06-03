@@ -1015,12 +1015,25 @@ const CumulativeGlossary = {
           if (a.module !== b.module) return a.module - b.module;
           return a.term.localeCompare(b.term);
         });
+      const currentTerms = terms.filter(item => item.module === current);
+      const reviewTerms = terms.filter(item => item.module !== current);
       const anchor = container.id || 'key-terms';
       const tableId = `${anchor}-table`;
+      const reviewTableId = `${anchor}-review-table`;
+
+      function renderRows(items) {
+        return items.map(item => `
+          <tr data-module="${item.module}">
+            <td>${item.term}</td>
+            <td>${item.definition}</td>
+            <td>${item.module === current ? '<span class="term-status term-status--new">New in this module</span>' : '<span class="term-status">Review</span>'}</td>
+          </tr>
+        `).join('');
+      }
 
       container.innerHTML = `
         <h2>Key Terms</h2>
-        <p>This cumulative list includes terms introduced through Module ${through}. Terms introduced in this module are marked as new.</p>
+        <p>Start with the terms introduced in this module. Past terms are available below if you want to review the cumulative vocabulary.</p>
         <table class="glossary-table" id="${tableId}">
           <thead>
             <tr>
@@ -1030,15 +1043,26 @@ const CumulativeGlossary = {
             </tr>
           </thead>
           <tbody>
-            ${terms.map(item => `
-              <tr data-module="${item.module}">
-                <td>${item.term}</td>
-                <td>${item.definition}</td>
-                <td>${item.module === current ? '<span class="term-status term-status--new">New in this module</span>' : '<span class="term-status">Review</span>'}</td>
-              </tr>
-            `).join('')}
+            ${renderRows(currentTerms)}
           </tbody>
         </table>
+        ${reviewTerms.length ? `
+          <details class="glossary-review">
+            <summary>View Past Key Terms</summary>
+            <table class="glossary-table glossary-table--review" id="${reviewTableId}">
+              <thead>
+                <tr>
+                  <th>Term</th>
+                  <th>Definition</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                ${renderRows(reviewTerms)}
+              </tbody>
+            </table>
+          </details>
+        ` : ''}
         <div class="flashcard-launcher">
           ${current > 1 ? '<p>Flashcards below help you study these new terms.</p>' : ''}
           <button class="flashcard-launcher__btn" data-table="${tableId}" data-current-module="${current}">

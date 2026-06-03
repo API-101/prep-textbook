@@ -963,6 +963,29 @@ strong {
   background: #f1f1f1;
 }
 
+.glossary-review {
+  margin: var(--space-md) 0 var(--space-lg);
+}
+
+.glossary-review summary {
+  color: var(--color-primary);
+  cursor: pointer;
+  font-weight: 700;
+  padding: var(--space-sm) 0;
+}
+
+.glossary-review summary:hover {
+  color: var(--color-primary-dark);
+}
+
+.glossary-table--review {
+  margin-top: var(--space-sm);
+}
+
+.glossary-table--review tbody td {
+  background: #fbfbfb;
+}
+
 .term-status {
   display: inline-block;
   padding: 0.15rem 0.45rem;
@@ -2412,6 +2435,15 @@ strong {
   letter-spacing: 0.05em;
   margin-bottom: 0.5rem;
   margin-left: 0;
+}
+.demo-equation {
+  display: block;
+  margin: 0.25rem 0;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+.demo-equation .katex {
+  font-size: 1em;
 }
 @media (max-width: 700px) {
   .shift-showcase,
