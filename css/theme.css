@@ -614,6 +614,11 @@ strong {
   font-weight: 700;
   color: var(--color-neutral-800);
 }
+.equation-feature-table--graphing th:nth-child(2),
+.equation-feature-table--graphing td:nth-child(2) {
+  width: 28%;
+  min-width: 11rem;
+}
 
 /* --- Annotated Equation Explainers --- */
 .equation-explainer {

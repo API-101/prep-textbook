@@ -172,7 +172,7 @@
 <p>
         When we graph both the demand and supply curves on the same axes, their intersection point is the equilibrium:
       </p>
-<table class="equation-feature-table">
+<table class="equation-feature-table equation-feature-table--graphing">
 <thead>
 <tr>
 <th>Graph element</th>
@@ -218,7 +218,28 @@
         </div>
 </div>
 
-<p>Let's use our sugar market to illustrate. Suppose the government sets a price floor at €3/kg. At this price, \(Q_d = 50 - 10(3) = 20\) million kg, while \(Q_s = 15(3) = 45\) million kg. The surplus is 25 million kg of unsold sugar. At €1/kg, \(Q_d = 40\) million kg but \(Q_s = 15\) million kg — a shortage of 25 million kg, pushing price back up to equilibrium.</p>
+<p>Let's use our sugar market to illustrate how the gap appears when price is away from equilibrium.</p>
+<table class="equation-feature-table">
+<thead>
+<tr>
+<th>Price</th>
+<th>Quantities</th>
+<th>Market condition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>\(P = 3\)</td>
+<td>\(Q_d = 50 - 10(3) = 20\)<br/>\(Q_s = 15(3) = 45\)</td>
+<td>Surplus: sellers want to sell 25 million kg more than buyers want to buy.</td>
+</tr>
+<tr>
+<td>\(P = 1\)</td>
+<td>\(Q_d = 50 - 10(1) = 40\)<br/>\(Q_s = 15(1) = 15\)</td>
+<td>Shortage: buyers want 25 million kg more than sellers provide.</td>
+</tr>
+</tbody>
+</table>
 
 <div class="figure figure--with-controls">
 <div class="figure__graph" id="market-imbalance-graph"></div>
@@ -227,7 +248,7 @@
 <button class="figure-controls__btn" id="show-shortage-example" type="button">Show Shortage</button>
 <button class="figure-controls__btn figure-controls__btn--secondary" id="clear-imbalance-example" type="button">Clear</button>
 </div>
-<div class="figure__caption" id="market-imbalance-caption">Figure 1.4: Use the buttons to shade the quantity gap at a price above or below equilibrium.</div>
+<div class="figure__caption" id="market-imbalance-caption">Figure 1.4: Use the buttons to show the quantity gap at a price above or below equilibrium.</div>
 </div>
 
 
@@ -436,8 +457,8 @@
       graph.addPoint(eqQ, eqP, { color: '#1a5276', radius: 7, label: 'E*' });
       graph.addDashedLine([{x: eqQ, y: eqP}, {x: eqQ, y: 0}], '#1a5276', { strokeWidth: 1.5 });
       graph.addDashedLine([{x: eqQ, y: eqP}, {x: 0, y: eqP}], '#1a5276', { strokeWidth: 1.5 });
-      graph.addLabel(eqQ + 1, -0.4, 'Q* = 30', { color: '#1a5276', fontSize: '11px', fontWeight: '600' });
-      graph.addLabel(-6, eqP, 'P* = 2', { color: '#1a5276', fontSize: '11px', fontWeight: '600', anchor: 'end' });
+      graph.addLabel(eqQ + 1, 0.28, 'Q* = 30', { color: '#1a5276', fontSize: '11px', fontWeight: '600', anchor: 'start' });
+      graph.addLabel(2, eqP + 0.18, 'P* = 2', { color: '#1a5276', fontSize: '11px', fontWeight: '600', anchor: 'start' });
     })();
 
     // ===== Market Imbalance Example Graph =====
@@ -464,7 +485,7 @@
       function clearExample() {
         graph.g.selectAll('.region-overlay').remove();
         if (graph.axisLayer) graph.axisLayer.selectAll('.region-overlay').remove();
-        if (caption) caption.textContent = 'Figure 1.4: Use the buttons to shade the quantity gap at a price above or below equilibrium.';
+        if (caption) caption.textContent = 'Figure 1.4: Use the buttons to show the quantity gap at a price above or below equilibrium.';
       }
 
       function showSurplus() {
@@ -472,13 +493,13 @@
         const price = 3;
         const qDemanded = 50 - 10 * price;
         const qSupplied = 15 * price;
-        graph.addShaded({
-          xRange: [qDemanded, qSupplied],
-          yTop: price,
-          yBottom: eqP
-        }, '#c0392b', { opacity: 0.14, className: 'region-overlay' });
         graph.addDashedLine([{x: 0, y: price}, {x: qSupplied, y: price}], '#c0392b', { strokeWidth: 1.4, className: 'region-overlay' });
-        graph.addLabel(22, 3.35, 'Surplus: 45 - 20 = 25', { color: '#c0392b', fontSize: '11px', className: 'region-overlay' });
+        graph.addDashedLine([{x: qDemanded, y: price}, {x: qDemanded, y: 0}], '#2e86c1', { strokeWidth: 1.2, className: 'region-overlay' });
+        graph.addDashedLine([{x: qSupplied, y: price}, {x: qSupplied, y: 0}], '#c0392b', { strokeWidth: 1.2, className: 'region-overlay' });
+        graph.addDashedLine([{x: qDemanded, y: price + 0.35}, {x: qSupplied, y: price + 0.35}], '#c0392b', { strokeWidth: 2, className: 'region-overlay' });
+        graph.addPoint(qDemanded, price, { color: '#2e86c1', radius: 5, className: 'region-overlay' });
+        graph.addPoint(qSupplied, price, { color: '#c0392b', radius: 5, className: 'region-overlay' });
+        graph.addLabel(25, 3.65, 'Surplus: 45 - 20 = 25', { color: '#c0392b', fontSize: '11px', className: 'region-overlay' });
         graph.addLabel(qDemanded, price - 0.2, 'Qd = 20', { color: '#2e86c1', fontSize: '10px', anchor: 'middle', className: 'region-overlay' });
         graph.addLabel(qSupplied, price - 0.2, 'Qs = 45', { color: '#c0392b', fontSize: '10px', anchor: 'middle', className: 'region-overlay' });
         if (caption) caption.textContent = 'Figure 1.4: At P = €3, quantity supplied is 45 and quantity demanded is 20, so the surplus is 25 million kg.';
@@ -489,13 +510,13 @@
         const price = 1;
         const qSupplied = 15 * price;
         const qDemanded = 50 - 10 * price;
-        graph.addShaded({
-          xRange: [qSupplied, qDemanded],
-          yTop: eqP,
-          yBottom: price
-        }, '#2e86c1', { opacity: 0.12, className: 'region-overlay' });
         graph.addDashedLine([{x: 0, y: price}, {x: qDemanded, y: price}], '#2e86c1', { strokeWidth: 1.4, className: 'region-overlay' });
-        graph.addLabel(17, 1.2, 'Shortage: 40 - 15 = 25', { color: '#2e86c1', fontSize: '11px', className: 'region-overlay' });
+        graph.addDashedLine([{x: qSupplied, y: price}, {x: qSupplied, y: 0}], '#c0392b', { strokeWidth: 1.2, className: 'region-overlay' });
+        graph.addDashedLine([{x: qDemanded, y: price}, {x: qDemanded, y: 0}], '#2e86c1', { strokeWidth: 1.2, className: 'region-overlay' });
+        graph.addDashedLine([{x: qSupplied, y: price + 0.35}, {x: qDemanded, y: price + 0.35}], '#2e86c1', { strokeWidth: 2, className: 'region-overlay' });
+        graph.addPoint(qSupplied, price, { color: '#c0392b', radius: 5, className: 'region-overlay' });
+        graph.addPoint(qDemanded, price, { color: '#2e86c1', radius: 5, className: 'region-overlay' });
+        graph.addLabel(17, 1.55, 'Shortage: 40 - 15 = 25', { color: '#2e86c1', fontSize: '11px', className: 'region-overlay' });
         graph.addLabel(qSupplied, price + 0.2, 'Qs = 15', { color: '#c0392b', fontSize: '10px', anchor: 'middle', className: 'region-overlay' });
         graph.addLabel(qDemanded, price + 0.2, 'Qd = 40', { color: '#2e86c1', fontSize: '10px', anchor: 'middle', className: 'region-overlay' });
         if (caption) caption.textContent = 'Figure 1.4: At P = €1, quantity demanded is 40 and quantity supplied is 15, so the shortage is 25 million kg.';
