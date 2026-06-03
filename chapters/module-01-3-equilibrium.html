@@ -198,11 +198,16 @@
 </tr>
 </tbody>
 </table>
-<div class="figure">
-<div id="equilibrium-static-graph"></div>
+<div class="figure figure--with-controls">
+<div class="figure__graph" id="equilibrium-static-graph"></div>
+<div class="figure-controls" aria-label="Equilibrium graph overlays">
+<button class="figure-controls__btn" id="show-surplus-region" type="button">Show Surplus</button>
+<button class="figure-controls__btn" id="show-shortage-region" type="button">Show Shortage</button>
+<button class="figure-controls__btn figure-controls__btn--secondary" id="clear-equilibrium-regions" type="button">Clear</button>
+</div>
 <div class="figure__caption">Figure 1.3: The equilibrium for the
           EU sugar market. The demand (blue) and supply (red) curves intersect at E*, where \(P^* = €2\)/kg and \(Q^* = 30\) million kg/year.
-          The dashed lines project the equilibrium to the axes. Above equilibrium, there is a surplus; below equilibrium, there is a shortage.</div>
+          The dashed lines project the equilibrium to the axes. Use the buttons to lightly shade surplus or shortage regions.</div>
 </div>
 <h3>Surplus and Shortage Dynamics</h3>
 <div class="definition-box">
@@ -430,8 +435,43 @@
       graph.addDashedLine([{x: eqQ, y: eqP}, {x: 0, y: eqP}], '#1a5276', { strokeWidth: 1.5 });
       graph.addLabel(eqQ + 1, -0.4, 'Q* = 30', { color: '#1a5276', fontSize: '11px', fontWeight: '600' });
       graph.addLabel(-6, eqP, 'P* = 2', { color: '#1a5276', fontSize: '11px', fontWeight: '600', anchor: 'end' });
-      graph.addLabel(20, 3.5, 'Surplus region', { color: '#c0392b', fontSize: '10px' });
-      graph.addLabel(8, 0.8, 'Shortage region', { color: '#2e86c1', fontSize: '10px' });
+
+      function clearRegions() {
+        graph.g.selectAll('.region-overlay').remove();
+        if (graph.axisLayer) graph.axisLayer.selectAll('.region-overlay').remove();
+      }
+
+      function showSurplus() {
+        clearRegions();
+        const price = 3;
+        const qDemanded = 50 - 10 * price;
+        const qSupplied = 15 * price;
+        graph.addShaded({
+          xRange: [qDemanded, qSupplied],
+          yTop: price,
+          yBottom: eqP
+        }, '#c0392b', { opacity: 0.14, className: 'region-overlay' });
+        graph.addDashedLine([{x: 0, y: price}, {x: qSupplied, y: price}], '#c0392b', { strokeWidth: 1.4, className: 'region-overlay' });
+        graph.addLabel(22, 3.35, 'Surplus at P = €3', { color: '#c0392b', fontSize: '11px', className: 'region-overlay' });
+      }
+
+      function showShortage() {
+        clearRegions();
+        const price = 1;
+        const qSupplied = 15 * price;
+        const qDemanded = 50 - 10 * price;
+        graph.addShaded({
+          xRange: [qSupplied, qDemanded],
+          yTop: eqP,
+          yBottom: price
+        }, '#2e86c1', { opacity: 0.12, className: 'region-overlay' });
+        graph.addDashedLine([{x: 0, y: price}, {x: qDemanded, y: price}], '#2e86c1', { strokeWidth: 1.4, className: 'region-overlay' });
+        graph.addLabel(17, 1.2, 'Shortage at P = €1', { color: '#2e86c1', fontSize: '11px', className: 'region-overlay' });
+      }
+
+      document.getElementById('show-surplus-region')?.addEventListener('click', showSurplus);
+      document.getElementById('show-shortage-region')?.addEventListener('click', showShortage);
+      document.getElementById('clear-equilibrium-regions')?.addEventListener('click', clearRegions);
     })();
 
     // ===== Interactive Equilibrium Graph =====
