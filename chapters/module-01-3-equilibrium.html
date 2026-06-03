@@ -554,12 +554,12 @@
         graph.addDashedLine([{x: 0, y: price}, {x: qDemanded, y: price}], '#2e86c1', { strokeWidth: 1.4, className: 'region-overlay' });
         graph.addDashedLine([{x: qSupplied, y: price}, {x: qSupplied, y: 0}], '#c0392b', { strokeWidth: 1.2, className: 'region-overlay' });
         graph.addDashedLine([{x: qDemanded, y: price}, {x: qDemanded, y: 0}], '#2e86c1', { strokeWidth: 1.2, className: 'region-overlay' });
-        graph.addDashedLine([{x: qSupplied, y: price + 0.35}, {x: qDemanded, y: price + 0.35}], '#2e86c1', { strokeWidth: 2, className: 'region-overlay' });
+        graph.addDashedLine([{x: qSupplied, y: price - 0.35}, {x: qDemanded, y: price - 0.35}], '#2e86c1', { strokeWidth: 2, className: 'region-overlay' });
         graph.addPoint(qSupplied, price, { color: '#c0392b', radius: 5, className: 'region-overlay' });
         graph.addPoint(qDemanded, price, { color: '#2e86c1', radius: 5, className: 'region-overlay' });
-        graph.addLabel(17, 1.55, 'Shortage: 40 - 15 = 25', { color: '#2e86c1', fontSize: '11px', className: 'region-overlay' });
-        graph.addLabel(qSupplied, price + 0.2, 'Qs = 15', { color: '#c0392b', fontSize: '10px', anchor: 'middle', className: 'region-overlay' });
-        graph.addLabel(qDemanded, price + 0.2, 'Qd = 40', { color: '#2e86c1', fontSize: '10px', anchor: 'middle', className: 'region-overlay' });
+        graph.addLabel(20, 0.38, 'Shortage: 40 - 15 = 25', { color: '#2e86c1', fontSize: '11px', className: 'region-overlay' });
+        graph.addLabel(qSupplied, price - 0.18, 'Qs = 15', { color: '#c0392b', fontSize: '10px', anchor: 'middle', className: 'region-overlay' });
+        graph.addLabel(qDemanded, price - 0.18, 'Qd = 40', { color: '#2e86c1', fontSize: '10px', anchor: 'middle', className: 'region-overlay' });
         if (caption) caption.textContent = 'Figure 1.4: At P = €1, quantity demanded is 40 and quantity supplied is 15, so the shortage is 25 million kg.';
       }
 

@@ -621,12 +621,12 @@ strong {
 }
 .equation-feature-table--graphing th:nth-child(2),
 .equation-feature-table--graphing td:nth-child(2) {
-  width: 48%;
+  width: 45%;
   white-space: nowrap;
 }
 .equation-feature-table--graphing th:nth-child(3),
 .equation-feature-table--graphing td:nth-child(3) {
-  width: 34%;
+  width: 37%;
 }
 .equation-feature-table--quantities th:nth-child(1),
 .equation-feature-table--quantities td:nth-child(1) {
