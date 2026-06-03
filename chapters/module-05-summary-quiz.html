@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Practice Quiz Module 5</title>
   <link rel="stylesheet" href="../css/theme.css?v=3">
+  <link href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" rel="stylesheet">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
 </head>
 <body>
   <nav class="site-nav">
@@ -21,7 +24,6 @@
       <span class="sidebar__part-label">Practice Quiz Module 5</span>
       <a href="#summary" class="sidebar__link sidebar__link--active">Summary</a>
       <a href="#practice-quiz" class="sidebar__link">Practice Quiz</a>
-      <a href="#canvas-reflection" class="sidebar__link">Final Reflection</a>
 
       <span class="sidebar__part-label" style="margin-top: var(--space-2xl);">Learning Path</span>
       <a href="module-01-1-demand.html" class="sidebar__link">1. Demand Basics</a>
@@ -43,18 +45,13 @@
       </header>
 
       <h2 id="summary">Summary</h2>
+      <p>This checkpoint focuses on the core Module 5 skills. Use it to test whether you can calculate surplus, distinguish redistribution from deadweight loss, and interpret welfare effects of policy.</p>
       <p>Consumer surplus measures the value buyers receive above what they pay. Producer surplus measures the value sellers receive above the minimum they would accept. Social surplus is the sum of the two.</p>
       <p>Policies such as price floors can redistribute surplus across groups, but they can also reduce total surplus by preventing mutually beneficial transactions. That lost value is deadweight loss.</p>
 
       <h2 id="practice-quiz">Practice Quiz</h2>
-      <p>This quiz uses the Canvas-derived consumer and producer surplus question bank.</p>
+      <p>You can work through the questions in any order and receive feedback after each response.</p>
       <div id="practice-quiz-container"></div>
-
-      <h2 id="canvas-reflection">Final Reflection</h2>
-      <div class="callout callout--insight">
-        <div class="callout__title">Return to Canvas</div>
-        <p>After completing this quiz, return to the Canvas site to complete the final reflection for this sequence.</p>
-      </div>
 
       <nav class="chapter-nav">
         <a href="module-03-consumer-producer-surplus.html" class="chapter-nav__link chapter-nav__link--prev">
@@ -72,8 +69,9 @@
   <script src="../js/textbook.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-      PracticeQuiz.loadFromJson('#practice-quiz-container', '../assets/quizzes/module3-quiz.json', {
-        title: 'Module 5 Practice Quiz'
+      PracticeQuiz.loadFromJson('#practice-quiz-container', '../assets/quizzes/module5-quiz.json', {
+        title: 'Module 5 Practice Quiz',
+        layout: 'all'
       });
     });
   </script>

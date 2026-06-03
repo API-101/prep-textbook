@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Practice Quiz Module 4</title>
   <link rel="stylesheet" href="../css/theme.css?v=3">
+  <link href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" rel="stylesheet">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
 </head>
 <body>
   <nav class="site-nav">
@@ -42,11 +45,12 @@
       </header>
 
       <h2 id="summary">Summary</h2>
+      <p>This checkpoint focuses on the core Module 4 skills. Use it to test whether you can distinguish movements from shifts, identify demand and supply shifters, and predict how equilibrium changes.</p>
       <p>A movement along a curve is caused by the good's own price. A shift of a curve is caused by another factor, such as income, tastes, technology, input prices, regulation, expectations, or the number of buyers or sellers.</p>
       <p>Use the four-step process to identify the market, determine which curve shifts, move the curve in the correct direction, and compare the new equilibrium with the old one.</p>
 
       <h2 id="practice-quiz">Practice Quiz</h2>
-      <p>This quiz uses the Canvas-derived demand and supply shifters question bank.</p>
+      <p>You can work through the questions in any order and receive feedback after each response.</p>
       <div id="practice-quiz-container"></div>
 
       <nav class="chapter-nav">
@@ -65,8 +69,9 @@
   <script src="../js/textbook.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-      PracticeQuiz.loadFromJson('#practice-quiz-container', '../assets/quizzes/module2-quiz.json', {
-        title: 'Module 4 Practice Quiz'
+      PracticeQuiz.loadFromJson('#practice-quiz-container', '../assets/quizzes/module4-quiz.json', {
+        title: 'Module 4 Practice Quiz',
+        layout: 'all'
       });
     });
   </script>
