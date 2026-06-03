@@ -1007,7 +1007,14 @@ const CumulativeGlossary = {
     document.querySelectorAll('[data-glossary-through]').forEach(container => {
       const through = parseInt(container.dataset.glossaryThrough, 10);
       const current = parseInt(container.dataset.currentModule || through, 10);
-      const terms = this.terms.filter(item => item.module <= through);
+      const terms = this.terms
+        .filter(item => item.module <= through)
+        .sort((a, b) => {
+          if (a.module === current && b.module !== current) return -1;
+          if (a.module !== current && b.module === current) return 1;
+          if (a.module !== b.module) return a.module - b.module;
+          return a.term.localeCompare(b.term);
+        });
       const anchor = container.id || 'key-terms';
       const tableId = `${anchor}-table`;
 

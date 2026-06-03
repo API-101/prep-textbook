@@ -487,6 +487,91 @@ strong {
   margin-bottom: 0;
 }
 
+.shift-showcase {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 18rem;
+  gap: var(--space-lg);
+  align-items: start;
+  margin: var(--space-lg) 0 var(--space-xl);
+  padding: var(--space-lg) 0;
+  border-top: 1px solid var(--color-neutral-200);
+  border-bottom: 1px solid var(--color-neutral-200);
+}
+
+.shift-showcase__graph,
+.shift-figure__graph {
+  min-height: 320px;
+}
+
+.shift-showcase__panel {
+  border-left: 1px solid var(--color-neutral-200);
+  padding-left: var(--space-lg);
+}
+
+.shift-showcase__title {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  color: var(--color-neutral-800);
+  margin-bottom: var(--space-sm);
+}
+
+.shift-showcase__controls {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-md);
+}
+
+.shift-showcase__btn {
+  border: 1px solid var(--color-neutral-300);
+  border-radius: var(--radius-sm);
+  background: #fff;
+  color: var(--color-neutral-700);
+  cursor: pointer;
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-weight: 700;
+  padding: 0.65rem 0.8rem;
+  text-align: left;
+  transition: background 0.15s, border-color 0.15s, color 0.15s;
+}
+
+.shift-showcase__btn:hover {
+  border-color: var(--color-primary-light);
+  color: var(--color-primary);
+}
+
+.shift-showcase__btn--active {
+  background: var(--color-primary-lighter);
+  border-color: var(--color-primary-light);
+  color: var(--color-primary);
+}
+
+.shift-showcase__readout,
+.shift-figure__caption {
+  color: var(--color-neutral-600);
+  font-size: 0.875rem;
+  line-height: 1.55;
+  margin: 0;
+}
+
+.shift-figure-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-lg);
+  margin: var(--space-lg) 0 var(--space-xl);
+}
+
+.shift-figure {
+  border-top: 1px solid var(--color-neutral-200);
+  padding-top: var(--space-md);
+}
+
+.shift-figure__caption {
+  text-align: center;
+  margin-top: var(--space-xs);
+}
+
 .graph-control {
   display: flex;
   flex-direction: column;
@@ -2277,6 +2362,23 @@ strong {
   margin-left: 0;
 }
 @media (max-width: 700px) {
+  .shift-showcase,
+  .shift-figure-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .shift-showcase__panel {
+    border-left: 0;
+    border-top: 1px solid var(--color-neutral-200);
+    padding-left: 0;
+    padding-top: var(--space-md);
+  }
+
+  .shift-showcase__graph,
+  .shift-figure__graph {
+    min-height: 280px;
+  }
+
   .demo-layout { grid-template-columns: 1fr; }
   .demo-layout__desc-col { position: static; }
 }

@@ -157,22 +157,22 @@
         </div>
       </div>
 
-      <!-- Example callout with mini-graphs -->
-      <div class="callout callout--example">
-        <div class="callout__title">Example: Substitutes and Complements</div>
-        <p>
-          <strong>Substitutes:</strong> When the price of butter rises sharply, many consumers switch to margarine. Demand for margarine increases — the demand curve for margarine shifts right.<br><br>
-          <strong>Complements:</strong> Gasoline and SUVs are complements — you need one to use the other. When gasoline prices skyrocket, demand for SUVs decreases because driving becomes more expensive. The demand curve for SUVs shifts left.
-        </p>
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 1.25rem;">
-          <div>
-            <div class="graph-container__svg-wrapper" id="subst-graph" style="height: 220px;"></div>
-            <p style="text-align: center; font-size: 0.78rem; color: var(--color-text-muted); margin-top: 0.35rem;">Butter price rises → margarine demand shifts <strong>right</strong></p>
+      <h3>Example: Substitutes and Complements</h3>
+      <p>
+        Related goods change demand by changing how attractive the original good feels at every price. If a substitute becomes more expensive, buyers switch toward the original good and demand shifts right. If a complement becomes more expensive, the original good becomes less useful or more costly to consume, and demand shifts left.
+      </p>
+      <div class="shift-showcase">
+        <div class="shift-showcase__graph" id="related-demand-graph"></div>
+        <div class="shift-showcase__panel">
+          <div class="shift-showcase__title">Demand shifts from related goods</div>
+          <div class="shift-showcase__controls" aria-label="Related goods demand shift scenarios">
+            <button class="shift-showcase__btn shift-showcase__btn--active" data-related-shift="base" type="button">Baseline</button>
+            <button class="shift-showcase__btn" data-related-shift="substitute" type="button">Substitute Price Rises</button>
+            <button class="shift-showcase__btn" data-related-shift="complement" type="button">Complement Price Rises</button>
           </div>
-          <div>
-            <div class="graph-container__svg-wrapper" id="compl-graph" style="height: 220px;"></div>
-            <p style="text-align: center; font-size: 0.78rem; color: var(--color-text-muted); margin-top: 0.35rem;">Gas price rises → SUV demand shifts <strong>left</strong></p>
-          </div>
+          <p class="shift-showcase__readout" id="related-demand-readout">
+            Start with the original demand curve. Use the buttons to compare a rightward shift from a substitute becoming more expensive and a leftward shift from a complement becoming more expensive.
+          </p>
         </div>
       </div>
 
@@ -228,21 +228,18 @@
         When firms discover new production methods or technologies that reduce costs, supply increases dramatically. A classic example is the Green Revolution of the 1960s and 1970s, when improved seeds for wheat and rice doubled crop yields in low-income countries. Supply curves for these crops shifted right, and more food became available at every price level.
       </p>
 
-      <!-- Supply shift mini-graphs -->
-      <div class="callout callout--example">
-        <div class="callout__title">Illustrating Supply Shifts</div>
-        <p>
-          Two common supply shifters — a negative shock (bad weather) and a positive shock (new technology) — move the supply curve in opposite directions.
-        </p>
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 1.25rem;">
-          <div>
-            <div class="graph-container__svg-wrapper" id="supply-decrease-graph" style="height: 220px;"></div>
-            <p style="text-align: center; font-size: 0.78rem; color: var(--color-text-muted); margin-top: 0.35rem;">Drought or bad weather → supply shifts <strong>left</strong></p>
-          </div>
-          <div>
-            <div class="graph-container__svg-wrapper" id="supply-increase-graph" style="height: 220px;"></div>
-            <p style="text-align: center; font-size: 0.78rem; color: var(--color-text-muted); margin-top: 0.35rem;">Better technology → supply shifts <strong>right</strong></p>
-          </div>
+      <h3>Illustrating Supply Shifts</h3>
+      <p>
+        Two common supply shifters move the supply curve in opposite directions. Bad weather makes production harder and shifts supply left. Better technology makes production easier and shifts supply right.
+      </p>
+      <div class="shift-figure-grid">
+        <div class="shift-figure">
+          <div class="shift-figure__graph" id="supply-decrease-graph"></div>
+          <p class="shift-figure__caption">Drought or bad weather shifts supply left.</p>
+        </div>
+        <div class="shift-figure">
+          <div class="shift-figure__graph" id="supply-increase-graph"></div>
+          <p class="shift-figure__caption">Better technology shifts supply right.</p>
         </div>
       </div>
 
@@ -613,39 +610,66 @@
          Shaded band shows the magnitude/direction of the shift.
          ============================================================= */
 
-      /* -- Substitute: margarine demand shifts RIGHT -- */
+      /* -- Related goods: substitutes and complements shift demand -- */
       (function() {
-        var g = EconGraph.create('#subst-graph', {
-          xLabel: 'Quantity of Margarine', yLabel: 'Price',
-          xDomain: [0, 80], yDomain: [0, 7]
+        var graph = EconGraph.create('#related-demand-graph', {
+          xLabel: 'Quantity',
+          yLabel: 'Price',
+          xDomain: [0, 90],
+          yDomain: [0, 8]
         });
-        if (!g) return;
-        // D:  P = 5.5 - Q/15  |  D': P = 7.0 - Q/15  (rightward shift of 22)
-        var D  = function(x) { return 5.5 - x / 15; };
-        var Dp = function(x) { return 7.0 - x / 15; };
-        g.addShaded({ xRange: [0, 76], yTop: Dp, yBottom: D }, '#2e86c1', { opacity: 0.12 });
-        g.addLine(D,  '#2e86c1', { label: 'D',  strokeWidth: 2.5 });
-        g.addLine(Dp, '#2e86c1', { label: "D'", strokeWidth: 2.5, dashed: true });
-        // Label centered vertically between the two curves at Q=35
-        // D(35)=3.17, D'(35)=4.67 → midpoint 3.92
-        g.addLabel(35, 3.92, '\u27A1 shift right', { color: '#2e86c1', fontSize: '11px', fontWeight: '700', anchor: 'middle' });
-      })();
+        if (!graph) return;
 
-      /* -- Complement: SUV demand shifts LEFT -- */
-      (function() {
-        var g = EconGraph.create('#compl-graph', {
-          xLabel: 'Quantity of SUVs', yLabel: 'Price',
-          xDomain: [0, 80], yDomain: [0, 7]
+        var readout = document.getElementById('related-demand-readout');
+        var baseD = function(x) { return 6 - x / 15; };
+        var rightD = function(x) { return 7.4 - x / 15; };
+        var leftD = function(x) { return 4.6 - x / 15; };
+
+        function setActive(mode) {
+          document.querySelectorAll('[data-related-shift]').forEach(function(btn) {
+            btn.classList.toggle('shift-showcase__btn--active', btn.dataset.relatedShift === mode);
+          });
+        }
+
+        function draw(mode) {
+          graph.clear();
+          setActive(mode);
+
+          if (mode === 'base') {
+            graph.addLine(baseD, '#2e86c1', { label: 'D', strokeWidth: 2.75 });
+            graph.addLabel(38, 3.1, 'Original demand', { color: '#2e86c1', fontSize: '11px', fontWeight: '700', anchor: 'middle' });
+            if (readout) {
+              readout.textContent = 'Baseline: the curve shows demand for the original good before the price of a related good changes.';
+            }
+            return;
+          }
+
+          graph.addLine(baseD, '#8aa9bf', { label: 'D', strokeWidth: 1.6, dashed: true });
+
+          if (mode === 'substitute') {
+            graph.addShaded({ xRange: [0, 84], yTop: rightD, yBottom: baseD }, '#2e86c1', { opacity: 0.1 });
+            graph.addLine(rightD, '#2e86c1', { label: "D'", strokeWidth: 2.75 });
+            graph.addLabel(42, 4.25, 'Demand shifts right', { color: '#2e86c1', fontSize: '11px', fontWeight: '700', anchor: 'middle' });
+            if (readout) {
+              readout.innerHTML = '<strong>Substitute price rises:</strong> buyers switch toward the original good. At every price, they now want more, so demand shifts right.';
+            }
+          } else {
+            graph.addShaded({ xRange: [0, 68], yTop: baseD, yBottom: leftD }, '#2e86c1', { opacity: 0.1 });
+            graph.addLine(leftD, '#2e86c1', { label: "D'", strokeWidth: 2.75 });
+            graph.addLabel(31, 2.85, 'Demand shifts left', { color: '#2e86c1', fontSize: '11px', fontWeight: '700', anchor: 'middle' });
+            if (readout) {
+              readout.innerHTML = '<strong>Complement price rises:</strong> the pair becomes more expensive to use. At every price, buyers want less of the original good, so demand shifts left.';
+            }
+          }
+        }
+
+        document.querySelectorAll('[data-related-shift]').forEach(function(btn) {
+          btn.addEventListener('click', function() {
+            draw(btn.dataset.relatedShift);
+          });
         });
-        if (!g) return;
-        // D:  P = 5.5 - Q/15  |  D': P = 4.0 - Q/15  (leftward shift ~22 units)
-        var D  = function(x) { return 5.5 - x / 15; };
-        var Dp = function(x) { return 4.0 - x / 15; };
-        g.addShaded({ xRange: [0, 60], yTop: D, yBottom: Dp }, '#2e86c1', { opacity: 0.12 });
-        g.addLine(D,  '#2e86c1', { label: 'D',  strokeWidth: 2.5 });
-        g.addLine(Dp, '#2e86c1', { label: "D'", strokeWidth: 2.5, dashed: true });
-        // Label centered between curves at Q=28: D(28)=3.63, D'(28)=2.13 → midpoint 2.88
-        g.addLabel(28, 2.88, '\u2B05 shift left', { color: '#2e86c1', fontSize: '11px', fontWeight: '700', anchor: 'middle' });
+
+        draw('base');
       })();
 
       /* -- Supply decrease: drought → supply shifts LEFT -- */
