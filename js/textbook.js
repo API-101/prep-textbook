@@ -569,6 +569,12 @@ const PracticeQuiz = {
         </div>
         <div class="practice-quiz__body">
           <div class="practice-quiz__question-number">Question ${state.current + 1}</div>
+          ${(q.module || q.skill) ? `
+            <div class="practice-quiz__meta">
+              ${q.module ? `<span class="practice-quiz__tag">${cleanHTML(q.module)}</span>` : ''}
+              ${q.skill ? `<span class="practice-quiz__tag practice-quiz__tag--skill">${cleanHTML(q.skill)}</span>` : ''}
+            </div>
+          ` : ''}
           <div class="practice-quiz__question-text">${cleanHTML(q.text)}</div>
       `;
 
@@ -706,8 +712,9 @@ const PracticeQuiz = {
         const userAnswer = parseFloat(state.answers[state.current]);
         const correctAnswer = parseFloat(q.correctAnswer);
         // Accept within tolerance for numerical answers
+        const tolerance = q.tolerance !== undefined ? parseFloat(q.tolerance) : Math.max(0.01 * Math.abs(correctAnswer), 0.5);
         state.correct[state.current] = !isNaN(userAnswer) && !isNaN(correctAnswer) &&
-          Math.abs(userAnswer - correctAnswer) < Math.max(0.01 * Math.abs(correctAnswer), 0.5);
+          Math.abs(userAnswer - correctAnswer) <= tolerance;
       }
       render();
     }
