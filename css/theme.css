@@ -597,6 +597,7 @@ strong {
   border-collapse: collapse;
   margin: var(--space-lg) 0;
   font-size: 0.9375rem;
+  table-layout: fixed;
 }
 .equation-feature-table th,
 .equation-feature-table td {
@@ -614,15 +615,29 @@ strong {
   font-weight: 700;
   color: var(--color-neutral-800);
 }
+.equation-feature-table--graphing th:nth-child(1),
+.equation-feature-table--graphing td:nth-child(1) {
+  width: 24%;
+}
 .equation-feature-table--graphing th:nth-child(2),
 .equation-feature-table--graphing td:nth-child(2) {
-  width: 34%;
-  min-width: 14rem;
+  width: 40%;
+}
+.equation-feature-table--graphing th:nth-child(3),
+.equation-feature-table--graphing td:nth-child(3) {
+  width: 36%;
+}
+.equation-feature-table--quantities th:nth-child(1),
+.equation-feature-table--quantities td:nth-child(1) {
+  width: 22%;
 }
 .equation-feature-table--quantities th:nth-child(2),
 .equation-feature-table--quantities td:nth-child(2) {
-  width: 40%;
-  min-width: 16rem;
+  width: 48%;
+}
+.equation-feature-table--quantities th:nth-child(3),
+.equation-feature-table--quantities td:nth-child(3) {
+  width: 30%;
 }
 
 /* --- Annotated Equation Explainers --- */
