@@ -554,6 +554,141 @@ const PracticeQuiz = {
       return str.replace(/&nbsp;/g, ' ').replace(/<[^>]*>/g, '').replace(/\s+/g, ' ').trim();
     }
 
+    function renderMath() {
+      if (typeof renderMathInElement !== 'undefined') {
+        renderMathInElement(container, {
+          delimiters: [
+            {left: '$$', right: '$$', display: true},
+            {left: '\\(', right: '\\)', display: false}
+          ]
+        });
+      }
+    }
+
+    function getTolerance(q, correctAnswer) {
+      return q.tolerance !== undefined ? parseFloat(q.tolerance) : Math.max(0.01 * Math.abs(correctAnswer), 0.5);
+    }
+
+    function checkQuestion(index) {
+      const q = validQs[index];
+      state.checked[index] = true;
+
+      if (q.type === 'multiple_choice') {
+        const selectedIdx = state.answers[index];
+        state.correct[index] = selectedIdx !== null && q.options[selectedIdx]?.correct === true;
+      } else if (q.type === 'short_answer') {
+        const userAnswer = parseFloat(state.answers[index]);
+        const correctAnswer = parseFloat(q.correctAnswer);
+        const tolerance = getTolerance(q, correctAnswer);
+        state.correct[index] = !isNaN(userAnswer) && !isNaN(correctAnswer) &&
+          Math.abs(userAnswer - correctAnswer) <= tolerance;
+      }
+    }
+
+    function renderQuestionMeta(q) {
+      if (!q.module && !q.skill) return '';
+      return `
+        <div class="practice-quiz__meta">
+          ${q.module ? `<span class="practice-quiz__tag">${cleanHTML(q.module)}</span>` : ''}
+          ${q.skill ? `<span class="practice-quiz__tag practice-quiz__tag--skill">${cleanHTML(q.skill)}</span>` : ''}
+        </div>
+      `;
+    }
+
+    function renderAll() {
+      const checkedCount = state.checked.filter(Boolean).length;
+      const pct = Math.round((checkedCount / validQs.length) * 100);
+      const allChecked = checkedCount === validQs.length;
+      const numCorrect = state.correct.filter(Boolean).length;
+
+      let html = `
+        <div class="practice-quiz practice-quiz--all">
+          <div class="practice-quiz__header">
+            <div class="practice-quiz__title">${title}</div>
+            <div class="practice-quiz__progress">${checkedCount} / ${validQs.length} checked</div>
+          </div>
+          <div class="practice-quiz__progress-bar">
+            <div class="practice-quiz__progress-fill" style="width: ${pct}%"></div>
+          </div>
+          <div class="practice-quiz__all-body">
+      `;
+
+      validQs.forEach((q, qIndex) => {
+        const isChecked = state.checked[qIndex];
+        html += `
+          <section class="practice-quiz__item" data-question-index="${qIndex}">
+            <div class="practice-quiz__question-number">Question ${qIndex + 1}</div>
+            ${renderQuestionMeta(q)}
+            <div class="practice-quiz__question-text">${cleanHTML(q.text)}</div>
+        `;
+
+        if (q.type === 'multiple_choice') {
+          html += '<div class="practice-quiz__options">';
+          const letters = 'ABCDEFGHIJ';
+          q.options.forEach((opt, i) => {
+            const optText = cleanHTML(opt.text);
+            if (!optText) return;
+            let cls = 'practice-quiz__option';
+            if (isChecked) {
+              cls += ' practice-quiz__option--disabled';
+              if (opt.correct) cls += ' practice-quiz__option--correct';
+              else if (state.answers[qIndex] === i) cls += ' practice-quiz__option--incorrect';
+            } else if (state.answers[qIndex] === i) {
+              cls += ' practice-quiz__option--selected';
+            }
+            html += `<div class="${cls}" data-question-index="${qIndex}" data-idx="${i}">
+              <span class="practice-quiz__option-letter">${letters[i]}.</span>
+              <span>${optText}</span>
+            </div>`;
+          });
+          html += '</div>';
+          if (!isChecked) {
+            html += `<button class="practice-quiz__btn practice-quiz__btn--primary practice-quiz__check-one" data-question-index="${qIndex}" ${state.answers[qIndex] === null ? 'disabled' : ''}>Check Answer</button>`;
+          }
+        } else if (q.type === 'short_answer') {
+          const val = state.answers[qIndex] || '';
+          let inputCls = 'practice-quiz__input';
+          if (isChecked) {
+            inputCls += state.correct[qIndex] ? ' practice-quiz__input--correct' : ' practice-quiz__input--incorrect';
+          }
+          html += `<div class="practice-quiz__input-group">
+            <input type="text" class="${inputCls}" data-question-index="${qIndex}" placeholder="Enter your answer..." value="${val}" ${isChecked ? 'disabled' : ''}>
+            ${!isChecked ? `<button class="practice-quiz__btn practice-quiz__btn--primary practice-quiz__check-one" data-question-index="${qIndex}" ${state.answers[qIndex] ? '' : 'disabled'}>Check Answer</button>` : ''}
+          </div>`;
+          if (isChecked && !state.correct[qIndex]) {
+            html += `<div class="practice-quiz__correct-answer">
+              Correct answer: <strong>${q.correctAnswer}</strong>
+            </div>`;
+          }
+        }
+
+        if (isChecked && q.feedback) {
+          const fbClass = state.correct[qIndex] ? 'practice-quiz__feedback--correct' : 'practice-quiz__feedback--incorrect';
+          html += `<div class="practice-quiz__feedback practice-quiz__feedback--visible ${fbClass}">
+            ${state.correct[qIndex] ? '<strong>Correct.</strong> ' : '<strong>Not quite.</strong> '}
+            ${cleanHTML(q.feedback)}
+          </div>`;
+        }
+
+        html += '</section>';
+      });
+
+      html += `
+          </div>
+          <div class="practice-quiz__nav practice-quiz__nav--sticky">
+            <div class="practice-quiz__score-inline">${allChecked ? `${numCorrect} / ${validQs.length} correct` : `${validQs.length - checkedCount} questions unchecked`}</div>
+            <div>
+              <button class="practice-quiz__btn practice-quiz__btn--secondary" id="pq-retry">Reset Quiz</button>
+            </div>
+          </div>
+        </div>
+      `;
+
+      container.innerHTML = html;
+      bindAllEvents();
+      renderMath();
+    }
+
     function render() {
       const q = validQs[state.current];
       const isChecked = state.checked[state.current];
@@ -569,12 +704,7 @@ const PracticeQuiz = {
         </div>
         <div class="practice-quiz__body">
           <div class="practice-quiz__question-number">Question ${state.current + 1}</div>
-          ${(q.module || q.skill) ? `
-            <div class="practice-quiz__meta">
-              ${q.module ? `<span class="practice-quiz__tag">${cleanHTML(q.module)}</span>` : ''}
-              ${q.skill ? `<span class="practice-quiz__tag practice-quiz__tag--skill">${cleanHTML(q.skill)}</span>` : ''}
-            </div>
-          ` : ''}
+          ${renderQuestionMeta(q)}
           <div class="practice-quiz__question-text">${cleanHTML(q.text)}</div>
       `;
 
@@ -646,14 +776,7 @@ const PracticeQuiz = {
 
       container.innerHTML = html;
       bindEvents();
-      if (typeof renderMathInElement !== 'undefined') {
-        renderMathInElement(container, {
-          delimiters: [
-            {left: '$$', right: '$$', display: true},
-            {left: '\\(', right: '\\)', display: false}
-          ]
-        });
-      }
+      renderMath();
     }
 
     function showResults() {
@@ -679,14 +802,7 @@ const PracticeQuiz = {
         </div>
       `;
 
-      if (typeof renderMathInElement !== 'undefined') {
-        renderMathInElement(container, {
-          delimiters: [
-            {left: '$$', right: '$$', display: true},
-            {left: '\\(', right: '\\)', display: false}
-          ]
-        });
-      }
+      renderMath();
 
       document.getElementById('pq-review')?.addEventListener('click', () => {
         state.current = 0;
@@ -702,21 +818,50 @@ const PracticeQuiz = {
     }
 
     function checkAnswer() {
-      const q = validQs[state.current];
-      state.checked[state.current] = true;
-
-      if (q.type === 'multiple_choice') {
-        const selectedIdx = state.answers[state.current];
-        state.correct[state.current] = selectedIdx !== null && q.options[selectedIdx]?.correct === true;
-      } else if (q.type === 'short_answer') {
-        const userAnswer = parseFloat(state.answers[state.current]);
-        const correctAnswer = parseFloat(q.correctAnswer);
-        // Accept within tolerance for numerical answers
-        const tolerance = q.tolerance !== undefined ? parseFloat(q.tolerance) : Math.max(0.01 * Math.abs(correctAnswer), 0.5);
-        state.correct[state.current] = !isNaN(userAnswer) && !isNaN(correctAnswer) &&
-          Math.abs(userAnswer - correctAnswer) <= tolerance;
-      }
+      checkQuestion(state.current);
       render();
+    }
+
+    function bindAllEvents() {
+      container.querySelectorAll('.practice-quiz__option:not(.practice-quiz__option--disabled)').forEach(opt => {
+        opt.addEventListener('click', () => {
+          const qIndex = parseInt(opt.dataset.questionIndex, 10);
+          state.answers[qIndex] = parseInt(opt.dataset.idx, 10);
+          renderAll();
+        });
+      });
+
+      container.querySelectorAll('.practice-quiz__input:not([disabled])').forEach(input => {
+        input.addEventListener('input', (e) => {
+          const qIndex = parseInt(e.target.dataset.questionIndex, 10);
+          state.answers[qIndex] = e.target.value;
+          const btn = container.querySelector(`.practice-quiz__check-one[data-question-index="${qIndex}"]`);
+          if (btn) btn.disabled = !e.target.value.trim();
+        });
+        input.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' && e.target.value.trim()) {
+            const qIndex = parseInt(e.target.dataset.questionIndex, 10);
+            checkQuestion(qIndex);
+            renderAll();
+          }
+        });
+      });
+
+      container.querySelectorAll('.practice-quiz__check-one').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const qIndex = parseInt(btn.dataset.questionIndex, 10);
+          checkQuestion(qIndex);
+          renderAll();
+        });
+      });
+
+      document.getElementById('pq-retry')?.addEventListener('click', () => {
+        state.current = 0;
+        state.answers.fill(null);
+        state.checked.fill(false);
+        state.correct.fill(false);
+        renderAll();
+      });
     }
 
     function bindEvents() {
@@ -749,8 +894,9 @@ const PracticeQuiz = {
       document.getElementById('pq-finish')?.addEventListener('click', showResults);
     }
 
-    render();
-    return { state, render };
+    if (opts.layout === 'all') renderAll();
+    else render();
+    return { state, render: opts.layout === 'all' ? renderAll : render };
   }
 };
 
