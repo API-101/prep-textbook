@@ -219,7 +219,7 @@
 </div>
 
 <p>Let's use our sugar market to illustrate how the gap appears when price is away from equilibrium.</p>
-<table class="equation-feature-table">
+<table class="equation-feature-table equation-feature-table--quantities">
 <thead>
 <tr>
 <th>Price</th>
@@ -359,8 +359,49 @@
           Now that you understand demand, supply, and equilibrium, we can return to the EU Common Agricultural Policy and apply our analytical tools. Recall that the original CAP operated through <strong>price supports</strong>: the government guaranteed a minimum price for agricultural products. If the market price fell below this guaranteed price, the government purchased the unsold surplus at the guaranteed price.
         </p>
 <p>
-          Using our sugar market example, imagine the EU government sets a price support at €3 per kilogram, above the equilibrium price of €2. At a price of €3, quantity demanded falls to \(Q_d = 50 - 10(3) = 20\) million kg, while quantity supplied rises to \(Q_s = 15(3) = 45\) million kg. A surplus of 25 million kilograms emerges. Without government action, this surplus would push prices downward. But the government steps in and purchases the 25 million kilograms at €3/kg, spending \(25 \times 3 = 75\) million euros. Moreover, the government must store this purchased sugar—incurring additional storage costs—or attempt to sell it at steep discounts.
+          Using our sugar market example, imagine the EU government sets a price support at €3 per kilogram, above the equilibrium price of €2.
         </p>
+<table class="equation-feature-table equation-feature-table--quantities">
+<thead>
+<tr>
+<th>Policy step</th>
+<th>Quantity calculation</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Demand at €3</td>
+<td>\(Q_d = 50 - 10(3) = 20\)</td>
+<td>Buyers want 20 million kg.</td>
+</tr>
+<tr>
+<td>Supply at €3</td>
+<td>\(Q_s = 15(3) = 45\)</td>
+<td>Producers want to sell 45 million kg.</td>
+</tr>
+<tr>
+<td>Surplus</td>
+<td>\(45 - 20 = 25\)</td>
+<td>The government must absorb 25 million kg to maintain the price support.</td>
+</tr>
+<tr>
+<td>Fiscal cost</td>
+<td>\(25 \times €3 = €75\) million</td>
+<td>This does not include storage or disposal costs.</td>
+</tr>
+</tbody>
+</table>
+<div class="figure figure--with-controls">
+<div class="figure__graph" id="cap-price-support-graph"></div>
+<div class="figure-controls" aria-label="CAP price-support graph steps">
+<button class="figure-controls__btn" data-cap-step="0" type="button">Equilibrium</button>
+<button class="figure-controls__btn" data-cap-step="1" type="button">Price Support</button>
+<button class="figure-controls__btn" data-cap-step="2" type="button">Surplus</button>
+<button class="figure-controls__btn" data-cap-step="3" type="button">Government Purchase</button>
+</div>
+<div class="figure__caption" id="cap-price-support-caption">Figure 1.5: Start with the market equilibrium, then step through the CAP price-support logic.</div>
+</div>
 <p>
           This example illustrates why the CAP created enormous costs. The surplus is not a one-time problem: as long as the price support remains above equilibrium, surpluses continue to accumulate year after year. Multiply €75 million by the number of years the policy ran, add storage costs across multiple commodities (sugar, butter, wine, grains, dairy), and across 27 EU member states, and the fiscal burden becomes staggering. The CAP consumed roughly 40% of the entire EU budget for decades.
         </p>
@@ -525,6 +566,93 @@
       document.getElementById('show-surplus-example')?.addEventListener('click', showSurplus);
       document.getElementById('show-shortage-example')?.addEventListener('click', showShortage);
       document.getElementById('clear-imbalance-example')?.addEventListener('click', clearExample);
+    })();
+
+    // ===== CAP Price Support Step Graph =====
+    (function() {
+      const graph = EconGraph.create('#cap-price-support-graph', {
+        xLabel: 'Quantity (millions of kg/year)',
+        yLabel: 'Price (€/kg)',
+        xDomain: [0, 60],
+        yDomain: [0, 6]
+      });
+      if (!graph) return;
+
+      const demand = x => 5 - (x / 10);
+      const supply = x => x / 15;
+      const eqQ = 30, eqP = 2;
+      const supportPrice = 3;
+      const qDemanded = 20;
+      const qSupplied = 45;
+      const caption = document.getElementById('cap-price-support-caption');
+
+      function clearStep() {
+        graph.g.selectAll('.cap-step').remove();
+        if (graph.axisLayer) graph.axisLayer.selectAll('.cap-step').remove();
+      }
+
+      function drawBase() {
+        graph.clear();
+        graph.addLine(demand, '#2e86c1', { label: 'D', strokeWidth: 2.5 });
+        graph.addLine(supply, '#c0392b', { label: 'S', strokeWidth: 2.5 });
+        graph.addPoint(eqQ, eqP, { color: '#1a5276', radius: 7, label: 'E*' });
+        graph.addDashedLine([{x: eqQ, y: eqP}, {x: eqQ, y: 0}], '#1a5276', { strokeWidth: 1.5 });
+        graph.addDashedLine([{x: eqQ, y: eqP}, {x: 0, y: eqP}], '#1a5276', { strokeWidth: 1.5 });
+        graph.addLabel(eqQ + 1, 0.28, 'Q* = 30', { color: '#1a5276', fontSize: '11px', fontWeight: '600', anchor: 'start' });
+        graph.addLabel(2, eqP + 0.18, 'P* = 2', { color: '#1a5276', fontSize: '11px', fontWeight: '600', anchor: 'start' });
+      }
+
+      function showStep(step) {
+        drawBase();
+        clearStep();
+        if (step === 0) {
+          if (caption) caption.textContent = 'Figure 1.5: Without intervention, the sugar market clears at P* = €2 and Q* = 30 million kg.';
+          return;
+        }
+
+        graph.addDashedLine([{x: 0, y: supportPrice}, {x: qSupplied, y: supportPrice}], '#8e44ad', { strokeWidth: 2, className: 'cap-step' });
+        graph.addLabel(2, supportPrice + 0.18, 'Price support = €3', { color: '#8e44ad', fontSize: '11px', fontWeight: '600', anchor: 'start', className: 'cap-step' });
+        if (caption && step === 1) {
+          caption.textContent = 'Figure 1.5: The CAP price support holds price at €3, above the equilibrium price of €2.';
+        }
+
+        if (step >= 3) {
+          graph.addShaded({
+            xRange: [qDemanded, qSupplied],
+            yTop: supportPrice,
+            yBottom: 0
+          }, '#8e44ad', { opacity: 0.08, className: 'cap-step' });
+        }
+
+        if (step >= 2) {
+          graph.addDashedLine([{x: qDemanded, y: supportPrice}, {x: qDemanded, y: 0}], '#2e86c1', { strokeWidth: 1.2, className: 'cap-step' });
+          graph.addDashedLine([{x: qSupplied, y: supportPrice}, {x: qSupplied, y: 0}], '#c0392b', { strokeWidth: 1.2, className: 'cap-step' });
+          graph.addDashedLine([{x: qDemanded, y: supportPrice + 0.35}, {x: qSupplied, y: supportPrice + 0.35}], '#c0392b', { strokeWidth: 2, className: 'cap-step' });
+          graph.addPoint(qDemanded, supportPrice, { color: '#2e86c1', radius: 5, className: 'cap-step' });
+          graph.addPoint(qSupplied, supportPrice, { color: '#c0392b', radius: 5, className: 'cap-step' });
+          graph.addLabel(qDemanded, supportPrice - 0.2, 'Qd = 20', { color: '#2e86c1', fontSize: '10px', anchor: 'middle', className: 'cap-step' });
+          graph.addLabel(qSupplied, supportPrice - 0.2, 'Qs = 45', { color: '#c0392b', fontSize: '10px', anchor: 'middle', className: 'cap-step' });
+          graph.addLabel(25, 3.65, 'Surplus = 25', { color: '#c0392b', fontSize: '11px', className: 'cap-step' });
+          if (caption && step === 2) {
+            caption.textContent = 'Figure 1.5: At €3, buyers demand 20 million kg while producers supply 45 million kg, creating a 25 million kg surplus.';
+          }
+        }
+
+        if (step >= 3) {
+          graph.addLabel(27, 1.4, 'Government buys 25 million kg', { color: '#8e44ad', fontSize: '11px', className: 'cap-step' });
+          graph.addLabel(28, 0.9, 'Cost: 25 x €3 = €75m', { color: '#8e44ad', fontSize: '11px', className: 'cap-step' });
+          if (caption) {
+            caption.textContent = 'Figure 1.5: To maintain the price support, the government purchases the 25 million kg surplus at €3/kg, spending €75 million.';
+          }
+        }
+      }
+
+      document.querySelectorAll('[data-cap-step]').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          showStep(parseInt(btn.dataset.capStep, 10));
+        });
+      });
+      showStep(0);
     })();
 
     // ===== Interactive Equilibrium Graph =====
