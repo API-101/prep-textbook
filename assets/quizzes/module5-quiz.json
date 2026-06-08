@@ -24,8 +24,8 @@
     "module": "Module 5",
     "skill": "Consumer Surplus",
     "type": "short_answer",
-    "text": "A demand curve has a price intercept of $100. The equilibrium price is $60, and equilibrium quantity is 50 units. What is consumer surplus?",
-    "feedback": "Consumer surplus is the triangle below demand and above price: \\(\\frac{1}{2} \\times 50 \\times (100 - 60) = 1000\\).",
+    "text": "An inverse demand function has a price intercept of €100. The equilibrium price is €60, and equilibrium quantity is 50 units. What is consumer surplus?",
+    "feedback": "Consumer surplus is the triangle below the demand function and above price: \\(\\frac{1}{2} \\times 50 \\times (100 - 60) = 1000\\).",
     "correctAnswer": "1000",
     "tolerance": 0.01
   },
@@ -34,7 +34,7 @@
     "module": "Module 5",
     "skill": "Producer Surplus",
     "type": "short_answer",
-    "text": "A supply curve has a price intercept of $15. The equilibrium price is $60, and equilibrium quantity is 50 units. What is producer surplus?",
+    "text": "A supply curve has a price intercept of €15. The equilibrium price is €60, and equilibrium quantity is 50 units. What is producer surplus?",
     "feedback": "Producer surplus is the triangle above supply and below price: \\(\\frac{1}{2} \\times 50 \\times (60 - 15) = 1125\\).",
     "correctAnswer": "1125",
     "tolerance": 0.01
@@ -44,7 +44,7 @@
     "module": "Module 5",
     "skill": "Social Surplus",
     "type": "short_answer",
-    "text": "Using the two previous surplus values, consumer surplus is $1000 and producer surplus is $1125. What is social surplus?",
+    "text": "Using the two previous surplus values, consumer surplus is €1000 and producer surplus is €1125. What is social surplus?",
     "feedback": "Social surplus is consumer surplus plus producer surplus: \\(1000 + 1125 = 2125\\).",
     "correctAnswer": "2125",
     "tolerance": 0.01
@@ -125,6 +125,6 @@
         "correct": false
       }
     ],
-    "feedback": "Redistribution changes who receives surplus. Deadweight loss is different: it is value destroyed because mutually beneficial trades are prevented."
+    "feedback": "Redistribution changes who receives surplus. Deadweight loss is different: it is value lost because mutually beneficial trades are prevented."
   }
 ]

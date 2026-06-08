@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Module 5: Consumer and Producer Surplus</title>
   <link rel="stylesheet" href="../css/theme.css?v=3">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
 </head>
 <body>
@@ -61,7 +64,7 @@
       <div class="learning-objectives">
         <div class="learning-objectives__title">Learning Objectives</div>
         <ul>
-          <li>Define consumer surplus and calculate it graphically as the area below the demand curve and above the price line</li>
+          <li>Define consumer surplus and calculate it graphically as the area below the demand function and above the price line</li>
           <li>Define producer surplus and calculate it graphically as the area above the supply curve and below the price line</li>
           <li>Understand social surplus as the sum of consumer and producer surplus, and recognize it as the measure of total economic welfare</li>
           <li>Explain allocative efficiency and identify why it occurs at the market equilibrium</li>
@@ -71,12 +74,12 @@
       </div>
 
       <!-- ===== INTRODUCTION ===== -->
-      <h2 id="introduction">Introduction: Why Surplus Matters for Policy</h2>
+      <h2 id="introduction">Introduction</h2>
       <p>
-        You have now learned how demand and supply curves interact to determine equilibrium price and quantity, and how shifts in these curves change the market outcome. The next question naturally arises: <em>Is this outcome good?</em> Who benefits from a particular market outcome, and who bears the costs?
+        Modules 1-4 showed how demand and supply determine equilibrium price and quantity, and how market conditions can shift those outcomes. Module 5 adds the welfare question: who gains from a market outcome, who loses from a policy intervention, and how much total value is created or lost?
       </p>
       <p>
-        To answer these questions, economists use the concepts of consumer and producer surplus. These measures allow us to quantify the economic welfare of different groups and to compare the effects of different policies. When policymakers consider imposing a price floor on agricultural products, for instance, they are essentially asking: how much will farmers gain, how much will consumers lose, and what total surplus will be destroyed in the process? This module gives you the tools to answer such questions rigorously.
+        Economists answer those questions with consumer surplus, producer surplus, social surplus, and deadweight loss. In the CAP example, these concepts let us separate a transfer to farmers from the efficiency cost created when a price support prevents mutually beneficial trades.
       </p>
 
       <!-- ===== CONSUMER SURPLUS ===== -->
@@ -85,60 +88,50 @@
       <div class="definition-box">
         <div class="definition-box__term">Consumer Surplus</div>
         <div class="definition-box__text">
-          The difference between the maximum price a consumer is willing to pay for a good and the actual market price they pay. It represents the economic benefit or "gain" consumers receive from participating in the market. Graphically, consumer surplus is the area below the demand curve and above the equilibrium price line, up to the equilibrium quantity.
+          The difference between the maximum price a buyer is willing to pay and the actual market price paid. Graphically, consumer surplus is the area below the demand function and above the market price, up to the quantity traded.
         </div>
       </div>
 
       <p>
-        Think about the last time you bought something. You were willing to pay a certain amount — perhaps based on how much you value the item, how much you can afford, or the prices of alternatives. But if you found it at a lower price, you benefited from that bargain. Consumer surplus captures this benefit.
+        In Module 1, willingness to pay explained why the demand function slopes downward. Consumer surplus uses the same idea. Buyers whose willingness to pay is above the market price receive a net benefit from buying: the value they place on the good exceeds what they actually pay.
       </p>
 
       <p>
-        Imagine a tablet computer market. Some consumers would pay $120 for a tablet, while others would only pay $50. If the market price is $80, then consumers willing to pay $120 clearly get a bargain — they save $40 per unit. Those willing to pay $100 save $20. Those willing to pay exactly $80 receive no surplus, while anyone unwilling to pay $80 does not purchase at all. The total consumer surplus is the sum of all these individual gains.
+        In the sugar market, the highest points on the demand function represent buyers with the greatest willingness to pay. At a market price of €2/kg, any buyer willing to pay more than €2/kg receives consumer surplus. Buyers whose willingness to pay is exactly €2/kg are just indifferent; buyers below that value do not purchase.
       </p>
 
       <h3>Calculating Consumer Surplus</h3>
       <p>
-        For a linear demand curve, consumer surplus forms a triangle on the graph. We can calculate it using the basic triangle formula:
+        For a linear demand function, consumer surplus forms a triangle on the graph. We calculate it using the triangle formula:
       </p>
-      <div class="equation-block">
-        <strong>Consumer Surplus = &frac12; &times; Base &times; Height</strong><br><br>
-        CS = &frac12; &times; Q* &times; (P<sub>max</sub> - P*)
+      <div class="equation-line">
+        $$\text{Consumer Surplus} = \frac{1}{2} \times \text{Base} \times \text{Height}$$
+        $$CS = \frac{1}{2} \times Q^* \times (P_{\max} - P^*)$$
       </div>
       <p style="font-size: 0.95rem; color: var(--color-text-secondary); margin-top: var(--space-sm);">
-        Where Q* is the equilibrium quantity, P<sub>max</sub> is the maximum price consumers would pay (the price intercept of the demand curve), and P* is the equilibrium price.
+        \(Q^*\) is the equilibrium quantity, \(P_{\max}\) is the price intercept of the inverse demand function, and \(P^*\) is the equilibrium price.
       </p>
 
-      <div class="callout callout--example">
-        <div class="callout__title">Worked Example: Calculating Consumer Surplus</div>
+      <div class="worked-example">
+        <div class="worked-example__title">Worked Example: Calculating Consumer Surplus</div>
         <p>
-          Suppose the demand curve intercepts the price axis at $80 (meaning the highest anyone would pay is $80). The market equilibrium price is $40, and the equilibrium quantity is 40 units.
+          Suppose the inverse demand function intercepts the price axis at €5/kg. The equilibrium price is €2/kg, and the equilibrium quantity is 30 million kg.
         </p>
-        <p style="margin-top: var(--space-md); font-family: var(--font-mono); background-color: var(--color-neutral-100); padding: var(--space-md); border-radius: var(--radius-sm);">
-          CS = &frac12; &times; 40 &times; ($80 - $40)<br>
-          CS = &frac12; &times; 40 &times; $40<br>
-          CS = 20 &times; $40<br>
-          CS = <strong>$800</strong>
+        <p style="margin-top: var(--space-md); font-family: var(--font-mono);">
+          CS = 1/2 × 30 × (€5 - €2)<br>
+          CS = 1/2 × 30 × €3<br>
+          CS = <strong>€45 million</strong>
         </p>
-      </div>
-
-      <!-- ===== INTERACTIVE GRAPH 1: CS DIAGRAM ===== -->
-      <div class="graph-container">
-        <div class="graph-container__title">Consumer Surplus: Visual Representation</div>
-        <div class="graph-container__description">
-          The blue shaded triangle below the demand curve and above the equilibrium price represents consumer surplus. This is the total benefit consumers receive by purchasing at the market price rather than at their maximum willingness to pay.
-        </div>
-        <div class="graph-container__svg-wrapper" id="graph-consumer-surplus"></div>
       </div>
 
       <!-- Self-Check -->
       <div class="self-check">
         <div class="self-check__question">
-          If the demand curve intercepts the price axis at $100, the equilibrium price is $50, and the equilibrium quantity is 60 units, what is the consumer surplus?
+          If the inverse demand function intercepts the price axis at €6/kg, the equilibrium price is €3/kg, and the equilibrium quantity is 40 million kg, what is consumer surplus?
         </div>
         <button class="self-check__reveal-btn">Show Answer</button>
         <div class="self-check__answer">
-          <strong>Answer:</strong> CS = &frac12; &times; 60 &times; ($100 - $50) = &frac12; &times; 60 &times; $50 = 30 &times; $50 = <strong>$1,500</strong>
+          \(CS = \frac{1}{2} \times 40 \times (6 - 3) = 60\). Consumer surplus is €60 million.
         </div>
       </div>
 
@@ -148,56 +141,55 @@
       <div class="definition-box">
         <div class="definition-box__term">Producer Surplus</div>
         <div class="definition-box__text">
-          The difference between the actual price a producer receives for a good and the minimum price at which they would have been willing to sell. It represents the economic benefit producers receive from participating in the market. Graphically, producer surplus is the area above the supply curve and below the equilibrium price line, up to the equilibrium quantity.
+          The difference between the market price a producer receives and the minimum price at which that producer would have been willing to sell. Graphically, producer surplus is the area above the supply curve and below the market price, up to the quantity traded.
         </div>
       </div>
 
       <p>
-        Just as consumers benefit when they pay less than they would have been willing to pay, producers benefit when they receive more than they would have been willing to accept. A farmer might be willing to supply corn at $3 per bushel, but if the market price is $6, the farmer earns a surplus of $3 per bushel on every unit sold.
+        Producer surplus is the seller-side counterpart to consumer surplus. Producers whose minimum acceptable price is below the market price receive a net benefit from selling. In the CAP setting, this matters because a price support can raise the price received by farmers even while reducing the quantity consumers buy.
       </p>
 
       <h3>Calculating Producer Surplus</h3>
       <p>
         Like consumer surplus, producer surplus for a linear supply curve forms a triangle:
       </p>
-      <div class="equation-block">
-        <strong>Producer Surplus = &frac12; &times; Base &times; Height</strong><br><br>
-        PS = &frac12; &times; Q* &times; (P* - P<sub>min</sub>)
+      <div class="equation-line">
+        $$\text{Producer Surplus} = \frac{1}{2} \times \text{Base} \times \text{Height}$$
+        $$PS = \frac{1}{2} \times Q^* \times (P^* - P_{\min})$$
       </div>
       <p style="font-size: 0.95rem; color: var(--color-text-secondary); margin-top: var(--space-sm);">
-        Where P<sub>min</sub> is the minimum price producers would accept (the price intercept of the supply curve).
+        \(P_{\min}\) is the minimum price producers would accept at the first unit supplied, represented by the price intercept of the supply curve.
       </p>
 
-      <div class="callout callout--example">
-        <div class="callout__title">Worked Example: Calculating Producer Surplus</div>
+      <div class="worked-example">
+        <div class="worked-example__title">Worked Example: Calculating Producer Surplus</div>
         <p>
-          Suppose the supply curve intercepts the price axis at $10 (meaning the minimum price producers will accept is $10). The market equilibrium price is $40, and the equilibrium quantity is 40 units.
+          Suppose the supply curve intercepts the price axis at €0.50/kg. The market equilibrium price is €2/kg, and the equilibrium quantity is 30 million kg.
         </p>
-        <p style="margin-top: var(--space-md); font-family: var(--font-mono); background-color: var(--color-neutral-100); padding: var(--space-md); border-radius: var(--radius-sm);">
-          PS = &frac12; &times; 40 &times; ($40 - $10)<br>
-          PS = &frac12; &times; 40 &times; $30<br>
-          PS = 20 &times; $30<br>
-          PS = <strong>$600</strong>
+        <p style="margin-top: var(--space-md); font-family: var(--font-mono);">
+          PS = 1/2 × 30 × (€2 - €0.50)<br>
+          PS = 1/2 × 30 × €1.50<br>
+          PS = <strong>€22.5 million</strong>
         </p>
       </div>
 
-      <!-- ===== INTERACTIVE GRAPH 2: PS DIAGRAM ===== -->
+      <!-- ===== ANNOTATED SURPLUS DIAGRAM ===== -->
       <div class="graph-container">
-        <div class="graph-container__title">Producer Surplus: Visual Representation</div>
+        <div class="graph-container__title">Annotated Surplus Calculation</div>
         <div class="graph-container__description">
-          The green shaded triangle above the supply curve and below the equilibrium price represents producer surplus. This is the total benefit producers receive by selling at the market price rather than at their minimum acceptable price.
+          The same equilibrium diagram gives both calculations. Consumer surplus uses the blue triangle above the price line; producer surplus uses the green triangle below the price line.
         </div>
-        <div class="graph-container__svg-wrapper" id="graph-producer-surplus"></div>
+        <div class="graph-container__svg-wrapper" id="graph-surplus-annotations"></div>
       </div>
 
       <!-- Self-Check -->
       <div class="self-check">
         <div class="self-check__question">
-          If the supply curve intercepts the price axis at $5, the equilibrium price is $50, and the equilibrium quantity is 100 units, what is the producer surplus?
+          If the supply curve intercepts the price axis at €1/kg, the equilibrium price is €4/kg, and the equilibrium quantity is 20 million kg, what is producer surplus?
         </div>
         <button class="self-check__reveal-btn">Show Answer</button>
         <div class="self-check__answer">
-          <strong>Answer:</strong> PS = &frac12; &times; 100 &times; ($50 - $5) = &frac12; &times; 100 &times; $45 = 50 &times; $45 = <strong>$2,250</strong>
+          \(PS = \frac{1}{2} \times 20 \times (4 - 1) = 30\). Producer surplus is €30 million.
         </div>
       </div>
 
@@ -211,32 +203,32 @@
         </div>
       </div>
 
-      <div class="equation-block">
-        <strong>Social Surplus = Consumer Surplus + Producer Surplus</strong>
+      <div class="equation-line">
+        $$\text{Social Surplus} = \text{Consumer Surplus} + \text{Producer Surplus}$$
       </div>
 
       <div class="definition-box">
         <div class="definition-box__term">Allocative Efficiency</div>
         <div class="definition-box__text">
-          A market outcome is allocatively efficient when the quantity produced and consumed maximizes social surplus. At the competitive equilibrium, price equals both the marginal benefit to consumers (reflected in the demand curve) and the marginal cost to producers (reflected in the supply curve), and social surplus is at its maximum. Any deviation from this equilibrium reduces total welfare.
+          A market outcome is allocatively efficient when the quantity produced and consumed maximizes social surplus. At the competitive equilibrium, the marginal benefit to buyers, reflected in the demand function, equals the marginal cost to sellers, reflected in the supply curve. Any deviation from this quantity prevents some mutually beneficial trades.
         </div>
       </div>
 
       <p>
-        Think of social surplus as the "size of the pie" — the total economic value created in a market. The key insight is that the pie is largest at equilibrium. If you artificially raise or lower the price, or restrict the quantity traded, you don't just redistribute surplus between consumers and producers; you actually shrink the pie.
+        Social surplus measures the total value created by the market. At equilibrium, every unit for which willingness to pay exceeds the cost of production is traded. If a policy raises or lowers the price away from equilibrium, some trades that would have created value no longer happen.
       </p>
 
       <div class="definition-box">
         <div class="definition-box__term">Deadweight Loss</div>
         <div class="definition-box__text">
-          The reduction in social surplus that occurs when a market does not operate at the competitive equilibrium. Deadweight loss represents economic value that is destroyed entirely — it is not gained by any party. It arises because some mutually beneficial trades no longer occur when the market is prevented from reaching equilibrium.
+          The reduction in social surplus that occurs when a market does not operate at the efficient quantity. Deadweight loss is value from mutually beneficial trades that no longer occur; it is not received by consumers, producers, or the government.
         </div>
       </div>
 
       <div class="callout callout--warning">
         <div class="callout__title">Important: Transfer vs. Deadweight Loss</div>
         <p>
-          When a price floor (like in agricultural markets) transfers surplus from consumers to producers, economists do not call this transfer "deadweight loss." Transfer is a redistribution — consumers lose surplus, but producers gain it. Deadweight loss occurs because the total pie shrinks: some transactions that would have been mutually beneficial no longer happen. For example, some consumers who would have bought at the equilibrium price no longer purchase at the higher price floor, and producers no longer supply to them. The benefit that both parties would have received from this trade is permanently lost.
+          A price floor can transfer surplus from consumers to producers, but a transfer is not deadweight loss. A transfer changes who receives surplus. Deadweight loss is the separate value lost because the higher price reduces quantity traded below the efficient quantity.
         </p>
       </div>
 
@@ -245,7 +237,7 @@
 
       <!-- Graph 1: Surplus at Equilibrium -->
       <div class="graph-container">
-        <div class="graph-container__title">Graph 1: Surplus at Equilibrium</div>
+        <div class="graph-container__title">Surplus at Equilibrium</div>
         <div class="graph-container__description">
           At the equilibrium price and quantity, consumer surplus (blue) and producer surplus (green) are both maximized. Social surplus = CS + PS. There is no deadweight loss at equilibrium.
         </div>
@@ -254,82 +246,105 @@
 
       <!-- Graph 2: Surplus Away from Equilibrium (Interactive) -->
       <div class="graph-container">
-        <div class="graph-container__title">Graph 2: What Happens When We Move Away from Equilibrium?</div>
+        <div class="graph-container__title">Moving Away from Equilibrium</div>
         <div class="graph-container__description">
-          Drag the price slider to move above or below equilibrium. Watch how consumer surplus shrinks or grows, producer surplus changes, and deadweight loss (orange) appears. The quantity traded is limited by whichever curve is more restrictive at the controlled price.
+          Move the price slider above or below equilibrium. Consumer surplus, producer surplus, and deadweight loss update as quantity traded changes.
         </div>
         <div class="graph-container__svg-wrapper" id="graph-price-control"></div>
         <div class="graph-container__controls">
           <div class="graph-control">
             <label class="graph-control__label">Controlled Market Price</label>
-            <input type="range" class="graph-control__slider" id="price-slider" min="15" max="65" step="1" value="40">
-            <span class="graph-control__value" id="price-slider-value">$40 (Equilibrium)</span>
+            <input type="range" class="graph-control__slider" id="price-slider" min="20" max="72" step="1" value="46">
+            <span class="graph-control__value" id="price-slider-value">€46 (Equilibrium)</span>
           </div>
         </div>
-        <div class="graph-container__stats">
-          <div class="stat-box">
-            <div class="stat-box__label">Consumer Surplus</div>
-            <div class="stat-box__value" id="stat-cs">$800</div>
-          </div>
-          <div class="stat-box">
-            <div class="stat-box__label">Producer Surplus</div>
-            <div class="stat-box__value" id="stat-ps">$600</div>
-          </div>
-          <div class="stat-box">
-            <div class="stat-box__label">Deadweight Loss</div>
-            <div class="stat-box__value" id="stat-dwl">$0</div>
-          </div>
-          <div class="stat-box">
-            <div class="stat-box__label">Social Surplus</div>
-            <div class="stat-box__value" id="stat-total">$1,400</div>
-          </div>
-        </div>
+        <table class="surplus-readout-table" aria-label="Surplus values for the controlled price graph">
+          <thead>
+            <tr>
+              <th scope="col">Area</th>
+              <th scope="col">Graph color</th>
+              <th scope="col">Value</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="surplus-readout-table__row surplus-readout-table__row--consumer">
+              <th scope="row">Consumer Surplus</th>
+              <td><span class="surplus-swatch surplus-swatch--consumer"></span>Blue</td>
+              <td id="stat-cs">€800</td>
+            </tr>
+            <tr class="surplus-readout-table__row surplus-readout-table__row--producer">
+              <th scope="row">Producer Surplus</th>
+              <td><span class="surplus-swatch surplus-swatch--producer"></span>Green</td>
+              <td id="stat-ps">€600</td>
+            </tr>
+            <tr class="surplus-readout-table__row surplus-readout-table__row--dwl">
+              <th scope="row">Deadweight Loss</th>
+              <td><span class="surplus-swatch surplus-swatch--dwl"></span>Orange</td>
+              <td id="stat-dwl">€0</td>
+            </tr>
+            <tr class="surplus-readout-table__row surplus-readout-table__row--total">
+              <th scope="row">Social Surplus</th>
+              <td>CS + PS</td>
+              <td id="stat-total">€1,400</td>
+            </tr>
+          </tbody>
+        </table>
       </div>
 
       <!-- Graph 3: CAP Price Floor Simulation -->
       <div class="graph-container">
-        <div class="graph-container__title">Graph 3: CAP Price Floor Simulation</div>
+        <div class="graph-container__title">CAP Price Floor Simulation</div>
         <div class="graph-container__description">
-          The EU Common Agricultural Policy supports farmers through price floors. When the CAP price floor is above equilibrium, it creates a surplus of unsold goods (which the government may purchase). Farmers gain, but consumers lose and deadweight loss occurs. Adjust the CAP minimum price slider to see the welfare effects.
+          A CAP-style price floor above equilibrium raises the price received by sellers, reduces quantity demanded, and creates unsold surplus that the government may purchase. Adjust the minimum price to compare the welfare effects.
         </div>
         <div class="graph-container__svg-wrapper" id="graph-cap-policy"></div>
         <div class="graph-container__controls">
           <div class="graph-control">
             <label class="graph-control__label">CAP Minimum Price</label>
-            <input type="range" class="graph-control__slider" id="cap-price-slider" min="20" max="65" step="1" value="40">
-            <span class="graph-control__value" id="cap-price-slider-value">$40 (Free Market)</span>
+            <input type="range" class="graph-control__slider" id="cap-price-slider" min="20" max="72" step="1" value="46">
+            <span class="graph-control__value" id="cap-price-slider-value">€46 (Free Market)</span>
           </div>
         </div>
-        <div class="graph-container__stats">
-          <div class="stat-box">
-            <div class="stat-box__label">Original CS</div>
-            <div class="stat-box__value" id="stat-cap-cs-original">$800</div>
-          </div>
-          <div class="stat-box">
-            <div class="stat-box__label">New CS</div>
-            <div class="stat-box__value" id="stat-cap-cs-new">$800</div>
-          </div>
-          <div class="stat-box">
-            <div class="stat-box__label">Original PS</div>
-            <div class="stat-box__value" id="stat-cap-ps-original">$600</div>
-          </div>
-          <div class="stat-box">
-            <div class="stat-box__label">New PS</div>
-            <div class="stat-box__value" id="stat-cap-ps-new">$600</div>
-          </div>
-          <div class="stat-box">
-            <div class="stat-box__label">Deadweight Loss</div>
-            <div class="stat-box__value" id="stat-cap-dwl">$0</div>
-          </div>
-          <div class="stat-box">
-            <div class="stat-box__label">Gov. Purchase Cost</div>
-            <div class="stat-box__value" id="stat-cap-gov">$0</div>
-          </div>
-        </div>
+        <table class="surplus-readout-table surplus-readout-table--comparison" aria-label="Welfare comparison for the CAP price floor graph">
+          <thead>
+            <tr>
+              <th scope="col">Measure</th>
+              <th scope="col">Graph color</th>
+              <th scope="col">Free market</th>
+              <th scope="col">Current policy</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="surplus-readout-table__row surplus-readout-table__row--consumer">
+              <th scope="row">Consumer Surplus</th>
+              <td><span class="surplus-swatch surplus-swatch--consumer"></span>Blue</td>
+              <td id="stat-cap-cs-original">€800</td>
+              <td id="stat-cap-cs-new">€800</td>
+            </tr>
+            <tr class="surplus-readout-table__row surplus-readout-table__row--producer">
+              <th scope="row">Producer Surplus</th>
+              <td><span class="surplus-swatch surplus-swatch--producer"></span>Green</td>
+              <td id="stat-cap-ps-original">€600</td>
+              <td id="stat-cap-ps-new">€600</td>
+            </tr>
+            <tr class="surplus-readout-table__row surplus-readout-table__row--dwl">
+              <th scope="row">Deadweight Loss</th>
+              <td><span class="surplus-swatch surplus-swatch--dwl"></span>Orange</td>
+              <td>€0</td>
+              <td id="stat-cap-dwl">€0</td>
+            </tr>
+            <tr class="surplus-readout-table__row surplus-readout-table__row--government">
+              <th scope="row">Gov. Purchase Cost</th>
+              <td><span class="surplus-swatch surplus-swatch--government"></span>Purple</td>
+              <td>€0</td>
+              <td id="stat-cap-gov">€0</td>
+            </tr>
+          </tbody>
+        </table>
         <div class="callout callout--insight">
-          <div class="callout__title">Policy Insight: The True Cost of Price Supports</div>
+          <div class="callout__title">Policy Insight: Price Supports Have Several Costs</div>
           <p>
-            The EU spends enormous sums buying up surplus production created by the CAP price floor. Beyond the government's direct spending, however, the policy also creates deadweight loss: consumers buy less, some producers cannot sell all they would like at the floor price, and trades that would have benefited both parties no longer occur. Understanding these welfare effects is central to cost-benefit analysis of agricultural policy.
+            A price support can raise producer surplus for sellers who receive the supported price. It can also reduce consumer surplus, require government purchases of excess supply, and create deadweight loss from trades that no longer occur. Surplus analysis keeps those effects separate.
           </p>
         </div>
       </div>
@@ -338,12 +353,12 @@
       <h2 id="policy-connections">Policy Connection: Analyzing Surplus and CAP Policy Consequences</h2>
 
       <p>
-        The European Union's Common Agricultural Policy is a real-world example where surplus analysis becomes crucial for understanding policy consequences. The CAP uses price floors (minimum prices) and direct payments to support farmer incomes.
+        The European Union's Common Agricultural Policy shows why welfare analysis matters for policy. A price floor is not just a higher price for farmers; it changes consumer surplus, producer surplus, government spending, and total social surplus.
       </p>
 
       <h3>How the CAP Uses Price Floors</h3>
       <p>
-        The EU sets a minimum price for many agricultural products above the equilibrium level. At this higher price:
+        When a minimum price is set above equilibrium:
       </p>
       <ul style="margin: var(--space-md) 0; padding-left: var(--space-xl);">
         <li><strong>Producer surplus increases:</strong> Farmers who sell receive a higher price, gaining surplus.</li>
@@ -355,7 +370,7 @@
       <div class="callout callout--warning">
         <div class="callout__title">The CAP's Welfare Trade-off</div>
         <p>
-          The CAP transfers wealth from consumers and taxpayers to farmers. Whether this is justified depends on policymakers' values and goals. Economics alone cannot say whether supporting farmer incomes is worth the cost. But economics can measure those costs precisely: the deadweight loss, the consumer loss, the government spending, and the farmer gain. This is the analysis policymakers should conduct before implementing such policies.
+          Economics does not decide whether supporting farm income is worth the cost. It does clarify the trade-off: who gains, who loses, how much government spending is required, and how much total surplus is lost through deadweight loss.
         </p>
       </div>
 
@@ -405,11 +420,22 @@
     (function() {
       'use strict';
 
-      // ===== GRAPH 1: Consumer Surplus (Static Example) =====
+      document.addEventListener("DOMContentLoaded", function() {
+        if (typeof renderMathInElement !== 'undefined') {
+          renderMathInElement(document.body, {
+            delimiters: [
+              {left: "$$", right: "$$", display: true},
+              {left: "\\(", right: "\\)", display: false}
+            ]
+          });
+        }
+      });
+
+      // ===== ANNOTATED SURPLUS CALCULATION =====
       (function() {
-        const graph = EconGraph.create('#graph-consumer-surplus', {
+        const graph = EconGraph.create('#graph-surplus-annotations', {
           xLabel: 'Quantity',
-          yLabel: 'Price ($)',
+          yLabel: 'Price (€)',
           xDomain: [0, 100],
           yDomain: [0, 90],
           width: 520,
@@ -418,128 +444,71 @@
         if (!graph) return;
 
         const demandFn = x => 80 - x;
-        const supplyFn = x => 20 + 0.5 * x;
+        const supplyFn = x => 10 + 0.75 * x;
         const eqQ = 40;
         const eqP = 40;
+        const pMax = demandFn(0);
+        const pMin = supplyFn(0);
 
-        // Draw curves
         graph.addLine(demandFn, '#2e86c1', { label: 'Demand', strokeWidth: 2.5 });
         graph.addLine(supplyFn, '#c0392b', { label: 'Supply', strokeWidth: 2.5 });
 
-        // Consumer surplus (blue triangle)
         graph.addShaded({
           xRange: [0, eqQ],
           yTop: demandFn,
           yBottom: eqP
         }, '#2e86c1', { opacity: 0.2 });
 
-        // Producer surplus (green triangle)
         graph.addShaded({
           xRange: [0, eqQ],
           yTop: eqP,
           yBottom: supplyFn
         }, '#1e8449', { opacity: 0.2 });
 
-        // Equilibrium point
         graph.addPoint(eqQ, eqP, { color: '#1a5276', label: 'E*', radius: 6 });
 
-        // Dashed reference lines
         graph.addDashedLine([
           {x: 0, y: eqP},
           {x: eqQ, y: eqP},
           {x: eqQ, y: 0}
         ], '#999', { strokeWidth: 1 });
 
-        // Labels for CS and PS
-        graph.addLabel(10, 55, 'Consumer\nSurplus\nCS = $800', {
+        graph.addLabel(13, 60, 'CS', {
           color: '#2e86c1',
-          fontSize: '12px',
+          fontSize: '16px',
           fontWeight: '700',
           background: true
         });
 
-        graph.addLabel(10, 25, 'Producer\nSurplus\nPS = $600', {
+        graph.addLabel(13, 24, 'PS', {
           color: '#1e8449',
-          fontSize: '12px',
+          fontSize: '16px',
           fontWeight: '700',
           background: true
         });
 
-        graph.addLabel(50, 5, `Q* = ${eqQ}`, { fontSize: '11px', background: true });
-        graph.addLabel(2, 45, `P* = $${eqP}`, { fontSize: '11px', background: true });
+        graph.addLabel(51, 5, `Base = Q* = ${eqQ}`, { fontSize: '11px', background: true });
+        graph.addLabel(2, 44, `P* = €${eqP}`, { fontSize: '11px', background: true });
+        graph.addLabel(55, 72, `CS = 1/2 × ${eqQ} × (${pMax} - ${eqP})\n= €800`, {
+          color: '#2e86c1',
+          fontSize: '11px',
+          fontWeight: '700',
+          background: true
+        });
+        graph.addLabel(55, 17, `PS = 1/2 × ${eqQ} × (${eqP} - ${pMin})\n= €600`, {
+          color: '#1e8449',
+          fontSize: '11px',
+          fontWeight: '700',
+          background: true
+        });
 
       })();
 
-      // ===== GRAPH 2: Producer Surplus (Static Example) =====
-      (function() {
-        const graph = EconGraph.create('#graph-producer-surplus', {
-          xLabel: 'Quantity',
-          yLabel: 'Price ($)',
-          xDomain: [0, 100],
-          yDomain: [0, 90],
-          width: 520,
-          height: 380
-        });
-        if (!graph) return;
-
-        const demandFn = x => 80 - x;
-        const supplyFn = x => 5 + 0.5 * x;
-        const eqQ = 50;
-        const eqP = 30;
-
-        // Draw curves
-        graph.addLine(demandFn, '#2e86c1', { label: 'Demand', strokeWidth: 2.5 });
-        graph.addLine(supplyFn, '#c0392b', { label: 'Supply', strokeWidth: 2.5 });
-
-        // Consumer surplus
-        graph.addShaded({
-          xRange: [0, eqQ],
-          yTop: demandFn,
-          yBottom: eqP
-        }, '#2e86c1', { opacity: 0.2 });
-
-        // Producer surplus
-        graph.addShaded({
-          xRange: [0, eqQ],
-          yTop: eqP,
-          yBottom: supplyFn
-        }, '#1e8449', { opacity: 0.2 });
-
-        // Equilibrium point
-        graph.addPoint(eqQ, eqP, { color: '#1a5276', label: 'E*', radius: 6 });
-
-        // Dashed reference lines
-        graph.addDashedLine([
-          {x: 0, y: eqP},
-          {x: eqQ, y: eqP},
-          {x: eqQ, y: 0}
-        ], '#999', { strokeWidth: 1 });
-
-        // Labels
-        graph.addLabel(10, 60, 'Consumer Surplus', {
-          color: '#2e86c1',
-          fontSize: '12px',
-          fontWeight: '700',
-          background: true
-        });
-
-        graph.addLabel(10, 15, 'Producer Surplus', {
-          color: '#1e8449',
-          fontSize: '12px',
-          fontWeight: '700',
-          background: true
-        });
-
-        graph.addLabel(60, 5, `Q* = ${eqQ}`, { fontSize: '11px', background: true });
-        graph.addLabel(2, 32, `P* = $${eqP}`, { fontSize: '11px', background: true });
-
-      })();
-
-      // ===== GRAPH 3: Equilibrium Surplus (Static) =====
+      // ===== EQUILIBRIUM SURPLUS (Static) =====
       (function() {
         const graph = EconGraph.create('#graph-equilibrium-surplus', {
           xLabel: 'Quantity',
-          yLabel: 'Price ($)',
+          yLabel: 'Price (€)',
           xDomain: [0, 120],
           yDomain: [0, 100],
           width: 520,
@@ -581,14 +550,14 @@
         ], '#999', { strokeWidth: 1 });
 
         // Labels
-        graph.addLabel(20, 75, 'CS = $2,430', {
+        graph.addLabel(20, 75, 'CS = €2,430', {
           color: '#2e86c1',
           fontSize: '13px',
           fontWeight: '700',
           background: true
         });
 
-        graph.addLabel(20, 22, 'PS = $1,620', {
+        graph.addLabel(20, 22, 'PS = €1,620', {
           color: '#1e8449',
           fontSize: '13px',
           fontWeight: '700',
@@ -596,7 +565,7 @@
         });
 
         graph.addLabel(105, 7, `Q* = ${eqQ}`, { fontSize: '11px', background: true });
-        graph.addLabel(5, 50, `P* = $${eqP}`, { fontSize: '11px', background: true });
+        graph.addLabel(5, 50, `P* = €${eqP}`, { fontSize: '11px', background: true });
 
       })();
 
@@ -604,7 +573,7 @@
       (function() {
         const graph = EconGraph.create('#graph-price-control', {
           xLabel: 'Quantity',
-          yLabel: 'Price ($)',
+          yLabel: 'Price (€)',
           xDomain: [0, 120],
           yDomain: [0, 100],
           width: 520,
@@ -630,11 +599,11 @@
 
           // Update slider label
           if (isEquilibrium) {
-            document.getElementById('price-slider-value').textContent = `$${controlPrice} (Equilibrium)`;
+            document.getElementById('price-slider-value').textContent = `€${controlPrice} (Equilibrium)`;
           } else if (controlPrice > eqP) {
-            document.getElementById('price-slider-value').textContent = `$${controlPrice} (Price Floor)`;
+            document.getElementById('price-slider-value').textContent = `€${controlPrice} (Price Floor)`;
           } else {
-            document.getElementById('price-slider-value').textContent = `$${controlPrice} (Price Ceiling)`;
+            document.getElementById('price-slider-value').textContent = `€${controlPrice} (Price Ceiling)`;
           }
 
           // Draw demand and supply
@@ -661,10 +630,10 @@
             graph.addPoint(eqQ, eqP, { color: '#1a5276', label: 'E*', radius: 6 });
 
             // Update stats
-            document.getElementById('stat-cs').textContent = '$' + Math.round(cs);
-            document.getElementById('stat-ps').textContent = '$' + Math.round(ps);
-            document.getElementById('stat-dwl').textContent = '$0';
-            document.getElementById('stat-total').textContent = '$' + Math.round(cs + ps);
+            document.getElementById('stat-cs').textContent = '€' + Math.round(cs);
+            document.getElementById('stat-ps').textContent = '€' + Math.round(ps);
+            document.getElementById('stat-dwl').textContent = '€0';
+            document.getElementById('stat-total').textContent = '€' + Math.round(cs + ps);
 
           } else {
             // Away from equilibrium
@@ -718,10 +687,10 @@
             graph.addPoint(eqQ, eqP, { color: '#ddd', label: 'E*', radius: 5 });
 
             // Update stats
-            document.getElementById('stat-cs').textContent = '$' + Math.round(cs);
-            document.getElementById('stat-ps').textContent = '$' + Math.round(ps);
-            document.getElementById('stat-dwl').textContent = '$' + Math.round(dwl);
-            document.getElementById('stat-total').textContent = '$' + Math.round(cs + ps + dwl);
+            document.getElementById('stat-cs').textContent = '€' + Math.round(cs);
+            document.getElementById('stat-ps').textContent = '€' + Math.round(ps);
+            document.getElementById('stat-dwl').textContent = '€' + Math.round(dwl);
+            document.getElementById('stat-total').textContent = '€' + Math.round(cs + ps);
           }
 
           // Dashed reference to axes
@@ -731,7 +700,7 @@
             {x: eqQ, y: 0}
           ], '#999', { strokeWidth: 1, opacity: 0.5 });
 
-          graph.addLabel(105, controlPrice + 3, `P = $${controlPrice}`, {
+          graph.addLabel(105, controlPrice + 3, `P = €${controlPrice}`, {
             color: '#666',
             fontSize: '11px',
             background: true
@@ -750,7 +719,7 @@
       (function() {
         const graph = EconGraph.create('#graph-cap-policy', {
           xLabel: 'Quantity (millions of tons)',
-          yLabel: 'Price ($/ton)',
+          yLabel: 'Price (€/ton)',
           xDomain: [0, 120],
           yDomain: [0, 100],
           width: 520,
@@ -778,11 +747,11 @@
 
           // Update label
           if (isEquilibrium) {
-            document.getElementById('cap-price-slider-value').textContent = `$${capPrice} (Free Market)`;
+            document.getElementById('cap-price-slider-value').textContent = `€${capPrice} (Free Market)`;
           } else if (capPrice > eqP) {
-            document.getElementById('cap-price-slider-value').textContent = `$${capPrice} (CAP Active)`;
+            document.getElementById('cap-price-slider-value').textContent = `€${capPrice} (CAP Active)`;
           } else {
-            document.getElementById('cap-price-slider-value').textContent = `$${capPrice}`;
+            document.getElementById('cap-price-slider-value').textContent = `€${capPrice}`;
           }
 
           // Draw curves
@@ -806,12 +775,12 @@
             graph.addPoint(eqQ, eqP, { color: '#1a5276', label: 'E*', radius: 6 });
 
             // Stats
-            document.getElementById('stat-cap-cs-original').textContent = '$' + Math.round(csOriginal);
-            document.getElementById('stat-cap-cs-new').textContent = '$' + Math.round(csOriginal);
-            document.getElementById('stat-cap-ps-original').textContent = '$' + Math.round(psOriginal);
-            document.getElementById('stat-cap-ps-new').textContent = '$' + Math.round(psOriginal);
-            document.getElementById('stat-cap-dwl').textContent = '$0';
-            document.getElementById('stat-cap-gov').textContent = '$0';
+            document.getElementById('stat-cap-cs-original').textContent = '€' + Math.round(csOriginal);
+            document.getElementById('stat-cap-cs-new').textContent = '€' + Math.round(csOriginal);
+            document.getElementById('stat-cap-ps-original').textContent = '€' + Math.round(psOriginal);
+            document.getElementById('stat-cap-ps-new').textContent = '€' + Math.round(psOriginal);
+            document.getElementById('stat-cap-dwl').textContent = '€0';
+            document.getElementById('stat-cap-gov').textContent = '€0';
 
           } else if (capPrice > eqP) {
             // CAP price floor (above equilibrium)
@@ -851,13 +820,13 @@
               }, '#1e8449', { opacity: 0.15 });
             }
 
-            // PS from surplus (producers who would sell at cap but can't find buyers)
+            // Government-purchased surplus
             if (qSurplus > 0) {
               graph.addShaded({
                 xRange: [qTraded, qSupplied],
                 yTop: capPrice,
                 yBottom: supplyFn
-              }, '#1e8449', { opacity: 0.25 });
+              }, '#8e44ad', { opacity: 0.25 });
             }
 
             // DWL (roughly the area between traded and eq)
@@ -889,12 +858,12 @@
             }
 
             // Stats
-            document.getElementById('stat-cap-cs-original').textContent = '$' + Math.round(csOriginal);
-            document.getElementById('stat-cap-cs-new').textContent = '$' + Math.round(csNew);
-            document.getElementById('stat-cap-ps-original').textContent = '$' + Math.round(psOriginal);
-            document.getElementById('stat-cap-ps-new').textContent = '$' + Math.round(psNew);
-            document.getElementById('stat-cap-dwl').textContent = '$' + Math.round(Math.max(0, dwl));
-            document.getElementById('stat-cap-gov').textContent = '$' + Math.round(govCost);
+            document.getElementById('stat-cap-cs-original').textContent = '€' + Math.round(csOriginal);
+            document.getElementById('stat-cap-cs-new').textContent = '€' + Math.round(csNew);
+            document.getElementById('stat-cap-ps-original').textContent = '€' + Math.round(psOriginal);
+            document.getElementById('stat-cap-ps-new').textContent = '€' + Math.round(psNew);
+            document.getElementById('stat-cap-dwl').textContent = '€' + Math.round(Math.max(0, dwl));
+            document.getElementById('stat-cap-gov').textContent = '€' + Math.round(govCost);
 
           } else {
             // Price ceiling (below equilibrium)
@@ -940,12 +909,12 @@
             graph.addPoint(eqQ, eqP, { color: '#ddd', label: 'E*', radius: 5 });
 
             // Stats
-            document.getElementById('stat-cap-cs-original').textContent = '$' + Math.round(csOriginal);
-            document.getElementById('stat-cap-cs-new').textContent = '$' + Math.round(csNew);
-            document.getElementById('stat-cap-ps-original').textContent = '$' + Math.round(psOriginal);
-            document.getElementById('stat-cap-ps-new').textContent = '$' + Math.round(psNew);
-            document.getElementById('stat-cap-dwl').textContent = '$' + Math.round(Math.max(0, dwl));
-            document.getElementById('stat-cap-gov').textContent = '$0 (Price Ceiling)';
+            document.getElementById('stat-cap-cs-original').textContent = '€' + Math.round(csOriginal);
+            document.getElementById('stat-cap-cs-new').textContent = '€' + Math.round(csNew);
+            document.getElementById('stat-cap-ps-original').textContent = '€' + Math.round(psOriginal);
+            document.getElementById('stat-cap-ps-new').textContent = '€' + Math.round(psNew);
+            document.getElementById('stat-cap-dwl').textContent = '€' + Math.round(Math.max(0, dwl));
+            document.getElementById('stat-cap-gov').textContent = '€0 (Price Ceiling)';
           }
 
         }
@@ -955,63 +924,6 @@
         // Initialize at equilibrium
         document.getElementById('cap-price-slider').value = Math.round(eqP);
         updateCAP();
-
-      })();
-
-      // ===== PRACTICE QUIZ =====
-      (function() {
-        const quizQuestions = [
-          {
-            type: 'short_answer',
-            text: 'For a market with Qd = 39 - 3P and Qs = 2P - 1 (quantity in millions of metric tons, price in $/kg), what is the equilibrium price?',
-            correctAnswer: '8',
-            feedback: 'At equilibrium, Qd = Qs. So 39 - 3P = 2P - 1. Solving: 40 = 5P, thus P = 8 dollars per kilogram.'
-          },
-          {
-            type: 'short_answer',
-            text: 'Using the same market (Qd = 39 - 3P and Qs = 2P - 1), what is the equilibrium quantity?',
-            correctAnswer: '15',
-            feedback: 'Substitute P = 8 into either equation: Qd = 39 - 3(8) = 39 - 24 = 15 million metric tons. (Or Qs = 2(8) - 1 = 16 - 1 = 15.)'
-          },
-          {
-            type: 'short_answer',
-            text: 'If a demand curve has a price intercept of $100, the equilibrium price is $60, and the equilibrium quantity is 50 units, calculate the consumer surplus.',
-            correctAnswer: '1000',
-            feedback: 'CS = 0.5 × Q × (P_max - P*) = 0.5 × 50 × (100 - 60) = 0.5 × 50 × 40 = 25 × 40 = 1000 dollars.'
-          },
-          {
-            type: 'short_answer',
-            text: 'If a supply curve has a price intercept of $15, the equilibrium price is $60, and the equilibrium quantity is 50 units, calculate the producer surplus.',
-            correctAnswer: '1125',
-            feedback: 'PS = 0.5 × Q × (P* - P_min) = 0.5 × 50 × (60 - 15) = 0.5 × 50 × 45 = 25 × 45 = 1125 dollars.'
-          },
-          {
-            type: 'multiple_choice',
-            text: 'When the government imposes a price floor above the equilibrium price, what happens to deadweight loss?',
-            options: [
-              { text: 'Deadweight loss decreases to zero', correct: false },
-              { text: 'Deadweight loss increases because some mutually beneficial trades no longer occur', correct: true },
-              { text: 'Deadweight loss is unaffected', correct: false },
-              { text: 'Deadweight loss becomes negative', correct: false }
-            ],
-            feedback: 'A price floor prevents the market from clearing at equilibrium. Consumers buy less, producers supply more, and the quantity actually traded falls. This eliminates some trades that would have benefited both parties, creating deadweight loss.'
-          },
-          {
-            type: 'multiple_choice',
-            text: 'At the competitive market equilibrium, what is true?',
-            options: [
-              { text: 'Consumer surplus is maximized, but producer surplus is zero', correct: false },
-              { text: 'Producer surplus is maximized, but consumer surplus is zero', correct: false },
-              { text: 'Social surplus (total surplus) is maximized', correct: true },
-              { text: 'There is always deadweight loss', correct: false }
-            ],
-            feedback: 'At equilibrium, social surplus = consumer surplus + producer surplus is at its maximum. Any movement away from equilibrium (whether through price controls or other interventions) reduces total surplus and creates deadweight loss.'
-          }
-        ];
-
-        PracticeQuiz.create('#practice-quiz-container', quizQuestions, {
-          title: 'Module 5 Practice Quiz'
-        });
 
       })();
 

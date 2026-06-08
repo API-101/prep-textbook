@@ -487,6 +487,82 @@ strong {
   margin-bottom: 0;
 }
 
+.surplus-readout-table {
+  border-collapse: collapse;
+  font-size: 0.875rem;
+  margin-top: var(--space-md);
+  width: 100%;
+}
+
+.surplus-readout-table th,
+.surplus-readout-table td {
+  border-bottom: 1px solid var(--color-neutral-200);
+  padding: var(--space-sm) var(--space-md);
+  text-align: left;
+  vertical-align: middle;
+}
+
+.surplus-readout-table thead th {
+  color: var(--color-neutral-700);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.surplus-readout-table tbody th {
+  color: var(--color-neutral-800);
+  font-weight: 650;
+}
+
+.surplus-readout-table td:last-child,
+.surplus-readout-table--comparison td:nth-child(3),
+.surplus-readout-table--comparison td:nth-child(4) {
+  font-family: var(--font-mono);
+  font-weight: 700;
+}
+
+.surplus-readout-table__row--consumer {
+  background: rgba(46, 134, 193, 0.08);
+}
+
+.surplus-readout-table__row--producer {
+  background: rgba(30, 132, 73, 0.08);
+}
+
+.surplus-readout-table__row--dwl {
+  background: rgba(211, 84, 0, 0.08);
+}
+
+.surplus-readout-table__row--government {
+  background: rgba(142, 68, 173, 0.08);
+}
+
+.surplus-swatch {
+  border-radius: 999px;
+  display: inline-block;
+  height: 0.75rem;
+  margin-right: var(--space-xs);
+  vertical-align: -0.08em;
+  width: 0.75rem;
+}
+
+.surplus-swatch--consumer {
+  background: var(--color-consumer-surplus);
+}
+
+.surplus-swatch--producer {
+  background: var(--color-producer-surplus);
+}
+
+.surplus-swatch--dwl {
+  background: #d35400;
+}
+
+.surplus-swatch--government {
+  background: #8e44ad;
+}
+
 .shift-showcase {
   display: grid;
   grid-template-columns: minmax(0, 1fr) 18rem;
@@ -815,6 +891,28 @@ strong {
   margin: var(--space-lg) 0;
   text-align: center;
   font-size: 1.15rem;
+}
+
+.worked-example {
+  border-left: 3px solid var(--color-neutral-300);
+  margin: var(--space-lg) 0;
+  padding: var(--space-sm) 0 var(--space-sm) var(--space-lg);
+}
+
+.worked-example__title {
+  color: var(--color-neutral-800);
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: var(--space-sm);
+}
+
+.worked-example p {
+  margin-bottom: var(--space-sm);
+}
+
+.worked-example p:last-child {
+  margin-bottom: 0;
 }
 
 .equation-feature-table {
