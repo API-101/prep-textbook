@@ -696,6 +696,94 @@ strong {
 .callout--warning .callout__title { color: var(--color-warning); }
 .callout--example .callout__title { color: var(--color-success); }
 
+/* --- Demand convention comparison --- */
+.convention-compare {
+  margin: var(--space-xl) 0;
+  padding: var(--space-lg);
+  border: 1px solid var(--color-neutral-200);
+  border-left: 4px solid var(--color-primary);
+  background: var(--color-surface);
+}
+
+.convention-compare__header h4 {
+  margin-top: 0;
+  color: var(--color-primary);
+}
+
+.convention-compare__header p,
+.convention-compare__panel p,
+.convention-compare__note {
+  color: var(--color-neutral-700);
+  font-size: 0.9375rem;
+  line-height: 1.55;
+}
+
+.convention-compare__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-lg);
+  margin: var(--space-md) 0;
+}
+
+.convention-compare__panel {
+  min-width: 0;
+  padding: var(--space-md);
+  border: 1px solid var(--color-neutral-200);
+  background: #fff;
+}
+
+.convention-compare__label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--color-neutral-600);
+  margin-bottom: var(--space-xs);
+}
+
+.convention-compare__formula {
+  font-weight: 600;
+  color: var(--color-neutral-800);
+  margin-bottom: var(--space-sm);
+}
+
+.convention-compare__panel svg {
+  max-width: 100%;
+}
+
+.convention-compare__note {
+  margin-bottom: 0;
+  padding-top: var(--space-md);
+  border-top: 1px solid var(--color-neutral-200);
+}
+
+.inversion-procedure {
+  margin: var(--space-lg) 0;
+  padding: var(--space-lg);
+  border: 1px solid var(--color-neutral-200);
+  border-left: 4px solid var(--color-primary-light);
+  background: #fff;
+}
+
+.inversion-procedure__title {
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: var(--space-sm);
+}
+
+.inversion-procedure ol {
+  margin: 0;
+  padding-left: 1.4rem;
+}
+
+.inversion-procedure li {
+  margin-bottom: var(--space-sm);
+  padding-left: var(--space-xs);
+}
+
+.inversion-procedure li:last-child {
+  margin-bottom: 0;
+}
+
 /* --- Math / Equations (KaTeX) --- */
 .equation-block {
   background: #fafafa;
@@ -2448,7 +2536,8 @@ strong {
 @media (max-width: 700px) {
   .shift-showcase,
   .shift-figure-grid,
-  .process-graph-grid {
+  .process-graph-grid,
+  .convention-compare__grid {
     grid-template-columns: 1fr;
   }
 

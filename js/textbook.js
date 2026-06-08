@@ -966,11 +966,13 @@ const CumulativeGlossary = {
   terms: [
     { module: 1, term: 'Ceteris Paribus', definition: 'Latin for "all else equal"; the assumption that all variables except those being studied are held constant.' },
     { module: 1, term: 'Demand', definition: 'The relationship between price and the quantity consumers are willing and able to purchase.' },
-    { module: 1, term: 'Demand Curve', definition: 'A graph showing the relationship between price and quantity demanded, with quantity on the horizontal axis and price on the vertical axis.' },
+    { module: 1, term: 'Demand Function', definition: 'A function showing the relationship between price and quantity demanded.' },
     { module: 1, term: 'Demand Schedule', definition: 'A table showing quantities demanded at a range of prices.' },
+    { module: 1, term: 'Inverse Demand Function', definition: 'A demand function rewritten with price as a function of quantity demanded, so it can be graphed with price on the vertical axis and quantity on the horizontal axis.' },
     { module: 1, term: 'Law of Demand', definition: 'Holding all else equal, a higher price leads to a lower quantity demanded, and a lower price leads to a higher quantity demanded.' },
     { module: 1, term: 'Price', definition: 'What a buyer pays for one unit of a good or service.' },
     { module: 1, term: 'Quantity Demanded', definition: 'The number of units consumers are willing to purchase at a given price.' },
+    { module: 1, term: 'Willingness to Pay', definition: 'The monetary value a consumer places on a market good.' },
     { module: 2, term: 'Law of Supply', definition: 'Holding all else equal, a higher price leads to a greater quantity supplied, and a lower price leads to a lower quantity supplied.' },
     { module: 2, term: 'Quantity Supplied', definition: 'The number of units producers are willing to sell at a given price.' },
     { module: 2, term: 'Supply', definition: 'The relationship between price and the quantity producers are willing and able to sell.' },
@@ -1238,7 +1240,7 @@ const Flashcards = {
        xLabel, yLabel, xDomain, yDomain,
        expectedSlope: 'negative' | 'positive',
        correctLine: x => 5 - 0.1 * x,
-       feedbackMessages: { correct, wrongSlope, tooShort }
+       feedbackMessages: { correct, wrongSlope, wrongIntercept, oneInterceptWrongSlope, wrongSlopeAndIntercepts }
      });
      dg.submit(feedbackEl);
      dg.clear();
@@ -1257,10 +1259,11 @@ const DrawGraph = {
       expectedSlope: 'negative',
       correctLine: null,
       feedbackMessages: {
-        correct: 'Your curve slopes in the right direction.',
+        correct: 'Your line slopes in the right direction.',
         wrongSlope: 'Check the slope direction.',
         wrongIntercept: 'Your slope direction is right, but the line is not anchored to the correct points.',
-        tooShort: 'Try drawing all the way across the graph.'
+        oneInterceptWrongSlope: 'One intercept is correct, but the slope is not.',
+        wrongSlopeAndIntercepts: 'The slope and both intercepts are incorrect.'
       }
     };
 
@@ -1287,6 +1290,13 @@ const DrawGraph = {
 
     const g = svg.append('g')
       .attr('transform', `translate(${margin.left},${margin.top})`);
+
+    const clipId = 'draw-clip-' + selector.replace(/[^a-zA-Z0-9]/g, '');
+    svg.append('defs').append('clipPath')
+      .attr('id', clipId)
+      .append('rect')
+      .attr('width', innerWidth)
+      .attr('height', innerHeight);
 
     // Grid lines
     g.append('g').attr('class', 'grid')
@@ -1353,14 +1363,16 @@ const DrawGraph = {
       .attr('stroke', config.curveColor)
       .attr('stroke-width', 2.5)
       .attr('stroke-dasharray', '8,4')
-      .attr('opacity', 0.8);
+      .attr('opacity', 0.8)
+      .attr('clip-path', `url(#${clipId})`);
 
     // Correct line (hidden until submit)
     const correctPathEl = g.append('path')
       .attr('fill', 'none')
       .attr('stroke', config.curveColor)
       .attr('stroke-width', 3)
-      .attr('opacity', 0);
+      .attr('opacity', 0)
+      .attr('clip-path', `url(#${clipId})`);
 
     // Dot group (rendered above paths)
     const dotsGroup = g.append('g').attr('class', 'draw-graph__dots');
@@ -1424,23 +1436,35 @@ const DrawGraph = {
         }
 
         const [p1, p2] = points;
-        const domainWidth = config.xDomain[1] - config.xDomain[0];
-        const coverage = Math.abs(p2.x - p1.x) / domainWidth;
-
-        if (coverage < 0.4) {
-          feedbackEl.className = 'draw-graph__feedback draw-graph__feedback--warning';
-          feedbackEl.innerHTML = '<strong>Try spanning more of the graph.</strong> ' + config.feedbackMessages.tooShort;
-          return;
-        }
 
         const slope = (p2.y - p1.y) / (p2.x - p1.x);
         const slopeDir = slope > 0 ? 'positive' : 'negative';
         const intercept = p1.y - slope * p1.x;
         const userLine = x => slope * x + intercept;
-        let isCorrect = slopeDir === config.expectedSlope;
+        let isCorrect = false;
+        let slopeClose = slopeDir === config.expectedSlope && isFinite(slope);
+        let verticalInterceptCorrect = false;
+        let horizontalInterceptCorrect = false;
 
         if (config.correctLine) {
           const [x0, x1] = config.xDomain;
+          const y0 = config.correctLine(x0);
+          const y1 = config.correctLine(x1);
+          const expectedSlope = (y1 - y0) / (x1 - x0);
+          const expectedIntercept = y0 - expectedSlope * x0;
+          const expectedHorizontalIntercept = -expectedIntercept / expectedSlope;
+          const userHorizontalIntercept = -intercept / slope;
+          const xRange = config.xDomain[1] - config.xDomain[0];
+          const yRange = config.yDomain[1] - config.yDomain[0];
+          const slopeTolerance = Math.abs(expectedSlope) * 0.08;
+          const yTolerance = yRange * 0.04;
+          const xTolerance = xRange * 0.04;
+
+          slopeClose = isFinite(slope) && Math.abs(slope - expectedSlope) <= Math.max(slopeTolerance, 0.02);
+          verticalInterceptCorrect = Math.abs(intercept - expectedIntercept) <= yTolerance;
+          horizontalInterceptCorrect = isFinite(userHorizontalIntercept) &&
+            Math.abs(userHorizontalIntercept - expectedHorizontalIntercept) <= xTolerance;
+
           const samples = 6;
           const diffs = [];
           for (let i = 0; i <= samples; i++) {
@@ -1453,9 +1477,10 @@ const DrawGraph = {
           }
           if (diffs.length) {
             const meanAbsDiff = diffs.reduce((sum, diff) => sum + diff, 0) / diffs.length;
-            const yRange = config.yDomain[1] - config.yDomain[0];
-            isCorrect = isCorrect && (meanAbsDiff / yRange) < 0.12;
+            isCorrect = slopeClose && verticalInterceptCorrect && horizontalInterceptCorrect && (meanAbsDiff / yRange) < 0.04;
           }
+        } else {
+          isCorrect = slopeClose;
         }
 
         submitted = true;
@@ -1482,14 +1507,21 @@ const DrawGraph = {
 
         if (isCorrect) {
           feedbackEl.className = 'draw-graph__feedback draw-graph__feedback--correct';
-          feedbackEl.innerHTML = '<strong>Great job!</strong> ' + config.feedbackMessages.correct;
+          feedbackEl.innerHTML = '<strong>Correct.</strong> ' + config.feedbackMessages.correct;
         } else {
           feedbackEl.className = 'draw-graph__feedback draw-graph__feedback--incorrect';
-          const diagnosis = slopeDir !== config.expectedSlope
-            ? config.feedbackMessages.wrongSlope
-            : config.feedbackMessages.wrongIntercept;
+          let diagnosis = config.feedbackMessages.wrongSlope;
+          if (config.correctLine) {
+            if (slopeClose && !verticalInterceptCorrect && !horizontalInterceptCorrect) {
+              diagnosis = config.feedbackMessages.wrongIntercept;
+            } else if (!slopeClose && (verticalInterceptCorrect || horizontalInterceptCorrect)) {
+              diagnosis = config.feedbackMessages.oneInterceptWrongSlope;
+            } else if (!slopeClose && !verticalInterceptCorrect && !horizontalInterceptCorrect) {
+              diagnosis = config.feedbackMessages.wrongSlopeAndIntercepts;
+            }
+          }
           feedbackEl.innerHTML = '<strong>Not quite.</strong> ' + diagnosis +
-            ' The correct curve is shown in the graph above.';
+            ' The correct function is shown in the graph above.';
         }
       }
     };
