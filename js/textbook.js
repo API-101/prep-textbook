@@ -595,6 +595,16 @@ const PracticeQuiz = {
       `;
     }
 
+    function getResultsMessage(pct) {
+      if (pct >= 80) {
+        return 'Strong work. You have a solid grasp of this material.';
+      }
+      if (pct >= 50) {
+        return 'Good effort. Consider reviewing the sections where you had difficulty, then try the quiz again.';
+      }
+      return 'Consider reviewing this module\'s content before moving on. Use the interactive graphs and readings to strengthen your understanding, and use the PingPong AI assistant to help with the module\'s concepts.';
+    }
+
     function renderAll() {
       const checkedCount = state.checked.filter(Boolean).length;
       const pct = Math.round((checkedCount / validQs.length) * 100);
@@ -672,6 +682,19 @@ const PracticeQuiz = {
 
         html += '</section>';
       });
+
+      if (allChecked) {
+        const scorePct = Math.round((numCorrect / validQs.length) * 100);
+        html += `
+          <div class="practice-quiz__results practice-quiz__results--inline">
+            <div class="practice-quiz__score">${numCorrect} / ${validQs.length}</div>
+            <div class="practice-quiz__score-label">You answered ${scorePct}% of questions correctly.</div>
+            <p style="color: var(--color-neutral-600); margin-bottom: 0; font-size: 0.9375rem;">
+              ${getResultsMessage(scorePct)}
+            </p>
+          </div>
+        `;
+      }
 
       html += `
           </div>
@@ -793,9 +816,7 @@ const PracticeQuiz = {
           <div class="practice-quiz__score">${numCorrect} / ${validQs.length}</div>
           <div class="practice-quiz__score-label">You answered ${pct}% of questions correctly.</div>
           <p style="color: var(--color-neutral-600); margin-bottom: var(--space-xl); font-size: 0.9375rem;">
-            ${pct >= 80 ? 'Great work! You have a strong grasp of this material.' :
-              pct >= 50 ? 'Good effort. Consider reviewing the sections where you had difficulty.' :
-              'Consider reviewing this module\'s content before moving on. Use the interactive graphs and readings to strengthen your understanding.'}
+            ${getResultsMessage(pct)}
           </p>
           <button class="practice-quiz__btn practice-quiz__btn--secondary" id="pq-review">Review Answers</button>
           <button class="practice-quiz__btn practice-quiz__btn--primary" id="pq-retry" style="margin-left: var(--space-sm);">Try Again</button>
@@ -947,6 +968,13 @@ const SelfCheck = {
         header.className = 'self-check__header';
         header.textContent = 'Self-Check Your Understanding';
         container.insertBefore(header, container.firstChild);
+      }
+
+      if (!container.querySelector('.self-check__guidance')) {
+        const guidance = document.createElement('p');
+        guidance.className = 'self-check__guidance';
+        guidance.innerHTML = '<em>Take time to generate your own explanation. Then show the answer to compare it with yours.</em>';
+        container.insertBefore(guidance, btn);
       }
 
       btn.addEventListener('click', () => {

@@ -1798,6 +1798,13 @@ strong {
   text-align: center;
   padding: var(--space-2xl) var(--space-xl);
 }
+.practice-quiz__results--inline {
+  margin: var(--space-lg) var(--space-lg) var(--space-xl);
+  padding: var(--space-xl);
+  border: 1px solid var(--color-neutral-200);
+  border-radius: var(--radius-md);
+  background: #fff;
+}
 .practice-quiz__score {
   font-family: var(--font-heading);
   font-size: 2.5rem;
