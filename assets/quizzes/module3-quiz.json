@@ -21,17 +21,15 @@
   {
     "id": "5ecc2936ff612243a6f92032b8c4def9",
     "type": "short_answer",
-    "text": "For the graph below, calculate the consumer surplus. &nbsp;",
-    "image": "Q3Q2",
-    "feedback": "Feedback: The consumer surplus is the area of the triangle below the demand curve and above the equilibrium price line. It is represented by the blue triangle in the graph below. &nbsp;Remember, the area of a triangle is defined as follows: AREA= 1/2 * base * height.&nbsp;Thus, CS = 1/2 * 4 * 1 = 2.",
+    "text": "A market has equilibrium quantity 4, a demand-function price intercept of 4, and equilibrium price 3. Calculate consumer surplus.",
+    "feedback": "Consumer surplus is the area below the demand function and above the equilibrium price: CS = 1/2 * 4 * (4 - 3) = 2.",
     "correctAnswer": "2.0"
   },
   {
     "id": "9f15e31c0eab99a4f92dd9770b9dc9a1",
     "type": "short_answer",
-    "text": "For the same graph in the previous question, calculate the producer surplus. &nbsp;",
-    "image": "Q3Q2",
-    "feedback": "Feedback: The producer surplus is the area of the triangle above the supply curve and below the equilibrium price line. It is represented by the blue triangle in the graph below. Thus, PS = 1/2 * 4 * 2 = 4.",
+    "text": "Using the same market, equilibrium quantity is 4, equilibrium price is 3, and the supply-curve price intercept is 1. Calculate producer surplus.",
+    "feedback": "Producer surplus is the area above the supply curve and below the equilibrium price: PS = 1/2 * 4 * (3 - 1) = 4.",
     "correctAnswer": "4.0"
   },
   {
@@ -56,17 +54,15 @@
   {
     "id": "g66c28dc09ab5003d208b189377ecae0d",
     "type": "short_answer",
-    "text": "For the graph below, calculate the consumer surplus.",
-    "image": "Q3Q2",
-    "feedback": "Feedback: The consumer surplus is the area of the triangle below the demand curve and above the equilibrium price line. It is represented by the blue triangle in the graph below. &nbsp;Remember, the area of a triangle is defined as follows: AREA= 1/2 * base * height.&nbsp;Thus, CS = 1/2 * 4 * 1 = 2.",
+    "text": "A market has equilibrium quantity 4, a demand-function price intercept of 4, and equilibrium price 3. Calculate consumer surplus.",
+    "feedback": "Consumer surplus is the area below the demand function and above the equilibrium price: CS = 1/2 * 4 * (4 - 3) = 2.",
     "correctAnswer": "2.0"
   },
   {
     "id": "gec6cffaf1c75bd1cd9fced5ea2c1fefa",
     "type": "short_answer",
-    "text": "For the same graph in the previous question, calculate the producer surplus.",
-    "image": "Q3Q2",
-    "feedback": "Feedback: The producer surplus is the area of the triangle above the supply curve and below the equilibrium price line. It is represented by the blue triangle in the graph below. &nbsp; Thus, PS = 1/2 * 4 * 2 = 4.",
+    "text": "Using the same market, equilibrium quantity is 4, equilibrium price is 3, and the supply-curve price intercept is 1. Calculate producer surplus.",
+    "feedback": "Producer surplus is the area above the supply curve and below the equilibrium price: PS = 1/2 * 4 * (3 - 1) = 4.",
     "correctAnswer": "4.0"
   },
   {

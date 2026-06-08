@@ -175,8 +175,7 @@
   {
     "id": "g871f840fa91a9d16d68d759bb57b77f9",
     "type": "short_answer",
-    "text": "A demand curve is given by the equation:&nbsp;&nbsp; &nbsp;D(p) = 16 – 4p&nbsp;&nbsp; &nbsp;The supply curve is given by the equation:&nbsp;&nbsp; &nbsp;S(p) = 2p – 2&nbsp;&nbsp; &nbsp;The two lines are shown in the graph below: An outward shift in both the demand and supply curves leads to a movement in equilibrium as shown in the graph below: Use the graph to estimate the change in quantity at equilibrium after the supply and demand curves have shifted outward. (Round to the nearest 0.5).",
-    "image": "Q2Q8",
+    "text": "An outward shift in both demand and supply moves equilibrium quantity from 4 to 7.5. What is the change in equilibrium quantity? Round to the nearest 0.5.",
     "feedback": "Feedback: Before the shifters, the quantity at equilibrium was 4 as this is where the demand and supply curves intersect. After the supply and demand shifters, the new quantity at equilibrium is 7.5. &nbsp; Thus, the change is 7.5 – 4 = 3.5.",
     "correctAnswer": "3.5"
   },
@@ -206,7 +205,7 @@
         "correct": false
       }
     ],
-    "feedback": "Feedback: If the supply curve shifts outward, equilibrium quantity must increase. However, we cannot be certain whether price increases since it depends on how large the shift in the demand curve is relative to the shift in the supply curve. &nbsp; For example, here is a graph of where an outward shift leads to a price increase: However, we can also see that an outward shift does not necessarily lead to a price increase, and price remains the same: The price could also decline. For example, if supply shifts a lot and demand doesn’t shift much, the price would decline. Thus, we cannot be certain whether there is a price change."
+    "feedback": "Feedback: If both demand and supply shift outward, equilibrium quantity must increase. Price may rise, fall, or stay the same depending on which curve shifts more. If demand shifts more than supply, price rises; if supply shifts more than demand, price falls; if the shifts offset, price can stay roughly the same."
   },
   {
     "id": "g372d7fb6673f519847dd75e76d789afe",
@@ -389,8 +388,7 @@
   {
     "id": "ad500c89b7cb18a38576edec103dd757",
     "type": "short_answer",
-    "text": "&nbsp; A demand curve is given by the equation:&nbsp;&nbsp; &nbsp;D(p) = 16 – 4p&nbsp;&nbsp; &nbsp;The supply curve is given by the equation:&nbsp;&nbsp; &nbsp;S(p) = 2p – 2&nbsp;&nbsp; &nbsp; The two lines are shown in the graph below: &nbsp; &nbsp; &nbsp; An outward shift in both the demand and supply curves leads to a movement in equilibrium as shown in the graph below: &nbsp; &nbsp; Use the graph to estimate the change in quantity at equilibrium after the supply and demand curves have shifted outward. (Round to the nearest 0.5).",
-    "image": "Q2Q8",
+    "text": "An outward shift in both demand and supply moves equilibrium quantity from 4 to 7.5. What is the change in equilibrium quantity? Round to the nearest 0.5.",
     "feedback": "Before the shifters, the quantity at equilibrium was 4 as this is where the demand and supply curves intersect. After the supply and demand shifters, the new quantity at equilibrium is 7.5. Thus, the change is 7.5 – 4 = 3.5.",
     "correctAnswer": "3.5"
   },
@@ -420,6 +418,6 @@
         "correct": false
       }
     ],
-    "feedback": "If the supply curve shifts outward, equilibrium quantity must increase. However, we cannot be certain whether price increases since it depends on how large the shift in the demand curve is relative to the shift in the supply curve. For example, here is a graph of where an outward shift leads to a price increase: However, we can also see that an outward shift does not necessarily lead to a price increase, and price remains the same: The price could also decline. For example, if supply shifts a lot and demand doesn&#x2019;t shift much, the price would decline. Thus, we cannot be certain whether there is a price change."
+    "feedback": "If both demand and supply shift outward, equilibrium quantity must increase. Price may rise, fall, or stay the same depending on which curve shifts more. If demand shifts more than supply, price rises; if supply shifts more than demand, price falls; if the shifts offset, price can stay roughly the same."
   }
 ]
