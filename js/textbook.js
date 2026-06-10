@@ -1006,7 +1006,7 @@ const CumulativeGlossary = {
     { module: 2, term: 'Supply', definition: 'The relationship between price and the quantity producers are willing and able to sell.' },
     { module: 2, term: 'Supply Curve', definition: 'A graph showing the relationship between price and quantity supplied, with quantity on the horizontal axis and price on the vertical axis.' },
     { module: 2, term: 'Supply Schedule', definition: 'A table showing quantities supplied at a range of prices.' },
-    { module: 3, term: 'Equilibrium', definition: 'The price and quantity where quantity demanded equals quantity supplied.' },
+    { module: 3, term: 'Equilibrium', definition: 'A market condition in which, at the prevailing price, there is no shortage or surplus.' },
     { module: 3, term: 'Equilibrium Price', definition: 'The price at which quantity demanded equals quantity supplied.' },
     { module: 3, term: 'Equilibrium Quantity', definition: 'The quantity bought and sold at the equilibrium price.' },
     { module: 3, term: 'Excess Demand', definition: 'A situation where quantity demanded exceeds quantity supplied at the current price; also called a shortage.' },

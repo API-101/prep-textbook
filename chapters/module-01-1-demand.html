@@ -127,7 +127,7 @@
 
 
 <p>
-        A <strong>demand schedule</strong> is a table showing the quantity demanded at various price levels. When you plot these price-quantity pairs on a graph, you create a <strong>demand function</strong>. By convention in economics, we place quantity on the horizontal axis (x-axis) and price on the vertical axis (y-axis). This convention—which is opposite to typical mathematical practice where the independent variable goes on the x-axis—has historical roots and is universal in economics. The resulting downward-sloping line illustrates the law of demand visually.
+        A <strong>demand schedule</strong> is a table showing the quantity demanded at various price levels. We create the schedule by using a demand function to calculate price-quantity pairs. When we plot those pairs, we graph the <strong>demand curve</strong>. By convention in economics, we place quantity on the horizontal axis (x-axis) and price on the vertical axis (y-axis). This convention—which is opposite to typical mathematical practice where the independent variable goes on the x-axis—has historical roots and is universal in economics. The resulting downward-sloping curve illustrates the law of demand visually.
       </p>
 <div class="convention-compare">
 <div class="convention-compare__header">
@@ -631,7 +631,7 @@
         margin: { top: 24, right: 24, bottom: 46, left: 58 },
         xLabel: 'Price (P)',
         yLabel: 'Quantity demanded (Qd)',
-        xDomain: [0, 6],
+        xDomain: [0, 10],
         yDomain: [0, 60]
       });
       if (mathGraph) {
@@ -639,7 +639,7 @@
         [[0, 50], [1, 40], [3, 20], [5, 0]].forEach(function(pt) {
           mathGraph.addPoint(pt[0], pt[1], { color: '#2e86c1', radius: 4 });
         });
-        mathGraph.addLabel(3.2, 23, 'Higher P, lower Qd', { color: '#2e86c1', fontSize: '11px', anchor: 'start' });
+        mathGraph.addLabel(5.4, 23, 'Higher P, lower Qd', { color: '#2e86c1', fontSize: '11px', anchor: 'start' });
       }
 
       var econGraph = EconGraph.create('#demand-econ-convention-graph', {

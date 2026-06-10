@@ -182,12 +182,12 @@
 </thead>
 <tbody>
 <tr>
-<td>Demand curve</td>
+<td>Inverse Demand Curve</td>
 <td>\(P = 5 - Q_d/10\)</td>
 <td>Downward sloping. It crosses the price axis at \(P = 5\) and the quantity axis at \(Q = 50\).</td>
 </tr>
 <tr>
-<td>Supply curve</td>
+<td>Inverse Supply Curve</td>
 <td>\(P = Q_s/15\)</td>
 <td>Upward sloping. It starts at the origin because producers supply zero when price is zero.</td>
 </tr>
@@ -248,7 +248,7 @@
 <button class="figure-controls__btn" id="show-shortage-example" type="button">Show Shortage</button>
 <button class="figure-controls__btn figure-controls__btn--secondary" id="clear-imbalance-example" type="button">Clear</button>
 </div>
-<div class="figure__caption" id="market-imbalance-caption">Surplus and Shortage Graph Explorer: Use the buttons to show the quantity gap at a price above or below equilibrium.</div>
+<div class="figure__caption" id="market-imbalance-caption">Figure 3.2: Surplus and Shortage Graph Explorer. Use the buttons to show the quantity gap at a price above or below equilibrium.</div>
 </div>
 
 
@@ -288,7 +288,7 @@
 <span class="graph-control__value" id="eq-demand-intercept-value">50</span>
 </div>
 <div class="graph-control">
-<label class="graph-control__label">Demand Slope Coefficient (b): Units lost per price increase</label>
+<label class="graph-control__label">Demand Slope Coefficient (b): Decrease in quantity demanded for a 1-unit price increase</label>
 <input class="graph-control__slider" id="eq-demand-slope" max="30" min="4" step="1" type="range" value="10"/>
 <span class="graph-control__value" id="eq-demand-slope-value">10</span>
 </div>
@@ -298,10 +298,11 @@
 <span class="graph-control__value" id="eq-supply-intercept-value">0</span>
 </div>
 <div class="graph-control">
-<label class="graph-control__label">Supply Slope Coefficient (d): Responsiveness to price</label>
+<label class="graph-control__label">Supply Slope Coefficient (d): Increase in quantity supplied for a 1-unit price increase</label>
 <input class="graph-control__slider" id="eq-supply-slope" max="30" min="4" step="1" type="range" value="15"/>
 <span class="graph-control__value" id="eq-supply-slope-value">15</span>
 </div>
+<button class="draw-graph__clear-btn" id="eq-reset-baseline" type="button">Reset to Baseline</button>
 </div>
 <div class="graph-container__info" id="equilibrium-info">
 <p><strong>Current demand:</strong> <span id="eq-demand-display">\(Q_d = 50 - 10P\)</span></p>
@@ -324,12 +325,12 @@
 <tbody>
 <tr>
 <td>Demand intercept \(a\)</td>
-<td>Shifts the demand curve right or left.</td>
+<td>Shifts the demand curve to the right (higher \(a\)) or to the left (lower \(a\)).</td>
 <td>A higher \(a\) raises both equilibrium price and equilibrium quantity.</td>
 </tr>
 <tr>
 <td>Supply intercept \(c\)</td>
-<td>Shifts the supply curve right or left.</td>
+<td>Shifts the supply curve to the right (higher \(c\)) or to the left (lower \(c\)).</td>
 <td>A higher \(c\) increases equilibrium quantity and lowers equilibrium price.</td>
 </tr>
 <tr>
@@ -359,7 +360,7 @@
           Now that you understand demand, supply, and equilibrium, we can return to the EU Common Agricultural Policy and apply our analytical tools. Recall that the original CAP operated through <strong>price supports</strong>: the government guaranteed a minimum price for agricultural products. If the market price fell below this guaranteed price, the government purchased the unsold surplus at the guaranteed price.
         </p>
 <p>
-          Using our sugar market example, imagine the EU government sets a price support at €3 per kilogram, above the equilibrium price of €2.
+          Using our sugar market example, imagine the EU government sets a price support at €3 per kilogram, above the equilibrium price of €2. How much shortage/surplus does the price support policy create, and what is the fiscal cost to the EU, defined as the monetary expenditure incurred by the government to sustain the policy, net of storage or disposal costs?
         </p>
 <table class="equation-feature-table equation-feature-table--quantities">
 <thead>
@@ -395,18 +396,17 @@
 <div class="figure figure--with-controls">
 <div class="figure__graph" id="cap-price-support-graph"></div>
 <div class="figure-controls" aria-label="CAP price-support graph steps">
-<button class="figure-controls__btn" data-cap-step="0" type="button">Equilibrium</button>
 <button class="figure-controls__btn" data-cap-step="1" type="button">Price Support</button>
 <button class="figure-controls__btn" data-cap-step="2" type="button">Surplus</button>
 <button class="figure-controls__btn" data-cap-step="3" type="button">Government Purchase</button>
 </div>
-<div class="figure__caption" id="cap-price-support-caption">Government Intervention Graph Explorer: Start with the market equilibrium, then step through the CAP price-support logic.</div>
+<div class="figure__caption" id="cap-price-support-caption">Figure 3.3: Government Intervention Graph Explorer. Start with the market equilibrium, then step through the CAP price-support logic.</div>
 </div>
 <p>
           This example illustrates why the CAP created enormous costs. The surplus is not a one-time problem: as long as the price support remains above equilibrium, surpluses continue to accumulate year after year. Multiply €75 million by the number of years the policy ran, add storage costs across multiple commodities (sugar, butter, wine, grains, dairy), and across 27 EU member states, and the fiscal burden becomes staggering. The CAP consumed roughly 40% of the entire EU budget for decades.
         </p>
 <p>
-          Moreover, the CAP created unintended consequences beyond fiscal cost. Guaranteed prices incentivized farmers to specialize in supported commodities even when inefficient. The EU's surplus production was sometimes dumped on world markets at prices below cost, harming farmers in developing countries. It led to environmental problems from intensive production. And it benefited large producers disproportionately.
+          Moreover, the CAP created unintended consequences beyond fiscal cost. Guaranteed prices incentivized farmers to specialize in supported commodities even when inefficient. The EU's surplus production was sometimes dumped on world markets at prices below cost, harming farmers in developing countries. It led to environmental problems from intensive farming. And it primarily benefited large farmers who produced most of the surplus and consequently received most of the EU government transfers.
         </p>
 <p>
           The CAP example demonstrates a crucial lesson: understanding demand and supply is essential for predicting the real-world effects of policy. A well-intentioned policy designed to help farmers created surpluses, inefficient production, environmental problems, international trade distortions, and massive costs to taxpayers. By applying supply-and-demand analysis, we can predict these consequences <em>before</em> implementing a policy, and design better alternatives.
@@ -415,7 +415,7 @@
 <div class="callout callout--insight">
 <div class="callout__title">What to Notice</div>
 <p>
-          The CAP application is just the same market logic in policy language. At the supported price, buyers move to one point on the demand curve and sellers move to a different point on the supply curve. The gap between those two points is the surplus the government has to absorb.
+          The CAP price support policy is a real world application of the tools of market analysis. At the higher-than-equilibrium supported price there is less quantity demanded and more quantity supplied. The horizontal gap between those two points is the surplus that the government has to absorb.
         </p>
 </div>
 
@@ -431,10 +431,10 @@
         In these first three modules, you built the foundational tools of supply and demand analysis: demand, supply, equilibrium, surplus, and shortage.
       </p>
 <p>
-<strong>Demand</strong> represents how buyers respond to price. The law of demand tells us that quantity demanded falls as price rises. We express demand as \(Q_d = a - bP\) and graphically as a downward-sloping curve. To graph demand, invert the equation to get P as a function of Q. The vertical intercept shows the highest price consumers will pay; the horizontal intercept shows quantity demanded when price is zero.
+<strong>Demand</strong> represents how the quantity that consumers are willing to buy responds to changes in prices. The law of demand tells us that quantity demanded falls as price rises. We express demand as \(Q_d = a - bP\) and graphically as a downward-sloping curve. To graph demand, invert the equation to get P as a function of Q. The vertical intercept shows the highest price consumers will pay; the horizontal intercept shows quantity demanded when price is zero.
       </p>
 <p>
-<strong>Supply</strong> represents how sellers respond to price. The law of supply tells us that quantity supplied rises as price rises. We express supply as \(Q_s = c + dP\) and graphically as an upward-sloping curve. Like demand, invert supply to graph it with price on the vertical axis.
+<strong>Supply</strong> represents how the quantity that producers are willing to sell responds to changes in prices. The law of supply tells us that quantity supplied rises as price rises. We express supply as \(Q_s = c + dP\) and graphically as an upward-sloping curve. Like demand, invert supply to graph it with price on the vertical axis.
       </p>
 <p>
 <strong>Equilibrium</strong> occurs where demand and supply intersect. At \(P^*\) and \(Q^*\), quantity demanded equals quantity supplied. Find equilibrium by setting \(Q_d = Q_s\) and solving for \(P^*\), then substituting to find \(Q^*\). Always verify by plugging \(P^*\) into both equations.
@@ -516,6 +516,7 @@
       const supply = x => x / 15;
       const eqQ = 30, eqP = 2;
       const caption = document.getElementById('market-imbalance-caption');
+      const controls = document.querySelectorAll('#show-surplus-example, #show-shortage-example, #clear-imbalance-example');
 
       graph.addLine(demand, '#2e86c1', { label: 'D', strokeWidth: 2.5 });
       graph.addLine(supply, '#c0392b', { label: 'S', strokeWidth: 2.5 });
@@ -523,44 +524,116 @@
       graph.addDashedLine([{x: eqQ, y: eqP}, {x: eqQ, y: 0}], '#1a5276', { strokeWidth: 1.5 });
       graph.addDashedLine([{x: eqQ, y: eqP}, {x: 0, y: eqP}], '#1a5276', { strokeWidth: 1.5 });
 
+      function animateLine(points, color, opts = {}) {
+        const {
+          strokeWidth = 1.5,
+          className = 'region-overlay',
+          delay = 0,
+          duration = 700,
+          dashedFinal = true,
+          opacity = 0.75
+        } = opts;
+        const line = d3.line()
+          .x(d => graph.xScale(d.x))
+          .y(d => graph.yScale(d.y));
+        const path = graph.g.append('path')
+          .datum(points)
+          .attr('class', `graph-reference ${className}`)
+          .attr('d', line)
+          .attr('fill', 'none')
+          .attr('stroke', color)
+          .attr('stroke-width', strokeWidth)
+          .attr('opacity', opacity);
+        const length = path.node().getTotalLength();
+        path
+          .attr('stroke-dasharray', `${length} ${length}`)
+          .attr('stroke-dashoffset', length)
+          .transition()
+          .delay(delay)
+          .duration(duration)
+          .ease(d3.easeCubicOut)
+          .attr('stroke-dashoffset', 0)
+          .on('end', function() {
+            if (dashedFinal) d3.select(this).attr('stroke-dasharray', '5,4');
+            else d3.select(this).attr('stroke-dasharray', null);
+          });
+        return path;
+      }
+
+      function fadePoint(x, y, color, delay) {
+        graph.g.append('circle')
+          .attr('class', 'graph-point region-overlay')
+          .attr('cx', graph.xScale(x))
+          .attr('cy', graph.yScale(y))
+          .attr('r', 5)
+          .attr('fill', color)
+          .attr('stroke', '#fff')
+          .attr('stroke-width', 1.5)
+          .attr('opacity', 0)
+          .transition()
+          .delay(delay)
+          .duration(250)
+          .attr('opacity', 1);
+      }
+
+      function fadeLabel(x, y, text, opts = {}) {
+        const label = graph.addLabel(x, y, text, { ...opts, className: 'region-overlay' });
+        label.attr('opacity', 0)
+          .transition()
+          .delay(opts.delay || 0)
+          .duration(250)
+          .attr('opacity', 1);
+      }
+
+      function lockControls() {
+        controls.forEach(btn => { btn.disabled = true; });
+        window.setTimeout(function() {
+          controls.forEach(btn => { btn.disabled = false; });
+        }, 2800);
+      }
+
       function clearExample() {
         graph.g.selectAll('.region-overlay').remove();
         if (graph.axisLayer) graph.axisLayer.selectAll('.region-overlay').remove();
-        if (caption) caption.textContent = 'Surplus and Shortage Graph Explorer: Use the buttons to show the quantity gap at a price above or below equilibrium.';
+        if (caption) caption.textContent = 'Figure 3.2: Surplus and Shortage Graph Explorer. Use the buttons to show the quantity gap at a price above or below equilibrium.';
       }
 
       function showSurplus() {
         clearExample();
+        lockControls();
         const price = 3;
         const qDemanded = 50 - 10 * price;
         const qSupplied = 15 * price;
-        graph.addDashedLine([{x: 0, y: price}, {x: qSupplied, y: price}], '#c0392b', { strokeWidth: 1.4, className: 'region-overlay' });
-        graph.addDashedLine([{x: qDemanded, y: price}, {x: qDemanded, y: 0}], '#2e86c1', { strokeWidth: 1.2, className: 'region-overlay' });
-        graph.addDashedLine([{x: qSupplied, y: price}, {x: qSupplied, y: 0}], '#c0392b', { strokeWidth: 1.2, className: 'region-overlay' });
-        graph.addDashedLine([{x: qDemanded, y: price + 0.35}, {x: qSupplied, y: price + 0.35}], '#c0392b', { strokeWidth: 2, className: 'region-overlay' });
-        graph.addPoint(qDemanded, price, { color: '#2e86c1', radius: 5, className: 'region-overlay' });
-        graph.addPoint(qSupplied, price, { color: '#c0392b', radius: 5, className: 'region-overlay' });
-        graph.addLabel(25, 3.65, 'Surplus: 45 - 20 = 25', { color: '#c0392b', fontSize: '11px', className: 'region-overlay' });
-        graph.addLabel(qDemanded, price - 0.2, 'Qd = 20', { color: '#2e86c1', fontSize: '10px', anchor: 'middle', className: 'region-overlay' });
-        graph.addLabel(qSupplied, price - 0.2, 'Qs = 45', { color: '#c0392b', fontSize: '10px', anchor: 'middle', className: 'region-overlay' });
-        if (caption) caption.textContent = 'Surplus and Shortage Graph Explorer: At P = €3, quantity supplied is 45 and quantity demanded is 20, so the surplus is 25 million kg.';
+        animateLine([{x: 0, y: price}, {x: qSupplied, y: price}], '#8e44ad', { strokeWidth: 2, delay: 0, dashedFinal: false, opacity: 0.9 });
+        fadeLabel(2, price + 0.2, 'P = €3', { color: '#8e44ad', fontSize: '11px', fontWeight: '600', anchor: 'start', delay: 650 });
+        animateLine([{x: qDemanded, y: 0}, {x: qDemanded, y: price}], '#2e86c1', { strokeWidth: 1.4, delay: 850 });
+        fadePoint(qDemanded, price, '#2e86c1', 1450);
+        fadeLabel(qDemanded, price - 0.2, 'Qd = 20', { color: '#2e86c1', fontSize: '10px', anchor: 'middle', delay: 1500 });
+        animateLine([{x: qSupplied, y: 0}, {x: qSupplied, y: price}], '#c0392b', { strokeWidth: 1.4, delay: 1600 });
+        fadePoint(qSupplied, price, '#c0392b', 2200);
+        fadeLabel(qSupplied, price - 0.2, 'Qs = 45', { color: '#c0392b', fontSize: '10px', anchor: 'middle', delay: 2250 });
+        animateLine([{x: qDemanded, y: price + 0.35}, {x: qSupplied, y: price + 0.35}], '#c0392b', { strokeWidth: 2, delay: 2300, dashedFinal: false, opacity: 0.95 });
+        fadeLabel(25, 3.65, 'Surplus: 45 - 20 = 25', { color: '#c0392b', fontSize: '11px', delay: 2700 });
+        if (caption) caption.textContent = 'Figure 3.2: Surplus and Shortage Graph Explorer. At P = €3, quantity supplied is 45 and quantity demanded is 20, so the surplus is 25 million kg.';
       }
 
       function showShortage() {
         clearExample();
+        lockControls();
         const price = 1;
         const qSupplied = 15 * price;
         const qDemanded = 50 - 10 * price;
-        graph.addDashedLine([{x: 0, y: price}, {x: qDemanded, y: price}], '#2e86c1', { strokeWidth: 1.4, className: 'region-overlay' });
-        graph.addDashedLine([{x: qSupplied, y: price}, {x: qSupplied, y: 0}], '#c0392b', { strokeWidth: 1.2, className: 'region-overlay' });
-        graph.addDashedLine([{x: qDemanded, y: price}, {x: qDemanded, y: 0}], '#2e86c1', { strokeWidth: 1.2, className: 'region-overlay' });
-        graph.addDashedLine([{x: qSupplied, y: price - 0.35}, {x: qDemanded, y: price - 0.35}], '#2e86c1', { strokeWidth: 2, className: 'region-overlay' });
-        graph.addPoint(qSupplied, price, { color: '#c0392b', radius: 5, className: 'region-overlay' });
-        graph.addPoint(qDemanded, price, { color: '#2e86c1', radius: 5, className: 'region-overlay' });
-        graph.addLabel(20, 0.38, 'Shortage: 40 - 15 = 25', { color: '#2e86c1', fontSize: '11px', className: 'region-overlay' });
-        graph.addLabel(qSupplied, price - 0.18, 'Qs = 15', { color: '#c0392b', fontSize: '10px', anchor: 'middle', className: 'region-overlay' });
-        graph.addLabel(qDemanded, price - 0.18, 'Qd = 40', { color: '#2e86c1', fontSize: '10px', anchor: 'middle', className: 'region-overlay' });
-        if (caption) caption.textContent = 'Surplus and Shortage Graph Explorer: At P = €1, quantity demanded is 40 and quantity supplied is 15, so the shortage is 25 million kg.';
+        animateLine([{x: 0, y: price}, {x: qDemanded, y: price}], '#8e44ad', { strokeWidth: 2, delay: 0, dashedFinal: false, opacity: 0.9 });
+        fadeLabel(2, price + 0.2, 'P = €1', { color: '#8e44ad', fontSize: '11px', fontWeight: '600', anchor: 'start', delay: 650 });
+        animateLine([{x: qSupplied, y: 0}, {x: qSupplied, y: price}], '#c0392b', { strokeWidth: 1.4, delay: 850 });
+        fadePoint(qSupplied, price, '#c0392b', 1450);
+        fadeLabel(qSupplied, price - 0.18, 'Qs = 15', { color: '#c0392b', fontSize: '10px', anchor: 'middle', delay: 1500 });
+        animateLine([{x: qDemanded, y: 0}, {x: qDemanded, y: price}], '#2e86c1', { strokeWidth: 1.4, delay: 1600 });
+        fadePoint(qDemanded, price, '#2e86c1', 2200);
+        fadeLabel(qDemanded, price - 0.18, 'Qd = 40', { color: '#2e86c1', fontSize: '10px', anchor: 'middle', delay: 2250 });
+        animateLine([{x: qSupplied, y: price - 0.35}, {x: qDemanded, y: price - 0.35}], '#2e86c1', { strokeWidth: 2, delay: 2300, dashedFinal: false, opacity: 0.95 });
+        fadeLabel(20, 0.38, 'Shortage: 40 - 15 = 25', { color: '#2e86c1', fontSize: '11px', delay: 2700 });
+        if (caption) caption.textContent = 'Figure 3.2: Surplus and Shortage Graph Explorer. At P = €1, quantity demanded is 40 and quantity supplied is 15, so the shortage is 25 million kg.';
       }
 
       document.getElementById('show-surplus-example')?.addEventListener('click', showSurplus);
@@ -585,10 +658,93 @@
       const qDemanded = 20;
       const qSupplied = 45;
       const caption = document.getElementById('cap-price-support-caption');
+      const capControls = document.querySelectorAll('[data-cap-step]');
+      let currentStep = 0;
 
       function clearStep() {
         graph.g.selectAll('.cap-step').remove();
         if (graph.axisLayer) graph.axisLayer.selectAll('.cap-step').remove();
+      }
+
+      function animateLine(points, color, opts = {}) {
+        const {
+          strokeWidth = 1.5,
+          className = 'cap-step',
+          delay = 0,
+          duration = 750,
+          dashedFinal = true,
+          opacity = 0.75
+        } = opts;
+        const line = d3.line()
+          .x(d => graph.xScale(d.x))
+          .y(d => graph.yScale(d.y));
+        const path = graph.g.append('path')
+          .datum(points)
+          .attr('class', `graph-reference ${className}`)
+          .attr('d', line)
+          .attr('fill', 'none')
+          .attr('stroke', color)
+          .attr('stroke-width', strokeWidth)
+          .attr('opacity', opacity);
+        const length = path.node().getTotalLength();
+        path
+          .attr('stroke-dasharray', `${length} ${length}`)
+          .attr('stroke-dashoffset', length)
+          .transition()
+          .delay(delay)
+          .duration(duration)
+          .ease(d3.easeCubicOut)
+          .attr('stroke-dashoffset', 0)
+          .on('end', function() {
+            if (dashedFinal) d3.select(this).attr('stroke-dasharray', '5,4');
+            else d3.select(this).attr('stroke-dasharray', null);
+          });
+        return path;
+      }
+
+      function fadePoint(x, y, color, delay) {
+        graph.g.append('circle')
+          .attr('class', 'graph-point cap-step')
+          .attr('cx', graph.xScale(x))
+          .attr('cy', graph.yScale(y))
+          .attr('r', 5)
+          .attr('fill', color)
+          .attr('stroke', '#fff')
+          .attr('stroke-width', 1.5)
+          .attr('opacity', 0)
+          .transition()
+          .delay(delay)
+          .duration(250)
+          .attr('opacity', 1);
+      }
+
+      function fadeLabel(x, y, text, opts = {}) {
+        const label = graph.addLabel(x, y, text, { ...opts, className: 'cap-step' });
+        label.attr('opacity', 0)
+          .transition()
+          .delay(opts.delay || 0)
+          .duration(300)
+          .attr('opacity', 1);
+      }
+
+      function fadeArea(delay) {
+        const area = graph.addShaded({
+          xRange: [qDemanded, qSupplied],
+          yTop: supportPrice,
+          yBottom: 0
+        }, '#8e44ad', { opacity: 0.12, className: 'cap-step' });
+        area.attr('opacity', 0)
+          .transition()
+          .delay(delay)
+          .duration(700)
+          .attr('opacity', 0.12);
+      }
+
+      function lockCapControls(duration) {
+        capControls.forEach(btn => { btn.disabled = true; });
+        window.setTimeout(function() {
+          capControls.forEach(btn => { btn.disabled = false; });
+        }, duration);
       }
 
       function drawBase() {
@@ -602,49 +758,61 @@
         graph.addLabel(2, eqP + 0.18, 'P* = 2', { color: '#1a5276', fontSize: '11px', fontWeight: '600', anchor: 'start' });
       }
 
-      function showStep(step) {
-        drawBase();
-        clearStep();
-        if (step === 0) {
-          if (caption) caption.textContent = 'Government Intervention Graph Explorer: Without intervention, the sugar market clears at P* = €2 and Q* = 30 million kg.';
+      function drawPriceSupport(delay) {
+        animateLine([{x: 0, y: supportPrice}, {x: qSupplied, y: supportPrice}], '#8e44ad', { strokeWidth: 2, delay: delay, dashedFinal: false, opacity: 0.9 });
+        fadeLabel(2, supportPrice + 0.18, 'Price support = €3', { color: '#8e44ad', fontSize: '11px', fontWeight: '600', anchor: 'start', delay: delay + 800 });
+      }
+
+      function drawSurplus(delay) {
+        animateLine([{x: qDemanded, y: 0}, {x: qDemanded, y: supportPrice}], '#2e86c1', { strokeWidth: 1.4, delay: delay });
+        fadePoint(qDemanded, supportPrice, '#2e86c1', delay + 650);
+        fadeLabel(qDemanded, supportPrice - 0.2, 'Qd = 20', { color: '#2e86c1', fontSize: '10px', anchor: 'middle', delay: delay + 700 });
+        animateLine([{x: qSupplied, y: 0}, {x: qSupplied, y: supportPrice}], '#c0392b', { strokeWidth: 1.4, delay: delay + 800 });
+        fadePoint(qSupplied, supportPrice, '#c0392b', delay + 1450);
+        fadeLabel(qSupplied, supportPrice - 0.2, 'Qs = 45', { color: '#c0392b', fontSize: '10px', anchor: 'middle', delay: delay + 1500 });
+        animateLine([{x: qDemanded, y: supportPrice + 0.35}, {x: qSupplied, y: supportPrice + 0.35}], '#c0392b', { strokeWidth: 2, delay: delay + 1600, dashedFinal: false, opacity: 0.95 });
+        fadeLabel(25, 3.65, 'Surplus = 25', { color: '#c0392b', fontSize: '11px', delay: delay + 2050 });
+      }
+
+      function drawGovernmentPurchase(delay) {
+        fadeArea(delay);
+        fadeLabel(27, 1.4, 'Government buys 25 million kg', { color: '#8e44ad', fontSize: '11px', delay: delay + 600 });
+        fadeLabel(28, 0.9, 'Fiscal cost: 25 x €3 = €75m', { color: '#8e44ad', fontSize: '11px', delay: delay + 900 });
+      }
+
+      function updateCaption(step) {
+        if (!caption) return;
+        if (step === 1) {
+          caption.textContent = 'Figure 3.3: Government Intervention Graph Explorer. The CAP price support holds price at €3, above the equilibrium price of €2.';
+        } else if (step === 2) {
+          caption.textContent = 'Figure 3.3: Government Intervention Graph Explorer. At €3, buyers demand 20 million kg while producers supply 45 million kg, creating a 25 million kg surplus.';
+        } else if (step === 3) {
+          caption.textContent = 'Figure 3.3: Government Intervention Graph Explorer. To maintain the price support, the government purchases the 25 million kg surplus at €3/kg, spending €75 million.';
+        }
+      }
+
+      function showStep(targetStep) {
+        if (targetStep <= currentStep) {
+          updateCaption(targetStep);
           return;
         }
 
-        graph.addDashedLine([{x: 0, y: supportPrice}, {x: qSupplied, y: supportPrice}], '#8e44ad', { strokeWidth: 2, className: 'cap-step' });
-        graph.addLabel(2, supportPrice + 0.18, 'Price support = €3', { color: '#8e44ad', fontSize: '11px', fontWeight: '600', anchor: 'start', className: 'cap-step' });
-        if (caption && step === 1) {
-          caption.textContent = 'Government Intervention Graph Explorer: The CAP price support holds price at €3, above the equilibrium price of €2.';
+        let delay = 0;
+        if (currentStep < 1 && targetStep >= 1) {
+          drawPriceSupport(delay);
+          delay += 1200;
         }
-
-        if (step >= 3) {
-          graph.addShaded({
-            xRange: [qDemanded, qSupplied],
-            yTop: supportPrice,
-            yBottom: 0
-          }, '#8e44ad', { opacity: 0.08, className: 'cap-step' });
+        if (currentStep < 2 && targetStep >= 2) {
+          drawSurplus(delay);
+          delay += 2450;
         }
-
-        if (step >= 2) {
-          graph.addDashedLine([{x: qDemanded, y: supportPrice}, {x: qDemanded, y: 0}], '#2e86c1', { strokeWidth: 1.2, className: 'cap-step' });
-          graph.addDashedLine([{x: qSupplied, y: supportPrice}, {x: qSupplied, y: 0}], '#c0392b', { strokeWidth: 1.2, className: 'cap-step' });
-          graph.addDashedLine([{x: qDemanded, y: supportPrice + 0.35}, {x: qSupplied, y: supportPrice + 0.35}], '#c0392b', { strokeWidth: 2, className: 'cap-step' });
-          graph.addPoint(qDemanded, supportPrice, { color: '#2e86c1', radius: 5, className: 'cap-step' });
-          graph.addPoint(qSupplied, supportPrice, { color: '#c0392b', radius: 5, className: 'cap-step' });
-          graph.addLabel(qDemanded, supportPrice - 0.2, 'Qd = 20', { color: '#2e86c1', fontSize: '10px', anchor: 'middle', className: 'cap-step' });
-          graph.addLabel(qSupplied, supportPrice - 0.2, 'Qs = 45', { color: '#c0392b', fontSize: '10px', anchor: 'middle', className: 'cap-step' });
-          graph.addLabel(25, 3.65, 'Surplus = 25', { color: '#c0392b', fontSize: '11px', className: 'cap-step' });
-          if (caption && step === 2) {
-            caption.textContent = 'Government Intervention Graph Explorer: At €3, buyers demand 20 million kg while producers supply 45 million kg, creating a 25 million kg surplus.';
-          }
+        if (currentStep < 3 && targetStep >= 3) {
+          drawGovernmentPurchase(delay);
+          delay += 1300;
         }
-
-        if (step >= 3) {
-          graph.addLabel(27, 1.4, 'Government buys 25 million kg', { color: '#8e44ad', fontSize: '11px', className: 'cap-step' });
-          graph.addLabel(28, 0.9, 'Cost: 25 x €3 = €75m', { color: '#8e44ad', fontSize: '11px', className: 'cap-step' });
-          if (caption) {
-            caption.textContent = 'Government Intervention Graph Explorer: To maintain the price support, the government purchases the 25 million kg surplus at €3/kg, spending €75 million.';
-          }
-        }
+        currentStep = targetStep;
+        lockCapControls(delay + 250);
+        updateCaption(targetStep);
       }
 
       document.querySelectorAll('[data-cap-step]').forEach(function(btn) {
@@ -652,7 +820,8 @@
           showStep(parseInt(btn.dataset.capStep, 10));
         });
       });
-      showStep(0);
+      drawBase();
+      if (caption) caption.textContent = 'Figure 3.3: Government Intervention Graph Explorer. The sugar market starts at equilibrium: P* = €2 and Q* = 30 million kg.';
     })();
 
     // ===== Interactive Equilibrium Graph =====
@@ -664,6 +833,7 @@
         yDomain: [0, 6]
       });
       if (!graph) return;
+      const defaults = { a: 50, b: 10, c: 0, d: 15 };
 
       function update() {
         graph.clear();
@@ -718,6 +888,13 @@
       document.getElementById('eq-demand-slope').addEventListener('input', update);
       document.getElementById('eq-supply-intercept').addEventListener('input', update);
       document.getElementById('eq-supply-slope').addEventListener('input', update);
+      document.getElementById('eq-reset-baseline')?.addEventListener('click', function() {
+        document.getElementById('eq-demand-intercept').value = defaults.a;
+        document.getElementById('eq-demand-slope').value = defaults.b;
+        document.getElementById('eq-supply-intercept').value = defaults.c;
+        document.getElementById('eq-supply-slope').value = defaults.d;
+        update();
+      });
       update();
     })();
 

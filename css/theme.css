@@ -1237,6 +1237,11 @@ strong {
   background: var(--color-primary-dark);
 }
 
+.figure-controls__btn:disabled {
+  opacity: 0.55;
+  cursor: default;
+}
+
 .figure-controls__btn--secondary {
   background: var(--color-neutral-100);
   color: var(--color-neutral-700);
