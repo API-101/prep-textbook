@@ -631,6 +631,10 @@ strong {
   margin: 0;
 }
 
+.shift-showcase > .shift-figure__caption {
+  grid-column: 1 / -1;
+}
+
 .shift-figure-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));

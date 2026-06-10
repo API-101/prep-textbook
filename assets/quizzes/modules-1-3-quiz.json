@@ -40,7 +40,7 @@
     "module": "Module 1",
     "skill": "Demand",
     "type": "multiple_choice",
-    "text": "Which equation correctly rewrites \\(Q_d = 50 - 10P\\) with price on the left side?",
+    "text": "Which of the following corresponds to the inverse demand equation when demand is \\(Q_d = 50 - 10P\\)?",
     "options": [
       {
         "text": "\\(P = 50 - 10Q_d\\)",
@@ -102,7 +102,7 @@
     "module": "Module 2",
     "skill": "Supply",
     "type": "multiple_choice",
-    "text": "Which price-form equation represents the supply curve \\(Q_s = 15P\\)?",
+    "text": "Which of the following corresponds to the inverse supply equation when supply is \\(Q_s = 15P\\)?",
     "options": [
       {
         "text": "\\(P = 15Q_s\\)",
