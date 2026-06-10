@@ -476,11 +476,45 @@
         <div class="shift-showcase__panel">
           <div class="shift-showcase__title">Practice the Four-Step Process</div>
           <div class="shift-showcase__controls" aria-label="Four-step practice scenarios">
-            <button class="shift-showcase__btn shift-showcase__btn--active" data-four-step-case="supply" type="button">Drought Hits Supply</button>
-            <button class="shift-showcase__btn" data-four-step-case="demand" type="button">Income Raises Demand</button>
+            <button class="shift-showcase__btn shift-showcase__btn--active" data-four-step-case="supply" type="button">Drought Reduces Harvest</button>
+            <button class="shift-showcase__btn" data-four-step-case="demand" type="button">Consumer Income Rises</button>
+          </div>
+          <div class="four-step-practice" aria-label="Four-step practice choices">
+            <div class="four-step-practice__group">
+              <div class="four-step-practice__label">1. Which curve shifts?</div>
+              <div class="four-step-practice__choices">
+                <button class="shift-showcase__btn" data-four-step-choice="curve" data-value="demand" type="button">Demand</button>
+                <button class="shift-showcase__btn" data-four-step-choice="curve" data-value="supply" type="button">Supply</button>
+              </div>
+            </div>
+            <div class="four-step-practice__group">
+              <div class="four-step-practice__label">2. Which direction?</div>
+              <div class="four-step-practice__choices">
+                <button class="shift-showcase__btn" data-four-step-choice="direction" data-value="left" type="button">Left</button>
+                <button class="shift-showcase__btn" data-four-step-choice="direction" data-value="right" type="button">Right</button>
+              </div>
+            </div>
+            <div class="four-step-practice__group">
+              <div class="four-step-practice__label">3. What happens to price?</div>
+              <div class="four-step-practice__choices">
+                <button class="shift-showcase__btn" data-four-step-choice="price" data-value="falls" type="button">Falls</button>
+                <button class="shift-showcase__btn" data-four-step-choice="price" data-value="rises" type="button">Rises</button>
+              </div>
+            </div>
+            <div class="four-step-practice__group">
+              <div class="four-step-practice__label">4. What happens to quantity?</div>
+              <div class="four-step-practice__choices">
+                <button class="shift-showcase__btn" data-four-step-choice="quantity" data-value="falls" type="button">Falls</button>
+                <button class="shift-showcase__btn" data-four-step-choice="quantity" data-value="rises" type="button">Rises</button>
+              </div>
+            </div>
+            <div class="four-step-practice__actions">
+              <button class="graphing-method__next-btn" id="four-step-check" type="button">Check Work</button>
+              <button class="shift-showcase__btn" id="four-step-reset" type="button">Reset</button>
+            </div>
           </div>
           <p class="shift-showcase__readout" id="four-step-interactive-readout">
-            Drought is a supply shifter. Supply shifts left, price rises, and quantity falls.
+            Choose the affected curve first. Your curve and direction choices will update the graph before you check your work.
           </p>
         </div>
         <p class="shift-figure__caption">Figure 4.8: Use the four-step process for both supply and demand shifters.</p>
@@ -877,48 +911,183 @@
         var D = function(x) { return 6 - x / 15; };
         var S = function(x) { return x / 12; };
         var SLeft = function(x) { return (x + 18) / 12; };
+        var SRight = function(x) { return (x - 18) / 12; };
+        var DLeft = function(x) { return 4.8 - x / 15; };
         var DRight = function(x) { return 7.2 - x / 15; };
+        var currentMode = 'supply';
+        var checked = false;
+        var response = {
+          curve: null,
+          direction: null,
+          price: null,
+          quantity: null
+        };
 
-        function setActive(mode) {
+        var answerKey = {
+          supply: {
+            curve: 'supply',
+            direction: 'left',
+            price: 'rises',
+            quantity: 'falls',
+            newQ: 30,
+            newP: 4,
+            explanation: 'Drought reduces production, so supply shifts left. The new equilibrium has a higher price and a lower quantity.'
+          },
+          demand: {
+            curve: 'demand',
+            direction: 'right',
+            price: 'rises',
+            quantity: 'rises',
+            newQ: 48,
+            newP: 4,
+            explanation: 'Higher income increases demand for this normal good, so demand shifts right. The new equilibrium has a higher price and a higher quantity.'
+          }
+        };
+
+        function setActive() {
           document.querySelectorAll('[data-four-step-case]').forEach(function(btn) {
-            btn.classList.toggle('shift-showcase__btn--active', btn.dataset.fourStepCase === mode);
+            btn.classList.toggle('shift-showcase__btn--active', btn.dataset.fourStepCase === currentMode);
+          });
+          document.querySelectorAll('[data-four-step-choice]').forEach(function(btn) {
+            var field = btn.dataset.fourStepChoice;
+            btn.classList.toggle('shift-showcase__btn--active', response[field] === btn.dataset.value);
           });
         }
 
-        function draw(mode) {
-          graph.clear();
-          setActive(mode);
-          graph.addLine(D, '#2e86c1', { label: 'D', strokeWidth: mode === 'demand' ? 1.6 : 2.5, dashed: mode === 'demand' });
-          graph.addLine(S, '#c0392b', { label: 'S', strokeWidth: mode === 'supply' ? 1.6 : 2.5, dashed: mode === 'supply' });
-          graph.addPoint(40, 10 / 3, { color: '#8a8f94', radius: 4, label: 'E*' });
+        function selectedShiftCurve() {
+          if (response.curve === 'supply' && response.direction === 'left') return SLeft;
+          if (response.curve === 'supply' && response.direction === 'right') return SRight;
+          if (response.curve === 'demand' && response.direction === 'left') return DLeft;
+          if (response.curve === 'demand' && response.direction === 'right') return DRight;
+          return null;
+        }
 
-          if (mode === 'supply') {
-            animateShiftCurve(graph, SLeft, '#c0392b', { label: "S'", strokeWidth: 2.75, includeX: [30] });
-            graph.addPoint(30, 4, { color: '#1a5276', radius: 6, label: "E'" });
-            addEqGuides(graph, 30, 4, '#1a5276');
-            addShiftArrow(graph, 45, 4.25, 30, 4.25, '#c0392b', '1. Supply shifts left', 30, 4.95);
-            graph.addLabel(29, 1.2, '2. Compare: P rises, Q falls', { color: '#1a5276', fontSize: '13px', fontWeight: '800', anchor: 'middle', className: 'dynamic' });
-            if (readout) {
-              readout.innerHTML = '<strong>Drought hits supply:</strong> Step 1 draw E*. Step 2 identify supply as the affected curve. Step 3 shift supply left. Step 4 compare: price rises and quantity falls.';
+        function selectedShiftColor() {
+          return response.curve === 'demand' ? '#2e86c1' : '#c0392b';
+        }
+
+        function updateReadout(message, className) {
+          if (!readout) return;
+          readout.classList.remove('four-step-practice__feedback--correct', 'four-step-practice__feedback--incorrect', 'four-step-practice__feedback--hint');
+          if (className) readout.classList.add(className);
+          readout.innerHTML = message;
+        }
+
+        function resetResponse() {
+          response.curve = null;
+          response.direction = null;
+          response.price = null;
+          response.quantity = null;
+          checked = false;
+        }
+
+        function draw(showSolution, animateShift) {
+          graph.clear();
+          setActive();
+
+          var key = answerKey[currentMode];
+          var shiftCurve = selectedShiftCurve();
+          var shiftColor = selectedShiftColor();
+          var shiftLabel = response.curve === 'demand' ? "D'" : "S'";
+          var directionLabel = response.direction === 'left' ? '\u2190 selected shift' : 'selected shift \u2192';
+          var directionLabelX = response.direction === 'left' ? 31 : 49;
+          var directionLabelY = response.curve === 'demand' ? 4.85 : 4.95;
+
+          graph.addLine(D, '#2e86c1', { label: 'D', strokeWidth: response.curve === 'demand' ? 1.6 : 2.5, dashed: response.curve === 'demand' });
+          graph.addLine(S, '#c0392b', { label: 'S', strokeWidth: response.curve === 'supply' ? 1.6 : 2.5, dashed: response.curve === 'supply' });
+          graph.addPoint(40, 10 / 3, { color: showSolution ? '#8a8f94' : '#1a5276', radius: showSolution ? 4 : 6, label: 'E*' });
+          addEqGuides(graph, 40, 10 / 3, showSolution ? '#8a8f94' : '#1a5276');
+
+          if (shiftCurve) {
+            if (animateShift === false) {
+              graph.addLine(shiftCurve, shiftColor, { label: shiftLabel, strokeWidth: 2.75 });
+            } else {
+              animateShiftCurve(graph, shiftCurve, shiftColor, { label: shiftLabel, strokeWidth: 2.75, includeX: [key.newQ] });
             }
+            addShiftArrow(graph, response.direction === 'left' ? 45 : 30, 4.2, response.direction === 'left' ? 30 : 45, 4.2, shiftColor, directionLabel, directionLabelX, directionLabelY);
+          } else if (response.curve) {
+            graph.addLabel(40, 1.1, 'Now choose the shift direction', { color: '#1a5276', fontSize: '13px', fontWeight: '800', anchor: 'middle', className: 'dynamic' });
           } else {
-            animateShiftCurve(graph, DRight, '#2e86c1', { label: "D'", strokeWidth: 2.75, includeX: [48] });
-            graph.addPoint(48, 4, { color: '#1a5276', radius: 6, label: "E'" });
-            addEqGuides(graph, 48, 4, '#1a5276');
-            addShiftArrow(graph, 30, 4.05, 45, 4.05, '#2e86c1', '1. Demand shifts right', 45, 4.75);
-            graph.addLabel(51, 1.25, '2. Compare: P rises, Q rises', { color: '#1a5276', fontSize: '13px', fontWeight: '800', anchor: 'middle', className: 'dynamic' });
-            if (readout) {
-              readout.innerHTML = '<strong>Income raises demand:</strong> Step 1 draw E*. Step 2 identify demand as the affected curve. Step 3 shift demand right. Step 4 compare: price rises and quantity rises.';
-            }
+            graph.addLabel(40, 1.1, 'Choose the curve that shifts', { color: '#1a5276', fontSize: '13px', fontWeight: '800', anchor: 'middle', className: 'dynamic' });
           }
+
+          if (showSolution) {
+            if (!shiftCurve || response.curve !== key.curve || response.direction !== key.direction) {
+              var correctCurve = key.curve === 'supply' ? SLeft : DRight;
+              var correctColor = key.curve === 'supply' ? '#c0392b' : '#2e86c1';
+              graph.addLine(correctCurve, correctColor, { label: key.curve === 'supply' ? "S'" : "D'", strokeWidth: 2.75 });
+            }
+            graph.addPoint(key.newQ, key.newP, { color: '#1a5276', radius: 6, label: "E'" });
+            addEqGuides(graph, key.newQ, key.newP, '#1a5276');
+            graph.addLabel(key.newQ, 1.2, 'P ' + key.price + ', Q ' + key.quantity, {
+              color: '#1a5276',
+              fontSize: '13px',
+              fontWeight: '800',
+              anchor: 'middle',
+              className: 'dynamic'
+            });
+          }
+        }
+
+        function checkWork() {
+          var key = answerKey[currentMode];
+          var missing = Object.keys(response).filter(function(field) { return !response[field]; });
+          checked = true;
+
+          if (missing.length) {
+            setActive();
+            updateReadout('<strong>Keep going:</strong> Make a choice for each step before checking the graph.', 'four-step-practice__feedback--hint');
+            return;
+          }
+
+          var wrong = Object.keys(key).filter(function(field) {
+            return ['curve', 'direction', 'price', 'quantity'].indexOf(field) !== -1 && response[field] !== key[field];
+          });
+
+          if (!wrong.length) {
+            draw(true, false);
+            updateReadout('<strong>Correct.</strong> ' + key.explanation + ' E\u2032 is at P = ' + key.newP + ' and Q = ' + key.newQ + ', compared with E* at P = 3.33 and Q = 40.', 'four-step-practice__feedback--correct');
+            return;
+          }
+
+          if (wrong.indexOf('curve') !== -1 || wrong.indexOf('direction') !== -1) {
+            draw(false, false);
+          } else {
+            setActive();
+          }
+          updateReadout('<strong>Revise your graph.</strong> Check the step marked by your graph choice first: does the event change buyers or producers, and does it increase or decrease the amount offered at each price?', 'four-step-practice__feedback--incorrect');
         }
 
         document.querySelectorAll('[data-four-step-case]').forEach(function(btn) {
           btn.addEventListener('click', function() {
-            draw(btn.dataset.fourStepCase);
+            currentMode = btn.dataset.fourStepCase;
+            resetResponse();
+            updateReadout('Choose the affected curve first. Your curve and direction choices will update the graph before you check your work.');
+            draw(false);
           });
         });
-        draw('supply');
+        document.querySelectorAll('[data-four-step-choice]').forEach(function(btn) {
+          btn.addEventListener('click', function() {
+            var field = btn.dataset.fourStepChoice;
+            response[field] = btn.dataset.value;
+            checked = false;
+            updateReadout('Build the graph from your choices, then check whether the new equilibrium moves the way you predicted.');
+            if (field === 'curve' || field === 'direction') {
+              draw(false, true);
+            } else {
+              setActive();
+            }
+          });
+        });
+        var checkBtn = document.getElementById('four-step-check');
+        if (checkBtn) checkBtn.addEventListener('click', checkWork);
+        var resetBtn = document.getElementById('four-step-reset');
+        if (resetBtn) resetBtn.addEventListener('click', function() {
+          resetResponse();
+          updateReadout('Choose the affected curve first. Your curve and direction choices will update the graph before you check your work.');
+          draw(false);
+        });
+        draw(false, true);
       })();
 
       /* =============================================================

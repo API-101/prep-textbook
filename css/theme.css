@@ -635,6 +635,51 @@ strong {
   grid-column: 1 / -1;
 }
 
+.four-step-practice {
+  display: grid;
+  gap: var(--space-md);
+  margin-bottom: var(--space-md);
+}
+
+.four-step-practice__group {
+  display: grid;
+  gap: var(--space-xs);
+}
+
+.four-step-practice__label {
+  color: var(--color-neutral-700);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0;
+}
+
+.four-step-practice__choices,
+.four-step-practice__actions {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-xs);
+}
+
+.four-step-practice__choices .shift-showcase__btn,
+.four-step-practice__actions .shift-showcase__btn,
+.four-step-practice__actions .graphing-method__next-btn {
+  font-size: 0.8rem;
+  padding: 0.55rem 0.65rem;
+  text-align: center;
+}
+
+.four-step-practice__feedback--correct {
+  color: #1d6f3f;
+}
+
+.four-step-practice__feedback--incorrect {
+  color: #9f3a2f;
+}
+
+.four-step-practice__feedback--hint {
+  color: var(--color-primary);
+}
+
 .shift-figure-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
