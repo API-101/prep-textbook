@@ -142,13 +142,12 @@ const EconGraph = {
 
     // Add clip-path so lines/areas don't overflow the plot area
     const clipId = 'clip-' + selector.replace(/[^a-zA-Z0-9]/g, '');
-    const clipPad = 8;
     svg.append('defs').append('clipPath')
       .attr('id', clipId)
       .append('rect')
-      .attr('x', -clipPad).attr('y', -clipPad)
-      .attr('width', innerWidth + clipPad * 2)
-      .attr('height', innerHeight + clipPad * 2);
+      .attr('x', 0).attr('y', 0)
+      .attr('width', innerWidth)
+      .attr('height', innerHeight);
     g.attr('clip-path', `url(#${clipId})`);
 
     // Re-append axes on top of clip group so they remain visible
@@ -322,7 +321,9 @@ const EconGraph = {
       className = ''
     } = opts;
 
-    ctx.g.append('circle')
+    const layer = ctx.axisLayer || ctx.g;
+
+    layer.append('circle')
       .attr('class', `graph-point ${className}`)
       .attr('cx', ctx.xScale(x))
       .attr('cy', ctx.yScale(y))
@@ -332,7 +333,7 @@ const EconGraph = {
       .attr('stroke-width', 1.5);
 
     if (label) {
-      const labelG = ctx.g.append('g').attr('class', `graph-label ${className}`);
+      const labelG = layer.append('g').attr('class', `graph-label ${className}`);
       const bgRect = labelG.append('rect')
         .attr('fill', '#fff').attr('rx', 2).attr('ry', 2).attr('opacity', 0.85);
       const labelText = labelG.append('text')
@@ -1321,14 +1322,11 @@ const DrawGraph = {
       .attr('transform', `translate(${margin.left},${margin.top})`);
 
     const clipId = 'draw-clip-' + selector.replace(/[^a-zA-Z0-9]/g, '');
-    const clipPad = 8;
     svg.append('defs').append('clipPath')
       .attr('id', clipId)
       .append('rect')
-      .attr('x', -clipPad)
-      .attr('y', -clipPad)
-      .attr('width', innerWidth + clipPad * 2)
-      .attr('height', innerHeight + clipPad * 2);
+      .attr('width', innerWidth)
+      .attr('height', innerHeight);
 
     // Grid lines
     g.append('g').attr('class', 'grid')
