@@ -1002,7 +1002,7 @@ const CumulativeGlossary = {
     { module: 1, term: 'Law of Demand', definition: 'Holding all else equal, a higher price leads to a lower quantity demanded, and a lower price leads to a higher quantity demanded.' },
     { module: 1, term: 'Price', definition: 'What a buyer pays for one unit of a good or service.' },
     { module: 1, term: 'Quantity Demanded', definition: 'The number of units consumers are willing to purchase at a given price.' },
-    { module: 1, term: 'Willingness to Pay', definition: 'The monetary value a consumer places on a market good.' },
+    { module: 1, term: 'Willingness to Pay', definition: 'Maximum price a consumer is willing to pay for a good or service.' },
     { module: 2, term: 'Law of Supply', definition: 'Holding all else equal, a higher price leads to a greater quantity supplied, and a lower price leads to a lower quantity supplied.' },
     { module: 2, term: 'Quantity Supplied', definition: 'The number of units producers are willing to sell at a given price.' },
     { module: 2, term: 'Supply', definition: 'The relationship between price and the quantity producers are willing and able to sell.' },
@@ -1288,6 +1288,9 @@ const DrawGraph = {
       yDomain: [0, 5],
       expectedSlope: 'negative',
       correctLine: null,
+      snapToGrid: true,
+      snapX: 1,
+      snapY: 1,
       feedbackMessages: {
         correct: 'Your line slopes in the right direction.',
         wrongSlope: 'Check the slope direction.',
@@ -1435,12 +1438,19 @@ const DrawGraph = {
       });
     }
 
+    function snapValue(value, increment) {
+      if (!config.snapToGrid || !increment || increment <= 0) return value;
+      return Math.round(value / increment) * increment;
+    }
+
     // Click handler — two-point model
     drawArea.on('click', function(event) {
       if (submitted || points.length >= 2) return;
       const [mx, my] = d3.pointer(event, g.node());
-      const cx = Math.max(config.xDomain[0], Math.min(config.xDomain[1], xScale.invert(mx)));
-      const cy = Math.max(config.yDomain[0], Math.min(config.yDomain[1], yScale.invert(my)));
+      const rawX = xScale.invert(mx);
+      const rawY = yScale.invert(my);
+      const cx = Math.max(config.xDomain[0], Math.min(config.xDomain[1], snapValue(rawX, config.snapX)));
+      const cy = Math.max(config.yDomain[0], Math.min(config.yDomain[1], snapValue(rawY, config.snapY)));
       points.push({ x: cx, y: cy });
       redrawDots();
       redrawUserLine();
