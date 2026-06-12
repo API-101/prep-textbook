@@ -70,7 +70,7 @@
 <div class="definition-box">
 <div class="definition-box__term">Market Equilibrium</div>
 <div class="definition-box__text">
-          The price and quantity at which the quantity demanded equals the quantity supplied (\(Q_d = Q_s\)). At equilibrium, there is no inherent tendency for the price to change. Graphically, equilibrium is the point where the demand and supply curves intersect.
+          The price and quantity at which the quantity demanded equals the quantity supplied (\(Q_D = Q_S\)). At equilibrium, there is no inherent tendency for the price to change. Graphically, equilibrium is the point where the demand and supply curves intersect.
         </div>
 </div>
 <p>
@@ -89,7 +89,7 @@
 <div class="math-steps">
 <div class="math-step">
 <div class="math-step__label">Start with:</div>
-<div class="math-step__expr">$$Q_d = Q_s$$</div>
+<div class="math-step__expr">$$Q_D = Q_S$$</div>
 </div>
 <div class="math-step">
 <div class="math-step__label">Substitute:</div>
@@ -118,12 +118,12 @@
 <!-- Self-check: find equilibrium -->
 <div class="self-check">
 <div class="self-check__question">
-          Set \(Q_d = 50 - 10P\) equal to \(Q_s = 15P\) and solve for the equilibrium price and quantity.
+          Set \(Q_D = 50 - 10P\) equal to \(Q_S = 15P\) and solve for the equilibrium price and quantity.
         </div>
 <p class="self-check__guidance"><em>Take time to generate your own explanation. Then show the answer to compare it with yours.</em></p>
 <button class="self-check__reveal-btn">Show Answer</button>
 <div class="self-check__answer">
-          Set \(Q_d = Q_s\): \(50 - 10P = 15P\) → \(50 = 25P\) → \(P^* = 2\) €/kg.<br/><br/>
+          Set \(Q_D = Q_S\): \(50 - 10P = 15P\) → \(50 = 25P\) → \(P^* = 2\) €/kg.<br/><br/>
           Substitute back: \(Q^* = 15(2) = 30\). Check with demand: \(Q^* = 50 - 10(2) = 30\) ✓<br/><br/>
           Equilibrium: \(P^* = 2\) and \(Q^* = 30\)
           million kg/year.
@@ -144,7 +144,7 @@
 <div class="math-steps">
 <div class="math-step">
 <div class="math-step__label">Given:</div>
-<div class="math-step__expr">Demand: \(Q_d = 50 - 10P\)<br/>Supply: \(Q_s = 15P\)</div>
+<div class="math-step__expr">Demand: \(Q_D = 50 - 10P\)<br/>Supply: \(Q_S = 15P\)</div>
 </div>
 <div class="math-step">
 <div class="math-step__label">Set equal:</div>
@@ -181,12 +181,12 @@
 <tbody>
 <tr>
 <td>Inverse Demand Curve</td>
-<td>\(P = 5 - Q_d/10\)</td>
+<td>\(P = 5 - (1/10)Q_D\)</td>
 <td>Downward sloping. It crosses the price axis at \(P = 5\) and the quantity axis at \(Q = 50\).</td>
 </tr>
 <tr>
 <td>Inverse Supply Curve</td>
-<td>\(P = Q_s/15\)</td>
+<td>\(P = (1/15)Q_S\)</td>
 <td>Upward sloping. It starts at the origin because producers supply zero when price is zero.</td>
 </tr>
 <tr>
@@ -228,12 +228,12 @@
 <tbody>
 <tr>
 <td>\(P = 3\)</td>
-<td>\(Q_d = 50 - 10(3) = 20\)<br/>\(Q_s = 15(3) = 45\)</td>
+<td>\(Q_D = 50 - 10(3) = 20\)<br/>\(Q_S = 15(3) = 45\)</td>
 <td>Surplus: sellers want to sell 25 million kg more than buyers want to buy.</td>
 </tr>
 <tr>
 <td>\(P = 1\)</td>
-<td>\(Q_d = 50 - 10(1) = 40\)<br/>\(Q_s = 15(1) = 15\)</td>
+<td>\(Q_D = 50 - 10(1) = 40\)<br/>\(Q_S = 15(1) = 15\)</td>
 <td>Shortage: buyers want 25 million kg more than sellers provide.</td>
 </tr>
 </tbody>
@@ -263,7 +263,7 @@
         </p>
 </div>
 <!-- Check: surplus or shortage -->
-<div class="check-understanding" data-correct="1" data-explanation="At P = 3: Qs = 15(3) = 45 and Qd = 50 − 10(3) = 20. Since Qs (45) > Qd (20), there is a surplus of 25 units. This excess supply creates downward pressure on the price, pushing it back toward the equilibrium of P* = 2." data-question="At a price of 3 (above equilibrium) with Qd = 50 − 10P and Qs = 15P, what is the market condition?">
+<div class="check-understanding" data-correct="1" data-explanation="At P = 3: QS = 15(3) = 45 and QD = 50 − 10(3) = 20. Since QS (45) > QD (20), there is a surplus of 25 units. This excess supply creates downward pressure on the price, pushing it back toward the equilibrium of P* = 2." data-question="At a price of 3 (above equilibrium) with QD = 50 − 10P and QS = 15P, what is the market condition?">
 <div class="check-understanding__option" data-index="0">A) A shortage of 25 million kg, so prices will rise.</div>
 <div class="check-understanding__option" data-index="1">B) A surplus of 25 million kg, so prices will fall.</div>
 <div class="check-understanding__option" data-index="2">C) The market is in equilibrium at this price.</div>
@@ -303,8 +303,8 @@
 <button class="draw-graph__clear-btn" id="eq-reset-baseline" type="button">Reset to Baseline</button>
 </div>
 <div class="graph-container__info" id="equilibrium-info">
-<p><strong>Current demand:</strong> <span id="eq-demand-display">\(Q_d = 50 - 10P\)</span></p>
-<p><strong>Current supply:</strong> <span id="eq-supply-display">\(Q_s = 0 + 15P\)</span></p>
+<p><strong>Current demand:</strong> <span id="eq-demand-display">\(Q_D = 50 - 10P\)</span></p>
+<p><strong>Current supply:</strong> <span id="eq-supply-display">\(Q_S = 0 + 15P\)</span></p>
 <p><strong>Equilibrium Price (\(P^*\)):</strong> <span id="eq-price-display">€2.00</span></p>
 <p><strong>Equilibrium Quantity (\(Q^*\)):</strong> <span id="eq-quantity-display">30</span> million kg</p>
 </div>
@@ -340,7 +340,7 @@
 </table>
 <div class="self-check">
 <div class="self-check__question">
-          If the demand equation changes to \(Q_d = 70 - 10P\) (demand intercept increases from 50 to 70) and supply stays at \(Q_s = 15P\), what is the new equilibrium price and quantity?
+          If the demand equation changes to \(Q_D = 70 - 10P\) (demand intercept increases from 50 to 70) and supply stays at \(Q_S = 15P\), what is the new equilibrium price and quantity?
         </div>
 <p class="self-check__guidance"><em>Take time to generate your own explanation. Then show the answer to compare it with yours.</em></p>
 <button class="self-check__reveal-btn">Show Answer</button>
@@ -371,12 +371,12 @@
 <tbody>
 <tr>
 <td>Demand at €3</td>
-<td>\(Q_d = 50 - 10(3) = 20\)</td>
+<td>\(Q_D = 50 - 10(3) = 20\)</td>
 <td>Buyers want 20 million kg.</td>
 </tr>
 <tr>
 <td>Supply at €3</td>
-<td>\(Q_s = 15(3) = 45\)</td>
+<td>\(Q_S = 15(3) = 45\)</td>
 <td>Producers want to sell 45 million kg.</td>
 </tr>
 <tr>
@@ -397,6 +397,7 @@
 <button class="figure-controls__btn" data-cap-step="1" type="button">Price Support</button>
 <button class="figure-controls__btn" data-cap-step="2" type="button">Surplus</button>
 <button class="figure-controls__btn" data-cap-step="3" type="button">Government Purchase</button>
+<button class="figure-controls__btn figure-controls__btn--secondary" id="clear-cap-price-support" type="button">Clear</button>
 </div>
 <div class="figure__caption" id="cap-price-support-caption">Figure 3.3: Government Intervention Graph Explorer. Start with the market equilibrium, then step through the CAP price-support logic.</div>
 </div>
@@ -429,13 +430,13 @@
         In these first three modules, you built the foundational tools of supply and demand analysis: demand, supply, equilibrium, surplus, and shortage.
       </p>
 <p>
-<strong>Demand</strong> represents how the quantity that consumers are willing to buy responds to changes in prices. The law of demand tells us that quantity demanded falls as price rises. We express demand as \(Q_d = a - bP\) and graphically as a downward-sloping curve. To graph demand, invert the equation to solve for P in terms of Q. The vertical intercept shows the highest price consumers will pay; the horizontal intercept shows quantity demanded when price is zero.
+<strong>Demand</strong> represents how the quantity that consumers are willing to buy responds to changes in prices. The law of demand tells us that quantity demanded falls as price rises. We express demand as \(Q_D = a - bP\) and graphically as a downward-sloping curve. To graph demand, invert the equation to solve for P in terms of Q. The vertical intercept shows the highest price consumers will pay; the horizontal intercept shows quantity demanded when price is zero.
       </p>
 <p>
-<strong>Supply</strong> represents how the quantity that producers are willing to sell responds to changes in prices. The law of supply tells us that quantity supplied rises as price rises. We express supply as \(Q_s = c + dP\) and graphically as an upward-sloping curve. Like demand, invert supply to graph it with price on the vertical axis.
+<strong>Supply</strong> represents how the quantity that producers are willing to sell responds to changes in prices. The law of supply tells us that quantity supplied rises as price rises. We express supply as \(Q_S = c + dP\) and graphically as an upward-sloping curve. Like demand, invert supply to graph it with price on the vertical axis.
       </p>
 <p>
-<strong>Equilibrium</strong> occurs where demand and supply intersect. At \(P^*\) and \(Q^*\), quantity demanded equals quantity supplied. Find equilibrium by setting \(Q_d = Q_s\) and solving for \(P^*\), then substituting to find \(Q^*\). Always verify by plugging \(P^*\) into both equations.
+<strong>Equilibrium</strong> occurs where demand and supply intersect. At \(P^*\) and \(Q^*\), quantity demanded equals quantity supplied. Find equilibrium by setting \(Q_D = Q_S\) and solving for \(P^*\), then substituting to find \(Q^*\). Always verify by plugging \(P^*\) into both equations.
       </p>
 <p>
         When price is <strong>above equilibrium</strong>: surplus (excess supply). Prices fall toward equilibrium. When price is <strong>below equilibrium</strong>: shortage (excess demand). Prices rise toward equilibrium.
@@ -527,7 +528,7 @@
           strokeWidth = 1.5,
           className = 'region-overlay',
           delay = 0,
-          duration = 700,
+          duration = 950,
           dashedFinal = true,
           opacity = 0.75
         } = opts;
@@ -570,7 +571,7 @@
           .attr('opacity', 0)
           .transition()
           .delay(delay)
-          .duration(250)
+          .duration(400)
           .attr('opacity', 1);
       }
 
@@ -579,7 +580,7 @@
         label.attr('opacity', 0)
           .transition()
           .delay(opts.delay || 0)
-          .duration(250)
+          .duration(400)
           .attr('opacity', 1);
       }
 
@@ -587,7 +588,7 @@
         controls.forEach(btn => { btn.disabled = true; });
         window.setTimeout(function() {
           controls.forEach(btn => { btn.disabled = false; });
-        }, 2800);
+        }, 4600);
       }
 
       function clearExample() {
@@ -603,15 +604,15 @@
         const qDemanded = 50 - 10 * price;
         const qSupplied = 15 * price;
         animateLine([{x: 0, y: price}, {x: qSupplied, y: price}], '#8e44ad', { strokeWidth: 2, delay: 0, dashedFinal: false, opacity: 0.9 });
-        fadeLabel(2, price + 0.2, 'P = €3', { color: '#8e44ad', fontSize: '11px', fontWeight: '600', anchor: 'start', delay: 650 });
-        animateLine([{x: qDemanded, y: 0}, {x: qDemanded, y: price}], '#2e86c1', { strokeWidth: 1.4, delay: 850 });
-        fadePoint(qDemanded, price, '#2e86c1', 1450);
-        fadeLabel(qDemanded, price - 0.2, 'Qd = 20', { color: '#2e86c1', fontSize: '10px', anchor: 'middle', delay: 1500 });
-        animateLine([{x: qSupplied, y: 0}, {x: qSupplied, y: price}], '#c0392b', { strokeWidth: 1.4, delay: 1600 });
-        fadePoint(qSupplied, price, '#c0392b', 2200);
-        fadeLabel(qSupplied, price - 0.2, 'Qs = 45', { color: '#c0392b', fontSize: '10px', anchor: 'middle', delay: 2250 });
-        animateLine([{x: qDemanded, y: price + 0.35}, {x: qSupplied, y: price + 0.35}], '#c0392b', { strokeWidth: 2, delay: 2300, dashedFinal: false, opacity: 0.95 });
-        fadeLabel(25, 3.65, 'Surplus: 45 - 20 = 25', { color: '#c0392b', fontSize: '11px', delay: 2700 });
+        fadeLabel(2, price + 0.2, 'P = €3', { color: '#8e44ad', fontSize: '11px', fontWeight: '600', anchor: 'start', delay: 850 });
+        animateLine([{x: qDemanded, y: 0}, {x: qDemanded, y: price}], '#2e86c1', { strokeWidth: 1.4, delay: 1100 });
+        fadePoint(qDemanded, price, '#2e86c1', 1900);
+        fadeLabel(qDemanded, price - 0.2, 'QD = 20', { color: '#2e86c1', fontSize: '10px', anchor: 'middle', delay: 1950 });
+        animateLine([{x: qSupplied, y: 0}, {x: qSupplied, y: price}], '#c0392b', { strokeWidth: 1.4, delay: 2150 });
+        fadePoint(qSupplied, price, '#c0392b', 2950);
+        fadeLabel(qSupplied, price - 0.2, 'QS = 45', { color: '#c0392b', fontSize: '10px', anchor: 'middle', delay: 3000 });
+        animateLine([{x: qDemanded, y: 0.08}, {x: qSupplied, y: 0.08}], '#c0392b', { strokeWidth: 3, delay: 3300, dashedFinal: false, opacity: 0.95 });
+        fadeLabel(25, 0.42, 'Surplus on quantity axis: 45 - 20 = 25', { color: '#c0392b', fontSize: '11px', delay: 4050 });
         if (caption) caption.textContent = 'Figure 3.2: Surplus and Shortage Graph Explorer. At P = €3, quantity supplied is 45 and quantity demanded is 20, so the surplus is 25 million kg.';
       }
 
@@ -622,15 +623,15 @@
         const qSupplied = 15 * price;
         const qDemanded = 50 - 10 * price;
         animateLine([{x: 0, y: price}, {x: qDemanded, y: price}], '#8e44ad', { strokeWidth: 2, delay: 0, dashedFinal: false, opacity: 0.9 });
-        fadeLabel(2, price + 0.2, 'P = €1', { color: '#8e44ad', fontSize: '11px', fontWeight: '600', anchor: 'start', delay: 650 });
-        animateLine([{x: qSupplied, y: 0}, {x: qSupplied, y: price}], '#c0392b', { strokeWidth: 1.4, delay: 850 });
-        fadePoint(qSupplied, price, '#c0392b', 1450);
-        fadeLabel(qSupplied, price - 0.18, 'Qs = 15', { color: '#c0392b', fontSize: '10px', anchor: 'middle', delay: 1500 });
-        animateLine([{x: qDemanded, y: 0}, {x: qDemanded, y: price}], '#2e86c1', { strokeWidth: 1.4, delay: 1600 });
-        fadePoint(qDemanded, price, '#2e86c1', 2200);
-        fadeLabel(qDemanded, price - 0.18, 'Qd = 40', { color: '#2e86c1', fontSize: '10px', anchor: 'middle', delay: 2250 });
-        animateLine([{x: qSupplied, y: price - 0.35}, {x: qDemanded, y: price - 0.35}], '#2e86c1', { strokeWidth: 2, delay: 2300, dashedFinal: false, opacity: 0.95 });
-        fadeLabel(20, 0.38, 'Shortage: 40 - 15 = 25', { color: '#2e86c1', fontSize: '11px', delay: 2700 });
+        fadeLabel(2, price + 0.2, 'P = €1', { color: '#8e44ad', fontSize: '11px', fontWeight: '600', anchor: 'start', delay: 850 });
+        animateLine([{x: qSupplied, y: 0}, {x: qSupplied, y: price}], '#c0392b', { strokeWidth: 1.4, delay: 1100 });
+        fadePoint(qSupplied, price, '#c0392b', 1900);
+        fadeLabel(qSupplied, price - 0.18, 'QS = 15', { color: '#c0392b', fontSize: '10px', anchor: 'middle', delay: 1950 });
+        animateLine([{x: qDemanded, y: 0}, {x: qDemanded, y: price}], '#2e86c1', { strokeWidth: 1.4, delay: 2150 });
+        fadePoint(qDemanded, price, '#2e86c1', 2950);
+        fadeLabel(qDemanded, price - 0.18, 'QD = 40', { color: '#2e86c1', fontSize: '10px', anchor: 'middle', delay: 3000 });
+        animateLine([{x: qSupplied, y: 0.08}, {x: qDemanded, y: 0.08}], '#2e86c1', { strokeWidth: 3, delay: 3300, dashedFinal: false, opacity: 0.95 });
+        fadeLabel(18, 0.42, 'Shortage on quantity axis: 40 - 15 = 25', { color: '#2e86c1', fontSize: '11px', delay: 4050 });
         if (caption) caption.textContent = 'Figure 3.2: Surplus and Shortage Graph Explorer. At P = €1, quantity demanded is 40 and quantity supplied is 15, so the shortage is 25 million kg.';
       }
 
@@ -656,7 +657,7 @@
       const qDemanded = 20;
       const qSupplied = 45;
       const caption = document.getElementById('cap-price-support-caption');
-      const capControls = document.querySelectorAll('[data-cap-step]');
+      const capControls = document.querySelectorAll('[data-cap-step], #clear-cap-price-support');
       let currentStep = 0;
 
       function clearStep() {
@@ -669,7 +670,7 @@
           strokeWidth = 1.5,
           className = 'cap-step',
           delay = 0,
-          duration = 750,
+          duration = 950,
           dashedFinal = true,
           opacity = 0.75
         } = opts;
@@ -712,7 +713,7 @@
           .attr('opacity', 0)
           .transition()
           .delay(delay)
-          .duration(250)
+          .duration(400)
           .attr('opacity', 1);
       }
 
@@ -758,18 +759,18 @@
 
       function drawPriceSupport(delay) {
         animateLine([{x: 0, y: supportPrice}, {x: qSupplied, y: supportPrice}], '#8e44ad', { strokeWidth: 2, delay: delay, dashedFinal: false, opacity: 0.9 });
-        fadeLabel(2, supportPrice + 0.18, 'Price support = €3', { color: '#8e44ad', fontSize: '11px', fontWeight: '600', anchor: 'start', delay: delay + 800 });
+        fadeLabel(2, supportPrice + 0.18, 'Price support = €3', { color: '#8e44ad', fontSize: '11px', fontWeight: '600', anchor: 'start', delay: delay + 950 });
       }
 
       function drawSurplus(delay) {
         animateLine([{x: qDemanded, y: 0}, {x: qDemanded, y: supportPrice}], '#2e86c1', { strokeWidth: 1.4, delay: delay });
-        fadePoint(qDemanded, supportPrice, '#2e86c1', delay + 650);
-        fadeLabel(qDemanded, supportPrice - 0.2, 'Qd = 20', { color: '#2e86c1', fontSize: '10px', anchor: 'middle', delay: delay + 700 });
-        animateLine([{x: qSupplied, y: 0}, {x: qSupplied, y: supportPrice}], '#c0392b', { strokeWidth: 1.4, delay: delay + 800 });
-        fadePoint(qSupplied, supportPrice, '#c0392b', delay + 1450);
-        fadeLabel(qSupplied, supportPrice - 0.2, 'Qs = 45', { color: '#c0392b', fontSize: '10px', anchor: 'middle', delay: delay + 1500 });
-        animateLine([{x: qDemanded, y: supportPrice + 0.35}, {x: qSupplied, y: supportPrice + 0.35}], '#c0392b', { strokeWidth: 2, delay: delay + 1600, dashedFinal: false, opacity: 0.95 });
-        fadeLabel(25, 3.65, 'Surplus = 25', { color: '#c0392b', fontSize: '11px', delay: delay + 2050 });
+        fadePoint(qDemanded, supportPrice, '#2e86c1', delay + 800);
+        fadeLabel(qDemanded, supportPrice - 0.2, 'QD = 20', { color: '#2e86c1', fontSize: '10px', anchor: 'middle', delay: delay + 850 });
+        animateLine([{x: qSupplied, y: 0}, {x: qSupplied, y: supportPrice}], '#c0392b', { strokeWidth: 1.4, delay: delay + 1100 });
+        fadePoint(qSupplied, supportPrice, '#c0392b', delay + 1900);
+        fadeLabel(qSupplied, supportPrice - 0.2, 'QS = 45', { color: '#c0392b', fontSize: '10px', anchor: 'middle', delay: delay + 1950 });
+        animateLine([{x: qDemanded, y: 0.08}, {x: qSupplied, y: 0.08}], '#c0392b', { strokeWidth: 3, delay: delay + 2250, dashedFinal: false, opacity: 0.95 });
+        fadeLabel(25, 0.42, 'Surplus on quantity axis = 25', { color: '#c0392b', fontSize: '11px', delay: delay + 3000 });
       }
 
       function drawGovernmentPurchase(delay) {
@@ -798,11 +799,11 @@
         let delay = 0;
         if (currentStep < 1 && targetStep >= 1) {
           drawPriceSupport(delay);
-          delay += 1200;
+          delay += 1450;
         }
         if (currentStep < 2 && targetStep >= 2) {
           drawSurplus(delay);
-          delay += 2450;
+          delay += 3500;
         }
         if (currentStep < 3 && targetStep >= 3) {
           drawGovernmentPurchase(delay);
@@ -817,6 +818,11 @@
         btn.addEventListener('click', function() {
           showStep(parseInt(btn.dataset.capStep, 10));
         });
+      });
+      document.getElementById('clear-cap-price-support')?.addEventListener('click', function() {
+        currentStep = 0;
+        drawBase();
+        if (caption) caption.textContent = 'Figure 3.3: Government Intervention Graph Explorer. The sugar market starts at equilibrium: P* = €2 and Q* = 30 million kg.';
       });
       drawBase();
       if (caption) caption.textContent = 'Figure 3.3: Government Intervention Graph Explorer. The sugar market starts at equilibrium: P* = €2 and Q* = 30 million kg.';
@@ -845,8 +851,8 @@
         document.getElementById('eq-supply-slope-value').textContent = d.toFixed(0);
         const demandDisplay = document.getElementById('eq-demand-display');
         const supplyDisplay = document.getElementById('eq-supply-display');
-        const demandExpression = 'Q_d = ' + a.toFixed(0) + ' - ' + b.toFixed(0) + 'P';
-        const supplyExpression = 'Q_s = ' + c.toFixed(0) + ' + ' + d.toFixed(0) + 'P';
+        const demandExpression = 'Q_D = ' + a.toFixed(0) + ' - ' + b.toFixed(0) + 'P';
+        const supplyExpression = 'Q_S = ' + c.toFixed(0) + ' + ' + d.toFixed(0) + 'P';
         if (typeof katex !== 'undefined') {
           katex.render(demandExpression, demandDisplay, { throwOnError: false });
           katex.render(supplyExpression, supplyDisplay, { throwOnError: false });
@@ -900,55 +906,55 @@
       const quizData = [
         {
           type: 'short_answer',
-          text: 'Suppose that the demand for a good is given by the equation \\(Q_d = 8 - 4P\\). How many units are demanded at price 1?',
-          feedback: 'Plug in \\(P = 1\\): \\(Q_d = 8 - 4(1) = 8 - 4 = 4\\) units.',
+          text: 'Suppose that the demand for a good is given by the equation \\(Q_D = 8 - 4P\\). How many units are demanded at price 1?',
+          feedback: 'Plug in \\(P = 1\\): \\(Q_D = 8 - 4(1) = 8 - 4 = 4\\) units.',
           correctAnswer: '4'
         },
         {
           type: 'short_answer',
-          text: 'Suppose that the supply for a good is given by the equation \\(Q_s = 2P + 5\\). How many units are supplied at price 2?',
-          feedback: 'Plug in \\(P = 2\\): \\(Q_s = 2(2) + 5 = 4 + 5 = 9\\) units.',
+          text: 'Suppose that the supply for a good is given by the equation \\(Q_S = 2P + 5\\). How many units are supplied at price 2?',
+          feedback: 'Plug in \\(P = 2\\): \\(Q_S = 2(2) + 5 = 4 + 5 = 9\\) units.',
           correctAnswer: '9'
         },
         {
           type: 'multiple_choice',
-          text: 'Suppose that consumers will buy 100 units at price 10 and 50 units at price 20, and the demand curve is linear. Find the inverse demand equation \\(P\\) as a function of \\(Q_d\\).',
+          text: 'Suppose that consumers will buy 100 units at price 10 and 50 units at price 20, and the demand curve is linear. Find the inverse demand equation.',
           options: [
-            { text: '\\(P = 150 - 5Q_d\\)', correct: false },
-            { text: '\\(P = 30 + Q_d/5\\)', correct: false },
-            { text: '\\(P = 30 - Q_d/5\\)', correct: true },
-            { text: '\\(P = Q_d/5 - 10\\)', correct: false },
-            { text: '\\(P = -Q_d/5\\)', correct: false }
+            { text: '\\(P = 150 - 5Q_D\\)', correct: false },
+            { text: '\\(P = 30 + (1/5)Q_D\\)', correct: false },
+            { text: '\\(P = 30 - (1/5)Q_D\\)', correct: true },
+            { text: '\\(P = (1/5)Q_D - 10\\)', correct: false },
+            { text: '\\(P = -(1/5)Q_D\\)', correct: false }
           ],
-          feedback: 'The slope is \\(\\Delta P / \\Delta Q = (20 - 10)/(50 - 100) = -1/5\\). Using point \\((Q=100, P=10)\\): \\(10 = b - (1/5)(100)\\) gives \\(b = 30\\). Therefore \\(P = 30 - Q_d/5\\).'
+          feedback: 'The slope is \\(\\Delta P / \\Delta Q = (20 - 10)/(50 - 100) = -1/5\\). Using point \\((Q=100, P=10)\\): \\(10 = b - (1/5)(100)\\) gives \\(b = 30\\). Therefore \\(P = 30 - (1/5)Q_D\\).'
         },
         {
           type: 'multiple_choice',
-          text: 'Suppose producers supply 4 units at price 2, the supply curve is linear, and for each $1 increase in price, quantity supplied increases by 4 units. Find the inverse supply equation \\(P\\) as a function of \\(Q_s\\).',
+          text: 'Suppose producers supply 4 units at price 2, the supply curve is linear, and for each $1 increase in price, quantity supplied increases by 4 units. Find the inverse supply equation.',
           options: [
-            { text: '\\(P = 4Q_s - 4\\)', correct: false },
-            { text: '\\(P = 4Q_s - 14\\)', correct: false },
-            { text: '\\(P = Q_s/4\\)', correct: false },
-            { text: '\\(P = Q_s/4 + 1\\)', correct: true },
-            { text: '\\(P = Q_s/4 + 3.5\\)', correct: false }
+            { text: '\\(P = 4Q_S - 4\\)', correct: false },
+            { text: '\\(P = 4Q_S - 14\\)', correct: false },
+            { text: '\\(P = (1/4)Q_S\\)', correct: false },
+            { text: '\\(P = (1/4)Q_S + 1\\)', correct: true },
+            { text: '\\(P = (1/4)Q_S + 3.5\\)', correct: false }
           ],
-          feedback: 'The slope is \\(1/4\\). Using point \\((Q=4, P=2)\\): \\(2 = b + (1/4)(4)\\) gives \\(b = 1\\). Therefore \\(P = Q_s/4 + 1\\).'
+          feedback: 'The slope is \\(1/4\\). Using point \\((Q=4, P=2)\\): \\(2 = b + (1/4)(4)\\) gives \\(b = 1\\). Therefore \\(P = (1/4)Q_S + 1\\).'
         },
         {
           type: 'short_answer',
-          text: 'The demand curve is \\(Q_d = 8 - 4P\\) and the supply curve is \\(Q_s = 2P + 5\\). What is the market equilibrium price?',
-          feedback: 'Set \\(Q_d = Q_s\\): \\(8 - 4P = 2P + 5 \\Rightarrow 3 = 6P \\Rightarrow P^* = 0.5\\).',
+          text: 'The demand curve is \\(Q_D = 8 - 4P\\) and the supply curve is \\(Q_S = 2P + 5\\). What is the market equilibrium price?',
+          feedback: 'Set \\(Q_D = Q_S\\): \\(8 - 4P = 2P + 5 \\Rightarrow 3 = 6P \\Rightarrow P^* = 0.5\\).',
           correctAnswer: '0.5'
         },
         {
           type: 'short_answer',
-          text: 'Using the same equations (\\(Q_d = 8 - 4P\\) and \\(Q_s = 2P + 5\\)), what is the market equilibrium quantity?',
-          feedback: 'Plug \\(P^* = 0.5\\) into demand: \\(Q_d = 8 - 4(0.5) = 6\\). Verify with supply: \\(Q_s = 2(0.5) + 5 = 6\\) ✓. Equilibrium quantity is 6 units.',
+          text: 'Using the same equations (\\(Q_D = 8 - 4P\\) and \\(Q_S = 2P + 5\\)), what is the market equilibrium quantity?',
+          feedback: 'Plug \\(P^* = 0.5\\) into demand: \\(Q_D = 8 - 4(0.5) = 6\\). Verify with supply: \\(Q_S = 2(0.5) + 5 = 6\\) ✓. Equilibrium quantity is 6 units.',
           correctAnswer: '6'
         },
         {
           type: 'multiple_choice',
-          text: 'In the EU sugar market, suppose the government sets a price support at \\(P = 3\\) when the curves are \\(Q_d = 50 - 10P\\) and \\(Q_s = 15P\\). What happens in the market?',
+          text: 'In the EU sugar market, suppose the government sets a price support at \\(P = 3\\) when the curves are \\(Q_D = 50 - 10P\\) and \\(Q_S = 15P\\). What happens in the market?',
           options: [
             { text: 'A shortage of 25 million kilograms emerges.', correct: false },
             { text: 'A surplus of 25 million kilograms emerges.', correct: true },
