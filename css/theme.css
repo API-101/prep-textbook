@@ -1327,6 +1327,13 @@ strong {
   line-height: 1.5;
 }
 
+.text-footnote {
+  color: var(--color-neutral-600);
+  font-size: 0.84rem;
+  line-height: 1.45;
+  margin-top: calc(-1 * var(--space-sm));
+}
+
 @media (max-width: 760px) {
   .figure--with-controls {
     grid-template-columns: 1fr;

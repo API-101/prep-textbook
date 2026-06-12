@@ -24,8 +24,8 @@
     "module": "Module 5",
     "skill": "Consumer Surplus",
     "type": "short_answer",
-    "text": "An inverse demand function has a price intercept of €100. The equilibrium price is €60, and equilibrium quantity is 50 units. What is consumer surplus?",
-    "feedback": "Consumer surplus is the triangle below the demand function and above price: \\(\\frac{1}{2} \\times 50 \\times (100 - 60) = 1000\\).",
+    "text": "An inverted demand equation has a price intercept of €100. The equilibrium price is €60, and equilibrium quantity is 50 units. What is consumer surplus?",
+    "feedback": "Consumer surplus is the triangle below the demand curve and above price: \\(\\frac{1}{2} \\times 50 \\times (100 - 60) = 1000\\).",
     "correctAnswer": "1000",
     "tolerance": 0.01
   },

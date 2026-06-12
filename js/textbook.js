@@ -994,9 +994,9 @@ const CumulativeGlossary = {
   terms: [
     { module: 1, term: 'Ceteris Paribus', definition: 'Latin for "all else equal"; the assumption that all variables except those being studied are held constant.' },
     { module: 1, term: 'Demand', definition: 'The relationship between price and the quantity consumers are willing and able to purchase.' },
-    { module: 1, term: 'Demand Function', definition: 'A function showing the relationship between price and quantity demanded.' },
+    { module: 1, term: 'Demand Equation', definition: 'An equation showing the relationship between price and quantity demanded.' },
     { module: 1, term: 'Demand Schedule', definition: 'A table showing quantities demanded at a range of prices.' },
-    { module: 1, term: 'Inverse Demand Function', definition: 'A demand function rewritten with price as a function of quantity demanded, so it can be graphed with price on the vertical axis and quantity on the horizontal axis.' },
+    { module: 1, term: 'Inverted Demand Equation', definition: 'A demand equation rearranged with price expressed in terms of quantity demanded, so the demand curve can be graphed with price on the vertical axis and quantity on the horizontal axis.' },
     { module: 1, term: 'Law of Demand', definition: 'Holding all else equal, a higher price leads to a lower quantity demanded, and a lower price leads to a higher quantity demanded.' },
     { module: 1, term: 'Price', definition: 'What a buyer pays for one unit of a good or service.' },
     { module: 1, term: 'Quantity Demanded', definition: 'The number of units consumers are willing to purchase at a given price.' },
@@ -1549,7 +1549,7 @@ const DrawGraph = {
             }
           }
           feedbackEl.innerHTML = '<strong>Not quite.</strong> ' + diagnosis +
-            ' The correct function is shown in the graph above.';
+            ' The correct curve is shown in the graph above.';
         }
       }
     };

@@ -2,7 +2,7 @@
   {
     "id": "g949725587984d6c28fa9ccb6222721a5",
     "type": "multiple_choice",
-    "text": "Suppose you are given an estimate of the demand and supply curve for airline service between China’s two most populous cities, Beijing and Shanghai. A number of changes that might affect the market for this service are listed in Questions 1-4. In each case, indicate which shift is most likely to occur, if any."
+    "text": "Suppose you are given an estimate of the demand and supply curves for airline service between China’s two most populous cities, Beijing and Shanghai. A number of changes that might affect the market for this service are listed in Questions 1-4. In each case, indicate which shift is most likely to occur, if any."
   },
   {
     "id": "g6e3f98ddf889e1050c9fdb4b554c0a63",
@@ -119,7 +119,7 @@
   {
     "id": "ga6f2a4a82b9980dfc6acfe8f8296ccb0",
     "type": "multiple_choice",
-    "text": "Suppose that the demand function for a good is given by P = 210 – 10QD. A decrease in the price of the good’s substitute has led to a reduction in demand for the original good by 10 units for each unit in price. &nbsp;&nbsp; &nbsp;What is the equation for the new demand curve?",
+    "text": "Suppose that the demand curve for a good is represented by P = 210 – 10QD. A decrease in the price of the good’s substitute has led to a reduction in demand for the original good by 10 units for each unit in price. &nbsp;&nbsp; &nbsp;What is the equation for the new demand curve?",
     "options": [
       {
         "text": "P = 200 – QD",
@@ -147,7 +147,7 @@
   {
     "id": "g29630386c0a5ed8f1ecaacc621b7498a",
     "type": "multiple_choice",
-    "text": "Suppose that the supply function for a good is given by P = 4QS + 10. An improvement in technology allows suppliers to save $2 per unit in their production of the good.&nbsp;&nbsp; &nbsp;What is the equation for the new supply curve with price as a function of quantity?",
+    "text": "Suppose that the supply curve for a good is represented by P = 4QS + 10. An improvement in technology allows suppliers to save $2 per unit in their production of the good.&nbsp;&nbsp; &nbsp;What is the equation for the new supply curve with price expressed in terms of quantity?",
     "options": [
       {
         "text": "P = 4QS + 8",
@@ -170,7 +170,7 @@
         "correct": false
       }
     ],
-    "feedback": "Feedback: An improvement in technology leads to an outward shift in the supply curve. Thus, the slope remains the same, but the intercept will shift 2 units downward. &nbsp;&nbsp; &nbsp;In this case, the intercept is 10, so the new demand function is: P = 4QS + 8."
+    "feedback": "Feedback: An improvement in technology leads to an outward shift in the supply curve. Thus, the slope remains the same, but the intercept will shift 2 units downward. &nbsp;&nbsp; &nbsp;In this case, the intercept is 10, so the new supply equation is: P = 4QS + 8."
   },
   {
     "id": "g871f840fa91a9d16d68d759bb57b77f9",
@@ -215,7 +215,7 @@
   {
     "id": "d35428922729b1a5edc5e6bb37073ddf",
     "type": "multiple_choice",
-    "text": "Suppose you are given an estimate of the demand and supply curve for airline service between China&#x2019;s two most populous cities, Beijing and Shanghai. A number of changes that might affect the market for this service are listed in Questions 1-4. In each case, indicate which shift is most likely to occur, if any."
+    "text": "Suppose you are given an estimate of the demand and supply curves for airline service between China&#x2019;s two most populous cities, Beijing and Shanghai. A number of changes that might affect the market for this service are listed in Questions 1-4. In each case, indicate which shift is most likely to occur, if any."
   },
   {
     "id": "ccda52997f4bd87842644c40552825a0",
@@ -332,7 +332,7 @@
   {
     "id": "246e862864162024214fed1db4302ad6",
     "type": "multiple_choice",
-    "text": "&nbsp; Suppose that the demand function for a good is given by P = 210 – 10QD. A decrease in the price of the good&#x2019;s substitute has led to a reduction in demand for the original good by 10 units for each unit in price. &nbsp;&nbsp; &nbsp;What is the equation for the new demand curve? &nbsp;",
+    "text": "&nbsp; Suppose that the demand curve for a good is represented by P = 210 – 10QD. A decrease in the price of the good&#x2019;s substitute has led to a reduction in demand for the original good by 10 units for each unit in price. &nbsp;&nbsp; &nbsp;What is the equation for the new demand curve? &nbsp;",
     "options": [
       {
         "text": "P = 200 – QD",
@@ -360,7 +360,7 @@
   {
     "id": "a43cc85025a4005f97d897517353487d",
     "type": "multiple_choice",
-    "text": "&nbsp; Suppose that the supply function for a good is given by P = 4QS + 10. An improvement in technology allows suppliers to save $2 per unit in their production of the good.&nbsp;&nbsp; &nbsp;What is the equation for the new supply curve with price as a function of quantity? &nbsp;",
+    "text": "&nbsp; Suppose that the supply curve for a good is represented by P = 4QS + 10. An improvement in technology allows suppliers to save $2 per unit in their production of the good.&nbsp;&nbsp; &nbsp;What is the equation for the new supply curve with price expressed in terms of quantity? &nbsp;",
     "options": [
       {
         "text": "P = 4QS + 8",
@@ -383,7 +383,7 @@
         "correct": false
       }
     ],
-    "feedback": "Feedback: An improvement in technology leads to an outward shift in the supply curve. Thus, the slope remains the same, but the intercept will shift 2 units downward. &nbsp;&nbsp; &nbsp;In this case, the intercept is 10, so the new demand function is: P = 4QS + 8."
+    "feedback": "Feedback: An improvement in technology leads to an outward shift in the supply curve. Thus, the slope remains the same, but the intercept will shift 2 units downward. &nbsp;&nbsp; &nbsp;In this case, the intercept is 10, so the new supply equation is: P = 4QS + 8."
   },
   {
     "id": "ad500c89b7cb18a38576edec103dd757",

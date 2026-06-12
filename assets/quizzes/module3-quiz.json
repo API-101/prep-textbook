@@ -2,7 +2,7 @@
   {
     "id": "8d0e74a9ac2dfb8877247b4df63b21c6",
     "type": "multiple_choice",
-    "text": "Suppose that the supply and demand functions for the global market for copper are as follows: &nbsp; &nbsp; &nbsp; &nbsp;QD = 39 – 3P &nbsp; &nbsp; &nbsp; &nbsp;QS = 2P – 1 &nbsp; where quantity is in millions of metric tons and price is in US dollars ($) per kilogram. What is the market equilibrium price and quantity? Enter your answers separately in Questions 1 and 2.&nbsp;"
+    "text": "Suppose that the supply and demand equations for the global market for copper are as follows: &nbsp; &nbsp; &nbsp; &nbsp;QD = 39 – 3P &nbsp; &nbsp; &nbsp; &nbsp;QS = 2P – 1 &nbsp; where quantity is in millions of metric tons and price is in US dollars ($) per kilogram. What is the market equilibrium price and quantity? Enter your answers separately in Questions 1 and 2.&nbsp;"
   },
   {
     "id": "6b28a671e2dcf24fe554ebf59a18f030",
@@ -21,8 +21,8 @@
   {
     "id": "5ecc2936ff612243a6f92032b8c4def9",
     "type": "short_answer",
-    "text": "A market has equilibrium quantity 4, a demand-function price intercept of 4, and equilibrium price 3. Calculate consumer surplus.",
-    "feedback": "Consumer surplus is the area below the demand function and above the equilibrium price: CS = 1/2 * 4 * (4 - 3) = 2.",
+    "text": "A market has equilibrium quantity 4, a demand-curve price intercept of 4, and equilibrium price 3. Calculate consumer surplus.",
+    "feedback": "Consumer surplus is the area below the demand curve and above the equilibrium price: CS = 1/2 * 4 * (4 - 3) = 2.",
     "correctAnswer": "2.0"
   },
   {
@@ -35,7 +35,7 @@
   {
     "id": "ga8f3073c7f5dc6c19ee81292343aa000",
     "type": "multiple_choice",
-    "text": "Suppose that the supply and demand functions for the global market for copper are as follows: QD = 39 – 3P QS = 2P – 1 where quantity is in millions of metric tons and price is in US dollars ($) per kilogram. What is the market equilibrium price and quantity? Enter your answers separately below."
+    "text": "Suppose that the supply and demand equations for the global market for copper are as follows: QD = 39 – 3P QS = 2P – 1 where quantity is in millions of metric tons and price is in US dollars ($) per kilogram. What is the market equilibrium price and quantity? Enter your answers separately below."
   },
   {
     "id": "g46618ef38db3f7eaa6fe188f7b183eaa",
@@ -54,8 +54,8 @@
   {
     "id": "g66c28dc09ab5003d208b189377ecae0d",
     "type": "short_answer",
-    "text": "A market has equilibrium quantity 4, a demand-function price intercept of 4, and equilibrium price 3. Calculate consumer surplus.",
-    "feedback": "Consumer surplus is the area below the demand function and above the equilibrium price: CS = 1/2 * 4 * (4 - 3) = 2.",
+    "text": "A market has equilibrium quantity 4, a demand-curve price intercept of 4, and equilibrium price 3. Calculate consumer surplus.",
+    "feedback": "Consumer surplus is the area below the demand curve and above the equilibrium price: CS = 1/2 * 4 * (4 - 3) = 2.",
     "correctAnswer": "2.0"
   },
   {
