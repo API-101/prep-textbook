@@ -4,8 +4,8 @@
     "module": "Module 5",
     "skill": "Equilibrium Review",
     "type": "short_answer",
-    "text": "For a market with \\(Q_d = 39 - 3P\\) and \\(Q_s = 2P - 1\\), what is the equilibrium price?",
-    "feedback": "Set \\(Q_d = Q_s\\): \\(39 - 3P = 2P - 1\\). Then \\(40 = 5P\\), so \\(P^* = 8\\).",
+    "text": "For a market with \\(Q_D = 39 - 3P\\) and \\(Q_S = 2P - 1\\), what is the equilibrium price?",
+    "feedback": "Set \\(Q_D = Q_S\\): \\(39 - 3P = 2P - 1\\). Then \\(40 = 5P\\), so \\(P^* = 8\\).",
     "correctAnswer": "8",
     "tolerance": 0.01
   },
@@ -14,8 +14,8 @@
     "module": "Module 5",
     "skill": "Equilibrium Review",
     "type": "short_answer",
-    "text": "Using \\(P^* = 8\\), what is the equilibrium quantity in the market with \\(Q_d = 39 - 3P\\) and \\(Q_s = 2P - 1\\)? Enter the answer in millions of metric tons.",
-    "feedback": "Substitute \\(P = 8\\): \\(Q_d = 39 - 3(8) = 15\\), and \\(Q_s = 2(8) - 1 = 15\\). The equilibrium quantity is 15 million metric tons.",
+    "text": "Using \\(P^* = 8\\), what is the equilibrium quantity in the market with \\(Q_D = 39 - 3P\\) and \\(Q_S = 2P - 1\\)? Enter the answer in millions of metric tons.",
+    "feedback": "Substitute \\(P = 8\\): \\(Q_D = 39 - 3(8) = 15\\), and \\(Q_S = 2(8) - 1 = 15\\). The equilibrium quantity is 15 million metric tons.",
     "correctAnswer": "15",
     "tolerance": 0.01
   },

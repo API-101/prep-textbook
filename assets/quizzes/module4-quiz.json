@@ -108,48 +108,48 @@
     "module": "Module 4",
     "skill": "Algebraic Shifts",
     "type": "multiple_choice",
-    "text": "The demand curve is \\(P = 210 - 10Q_d\\). A decrease in the price of a substitute reduces demand by 10 units at every price. Which new demand curve represents that leftward shift?",
+    "text": "The demand curve is \\(P = 210 - 10Q_D\\). A decrease in the price of a substitute reduces demand by 10 units at every price. Which new demand curve represents that leftward shift?",
     "options": [
       {
-        "text": "\\(P = 200 - Q_d\\)",
+        "text": "\\(P = 200 - Q_D\\)",
         "correct": false
       },
       {
-        "text": "\\(P = 210 - Q_d\\)",
+        "text": "\\(P = 210 - Q_D\\)",
         "correct": false
       },
       {
-        "text": "\\(P = 200 - 10Q_d\\)",
+        "text": "\\(P = 200 - 10Q_D\\)",
         "correct": false
       },
       {
-        "text": "\\(P = 110 - 10Q_d\\)",
+        "text": "\\(P = 110 - 10Q_D\\)",
         "correct": true
       }
     ],
-    "feedback": "A 10-unit decrease in quantity demanded at every price means the curve shifts left. Keeping the same slope, the new intercept is 110, so the new curve is \\(P = 110 - 10Q_d\\)."
+    "feedback": "A 10-unit decrease in quantity demanded at every price means the curve shifts left. Keeping the same slope, the new intercept is 110, so the new curve is \\(P = 110 - 10Q_D\\)."
   },
   {
     "id": "m4-supply-equation-shift",
     "module": "Module 4",
     "skill": "Algebraic Shifts",
     "type": "multiple_choice",
-    "text": "The supply curve is \\(P = 4Q_s + 10\\). A technology improvement saves suppliers $2 per unit. What is the new supply curve?",
+    "text": "The supply curve is \\(P = 4Q_S + 10\\). A technology improvement saves suppliers $2 per unit. What is the new supply curve?",
     "options": [
       {
-        "text": "\\(P = 4Q_s + 8\\)",
+        "text": "\\(P = 4Q_S + 8\\)",
         "correct": true
       },
       {
-        "text": "\\(P = 4Q_s + 12\\)",
+        "text": "\\(P = 4Q_S + 12\\)",
         "correct": false
       },
       {
-        "text": "\\(P = 6Q_s + 12\\)",
+        "text": "\\(P = 6Q_S + 12\\)",
         "correct": false
       },
       {
-        "text": "\\(P = 8Q_s + 10\\)",
+        "text": "\\(P = 8Q_S + 10\\)",
         "correct": false
       }
     ],

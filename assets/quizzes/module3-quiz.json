@@ -2,20 +2,20 @@
   {
     "id": "8d0e74a9ac2dfb8877247b4df63b21c6",
     "type": "multiple_choice",
-    "text": "Suppose that the supply and demand equations for the global market for copper are as follows: &nbsp; &nbsp; &nbsp; &nbsp;QD = 39 – 3P &nbsp; &nbsp; &nbsp; &nbsp;QS = 2P – 1 &nbsp; where quantity is in millions of metric tons and price is in US dollars ($) per kilogram. What is the market equilibrium price and quantity? Enter your answers separately in Questions 1 and 2.&nbsp;"
+    "text": "Suppose that the supply and demand equations for the global market for copper are as follows: &nbsp; &nbsp; &nbsp; &nbsp;Q_D = 39 – 3P &nbsp; &nbsp; &nbsp; &nbsp;Q_S = 2P – 1 &nbsp; where quantity is in millions of metric tons and price is in US dollars ($) per kilogram. What is the market equilibrium price and quantity? Enter your answers separately in Questions 1 and 2.&nbsp;"
   },
   {
     "id": "6b28a671e2dcf24fe554ebf59a18f030",
     "type": "short_answer",
     "text": "What is the market equilibrium price?",
-    "feedback": "&nbsp; In equilibrium, quantity demanded should equal quantity supplied, that is, we should have: QD = QS39 – 3P = 2P – 15P = 40P =&nbsp; 8 &nbsp; Note that price is in US dollars ($) per kilogram",
+    "feedback": "&nbsp; In equilibrium, quantity demanded should equal quantity supplied, that is, we should have: Q_D = QS39 – 3P = 2P – 15P = 40P =&nbsp; 8 &nbsp; Note that price is in US dollars ($) per kilogram",
     "correctAnswer": "8.0"
   },
   {
     "id": "912f0a597f102aa0d321ec79bf9a6180",
     "type": "short_answer",
     "text": "What is the market equilibrium quantity?",
-    "feedback": "Plug the price of $8 per kilogram back in to either the demand or supply equation to find the equilibrium quantity: QD = 39 – 3*8 = 15 OR QS = 2*8 – 1 = 15 Since the units are in millions of metric tons, the equilibrium quantity is 15,000,000 tons. The practice quiz accepts either 15 (assuming the units are millions of metric tons) or 15,000,000 (assuming the units are tons).",
+    "feedback": "Plug the price of $8 per kilogram back in to either the demand or supply equation to find the equilibrium quantity: Q_D = 39 – 3*8 = 15 OR Q_S = 2*8 – 1 = 15 Since the units are in millions of metric tons, the equilibrium quantity is 15,000,000 tons. The practice quiz accepts either 15 (assuming the units are millions of metric tons) or 15,000,000 (assuming the units are tons).",
     "correctAnswer": "15000000.0"
   },
   {
@@ -35,20 +35,20 @@
   {
     "id": "ga8f3073c7f5dc6c19ee81292343aa000",
     "type": "multiple_choice",
-    "text": "Suppose that the supply and demand equations for the global market for copper are as follows: QD = 39 – 3P QS = 2P – 1 where quantity is in millions of metric tons and price is in US dollars ($) per kilogram. What is the market equilibrium price and quantity? Enter your answers separately below."
+    "text": "Suppose that the supply and demand equations for the global market for copper are as follows: Q_D = 39 – 3P Q_S = 2P – 1 where quantity is in millions of metric tons and price is in US dollars ($) per kilogram. What is the market equilibrium price and quantity? Enter your answers separately below."
   },
   {
     "id": "g46618ef38db3f7eaa6fe188f7b183eaa",
     "type": "short_answer",
     "text": "What is the market equilibrium price?",
-    "feedback": "Feedback: In equilibrium, quantity demanded should equal quantity supplied, that is, we should have:QD = QS39 – 3P = 2P – 15P = 40P =&nbsp; 8 Note that price is in US dollars ($) per kilogram",
+    "feedback": "Feedback: In equilibrium, quantity demanded should equal quantity supplied, that is, we should have:Q_D = QS39 – 3P = 2P – 15P = 40P =&nbsp; 8 Note that price is in US dollars ($) per kilogram",
     "correctAnswer": "8.0"
   },
   {
     "id": "g8ba3e2884f7da8d35176c8d3226551ad",
     "type": "short_answer",
     "text": "What is the market equilibrium quantity?",
-    "feedback": "Feedback: Plug the price of $8 per kilogram back in to either the demand or supply equation to find the equilibrium quantity: QD = 39 – 3*8 = 15 OR QS = 2*8 – 1 = 15 Since the units are in millions of metric tons, the equilibrium quantity is 15,000,000 tons. The practice quiz accepts either 15 (assuming the units are millions of metric tons) or 15,000,000 (assuming the units are tons).",
+    "feedback": "Feedback: Plug the price of $8 per kilogram back in to either the demand or supply equation to find the equilibrium quantity: Q_D = 39 – 3*8 = 15 OR Q_S = 2*8 – 1 = 15 Since the units are in millions of metric tons, the equilibrium quantity is 15,000,000 tons. The practice quiz accepts either 15 (assuming the units are millions of metric tons) or 15,000,000 (assuming the units are tons).",
     "correctAnswer": "15000000.0"
   },
   {
