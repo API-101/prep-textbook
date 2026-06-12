@@ -119,7 +119,7 @@
         Economists use the term "demand" to describe the relationship between price and the quantity that consumers are willing and able to purchase. This relationship is based on needs, wants, and the ability to pay. When the price of a product increases, consumers typically respond by purchasing less of it—a phenomenon we see everywhere, from gasoline prices to concert tickets to smartphone models. When the price falls, they purchase more.
       </p>
 
-<p>The law of demand reflects rational economic behavior: consumers face trade-offs. When sugar becomes more expensive, households might consume less directly, switch to artificial sweeteners, or purchase fewer sugary products overall. Bakeries and beverage manufacturers might reduce their use of sugar or develop alternative recipes. Some potential customers may be priced out of the market entirely. Conversely, when sugar becomes cheaper, all these decisions reverse—consumers purchase more.</p>
+<p>The law of demand reflects rational economic behavior: consumers face trade-offs. When sugar becomes more expensive, households might consume less, switch to artificial sweeteners, or purchase fewer sugary products overall. Bakeries and beverage manufacturers might reduce their use of sugar or develop alternative recipes. Some potential customers may be priced out of the market entirely. Conversely, when sugar becomes cheaper, all these decisions reverse—consumers purchase more.</p>
 <p>That CAP connection matters immediately: if policy keeps the sugar price above the market-clearing level, this demand relationship tells us that buyers will purchase less sugar, not more.</p>
 
 
@@ -189,7 +189,7 @@
          The EU Sugar Market
 </h3>
 
-<p>Let's work with a concrete example that will anchor our understanding throughout this module. Imagine the demand for <strong>sugar</strong> in the European Union during a particular year. Suppose economists have estimated the demand equation:</p>
+<p>Let's work with a concrete example that will anchor our understanding throughout this module. Imagine the demand for <strong>sugar</strong> in the European Union during a particular year. Suppose economists have estimated the demand function:</p>
 
 
 
@@ -231,7 +231,7 @@
 <div class="callout callout--insight">
 <div class="callout__title">What to Notice</div>
 <p>
-          The table is not just arithmetic practice. It shows the law of demand in a concrete pattern: every €1 increase in price reduces quantity demanded by 10 million kilograms. That regular movement is exactly what the slope coefficient captures, and it is the buyer side of the surplus problem we will return to under the CAP.
+          The table is not just arithmetic practice. It shows the law of demand in a concrete pattern: every €1 increase in price reduces quantity demanded by 10 million kilograms. That regular movement is exactly what the slope coefficient captures. We will return to this buyer-side response when we analyze surplus under the CAP.
         </p>
 </div>
 <!-- Check: Law of Demand MC -->
@@ -630,15 +630,15 @@
         margin: { top: 24, right: 24, bottom: 46, left: 58 },
         xLabel: 'Price (P)',
         yLabel: 'Quantity demanded (Qd)',
-        xDomain: [0, 10],
-        yDomain: [0, 60]
+        xDomain: [0, 5],
+        yDomain: [0, 50]
       });
       if (mathGraph) {
         mathGraph.addLine([{ x: 0, y: 50 }, { x: 5, y: 0 }], '#2e86c1', { label: 'D', strokeWidth: 2.5 });
         [[0, 50], [1, 40], [3, 20], [5, 0]].forEach(function(pt) {
           mathGraph.addPoint(pt[0], pt[1], { color: '#2e86c1', radius: 4 });
         });
-        mathGraph.addLabel(5.4, 23, 'Higher P, lower Qd', { color: '#2e86c1', fontSize: '11px', anchor: 'start' });
+        mathGraph.addLabel(2.6, 18, 'Higher P, lower Qd', { color: '#2e86c1', fontSize: '11px', anchor: 'start' });
       }
 
       var econGraph = EconGraph.create('#demand-econ-convention-graph', {
@@ -647,8 +647,8 @@
         margin: { top: 24, right: 24, bottom: 46, left: 58 },
         xLabel: 'Quantity demanded (Qd)',
         yLabel: 'Price (P)',
-        xDomain: [0, 60],
-        yDomain: [0, 6]
+        xDomain: [0, 50],
+        yDomain: [0, 5]
       });
       if (econGraph) {
         econGraph.addLine([{ x: 0, y: 5 }, { x: 50, y: 0 }], '#2e86c1', { label: 'D', strokeWidth: 2.5 });
