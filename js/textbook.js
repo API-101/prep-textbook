@@ -120,7 +120,7 @@ const EconGraph = {
     svg.append('text')
       .attr('class', 'axis-label axis-label--x')
       .attr('x', margin.left + innerWidth / 2)
-      .attr('y', height - 8)
+      .attr('y', height - 14)
       .attr('text-anchor', 'middle')
       .style('font-family', "'Public Sans', sans-serif")
       .style('font-size', '14px')
@@ -142,12 +142,13 @@ const EconGraph = {
 
     // Add clip-path so lines/areas don't overflow the plot area
     const clipId = 'clip-' + selector.replace(/[^a-zA-Z0-9]/g, '');
+    const clipPad = 8;
     svg.append('defs').append('clipPath')
       .attr('id', clipId)
       .append('rect')
-      .attr('x', 0).attr('y', 0)
-      .attr('width', innerWidth)
-      .attr('height', innerHeight);
+      .attr('x', -clipPad).attr('y', -clipPad)
+      .attr('width', innerWidth + clipPad * 2)
+      .attr('height', innerHeight + clipPad * 2);
     g.attr('clip-path', `url(#${clipId})`);
 
     // Re-append axes on top of clip group so they remain visible
@@ -1320,11 +1321,14 @@ const DrawGraph = {
       .attr('transform', `translate(${margin.left},${margin.top})`);
 
     const clipId = 'draw-clip-' + selector.replace(/[^a-zA-Z0-9]/g, '');
+    const clipPad = 8;
     svg.append('defs').append('clipPath')
       .attr('id', clipId)
       .append('rect')
-      .attr('width', innerWidth)
-      .attr('height', innerHeight);
+      .attr('x', -clipPad)
+      .attr('y', -clipPad)
+      .attr('width', innerWidth + clipPad * 2)
+      .attr('height', innerHeight + clipPad * 2);
 
     // Grid lines
     g.append('g').attr('class', 'grid')
@@ -1364,7 +1368,7 @@ const DrawGraph = {
 
     // Axis labels
     svg.append('text')
-      .attr('x', margin.left + innerWidth / 2).attr('y', height - 8)
+      .attr('x', margin.left + innerWidth / 2).attr('y', height - 14)
       .attr('text-anchor', 'middle')
       .style('font-family', "'Public Sans', sans-serif")
       .style('font-size', '14px').style('font-weight', '600').style('fill', '#2c3e50')

@@ -131,12 +131,12 @@
 <div class="convention-compare">
 <div class="convention-compare__header">
 <h4>Two Ways to Graph the Same Demand Relationship</h4>
-<p>The economics convention graphs the inverted demand equation, \(P = 5 - Q_D/10\), with price on the vertical axis. The mathematical convention graphs the demand equation, \(Q_D = 50 - 10P\), with price on the horizontal axis. Because the axes are reversed, the same relationship looks flatter in inverse form and steeper in standard form.</p>
+<p>The economics convention graphs the inverted demand equation, \(P = 5 - (1/10)Q_D\), with price on the vertical axis. The mathematical convention graphs the demand equation, \(Q_D = 50 - 10P\), with price on the horizontal axis. Because the axes are reversed, the same relationship looks flatter in inverse form and steeper in standard form.</p>
 </div>
 <div class="convention-compare__grid">
 <div class="convention-compare__panel">
 <div class="convention-compare__label">Economist way</div>
-<div class="convention-compare__formula">\(P = 5 - Q_D/10\)</div>
+<div class="convention-compare__formula">\(P = 5 - (1/10)Q_D\)</div>
 <div id="demand-econ-convention-graph"></div>
 <p>Read up from a quantity to find the price on the demand curve.</p>
 </div>
@@ -304,10 +304,10 @@
 </div>
 <div class="math-step">
 <div class="math-step__label">Divide both sides by 10:</div>
-<div class="math-step__expr">$$P = 5 - \frac{Q_D}{10}$$</div>
+<div class="math-step__expr">$$P = 5 - (1/10)Q_D$$</div>
 </div>
 </div>
-<p>The inverted form is \(P = 5 - Q_D/10\). Two features tell us how to draw the line:</p>
+<p>The inverted form is \(P = 5 - (1/10)Q_D\). Two features tell us how to draw the line:</p>
 <table class="equation-feature-table">
 <thead>
 <tr>
@@ -345,7 +345,7 @@
 <h3>Step-by-Step: Graphing the Demand Curve</h3>
 <p>
         With the inverted equation
-        \(P = 5 - Q_D/10\),
+        \(P = 5 - (1/10)Q_D\),
         we have several methods to graph the demand curve:
       </p>
 <div class="graphing-methods">
@@ -513,7 +513,7 @@
 </div>
 <div class="math-step">
 <div class="math-step__label">Divide both sides by 4:</div>
-<div class="math-step__expr">$$P = 10 - \frac{Q_D}{4}$$</div>
+<div class="math-step__expr">$$P = 10 - (1/4)Q_D$$</div>
 </div>
 </div>
 </details>
@@ -531,17 +531,17 @@
 <div class="graph-container">
 <div class="graph-container__title">Demand Curve Explorer</div>
 <div class="graph-container__description">
-          Use the sliders to test one idea at a time. First change only the intercept (a) and watch the whole curve move. Then reset and change only the slope coefficient (b) to see how price responsiveness changes the curve's steepness. The equation shown is \(Q_D = a - bP\), which we invert to \(P = (a/b) - (Q/b)\) for graphing.
+          Use the sliders to test one idea at a time. First change only the intercept \(a\) and watch the whole curve move. Then reset and change only the slope coefficient \(b\) to see how price responsiveness changes the curve's steepness. The equation shown is \(Q_D = a - bP\), which we invert to \(P = a/b - Q_D/b\) for graphing.
         </div>
 <div class="graph-container__svg-wrapper" id="demand-graph"></div>
 <div class="graph-container__controls">
 <div class="graph-control">
-<label class="graph-control__label">Intercept (a): Quantity demanded at P = 0</label>
+<label class="graph-control__label">Intercept \(a\): Quantity demanded at \(P = 0\)</label>
 <input class="graph-control__slider" id="demand-intercept" max="200" min="10" step="5" type="range" value="50"/>
 <span class="graph-control__value" id="demand-intercept-value">50</span>
 </div>
 <div class="graph-control">
-<label class="graph-control__label">Slope coefficient (b): Decrease in quantity demanded per 1-unit price increase</label>
+<label class="graph-control__label">Slope coefficient \(b\): Decrease in quantity demanded per 1-unit price increase</label>
 <input class="graph-control__slider" id="demand-slope" max="40" min="2" step="2" type="range" value="10"/>
 <span class="graph-control__value" id="demand-slope-value">10</span>
 </div>
@@ -549,11 +549,11 @@
 </div>
 <div class="graph-container__info">
 <p><strong>Current demand:</strong> <span id="demand-equation-display">\(Q_D = 50 - 10P\)</span></p>
-<p><strong>Graph form:</strong> <span id="demand-inverse-display">\(P = 5.00 - Q_D/10\)</span></p>
+<p><strong>Graph form:</strong> <span id="demand-inverse-display">\(P = 5.00 - (1/10)Q_D\)</span></p>
 </div>
 </div>
 
-<p>The graph starts with values matching our EU sugar example: a = 50, b = 10. Try adjusting the sliders to see how the curve responds. Increasing the intercept (a) shifts the demand curve rightward — more quantity demanded at every price. Increasing the slope coefficient (b) makes the demand curve <em>flatter</em> in the economics graph, because the slope of the inverted demand equation is \(-1/b\). This implies that a 1-unit price increase now results in a bigger reduction in the quantity demanded.</p>
+<p>The graph starts with values matching our EU sugar example: \(a = 50\), \(b = 10\). Try adjusting the sliders to see how the curve responds. Increasing the intercept \(a\) shifts the demand curve rightward — more quantity demanded at every price. Increasing the slope coefficient \(b\) makes the demand curve <em>flatter</em> in the economics graph, because the slope of the inverted demand equation is \(-1/b\). This implies that a 1-unit price increase now results in a bigger reduction in the quantity demanded.</p>
 
 
 
@@ -749,7 +749,7 @@
         var equationDisplay = document.getElementById('demand-equation-display');
         var inverseDisplay = document.getElementById('demand-inverse-display');
         var demandExpression = 'Q_D = ' + a.toFixed(0) + ' - ' + b.toFixed(0) + 'P';
-        var inverseExpression = 'P = ' + (a / b).toFixed(2) + ' - \\frac{Q_D}{' + b.toFixed(0) + '}';
+        var inverseExpression = 'P = ' + (a / b).toFixed(2) + ' - (1/' + b.toFixed(0) + ')Q_D';
         if (typeof katex !== 'undefined') {
           katex.render(demandExpression, equationDisplay, { throwOnError: false });
           katex.render(inverseExpression, inverseDisplay, { throwOnError: false });
