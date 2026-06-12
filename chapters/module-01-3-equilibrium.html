@@ -612,7 +612,7 @@
         fadePoint(qSupplied, price, '#c0392b', 2950);
         fadeLabel(qSupplied, price - 0.2, 'QS = 45', { color: '#c0392b', fontSize: '10px', anchor: 'middle', delay: 3000 });
         animateLine([{x: qDemanded, y: 0.08}, {x: qSupplied, y: 0.08}], '#c0392b', { strokeWidth: 3, delay: 3300, dashedFinal: false, opacity: 0.95 });
-        fadeLabel(25, 0.42, 'Surplus on quantity axis: 45 - 20 = 25', { color: '#c0392b', fontSize: '11px', delay: 4050 });
+        fadeLabel(25, 0.42, 'Surplus: 45 - 20 = 25', { color: '#c0392b', fontSize: '11px', delay: 4050 });
         if (caption) caption.textContent = 'Figure 3.2: Surplus and Shortage Graph Explorer. At P = €3, quantity supplied is 45 and quantity demanded is 20, so the surplus is 25 million kg.';
       }
 
@@ -631,7 +631,7 @@
         fadePoint(qDemanded, price, '#2e86c1', 2950);
         fadeLabel(qDemanded, price - 0.18, 'QD = 40', { color: '#2e86c1', fontSize: '10px', anchor: 'middle', delay: 3000 });
         animateLine([{x: qSupplied, y: 0.08}, {x: qDemanded, y: 0.08}], '#2e86c1', { strokeWidth: 3, delay: 3300, dashedFinal: false, opacity: 0.95 });
-        fadeLabel(18, 0.42, 'Shortage on quantity axis: 40 - 15 = 25', { color: '#2e86c1', fontSize: '11px', delay: 4050 });
+        fadeLabel(18, 0.42, 'Shortage: 40 - 15 = 25', { color: '#2e86c1', fontSize: '11px', delay: 4050 });
         if (caption) caption.textContent = 'Figure 3.2: Surplus and Shortage Graph Explorer. At P = €1, quantity demanded is 40 and quantity supplied is 15, so the shortage is 25 million kg.';
       }
 
@@ -770,7 +770,7 @@
         fadePoint(qSupplied, supportPrice, '#c0392b', delay + 1900);
         fadeLabel(qSupplied, supportPrice - 0.2, 'QS = 45', { color: '#c0392b', fontSize: '10px', anchor: 'middle', delay: delay + 1950 });
         animateLine([{x: qDemanded, y: 0.08}, {x: qSupplied, y: 0.08}], '#c0392b', { strokeWidth: 3, delay: delay + 2250, dashedFinal: false, opacity: 0.95 });
-        fadeLabel(25, 0.42, 'Surplus on quantity axis = 25', { color: '#c0392b', fontSize: '11px', delay: delay + 3000 });
+        fadeLabel(25, 0.42, 'Surplus = 25', { color: '#c0392b', fontSize: '11px', delay: delay + 3000 });
       }
 
       function drawGovernmentPurchase(delay) {
