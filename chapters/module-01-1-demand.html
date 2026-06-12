@@ -131,23 +131,23 @@
 <div class="convention-compare">
 <div class="convention-compare__header">
 <h4>Two Ways to Graph the Same Demand Relationship</h4>
-<p>The mathematical convention graphs the demand equation, \(Q_d = 50 - 10P\), with price on the horizontal axis. The economics convention graphs the inverted demand equation, \(P = 5 - Q_d/10\), with price on the vertical axis.</p>
+<p>The economics convention graphs the inverted demand equation, \(P = 5 - Q_d/10\), with price on the vertical axis. The mathematical convention graphs the demand equation, \(Q_d = 50 - 10P\), with price on the horizontal axis. Because the axes are reversed, the same relationship looks flatter in inverse form and steeper in standard form.</p>
 </div>
 <div class="convention-compare__grid">
-<div class="convention-compare__panel">
-<div class="convention-compare__label">Mathematics way</div>
-<div class="convention-compare__formula">\(Q_d = 50 - 10P\)</div>
-<div id="demand-math-convention-graph"></div>
-<p>Read across from a price to find the quantity demanded.</p>
-</div>
 <div class="convention-compare__panel">
 <div class="convention-compare__label">Economist way</div>
 <div class="convention-compare__formula">\(P = 5 - Q_d/10\)</div>
 <div id="demand-econ-convention-graph"></div>
 <p>Read up from a quantity to find the price on the demand curve.</p>
 </div>
+<div class="convention-compare__panel">
+<div class="convention-compare__label">Mathematics way</div>
+<div class="convention-compare__formula">\(Q_d = 50 - 10P\)</div>
+<div id="demand-math-convention-graph"></div>
+<p>Read across from a price to find the quantity demanded.</p>
 </div>
-<p class="convention-compare__note">The law of demand is the same in both pictures: a higher price is associated with a lower quantity demanded. In the economics graph, a steeper demand curve means price changes a lot for a small change in quantity; a flatter demand curve means quantity demanded changes more for a given price change.</p>
+</div>
+<p class="convention-compare__note">The law of demand is the same in both pictures: a higher price is associated with a lower quantity demanded. The visual slope changes because the axes are reversed: the inverse demand equation has slope \(-1/b\), while the standard demand equation has slope \(-b\).</p>
 </div>
 <p>
         An important concept underlying demand is <strong>willingness to pay</strong>: the monetary value each consumer places on a market good. At high prices, only consumers with high willingness to pay will buy, implying a low quantity demanded. At lower prices, consumers with lower willingness to pay will also buy, implying a high quantity demanded. Willingness to pay helps explain why the law of demand holds: as price decreases and the good becomes more affordable, more consumers are willing to buy, increasing quantity demanded.
@@ -630,7 +630,7 @@
         margin: { top: 24, right: 24, bottom: 46, left: 58 },
         xLabel: 'Price (P)',
         yLabel: 'Quantity demanded (Qd)',
-        xDomain: [0, 5],
+        xDomain: [0, 10],
         yDomain: [0, 50]
       });
       if (mathGraph) {
@@ -638,7 +638,7 @@
         [[0, 50], [1, 40], [3, 20], [5, 0]].forEach(function(pt) {
           mathGraph.addPoint(pt[0], pt[1], { color: '#2e86c1', radius: 4 });
         });
-        mathGraph.addLabel(2.6, 18, 'Higher P, lower Qd', { color: '#2e86c1', fontSize: '11px', anchor: 'start' });
+        mathGraph.addLabel(6.1, 25, 'Slope = -b', { color: '#2e86c1', fontSize: '12px', fontWeight: '800', anchor: 'start' });
       }
 
       var econGraph = EconGraph.create('#demand-econ-convention-graph', {
@@ -648,14 +648,14 @@
         xLabel: 'Quantity demanded (Qd)',
         yLabel: 'Price (P)',
         xDomain: [0, 50],
-        yDomain: [0, 5]
+        yDomain: [0, 10]
       });
       if (econGraph) {
         econGraph.addLine([{ x: 0, y: 5 }, { x: 50, y: 0 }], '#2e86c1', { label: 'D', strokeWidth: 2.5 });
         [[0, 5], [10, 4], [30, 2], [50, 0]].forEach(function(pt) {
           econGraph.addPoint(pt[0], pt[1], { color: '#2e86c1', radius: 4 });
         });
-        econGraph.addLabel(18, 3.6, 'Same law of demand', { color: '#2e86c1', fontSize: '11px', anchor: 'start' });
+        econGraph.addLabel(9, 5.8, 'Slope = -1/b', { color: '#2e86c1', fontSize: '12px', fontWeight: '800', anchor: 'start' });
       }
     }
 
