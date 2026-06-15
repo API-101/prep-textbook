@@ -1383,6 +1383,15 @@ const DrawGraph = {
       .style('font-size', '14px').style('font-weight', '600').style('fill', '#2c3e50')
       .text(config.yLabel);
 
+    const clickPadding = 14;
+    const clickLayer = svg.append('rect')
+      .attr('x', margin.left - clickPadding)
+      .attr('y', margin.top - clickPadding)
+      .attr('width', innerWidth + clickPadding * 2)
+      .attr('height', innerHeight + clickPadding * 2)
+      .attr('fill', 'transparent')
+      .style('cursor', 'crosshair');
+
     // State
     let points = [];   // 0, 1, or 2 {x, y} data-space points
     let submitted = false;
@@ -1443,10 +1452,11 @@ const DrawGraph = {
       return Math.round(value / increment) * increment;
     }
 
-    // Click handler — two-point model
-    drawArea.on('click', function(event) {
+    function handleGraphClick(event) {
       if (submitted || points.length >= 2) return;
-      const [mx, my] = d3.pointer(event, g.node());
+      const [svgX, svgY] = d3.pointer(event, svg.node());
+      const mx = Math.max(0, Math.min(innerWidth, svgX - margin.left));
+      const my = Math.max(0, Math.min(innerHeight, svgY - margin.top));
       const rawX = xScale.invert(mx);
       const rawY = yScale.invert(my);
       const cx = Math.max(config.xDomain[0], Math.min(config.xDomain[1], snapValue(rawX, config.snapX)));
@@ -1454,8 +1464,16 @@ const DrawGraph = {
       points.push({ x: cx, y: cy });
       redrawDots();
       redrawUserLine();
-      if (points.length >= 2) drawArea.style('cursor', 'default');
-    });
+      if (points.length >= 2) {
+        drawArea.style('cursor', 'default');
+        clickLayer.style('cursor', 'default');
+      }
+    }
+
+    // Click handler — two-point model. The padded layer makes axis endpoints
+    // like the origin easier to select while still clamping points to the graph.
+    drawArea.on('click', handleGraphClick);
+    clickLayer.on('click', handleGraphClick);
 
     return {
       clear() {
@@ -1466,6 +1484,7 @@ const DrawGraph = {
         dotsGroup.selectAll('circle').remove();
         g.selectAll('.draw-graph__correct-label').remove();
         drawArea.style('cursor', 'crosshair');
+        clickLayer.style('cursor', 'crosshair');
       },
 
       submit(feedbackEl) {
@@ -1525,6 +1544,7 @@ const DrawGraph = {
 
         submitted = true;
         drawArea.style('cursor', 'default');
+        clickLayer.style('cursor', 'default');
 
         // Show correct line
         if (config.correctLine) {
