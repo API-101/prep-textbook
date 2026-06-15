@@ -246,7 +246,7 @@
 <div class="callout callout--insight">
 <div class="callout__title">Important Distinction: Demand vs. Quantity Demanded</div>
 <p>
-          "Demand" refers to the entire relationship between price and quantity — the entire demand curve when shown graphically. "Quantity demanded" refers to a specific amount at a specific price: one point on that curve. When economists say "demand increased" or "demand decreased," they mean the entire curve shifted. When price changes and consumers respond by buying more or less, <em>quantity demanded</em> changes but <em>demand</em> itself does not. This distinction becomes crucial in Module 2.
+          "Demand" refers to the entire relationship between price and quantity. "Quantity demanded" refers to a specific amount at a specific price: one point on that curve. When economists say "demand increased" or "demand decreased," they mean the entire relationship between price and quantity demanded has changed. This can be due to changes in other variables that were held constant (income, preferences, prices of related goods). In sum, when price changes and consumers respond by buying more or less, quantity demanded changes but demand itself does not. This distinction becomes crucial in Module 2.
         </p>
 </div>
 
@@ -378,7 +378,7 @@
 <span class="graphing-method__badge">Method 2</span>
 <h4 class="graphing-method__title">Slope and a Point</h4>
 </div>
-<p class="graphing-method__intro">We need one known point to anchor the line and the slope to extend it. The vertical intercept is the easiest known point — it comes straight from the inverted equation when you set QD = 0. Start there:
+<p class="graphing-method__intro">We need one known point to anchor the line and the slope to extend it. The vertical intercept is the easiest known point — it comes straight from the inverted equation when you set \(Q_D = 0\). Start there:
             (0, 5).
             Then apply the slope repeatedly:
             −1/10 means move right 10 units, down 1 unit.
@@ -438,6 +438,12 @@
 <p>
           Notice that Methods 1, 2, and 3 all produce exactly the same demand curve — because there is only one straight line consistent with the equation. The intercept method is fastest when you have the inverted equation. The slope-and-a-point method is useful when you know one coordinate and the slope. The schedule method is a useful check because it turns the equation into price-quantity pairs before plotting them. Choose whichever approach you find clearest; you will use all three at different points in the course.
         </p>
+</div>
+<div class="callout callout--insight">
+<div class="callout__title">What to Notice</div>
+<p>
+          Because price is plotted on the vertical axis and quantity on the horizontal axis, the slope of the demand curve is the inverse of the slope of the demand function. In our example, the demand function is relatively steep with a slope of 10, indicating that consumers are quite responsive to price changes. Visually, this corresponds to a relatively flat demand curve with a slope of \(1/10\).
+</p>
 </div>
 <div class="callout callout--warning">
 <div class="callout__title">Common Mistake</div>
@@ -549,7 +555,7 @@
 </div>
 <div class="graph-container__info">
 <p><strong>Current demand:</strong> <span id="demand-equation-display">\(Q_D = 50 - 10P\)</span></p>
-<p><strong>Graph form:</strong> <span id="demand-inverse-display">\(P = 5.00 - (1/10)Q_D\)</span></p>
+<p><strong>Graph form:</strong> <span id="demand-inverse-display">\(P = 5 - (1/10)Q_D\)</span></p>
 </div>
 </div>
 
@@ -631,7 +637,7 @@
         height: 320,
         margin: { top: 24, right: 24, bottom: 46, left: 58 },
         xLabel: 'Price (P)',
-        yLabel: 'Quantity demanded (QD)',
+        yLabel: 'Quantity demanded (Q_D)',
         xDomain: [0, 10],
         yDomain: [0, 50]
       });
@@ -647,7 +653,7 @@
         width: 420,
         height: 320,
         margin: { top: 24, right: 24, bottom: 46, left: 58 },
-        xLabel: 'Quantity demanded (QD)',
+        xLabel: 'Quantity demanded (Q_D)',
         yLabel: 'Price (P)',
         xDomain: [0, 50],
         yDomain: [0, 10]
@@ -740,6 +746,9 @@
       if (bSlider) bSlider.value = cfg.interactiveDefaults.b;
 
       var yMax = cfg.interactiveYDomain[1];
+      function formatGraphNumber(value) {
+        return Number.isInteger(value) ? value.toFixed(0) : value.toFixed(2).replace(/0+$/, '').replace(/\.$/, '');
+      }
       function update() {
         _interactiveGraph.clear();
         var a = parseFloat(document.getElementById('demand-intercept').value);
@@ -749,13 +758,13 @@
         var equationDisplay = document.getElementById('demand-equation-display');
         var inverseDisplay = document.getElementById('demand-inverse-display');
         var demandExpression = 'Q_D = ' + a.toFixed(0) + ' - ' + b.toFixed(0) + 'P';
-        var inverseExpression = 'P = ' + (a / b).toFixed(2) + ' - (1/' + b.toFixed(0) + ')Q_D';
+        var inverseExpression = 'P = ' + formatGraphNumber(a / b) + ' - (1/' + b.toFixed(0) + ')Q_D';
         if (typeof katex !== 'undefined') {
           katex.render(demandExpression, equationDisplay, { throwOnError: false });
           katex.render(inverseExpression, inverseDisplay, { throwOnError: false });
         } else {
           equationDisplay.textContent = demandExpression;
-          inverseDisplay.textContent = 'P = ' + (a / b).toFixed(2) + ' - Q_D/' + b.toFixed(0);
+          inverseDisplay.textContent = 'P = ' + formatGraphNumber(a / b) + ' - (1/' + b.toFixed(0) + ')Q_D';
         }
 
         var demand = function(x) { return (a / b) - (x / b); };
@@ -883,7 +892,7 @@
               { color: '#e74c3c', fontSize: '11px', anchor: 'end' });
           }
         ], [
-          'Step 1 — Plot the <strong>vertical intercept (0, ' + vi[1] + ')</strong>. When QD = 0, P = ' + vi[1] + ' — the price at which quantity demanded is zero.',
+          'Step 1 — Plot the <strong>vertical intercept (0, ' + vi[1] + ')</strong>. When Q_D = 0, P = ' + vi[1] + ' — the price at which quantity demanded is zero.',
           'Step 2 — Find the <strong>horizontal intercept</strong>: set P = 0 → Q = ' + hi[0] + '. Plot (' + hi[0] + ', 0).',
           'Step 3 — Draw a <strong>straight line through both intercepts</strong>. This is the demand curve D.'
         ], desc1El, btn1);
@@ -992,48 +1001,48 @@
     // ===== Graph It =====
     (function() {
       var gi1 = DrawGraph.create('#draw-graph-gi-1', {
-        xLabel: 'Quantity (QD)',
+        xLabel: 'Quantity (Q_D)',
         yLabel: 'Price (P)',
         xDomain: [0, 6],
         yDomain: [0, 10],
         expectedSlope: 'negative',
         correctLine: function(x) { return 8 - 2 * x; },
         feedbackMessages: {
-          correct: 'The inverted demand equation P = 8 \u2212 2QD gives a demand curve that runs from (0, 8) to (4, 0).',
+          correct: 'The inverted demand equation P = 8 \u2212 2Q_D gives a demand curve that runs from (0, 8) to (4, 0).',
           wrongSlope: 'The slope is incorrect. For this demand curve, price falls by 2 for each 1-unit increase in quantity.',
           wrongIntercept: 'The slope is right, but both intercepts are incorrect. Recalculate where the curve crosses the price axis and the quantity axis.',
           oneInterceptWrongSlope: 'One intercept is correct, but the slope is incorrect, so the other intercept is also off. Use the equation to find the second intercept before drawing the line.',
-          wrongSlopeAndIntercepts: 'The slope and both intercepts are incorrect. First find the price intercept by setting QD = 0, then find the quantity intercept by setting P = 0.'
+          wrongSlopeAndIntercepts: 'The slope and both intercepts are incorrect. First find the price intercept by setting Q_D = 0, then find the quantity intercept by setting P = 0.'
         }
       });
       var gi2 = DrawGraph.create('#draw-graph-gi-2', {
-        xLabel: 'Quantity (QD)',
+        xLabel: 'Quantity (Q_D)',
         yLabel: 'Price (P)',
         xDomain: [0, 14],
         yDomain: [0, 7],
         expectedSlope: 'negative',
         correctLine: function(x) { return 6 - 0.5 * x; },
         feedbackMessages: {
-          correct: 'The inverted demand equation P = 6 \u2212 0.5QD gives a demand curve that runs from (0, 6) to (12, 0).',
+          correct: 'The inverted demand equation P = 6 \u2212 0.5Q_D gives a demand curve that runs from (0, 6) to (12, 0).',
           wrongSlope: 'The slope is incorrect. For this demand curve, price falls by 0.5 for each 1-unit increase in quantity.',
           wrongIntercept: 'The slope is right, but both intercepts are incorrect. Recalculate where the curve crosses the price axis and the quantity axis.',
           oneInterceptWrongSlope: 'One intercept is correct, but the slope is incorrect, so the other intercept is also off. Use the equation to find the second intercept before drawing the line.',
-          wrongSlopeAndIntercepts: 'The slope and both intercepts are incorrect. First find the price intercept by setting QD = 0, then find the quantity intercept by setting P = 0.'
+          wrongSlopeAndIntercepts: 'The slope and both intercepts are incorrect. First find the price intercept by setting Q_D = 0, then find the quantity intercept by setting P = 0.'
         }
       });
       var gi3 = DrawGraph.create('#draw-graph-gi-3', {
-        xLabel: 'Quantity (QD)',
+        xLabel: 'Quantity (Q_D)',
         yLabel: 'Price (P)',
         xDomain: [0, 45],
         yDomain: [0, 12],
         expectedSlope: 'negative',
         correctLine: function(x) { return 10 - x / 4; },
         feedbackMessages: {
-          correct: 'After inverting QD = 40 \u2212 4P to P = 10 \u2212 QD/4, the demand curve runs from (0, 10) to (40, 0).',
-          wrongSlope: 'The slope is incorrect. After inversion, the equation is P = 10 \u2212 QD/4, so price falls by 0.25 for each 1-unit increase in quantity.',
+          correct: 'After inverting Q_D = 40 \u2212 4P to P = 10 \u2212 (1/4)Q_D, the demand curve runs from (0, 10) to (40, 0).',
+          wrongSlope: 'The slope is incorrect. After inversion, the equation is P = 10 \u2212 (1/4)Q_D, so price falls by 0.25 for each 1-unit increase in quantity.',
           wrongIntercept: 'The slope is right, but both intercepts are incorrect. Recheck the inversion, then plot (0, 10) and (40, 0).',
-          oneInterceptWrongSlope: 'One intercept is correct, but the slope is incorrect, so the other intercept is also off. After inversion, use P = 10 \u2212 QD/4 to find the second intercept.',
-          wrongSlopeAndIntercepts: 'The slope and both intercepts are incorrect. Invert first to get P = 10 \u2212 QD/4, then find the two intercepts.'
+          oneInterceptWrongSlope: 'One intercept is correct, but the slope is incorrect, so the other intercept is also off. After inversion, use P = 10 \u2212 (1/4)Q_D to find the second intercept.',
+          wrongSlopeAndIntercepts: 'The slope and both intercepts are incorrect. Invert first to get P = 10 \u2212 (1/4)Q_D, then find the two intercepts.'
         }
       });
 
