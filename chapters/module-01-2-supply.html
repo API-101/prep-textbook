@@ -381,8 +381,8 @@ Quantity Supplied — \(Q_S = 15P\) (millions of kg/year)
 </div>
 </div>
 <div class="graph-container__info">
-<p><strong>Current supply:</strong> <span id="supply-equation-display">\(Q_S = 0 + 15P\)</span></p>
-<p><strong>Graph form:</strong> <span id="supply-inverse-display">\(P = (1/15)(Q_S - 0)\)</span></p>
+<p><strong>Current supply:</strong> <span id="supply-equation-display">\(Q_S = 15P\)</span></p>
+<p><strong>Graph form:</strong> <span id="supply-inverse-display">\(P = (1/15)Q_S\)</span></p>
 </div>
 </div>
 <p>The graph shows the EU sugar supply curve with default values \(c = 0\) and \(d = 15\), giving \(Q_S = 15P\). Try adjusting the intercept: a positive \(c\) shifts the curve rightward — farmers supply more at every price (perhaps due to a productivity improvement). Increasing \(d\) makes the curve flatter, meaning producers are more responsive to price signals.</p>
@@ -645,6 +645,27 @@ Quantity Supplied — \(Q_S = 15P\) (millions of kg/year)
       document.getElementById('supply-intercept-value').textContent = cfg.dfltC;
       document.getElementById('supply-slope-value').textContent = cfg.dfltD;
 
+      function formatSupplyExpression(c, d) {
+        if (c === 0) return 'Q_S = ' + d.toFixed(0) + 'P';
+        var intercept = c > 0 ? c.toFixed(0) : '-' + Math.abs(c).toFixed(0);
+        return 'Q_S = ' + intercept + ' + ' + d.toFixed(0) + 'P';
+      }
+
+      function formatInverseExpression(c, d) {
+        if (c === 0) return 'P = (1/' + d.toFixed(0) + ')Q_S';
+        var sign = c > 0 ? ' - ' : ' + ';
+        return 'P = (1/' + d.toFixed(0) + ')(Q_S' + sign + Math.abs(c).toFixed(0) + ')';
+      }
+
+      function renderEquation(el, expression) {
+        if (!el) return;
+        if (typeof katex !== 'undefined') {
+          katex.render(expression, el, { throwOnError: false });
+        } else {
+          el.textContent = expression;
+        }
+      }
+
       function update() {
         graph.clear();
         var c = parseFloat(cSlider.value);
@@ -653,15 +674,10 @@ Quantity Supplied — \(Q_S = 15P\) (millions of kg/year)
         document.getElementById('supply-slope-value').textContent = d.toFixed(0);
         var equationDisplay = document.getElementById('supply-equation-display');
         var inverseDisplay = document.getElementById('supply-inverse-display');
-        var supplyExpression = 'Q_S = ' + c.toFixed(0) + ' + ' + d.toFixed(0) + 'P';
-        var inverseExpression = 'P = (1/' + d.toFixed(0) + ')(Q_S - ' + c.toFixed(0) + ')';
-        if (typeof katex !== 'undefined') {
-          katex.render(supplyExpression, equationDisplay, { throwOnError: false });
-          katex.render(inverseExpression, inverseDisplay, { throwOnError: false });
-        } else {
-          equationDisplay.textContent = supplyExpression;
-          inverseDisplay.textContent = 'P = (1/' + d.toFixed(0) + ')(Q_S - ' + c.toFixed(0) + ')';
-        }
+        var supplyExpression = formatSupplyExpression(c, d);
+        var inverseExpression = formatInverseExpression(c, d);
+        renderEquation(equationDisplay, supplyExpression);
+        renderEquation(inverseDisplay, inverseExpression);
 
         var supply = function(x) { return (x - c) / d; };
         graph.addLine(supply, '#c0392b', { label: 'S', className: 'dynamic', strokeWidth: 2.5 });
@@ -678,6 +694,7 @@ Quantity Supplied — \(Q_S = 15P\) (millions of kg/year)
       cSlider.addEventListener('input', update);
       dSlider.addEventListener('input', update);
       update();
+      window.addEventListener('load', update, { once: true });
     }
 
     // ===== DrawGraph: Supply =====
