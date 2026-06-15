@@ -132,6 +132,16 @@
 <p class="equation-display">\(Q_S = 15P\)</p>
 <p>Where \(Q_S\) is measured in millions of kilograms per year and \(P\) is the price in euros per kilogram. Notice that \(c = 0\): at a price of zero, producers supply nothing — which makes economic sense. <em>Stylized illustration — numbers chosen to keep the algebra clean, not to match actual EU market volumes or intervention prices.</em></p>
 
+<h4>Read the Equation in Words</h4>
+<p>
+        If sugar were priced at zero, sellers would supply zero units. For every €1 increase in price, producers increase the quantity supplied by 15 million kg.
+      </p>
+
+<div class="self-check">
+<div class="self-check__question">Slope of the supply function is 15. Recall that the slope of the demand function is 10. Which side of the market, supply or demand, is more sensitive to price changes?</div>
+<button class="self-check__reveal-btn">Show Answer</button>
+<div class="self-check__answer">The supply function is steeper than the demand function (\(15 > 10\)), which implies that producers are more sensitive to price changes. For each €1 increase in price, quantity supplied increases by 15 million kilograms, whereas it reduces quantity demanded by 10 million kilograms.</div>
+</div>
 
 <table class="data-table">
 <thead>
@@ -300,7 +310,7 @@ Quantity Supplied — \(Q_S = 15P\) (millions of kg/year)
         </p>
 </div>
 <p>
-          The supply curve slopes upward, confirming the law of supply. In the inverted form, the supply slope is \(1/15 \approx 0.067\), while the demand curve has slope magnitude \(1/10 = 0.10\). The demand curve is steeper — meaning demand quantity is more sensitive to price changes than supply in this market.
+          Compare the slopes of the supply and demand functions first. The supply function has slope 15, while the demand function from Module 1 has slope magnitude 10, so producers are more sensitive to price changes in this market. For each €1 increase in price, quantity supplied increases by 15 million kilograms, whereas it reduces quantity demanded by 10 million kilograms.
         </p>
 
 
@@ -540,6 +550,9 @@ Quantity Supplied — \(Q_S = 15P\) (millions of kg/year)
           },
           function() {
             s1.addLine(cfg.fn, '#c0392b', { label: 'S', strokeWidth: 2.5 });
+            s1.addLabel(72, cfg.fn(72) + yMax * 0.08, 'Supply', {
+              color: '#c0392b', fontSize: '12px', fontWeight: '800', anchor: 'start'
+            });
             s1.addPoint(0, 0, { color: '#e74c3c', radius: 5 });
             sp.forEach(function(pt) { s1.addPoint(pt[0], pt[1], { color: '#c0392b', radius: 4 }); });
           }
@@ -589,6 +602,9 @@ Quantity Supplied — \(Q_S = 15P\) (millions of kg/year)
         sm2Frames.push(function() {
           sp.forEach(function(pt) { s2.addPoint(pt[0], pt[1], { color: '#c0392b', radius: 5 }); });
           s2.addLine(cfg.fn, '#c0392b', { label: 'S', strokeWidth: 2.5 });
+          s2.addLabel(72, cfg.fn(72) + cfg.yDomain[1] * 0.08, 'Supply', {
+            color: '#c0392b', fontSize: '12px', fontWeight: '800', anchor: 'start'
+          });
         });
         var sm2Descs = sp.map(function(pt, i) {
           return 'Row ' + (i + 1) + ' → Plot <strong>(Q=' + pt[0] + ', P=' + pt[1] + ')</strong>.';
