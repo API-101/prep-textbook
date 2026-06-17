@@ -33,6 +33,31 @@ const EconGraph = {
     animationDuration: 400
   },
 
+  formatSvgMathLabel(textSelection, text) {
+    textSelection.text(null);
+    const parts = String(text).split(/([A-Za-z](?:_[A-Za-z]|\*))/g).filter(Boolean);
+    parts.forEach(part => {
+      const subMatch = part.match(/^([A-Za-z])_([A-Za-z])$/);
+      const supMatch = part.match(/^([A-Za-z])\*$/);
+      if (subMatch) {
+        textSelection.append('tspan').text(subMatch[1]);
+        textSelection.append('tspan')
+          .attr('baseline-shift', 'sub')
+          .style('font-size', '70%')
+          .text(subMatch[2]);
+      } else if (supMatch) {
+        textSelection.append('tspan').text(supMatch[1]);
+        textSelection.append('tspan')
+          .attr('baseline-shift', 'super')
+          .style('font-size', '70%')
+          .text('*');
+      } else {
+        textSelection.append('tspan').text(part);
+      }
+    });
+    return textSelection;
+  },
+
   /**
    * Create a new graph instance inside a container.
    * @param {string} selector - CSS selector for the container element
@@ -259,8 +284,8 @@ const EconGraph = {
         .style('font-family', "'Public Sans', sans-serif")
         .style('font-size', '13px')
         .style('font-weight', '700')
-        .style('fill', color)
-        .text(label);
+        .style('fill', color);
+      this.formatSvgMathLabel(labelText, label);
       // Size the background to fit the text
       try {
         const bbox = labelText.node().getBBox();
@@ -342,8 +367,8 @@ const EconGraph = {
         .style('font-family', "'Public Sans', sans-serif")
         .style('font-size', '13px')
         .style('font-weight', '700')
-        .style('fill', color)
-        .text(label);
+        .style('fill', color);
+      this.formatSvgMathLabel(labelText, label);
       try {
         const bbox = labelText.node().getBBox();
         bgRect.attr('x', bbox.x - 2).attr('y', bbox.y - 1)
@@ -397,8 +422,8 @@ const EconGraph = {
       .style('font-family', "'Public Sans', sans-serif")
       .style('font-size', fontSize)
       .style('font-weight', fontWeight)
-      .style('fill', color)
-      .text(text);
+      .style('fill', color);
+    this.formatSvgMathLabel(labelText, text);
     if (bgRect) {
       try {
         const bbox = labelText.node().getBBox();
