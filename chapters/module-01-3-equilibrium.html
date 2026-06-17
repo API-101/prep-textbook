@@ -46,7 +46,7 @@
 <div class="chapter-header__number">Module 3</div>
 <h1 class="chapter-header__title">Equilibrium Basics</h1>
 <p class="chapter-header__subtitle">
-          In Modules 1 and 2 you built demand and supply curves separately. Now we bring them together: finding market equilibrium, interpreting surplus and shortage, and applying these tools to a policy example.
+          In Modules 1 and 2 you built demand and supply curves separately. Now we bring them together: finding market equilibrium, interpreting excess supply (surplus) and excess demand (shortage), and applying these tools to a policy example.
         </p>
 </header>
 <!-- ===== LEARNING OBJECTIVES ===== -->
@@ -56,7 +56,7 @@
 <li>Identify and solve for equilibrium price and quantity algebraically</li>
 <li>Interpret market conditions when price is above or below equilibrium (surplus and shortage)</li>
 <li>Graph supply and demand together and identify the equilibrium point</li>
-<li>Apply demand-supply analysis to understand a real-world policy example</li>
+<li>Use the supply-and-demand framework to examine a real-world policy example</li>
 </ul>
 </div>
 <div class="callout callout--example">
@@ -80,7 +80,7 @@
         Markets in equilibrium tend to stay in equilibrium unless something external changes (which we will explore in Module 4). When a market is not in equilibrium, the imbalance creates incentives for buyers and sellers to adjust. If price is too high, unsold inventory accumulates, and sellers lower prices to clear it. If price is too low, buyers search frantically for products, and prices rise. This process is not always instantaneous, but the tendency is toward equilibrium.
       </p>
 <p>
-        For a price-support policy, equilibrium gives us the benchmark the policy disrupts. Without that benchmark, we cannot say whether the guaranteed price is above the market level, how large the resulting surplus is, or why the government must buy the excess output.
+        For a price policy, equilibrium gives us the benchmark the policy disrupts. Without that benchmark, we cannot say whether the regulated price is above the market level or how large the resulting surplus is.
       </p>
 <h3>Finding Equilibrium Algebraically</h3>
 <p>
@@ -199,7 +199,7 @@
 <div class="figure">
 <div id="equilibrium-static-graph"></div>
 <div class="figure__caption">Figure 3.1: The equilibrium for the
-          EU sugar market. The demand (blue) and supply (red) curves intersect at E*, where \(P^* = €2\)/kg and \(Q^* = 30\) million kg/year.
+          EU sugar market. The demand (blue) and supply (red) curves intersect at \((Q^*, P^*)\), where \(Q^* = 30\) million kg/year and \(P^* = €2\)/kg.
           The dashed lines project the equilibrium to the axes.</div>
 </div>
 <h3>Surplus and Shortage Dynamics</h3>
@@ -253,7 +253,7 @@
 <div class="callout callout--warning">
 <div class="callout__title">Common Misconception</div>
 <p>
-          Students often confuse "surplus" (excess of quantity supplied over quantity demanded at a given price) with "consumer surplus" (the benefit consumers receive from buying at a price below their maximum willingness to pay). These are entirely different concepts. A market "surplus" pushes price downward. "Consumer surplus" is a measure of value created by trade, which we will explore in Module 5.
+          Students often confuse "surplus" (excess of quantity supplied over quantity demanded at a given price) with "consumer surplus" or "producer surplus." Consumer surplus and producer surplus measure value created by market exchanges. A market surplus is an excess supply condition at a given price.
         </p>
 </div>
 <div class="callout callout--warning">
@@ -263,7 +263,7 @@
         </p>
 </div>
 <!-- Check: surplus or shortage -->
-<div class="check-understanding" data-correct="1" data-explanation="At P = 3: QS = 15(3) = 45 and QD = 50 − 10(3) = 20. Since QS (45) > QD (20), there is a surplus of 25 units. This excess supply creates downward pressure on the price, pushing it back toward the equilibrium of P* = 2." data-question="At a price of 3 (above equilibrium) with QD = 50 − 10P and QS = 15P, what is the market condition?">
+<div class="check-understanding" data-correct="1" data-explanation="At P = 3: Q_S = 15(3) = 45 and Q_D = 50 − 10(3) = 20. Since Q_S (45) > Q_D (20), there is a surplus of 25 million kg. This excess supply creates downward pressure on the price, pushing it back toward the equilibrium of P* = 2." data-question="At a price of 3 (above equilibrium) with Q_D = 50 − 10P and Q_S = 15P, what is the market condition?">
 <div class="check-understanding__option" data-index="0">A) A shortage of 25 million kg, so prices will rise.</div>
 <div class="check-understanding__option" data-index="1">B) A surplus of 25 million kg, so prices will fall.</div>
 <div class="check-understanding__option" data-index="2">C) The market is in equilibrium at this price.</div>
@@ -271,6 +271,7 @@
 </div>
 <!-- ===== EQUILIBRIUM INTERACTIVE GRAPH ===== -->
 <h2 id="equilibrium-interactive">Interactive Practice: Demand, Supply, and Equilibrium</h2>
+<h3>Putting it Together: Finding Equilibrium</h3>
 <div class="graph-container">
 <div class="graph-container__title">Combined Market: Finding Equilibrium</div>
 <div class="graph-container__description">
@@ -304,10 +305,19 @@
 </div>
 <div class="graph-container__info" id="equilibrium-info">
 <p><strong>Current demand:</strong> <span id="eq-demand-display">\(Q_D = 50 - 10P\)</span></p>
-<p><strong>Current supply:</strong> <span id="eq-supply-display">\(Q_S = 0 + 15P\)</span></p>
+<p><strong>Current supply:</strong> <span id="eq-supply-display">\(Q_S = 15P\)</span></p>
 <p><strong>Equilibrium Price (\(P^*\)):</strong> <span id="eq-price-display">€2.00</span></p>
 <p><strong>Equilibrium Quantity (\(Q^*\)):</strong> <span id="eq-quantity-display">30</span> million kg</p>
 </div>
+</div>
+<div class="callout callout--insight">
+<div class="callout__title">What to Notice</div>
+<p>
+          By comparing the slopes of demand and supply curves, you can tell which side of the market is more responsive to price changes.
+        </p>
+<p>
+          Because price is on the vertical axis and quantity is on the horizontal axis, increasing the slope coefficient of the supply (or demand) function makes the supply (or demand) curve flatter, not steeper.
+        </p>
 </div>
 <p>
         As you change the intercepts, the curves shift. As you change the slope coefficients, the curves rotate because buyers or sellers become more or less responsive to price. Notice:
@@ -348,17 +358,26 @@
           Set \(70 - 10P = 15P\): \(70 = 25P\), so \(P^* = 2.8\). Then \(Q^* = 15(2.8) = 42\) million kg. Both price and quantity increased: higher demand (higher intercept) raises both the equilibrium price and equilibrium quantity.
         </div>
 </div>
+<div class="callout callout--warning">
+<div class="callout__title">Common Mistake</div>
+<p>
+          When a change in the demand function's intercept shifts the demand curve, students sometimes mistakenly use the new intercept directly as the vertical-axis intercept when plotting the new demand curve. For example, if \(Q_D = 70 - 10P\), the demand curve's vertical intercept comes from the rearranged equation \(P = 7 - (1/10)Q_D\), so the correct vertical intercept is 7, not 70.
+        </p>
+</div>
 <hr class="section-divider"/>
 <!-- ===== RETURNING TO POLICY ===== -->
 <h2 id="cap-return">Policy Connection: Applying Equilibrium Analysis to CAP</h2>
 <!-- Agriculture -->
 
-<h3>Returning to the CAP: Price Supports and Surplus</h3>
+<h3>An Alternative Policy: A Price Floor</h3>
 <p>
           Now that you understand demand, supply, and equilibrium, we can return to the EU Common Agricultural Policy and apply our analytical tools. Recall that the original CAP operated through <strong>price supports</strong>: the government guaranteed a minimum price for agricultural products. If the market price fell below this guaranteed price, the government purchased the unsold surplus at the guaranteed price.
         </p>
 <p>
-          Using our sugar market example, imagine the EU government sets a price support at €3 per kilogram, above the equilibrium price of €2. How much shortage/surplus does the price support policy create, and what is the fiscal cost to the EU, defined as the monetary expenditure incurred by the government to sustain the policy, net of storage or disposal costs?
+          There are other ways to guarantee a certain selling price for producers. A more direct approach is to regulate the prices at which market exchanges can take place. Instead of purchasing sugar at the supported price, the government could simply set a price floor for sugar. Price floors establish the minimum price in a regulated market, prohibiting any exchange below that price.
+        </p>
+<p>
+          In this module, we study the effect of a price floor set above equilibrium at €3 per kg, which will help us better understand the price support system in the next module.
         </p>
 <table class="equation-feature-table equation-feature-table--quantities">
 <thead>
@@ -382,39 +401,27 @@
 <tr>
 <td>Surplus</td>
 <td>\(45 - 20 = 25\)</td>
-<td>The government must absorb 25 million kg to maintain the price support.</td>
-</tr>
-<tr>
-<td>Fiscal cost</td>
-<td>\(25 \times €3 = €75\) million</td>
-<td>This does not include storage or disposal costs.</td>
+<td>The price floor creates an excess supply of 25 million kg.</td>
 </tr>
 </tbody>
 </table>
 <div class="figure figure--with-controls">
 <div class="figure__graph" id="cap-price-support-graph"></div>
-<div class="figure-controls" aria-label="CAP price-support graph steps">
-<button class="figure-controls__btn" data-cap-step="1" type="button">Price Support</button>
+<div class="figure-controls" aria-label="Price floor graph steps">
+<button class="figure-controls__btn" data-cap-step="1" type="button">Price Floor</button>
 <button class="figure-controls__btn" data-cap-step="2" type="button">Surplus</button>
-<button class="figure-controls__btn" data-cap-step="3" type="button">Government Purchase</button>
 <button class="figure-controls__btn figure-controls__btn--secondary" id="clear-cap-price-support" type="button">Clear</button>
 </div>
-<div class="figure__caption" id="cap-price-support-caption">Figure 3.3: Government Intervention Graph Explorer. Start with the market equilibrium, then step through the CAP price-support logic.</div>
+<div class="figure__caption" id="cap-price-support-caption">Figure 3.3: Government Intervention Graph Explorer. The sugar market starts at equilibrium \((Q^*, P^*) = (30, €2)\).</div>
 </div>
 <p>
-          This example illustrates why the CAP created enormous costs. The surplus is not a one-time problem: as long as the price support remains above equilibrium, surpluses continue to accumulate year after year. Multiply €75 million by the number of years the policy ran, add storage costs across multiple commodities (sugar, butter, wine, grains, dairy), and across 27 EU member states, and the fiscal burden becomes staggering. The CAP consumed roughly 40% of the entire EU budget for decades.
-        </p>
-<p>
-          Moreover, the CAP created unintended consequences beyond fiscal cost. Guaranteed prices incentivized farmers to specialize in supported commodities even when inefficient. The EU's surplus production was sometimes dumped on world markets at prices below cost, harming farmers in developing countries. It led to environmental problems from intensive farming. And it primarily benefited large farmers who produced most of the surplus and consequently received most of the EU government transfers.
-        </p>
-<p>
-          The CAP example demonstrates a crucial lesson: understanding demand and supply is essential for predicting the real-world effects of policy. A well-intentioned policy designed to help farmers created surpluses, inefficient production, environmental problems, international trade distortions, and massive costs to taxpayers. By applying supply-and-demand analysis, we can predict these consequences <em>before</em> implementing a policy, and design better alternatives.
+          In this example, a price floor at €3 creates a surplus (excess supply) of 25 million kilograms per year. The size of the surplus, and hence a major consequence of this policy, depends on how responsive consumers and producers are to price changes. With a very steep demand curve, for example, the reduction in quantity demanded would be small, leading to a smaller surplus driven primarily by producers' response to the higher price.
         </p>
 
 <div class="callout callout--insight">
 <div class="callout__title">What to Notice</div>
 <p>
-          The CAP price support policy is a real world application of the tools of market analysis. At the higher-than-equilibrium supported price there is less quantity demanded and more quantity supplied. The horizontal gap between those two points is the surplus that the government has to absorb.
+          A price floor above equilibrium prevents price from falling to the market-clearing level. At the higher regulated price, there is less quantity demanded and more quantity supplied. The horizontal gap between those two points is the surplus created by the policy.
         </p>
 </div>
 
@@ -430,7 +437,7 @@
         In these first three modules, you built the foundational tools of supply and demand analysis: demand, supply, equilibrium, surplus, and shortage.
       </p>
 <p>
-<strong>Demand</strong> represents how the quantity that consumers are willing to buy responds to changes in prices. The law of demand tells us that quantity demanded falls as price rises. We express demand as \(Q_D = a - bP\) and graphically as a downward-sloping curve. To graph demand, invert the equation to solve for P in terms of Q. The vertical intercept shows the highest price consumers will pay; the horizontal intercept shows quantity demanded when price is zero.
+<strong>Demand</strong> represents how the quantity that consumers are willing to buy responds to changes in prices. The law of demand tells us that quantity demanded falls as price rises. We express demand as \(Q_D = a - bP\) and graphically as a downward-sloping curve. To graph demand, invert the equation to solve for \(P\) in terms of \(Q\). The vertical intercept shows the highest price consumers will pay; the horizontal intercept shows quantity demanded when price is zero.
       </p>
 <p>
 <strong>Supply</strong> represents how the quantity that producers are willing to sell responds to changes in prices. The law of supply tells us that quantity supplied rises as price rises. We express supply as \(Q_S = c + dP\) and graphically as an upward-sloping curve. Like demand, invert supply to graph it with price on the vertical axis.
@@ -442,10 +449,10 @@
         When price is <strong>above equilibrium</strong>: surplus (excess supply). Prices fall toward equilibrium. When price is <strong>below equilibrium</strong>: shortage (excess demand). Prices rise toward equilibrium.
       </p>
 <p>
-        The CAP price-support example demonstrates why these tools matter. A price support above equilibrium creates a surplus because buyers move to one point on the demand curve while sellers move to a different point on the supply curve. Supply-and-demand analysis lets us predict that consequence before implementing policy.
+        Supply-and-demand analysis lets us predict the consequences of a proposed policy prior to its implementation.
       </p>
 <p>
-        After the Modules 1-3 practice quiz, Module 4 explores what happens when factors beyond price—consumer preferences, technology, input costs—cause the demand or supply curves to shift. We will trace the effects on market equilibrium and examine the policy implications.
+        After the Modules 1-3 practice quiz, Module 4 explores what happens when factors beyond price, such as consumer preferences, technology, and input costs, cause the demand or supply curves to shift. Understanding these shifts will enable us to examine consequences of the CAP price support mechanism more deeply.
       </p>
 <!-- Chapter Navigation -->
 <nav class="chapter-nav">
@@ -494,7 +501,7 @@
       graph.addLine(supply, '#c0392b', { label: 'S', strokeWidth: 2.5 });
 
       const eqQ = 30, eqP = 2;
-      graph.addPoint(eqQ, eqP, { color: '#1a5276', radius: 7, label: 'E*' });
+      graph.addPoint(eqQ, eqP, { color: '#1a5276', radius: 7, label: '(Q*, P*)' });
       graph.addDashedLine([{x: eqQ, y: eqP}, {x: eqQ, y: 0}], '#1a5276', { strokeWidth: 1.5 });
       graph.addDashedLine([{x: eqQ, y: eqP}, {x: 0, y: eqP}], '#1a5276', { strokeWidth: 1.5 });
       graph.addLabel(eqQ + 1, 0.28, 'Q* = 30', { color: '#1a5276', fontSize: '11px', fontWeight: '600', anchor: 'start' });
@@ -519,7 +526,7 @@
 
       graph.addLine(demand, '#2e86c1', { label: 'D', strokeWidth: 2.5 });
       graph.addLine(supply, '#c0392b', { label: 'S', strokeWidth: 2.5 });
-      graph.addPoint(eqQ, eqP, { color: '#1a5276', radius: 7, label: 'E*' });
+      graph.addPoint(eqQ, eqP, { color: '#1a5276', radius: 7, label: '(Q*, P*)' });
       graph.addDashedLine([{x: eqQ, y: eqP}, {x: eqQ, y: 0}], '#1a5276', { strokeWidth: 1.5 });
       graph.addDashedLine([{x: eqQ, y: eqP}, {x: 0, y: eqP}], '#1a5276', { strokeWidth: 1.5 });
 
@@ -607,10 +614,10 @@
         fadeLabel(2, price + 0.2, 'P = €3', { color: '#8e44ad', fontSize: '11px', fontWeight: '600', anchor: 'start', delay: 850 });
         animateLine([{x: qDemanded, y: 0}, {x: qDemanded, y: price}], '#2e86c1', { strokeWidth: 1.4, delay: 1100 });
         fadePoint(qDemanded, price, '#2e86c1', 1900);
-        fadeLabel(qDemanded, price - 0.2, 'QD = 20', { color: '#2e86c1', fontSize: '10px', anchor: 'middle', delay: 1950 });
+        fadeLabel(qDemanded, price - 0.2, 'Q_D = 20', { color: '#2e86c1', fontSize: '10px', anchor: 'middle', delay: 1950 });
         animateLine([{x: qSupplied, y: 0}, {x: qSupplied, y: price}], '#c0392b', { strokeWidth: 1.4, delay: 2150 });
         fadePoint(qSupplied, price, '#c0392b', 2950);
-        fadeLabel(qSupplied, price - 0.2, 'QS = 45', { color: '#c0392b', fontSize: '10px', anchor: 'middle', delay: 3000 });
+        fadeLabel(qSupplied, price - 0.2, 'Q_S = 45', { color: '#c0392b', fontSize: '10px', anchor: 'middle', delay: 3000 });
         animateLine([{x: qDemanded, y: 0.08}, {x: qSupplied, y: 0.08}], '#c0392b', { strokeWidth: 3, delay: 3300, dashedFinal: false, opacity: 0.95 });
         fadeLabel(25, 0.42, 'Surplus: 45 - 20 = 25', { color: '#c0392b', fontSize: '11px', delay: 4050 });
         if (caption) caption.textContent = 'Figure 3.2: Surplus and Shortage Graph Explorer. At P = €3, quantity supplied is 45 and quantity demanded is 20, so the surplus is 25 million kg.';
@@ -626,10 +633,10 @@
         fadeLabel(2, price + 0.2, 'P = €1', { color: '#8e44ad', fontSize: '11px', fontWeight: '600', anchor: 'start', delay: 850 });
         animateLine([{x: qSupplied, y: 0}, {x: qSupplied, y: price}], '#c0392b', { strokeWidth: 1.4, delay: 1100 });
         fadePoint(qSupplied, price, '#c0392b', 1900);
-        fadeLabel(qSupplied, price - 0.18, 'QS = 15', { color: '#c0392b', fontSize: '10px', anchor: 'middle', delay: 1950 });
+        fadeLabel(qSupplied, price - 0.18, 'Q_S = 15', { color: '#c0392b', fontSize: '10px', anchor: 'middle', delay: 1950 });
         animateLine([{x: qDemanded, y: 0}, {x: qDemanded, y: price}], '#2e86c1', { strokeWidth: 1.4, delay: 2150 });
         fadePoint(qDemanded, price, '#2e86c1', 2950);
-        fadeLabel(qDemanded, price - 0.18, 'QD = 40', { color: '#2e86c1', fontSize: '10px', anchor: 'middle', delay: 3000 });
+        fadeLabel(qDemanded, price - 0.18, 'Q_D = 40', { color: '#2e86c1', fontSize: '10px', anchor: 'middle', delay: 3000 });
         animateLine([{x: qSupplied, y: 0.08}, {x: qDemanded, y: 0.08}], '#2e86c1', { strokeWidth: 3, delay: 3300, dashedFinal: false, opacity: 0.95 });
         fadeLabel(18, 0.42, 'Shortage: 40 - 15 = 25', { color: '#2e86c1', fontSize: '11px', delay: 4050 });
         if (caption) caption.textContent = 'Figure 3.2: Surplus and Shortage Graph Explorer. At P = €1, quantity demanded is 40 and quantity supplied is 15, so the shortage is 25 million kg.';
@@ -640,7 +647,7 @@
       document.getElementById('clear-imbalance-example')?.addEventListener('click', clearExample);
     })();
 
-    // ===== CAP Price Support Step Graph =====
+    // ===== Price Floor Step Graph =====
     (function() {
       const graph = EconGraph.create('#cap-price-support-graph', {
         xLabel: 'Quantity (millions of kg/year)',
@@ -726,19 +733,6 @@
           .attr('opacity', 1);
       }
 
-      function fadeArea(delay) {
-        const area = graph.addShaded({
-          xRange: [qDemanded, qSupplied],
-          yTop: supportPrice,
-          yBottom: 0
-        }, '#8e44ad', { opacity: 0.12, className: 'cap-step' });
-        area.attr('opacity', 0)
-          .transition()
-          .delay(delay)
-          .duration(700)
-          .attr('opacity', 0.12);
-      }
-
       function lockCapControls(duration) {
         capControls.forEach(btn => { btn.disabled = true; });
         window.setTimeout(function() {
@@ -750,7 +744,7 @@
         graph.clear();
         graph.addLine(demand, '#2e86c1', { label: 'D', strokeWidth: 2.5 });
         graph.addLine(supply, '#c0392b', { label: 'S', strokeWidth: 2.5 });
-        graph.addPoint(eqQ, eqP, { color: '#1a5276', radius: 7, label: 'E*' });
+        graph.addPoint(eqQ, eqP, { color: '#1a5276', radius: 7, label: '(Q*, P*)' });
         graph.addDashedLine([{x: eqQ, y: eqP}, {x: eqQ, y: 0}], '#1a5276', { strokeWidth: 1.5 });
         graph.addDashedLine([{x: eqQ, y: eqP}, {x: 0, y: eqP}], '#1a5276', { strokeWidth: 1.5 });
         graph.addLabel(eqQ + 1, 0.28, 'Q* = 30', { color: '#1a5276', fontSize: '11px', fontWeight: '600', anchor: 'start' });
@@ -759,34 +753,26 @@
 
       function drawPriceSupport(delay) {
         animateLine([{x: 0, y: supportPrice}, {x: qSupplied, y: supportPrice}], '#8e44ad', { strokeWidth: 2, delay: delay, dashedFinal: false, opacity: 0.9 });
-        fadeLabel(2, supportPrice + 0.18, 'Price support = €3', { color: '#8e44ad', fontSize: '11px', fontWeight: '600', anchor: 'start', delay: delay + 950 });
+        fadeLabel(2, supportPrice + 0.18, 'Price floor = €3', { color: '#8e44ad', fontSize: '11px', fontWeight: '600', anchor: 'start', delay: delay + 950 });
       }
 
       function drawSurplus(delay) {
         animateLine([{x: qDemanded, y: 0}, {x: qDemanded, y: supportPrice}], '#2e86c1', { strokeWidth: 1.4, delay: delay });
         fadePoint(qDemanded, supportPrice, '#2e86c1', delay + 800);
-        fadeLabel(qDemanded, supportPrice - 0.2, 'QD = 20', { color: '#2e86c1', fontSize: '10px', anchor: 'middle', delay: delay + 850 });
+        fadeLabel(qDemanded, supportPrice - 0.2, 'Q_D = 20', { color: '#2e86c1', fontSize: '10px', anchor: 'middle', delay: delay + 850 });
         animateLine([{x: qSupplied, y: 0}, {x: qSupplied, y: supportPrice}], '#c0392b', { strokeWidth: 1.4, delay: delay + 1100 });
         fadePoint(qSupplied, supportPrice, '#c0392b', delay + 1900);
-        fadeLabel(qSupplied, supportPrice - 0.2, 'QS = 45', { color: '#c0392b', fontSize: '10px', anchor: 'middle', delay: delay + 1950 });
+        fadeLabel(qSupplied, supportPrice - 0.2, 'Q_S = 45', { color: '#c0392b', fontSize: '10px', anchor: 'middle', delay: delay + 1950 });
         animateLine([{x: qDemanded, y: 0.08}, {x: qSupplied, y: 0.08}], '#c0392b', { strokeWidth: 3, delay: delay + 2250, dashedFinal: false, opacity: 0.95 });
         fadeLabel(25, 0.42, 'Surplus = 25', { color: '#c0392b', fontSize: '11px', delay: delay + 3000 });
-      }
-
-      function drawGovernmentPurchase(delay) {
-        fadeArea(delay);
-        fadeLabel(27, 1.4, 'Government buys 25 million kg', { color: '#8e44ad', fontSize: '11px', delay: delay + 600 });
-        fadeLabel(28, 0.9, 'Fiscal cost: 25 x €3 = €75m', { color: '#8e44ad', fontSize: '11px', delay: delay + 900 });
       }
 
       function updateCaption(step) {
         if (!caption) return;
         if (step === 1) {
-          caption.textContent = 'Figure 3.3: Government Intervention Graph Explorer. The CAP price support holds price at €3, above the equilibrium price of €2.';
+          caption.textContent = 'Figure 3.3: Government Intervention Graph Explorer. The price floor holds price at €3, above the equilibrium price of €2.';
         } else if (step === 2) {
           caption.textContent = 'Figure 3.3: Government Intervention Graph Explorer. At €3, buyers demand 20 million kg while producers supply 45 million kg, creating a 25 million kg surplus.';
-        } else if (step === 3) {
-          caption.textContent = 'Figure 3.3: Government Intervention Graph Explorer. To maintain the price support, the government purchases the 25 million kg surplus at €3/kg, spending €75 million.';
         }
       }
 
@@ -805,10 +791,6 @@
           drawSurplus(delay);
           delay += 3500;
         }
-        if (currentStep < 3 && targetStep >= 3) {
-          drawGovernmentPurchase(delay);
-          delay += 1300;
-        }
         currentStep = targetStep;
         lockCapControls(delay + 250);
         updateCaption(targetStep);
@@ -822,10 +804,10 @@
       document.getElementById('clear-cap-price-support')?.addEventListener('click', function() {
         currentStep = 0;
         drawBase();
-        if (caption) caption.textContent = 'Figure 3.3: Government Intervention Graph Explorer. The sugar market starts at equilibrium: P* = €2 and Q* = 30 million kg.';
+        if (caption) caption.textContent = 'Figure 3.3: Government Intervention Graph Explorer. The sugar market starts at equilibrium (Q*, P*) = (30, €2).';
       });
       drawBase();
-      if (caption) caption.textContent = 'Figure 3.3: Government Intervention Graph Explorer. The sugar market starts at equilibrium: P* = €2 and Q* = 30 million kg.';
+      if (caption) caption.textContent = 'Figure 3.3: Government Intervention Graph Explorer. The sugar market starts at equilibrium (Q*, P*) = (30, €2).';
     })();
 
     // ===== Interactive Equilibrium Graph =====
@@ -838,6 +820,12 @@
       });
       if (!graph) return;
       const defaults = { a: 50, b: 10, c: 0, d: 15 };
+
+      function formatSupplyExpression(c, d) {
+        if (c === 0) return 'Q_S = ' + d.toFixed(0) + 'P';
+        const intercept = c > 0 ? c.toFixed(0) : '-' + Math.abs(c).toFixed(0);
+        return 'Q_S = ' + intercept + ' + ' + d.toFixed(0) + 'P';
+      }
 
       function update() {
         graph.clear();
@@ -852,7 +840,7 @@
         const demandDisplay = document.getElementById('eq-demand-display');
         const supplyDisplay = document.getElementById('eq-supply-display');
         const demandExpression = 'Q_D = ' + a.toFixed(0) + ' - ' + b.toFixed(0) + 'P';
-        const supplyExpression = 'Q_S = ' + c.toFixed(0) + ' + ' + d.toFixed(0) + 'P';
+        const supplyExpression = formatSupplyExpression(c, d);
         if (typeof katex !== 'undefined') {
           katex.render(demandExpression, demandDisplay, { throwOnError: false });
           katex.render(supplyExpression, supplyDisplay, { throwOnError: false });
@@ -873,7 +861,7 @@
 
         if (eqQ > 0 && eqP > 0 && eqQ < 100 && eqP < 6) {
           graph.addPoint(eqQ, eqP, {
-            color: '#1a5276', radius: 7, label: 'E*',
+            color: '#1a5276', radius: 7, label: '(Q*, P*)',
             labelOffset: { dx: 12, dy: -12 }, className: 'dynamic'
           });
           graph.addDashedLine([{x: eqQ, y: eqP}, {x: eqQ, y: 0}], '#1a5276', { strokeWidth: 1.5, className: 'dynamic' });
@@ -954,7 +942,7 @@
         },
         {
           type: 'multiple_choice',
-          text: 'In the EU sugar market, suppose the government sets a price support at \\(P = 3\\) when the curves are \\(Q_D = 50 - 10P\\) and \\(Q_S = 15P\\). What happens in the market?',
+          text: 'In the EU sugar market, suppose the government sets a price floor at \\(P = 3\\) when the curves are \\(Q_D = 50 - 10P\\) and \\(Q_S = 15P\\). What happens in the market?',
           options: [
             { text: 'A shortage of 25 million kilograms emerges.', correct: false },
             { text: 'A surplus of 25 million kilograms emerges.', correct: true },
@@ -962,13 +950,7 @@
             { text: 'Demand and supply both shift rightward.', correct: false },
             { text: 'Consumers buy 45 million kilograms at the supported price.', correct: false }
           ],
-          feedback: 'At \\(P = 3\\), quantity demanded is \\(50 - 10(3) = 20\\) and quantity supplied is \\(15(3) = 45\\). Since sellers want to sell 45 but buyers only want 20, the market has a surplus of 25 million kilograms. Under the CAP, the government would have to absorb that excess output.'
-        },
-        {
-          type: 'short_answer',
-          text: 'Continuing the CAP example, if the government buys the entire surplus at the supported price of \\(€3\\) per kilogram, how much does it spend on the 25 million kilogram surplus?',
-          feedback: 'Government spending equals price times the purchased surplus: \\(€3 \\times 25\\) million kilograms = \\(€75\\) million. This is the simplest version of the CAP fiscal-cost logic you just studied.',
-          correctAnswer: '75'
+          feedback: 'At \\(P = 3\\), quantity demanded is \\(50 - 10(3) = 20\\) and quantity supplied is \\(15(3) = 45\\). Since sellers want to sell 45 but buyers only want 20, the market has a surplus of 25 million kilograms.'
         }
       ];
 

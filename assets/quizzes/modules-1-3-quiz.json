@@ -200,19 +200,9 @@
     "module": "Module 3",
     "skill": "Policy Application",
     "type": "short_answer",
-    "text": "Under a CAP-style price support at \\(P = 3\\), the government buys the surplus. If \\(Q_S = 45\\) and \\(Q_D = 20\\), how many million kilograms must the government buy?",
-    "feedback": "The surplus is \\(Q_S - Q_D = 45 - 20 = 25\\). The government must absorb 25 million kilograms to maintain the supported price.",
+    "text": "Under a price floor at \\(P = 3\\), if \\(Q_S = 45\\) and \\(Q_D = 20\\), how many million kilograms of surplus are created?",
+    "feedback": "The surplus is \\(Q_S - Q_D = 45 - 20 = 25\\). A price floor above equilibrium creates 25 million kilograms of excess supply.",
     "correctAnswer": "25",
-    "tolerance": 0.01
-  },
-  {
-    "id": "m13-cap-cost",
-    "module": "Module 3",
-    "skill": "Policy Application",
-    "type": "short_answer",
-    "text": "If the government buys a 25 million kilogram surplus at €3 per kilogram, what is the fiscal cost in millions of euros?",
-    "feedback": "Cost equals price times the purchased surplus: \\(25 \\times 3 = 75\\). The fiscal cost is €75 million before storage or disposal costs.",
-    "correctAnswer": "75",
     "tolerance": 0.01
   }
 ]
