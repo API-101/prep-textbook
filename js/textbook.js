@@ -1045,7 +1045,6 @@ const CumulativeGlossary = {
     { module: 4, term: 'Factors of Production', definition: 'Labor, materials, machinery, and other inputs used to produce goods and services.' },
     { module: 4, term: 'Inferior Good', definition: 'A good whose quantity demanded falls as income rises and rises as income falls.' },
     { module: 4, term: 'Inputs', definition: 'Resources used to produce goods and services; also called factors of production.' },
-    { module: 4, term: 'Movement Along a Curve', definition: 'A change in quantity demanded or supplied caused by a change in the good\'s own price.' },
     { module: 4, term: 'Normal Good', definition: 'A good whose quantity demanded rises as income rises and falls as income falls.' },
     { module: 4, term: 'Shift in Demand', definition: 'A change in an economic factor other than price that causes a different quantity to be demanded at every price.' },
     { module: 4, term: 'Shift in Supply', definition: 'A change in an economic factor other than price that causes a different quantity to be supplied at every price.' },
