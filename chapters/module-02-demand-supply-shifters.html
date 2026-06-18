@@ -287,7 +287,7 @@
           <div class="process-graph-step__label">Step 1</div>
           <h3 class="process-graph-step__title">Draw the Initial Equilibrium</h3>
           <div class="process-graph-step__graph" id="four-step-graph-1"></div>
-          <p>Figure 4.5a: Start with the original demand and supply curves. Mark the first intersection as \(E^*\), with baseline price \(P^*\) and quantity \(Q^*\).</p>
+          <p>Figure 4.5a: Start with the original demand and supply curves. Mark the first intersection as \((Q^*, P^*)\), with baseline price \(P^*\) and quantity \(Q^*\).</p>
         </section>
 
         <section class="process-graph-step">
@@ -308,7 +308,7 @@
           <div class="process-graph-step__label">Step 4</div>
           <h3 class="process-graph-step__title">Find and Compare the New Equilibrium</h3>
           <div class="process-graph-step__graph" id="four-step-graph-4"></div>
-          <p>Figure 4.5d: The new intersection is \(E'\). Price rises and quantity falls. The demand curve did not shift; buyers move along demand in response to the higher price.</p>
+          <p>Figure 4.5d: The new intersection is \((Q', P')\). Price rises and quantity falls. The demand curve did not shift; buyers move along demand in response to the higher price.</p>
         </section>
       </div>
 
@@ -597,11 +597,11 @@
           setActive(mode);
           graph.addLine(D, '#2e86c1', { label: 'D', strokeWidth: 2.5 });
           graph.addLine(S, '#c0392b', { label: 'S', strokeWidth: 2.5 });
-          graph.addPoint(40, 10 / 3, { color: '#8a8f94', radius: 4, label: 'E*' });
+          graph.addPoint(40, 10 / 3, { color: '#8a8f94', radius: 4, label: '(Q*, P*)' });
 
           if (mode === 'supply') {
             animateShiftCurve(graph, SLeft, '#c0392b', { label: "S'", strokeWidth: 2.75, dashed: true, includeX: [30] });
-            graph.addPoint(30, 4, { color: '#1a5276', radius: 6, label: "E'" });
+            graph.addPoint(30, 4, { color: '#1a5276', radius: 6, label: "(Q\u2032, P\u2032)" });
             addEqGuides(graph, 30, 4, '#1a5276');
             addShiftArrow(graph, 45, 4.35, 31, 4.35, '#c0392b', 'S shifts left', 31, 5.05);
             graph.addDashedLine([{ x: 40, y: 10 / 3 }, { x: 30, y: 4 }], '#2e86c1', { strokeWidth: 2, className: 'dynamic' });
@@ -609,7 +609,7 @@
             if (readout) readout.innerHTML = '<strong>Supply shifter:</strong> drought shifts supply left. Demand does not shift; buyers move along the demand curve to the new higher price.';
           } else {
             animateShiftCurve(graph, DRight, '#2e86c1', { label: "D'", strokeWidth: 2.75, dashed: true, includeX: [48] });
-            graph.addPoint(48, 4, { color: '#1a5276', radius: 6, label: "E'" });
+            graph.addPoint(48, 4, { color: '#1a5276', radius: 6, label: "(Q\u2032, P\u2032)" });
             addEqGuides(graph, 48, 4, '#1a5276');
             addShiftArrow(graph, 30, 4.15, 45, 4.15, '#2e86c1', 'D shifts right', 45, 4.85);
             graph.addDashedLine([{ x: 40, y: 10 / 3 }, { x: 48, y: 4 }], '#c0392b', { strokeWidth: 2, className: 'dynamic' });
@@ -649,7 +649,7 @@
         function drawOriginal(graph, faded) {
           graph.addLine(demand, faded ? '#8aa9bf' : '#2e86c1', { label: 'D', strokeWidth: faded ? 1.6 : 2.5, dashed: faded });
           graph.addLine(supply, faded ? '#d9aaa4' : '#c0392b', { label: 'S', strokeWidth: faded ? 1.6 : 2.5, dashed: faded });
-          graph.addPoint(originalQ, originalP, { color: faded ? '#8a8f94' : '#1a5276', radius: faded ? 4 : 6, label: 'E*' });
+          graph.addPoint(originalQ, originalP, { color: faded ? '#8a8f94' : '#1a5276', radius: faded ? 4 : 6, label: '(Q*, P*)' });
           addEqGuides(graph, originalQ, originalP, faded ? '#8a8f94' : '#1a5276');
         }
 
@@ -678,8 +678,8 @@
           g4.addLine(demand, '#2e86c1', { label: 'D', strokeWidth: 2.5 });
           g4.addLine(supply, '#d9aaa4', { label: 'S', strokeWidth: 1.6, dashed: true });
           animateShiftCurve(g4, supplyLeft, '#c0392b', { label: "S'", strokeWidth: 2.5, includeX: [30] });
-          g4.addPoint(originalQ, originalP, { color: '#8a8f94', radius: 4, label: 'E*' });
-          g4.addPoint(newQ, newP, { color: '#1a5276', radius: 6, label: "E'" });
+          g4.addPoint(originalQ, originalP, { color: '#8a8f94', radius: 4, label: '(Q*, P*)' });
+          g4.addPoint(newQ, newP, { color: '#1a5276', radius: 6, label: "(Q\u2032, P\u2032)" });
           addEqGuides(g4, newQ, newP, '#1a5276');
           g4.addLabel(54, 4.9, 'Price rises', { color: '#1a5276', fontSize: '11px', fontWeight: '700', anchor: 'middle' });
           g4.addLabel(28, 1.35, 'Quantity falls', { color: '#1a5276', fontSize: '11px', fontWeight: '700', anchor: 'middle' });
@@ -783,7 +783,7 @@
 
           graph.addLine(D, '#2e86c1', { label: 'D', strokeWidth: response.curve === 'demand' ? 1.6 : 2.5, dashed: response.curve === 'demand' });
           graph.addLine(S, '#c0392b', { label: 'S', strokeWidth: response.curve === 'supply' ? 1.6 : 2.5, dashed: response.curve === 'supply' });
-          graph.addPoint(40, 10 / 3, { color: showSolution ? '#8a8f94' : '#1a5276', radius: showSolution ? 4 : 6, label: 'E*' });
+          graph.addPoint(40, 10 / 3, { color: showSolution ? '#8a8f94' : '#1a5276', radius: showSolution ? 4 : 6, label: '(Q*, P*)' });
           addEqGuides(graph, 40, 10 / 3, showSolution ? '#8a8f94' : '#1a5276');
 
           if (shiftCurve) {
@@ -805,7 +805,7 @@
               var correctColor = key.curve === 'supply' ? '#c0392b' : '#2e86c1';
               graph.addLine(correctCurve, correctColor, { label: key.curve === 'supply' ? "S'" : "D'", strokeWidth: 2.75 });
             }
-            graph.addPoint(key.newQ, key.newP, { color: '#1a5276', radius: 6, label: "E'" });
+            graph.addPoint(key.newQ, key.newP, { color: '#1a5276', radius: 6, label: "(Q\u2032, P\u2032)" });
             addEqGuides(graph, key.newQ, key.newP, '#1a5276');
             graph.addLabel(key.newQ, 1.2, 'P ' + key.price + ', Q ' + key.quantity, {
               color: '#1a5276',
@@ -834,7 +834,7 @@
 
           if (!wrong.length) {
             draw(true, false);
-            updateReadout('<strong>Correct.</strong> ' + key.explanation + ' E\u2032 is at P = ' + key.newP + ' and Q = ' + key.newQ + ', compared with E* at P = 3.33 and Q = 40.', 'four-step-practice__feedback--correct');
+            updateReadout('<strong>Correct.</strong> ' + key.explanation + ' (Q\u2032, P\u2032) is (' + key.newQ + ', ' + key.newP + '), compared with (Q*, P*) = (40, 3.33).', 'four-step-practice__feedback--correct');
             return;
           }
 

@@ -440,7 +440,7 @@
           yBottom: supplyFn
         }, '#1e8449', { opacity: 0.2 });
 
-        graph.addPoint(eqQ, eqP, { color: '#1a5276', label: 'E*', radius: 6 });
+        graph.addPoint(eqQ, eqP, { color: '#1a5276', label: '(Q*, P*)', radius: 6 });
 
         graph.addDashedLine([
           {x: 0, y: eqP},
@@ -515,7 +515,7 @@
         }, '#1e8449', { opacity: 0.2 });
 
         // Equilibrium point
-        graph.addPoint(eqQ, eqP, { color: '#1a5276', label: 'E*', radius: 6 });
+        graph.addPoint(eqQ, eqP, { color: '#1a5276', label: '(Q*, P*)', radius: 6 });
 
         // Dashed lines
         graph.addDashedLine([
@@ -635,7 +635,7 @@
             });
           }
 
-          graph.addPoint(eqQ, eqP, { color: '#1a5276', label: 'E*', radius: 6 });
+          graph.addPoint(eqQ, eqP, { color: '#1a5276', label: '(Q*, P*)', radius: 6 });
           graph.addDashedLine([
             {x: eqQ, y: eqP},
             {x: eqQ, y: 0}
@@ -733,7 +733,7 @@
               yBottom: supplyFn
             }, '#1e8449', { opacity: 0.2 });
 
-            graph.addPoint(eqQ, eqP, { color: '#1a5276', label: 'E*', radius: 6 });
+            graph.addPoint(eqQ, eqP, { color: '#1a5276', label: '(Q*, P*)', radius: 6 });
 
             document.getElementById('stat-policy-cs-original').textContent = '€' + Math.round(csOriginal);
             document.getElementById('stat-policy-cs-new').textContent = '€' + Math.round(csOriginal);
@@ -772,7 +772,7 @@
             graph.addDashedLine([{x: 0, y: policyPrice}, {x: 110, y: policyPrice}], '#666', { strokeWidth: 1.5 });
             graph.addDashedLine([{x: qTraded, y: 0}, {x: qTraded, y: policyPrice}], '#2e86c1', { strokeWidth: 1.2 });
             graph.addDashedLine([{x: qSupplied, y: 0}, {x: qSupplied, y: policyPrice}], '#145a32', { strokeWidth: 1.2 });
-            graph.addPoint(eqQ, eqP, { color: '#ddd', label: 'E*', radius: 5 });
+            graph.addPoint(eqQ, eqP, { color: '#ddd', label: '(Q*, P*)', radius: 5 });
             graph.addPoint(qTraded, policyPrice, { color: '#2e86c1', label: 'Q_D', radius: 5 });
             graph.addPoint(qSupplied, policyPrice, { color: '#145a32', label: 'Q_S', radius: 5 });
 
@@ -827,7 +827,7 @@
             graph.addDashedLine([{x: 0, y: policyPrice}, {x: 110, y: policyPrice}], '#666', { strokeWidth: 1.5 });
             graph.addDashedLine([{x: qTraded, y: 0}, {x: qTraded, y: policyPrice}], '#145a32', { strokeWidth: 1.2 });
             graph.addDashedLine([{x: qDemanded, y: 0}, {x: qDemanded, y: policyPrice}], '#2e86c1', { strokeWidth: 1.2 });
-            graph.addPoint(eqQ, eqP, { color: '#ddd', label: 'E*', radius: 5 });
+            graph.addPoint(eqQ, eqP, { color: '#ddd', label: '(Q*, P*)', radius: 5 });
             graph.addPoint(qTraded, policyPrice, { color: '#145a32', label: 'Q_S', radius: 5 });
             graph.addPoint(qDemanded, policyPrice, { color: '#2e86c1', label: 'Q_D', radius: 5 });
 
