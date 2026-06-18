@@ -123,6 +123,14 @@
         </p>
       </div>
 
+      <div class="graph-container">
+        <div class="graph-container__title">Worked Example: Consumer Surplus</div>
+        <div class="graph-container__description">
+          Consumer surplus is the triangle below the demand curve and above the market price, from zero to \(Q^*\).
+        </div>
+        <div class="graph-container__svg-wrapper" id="graph-consumer-surplus-example"></div>
+      </div>
+
       <!-- Self-Check -->
       <div class="self-check">
         <div class="self-check__question">
@@ -172,13 +180,12 @@
         </p>
       </div>
 
-      <!-- ===== ANNOTATED SURPLUS DIAGRAM ===== -->
       <div class="graph-container">
-        <div class="graph-container__title">Annotated Surplus Calculation</div>
+        <div class="graph-container__title">Worked Example: Producer Surplus</div>
         <div class="graph-container__description">
-          The same equilibrium diagram gives both calculations. Consumer surplus uses the blue triangle above the price line; producer surplus uses the green triangle below the price line.
+          Producer surplus is the triangle above the supply curve and below the market price, from zero to \(Q^*\).
         </div>
-        <div class="graph-container__svg-wrapper" id="graph-surplus-annotations"></div>
+        <div class="graph-container__svg-wrapper" id="graph-producer-surplus-example"></div>
       </div>
 
       <!-- Self-Check -->
@@ -216,6 +223,14 @@
       <p>
         Social surplus measures the total value created by the market. At equilibrium, every unit for which willingness to pay exceeds the cost of production is traded. If a policy raises or lowers the price away from equilibrium, some trades that would have created value no longer happen.
       </p>
+
+      <div class="graph-container">
+        <div class="graph-container__title">Social Surplus at Equilibrium</div>
+        <div class="graph-container__description">
+          Social surplus combines consumer surplus and producer surplus. At the competitive equilibrium, the blue and green areas together are as large as possible.
+        </div>
+        <div class="graph-container__svg-wrapper" id="graph-surplus-annotations"></div>
+      </div>
 
       <div class="definition-box">
         <div class="definition-box__term">Deadweight Loss</div>
@@ -257,7 +272,7 @@
         <div class="graph-container__controls">
           <div class="graph-control">
             <label class="graph-control__label">Quantity Exchanged</label>
-            <input type="range" class="graph-control__slider" id="quantity-slider" min="30" max="110" step="1" value="90">
+            <input type="range" class="graph-control__slider" id="quantity-slider" min="40" max="140" step="1" value="90">
             <span class="graph-control__value" id="quantity-slider-value">90 (Equilibrium)</span>
           </div>
         </div>
@@ -406,21 +421,107 @@
         }
       });
 
-      // ===== ANNOTATED SURPLUS CALCULATION =====
+      // ===== WORKED EXAMPLE: CONSUMER SURPLUS =====
+      (function() {
+        const graph = EconGraph.create('#graph-consumer-surplus-example', {
+          xLabel: 'Quantity',
+          yLabel: 'Price (€)',
+          xDomain: [0, 60],
+          yDomain: [0, 6],
+          width: 520,
+          height: 340
+        });
+        if (!graph) return;
+
+        const demandFn = x => 5 - x / 10;
+        const eqQ = 30;
+        const eqP = 2;
+        const pMax = 5;
+
+        graph.addLine(demandFn, '#2e86c1', { label: 'Demand', strokeWidth: 2.5 });
+        graph.addDashedLine([{x: 0, y: eqP}, {x: eqQ, y: eqP}, {x: eqQ, y: 0}], '#999', { strokeWidth: 1.1 });
+        graph.addShaded({
+          xRange: [0, eqQ],
+          yTop: demandFn,
+          yBottom: eqP
+        }, '#2e86c1', { opacity: 0.24 });
+        graph.addPoint(eqQ, eqP, { color: '#1a5276', label: '(Q*, P*)', radius: 6 });
+        graph.addLabel(14, 3.2, 'CS', {
+          color: '#2e86c1',
+          fontSize: '16px',
+          fontWeight: '700',
+          background: true
+        });
+        graph.addLabel(38, 4.7, `Height = €${pMax} - €${eqP}`, {
+          color: '#2e86c1',
+          fontSize: '11px',
+          fontWeight: '700',
+          background: true
+        });
+        graph.addLabel(38, 0.75, `Base = Q* = ${eqQ}`, {
+          fontSize: '11px',
+          background: true
+        });
+      })();
+
+      // ===== WORKED EXAMPLE: PRODUCER SURPLUS =====
+      (function() {
+        const graph = EconGraph.create('#graph-producer-surplus-example', {
+          xLabel: 'Quantity',
+          yLabel: 'Price (€)',
+          xDomain: [0, 60],
+          yDomain: [0, 4],
+          width: 520,
+          height: 340
+        });
+        if (!graph) return;
+
+        const supplyFn = x => 0.5 + x / 20;
+        const eqQ = 30;
+        const eqP = 2;
+        const pMin = 0.5;
+
+        graph.addLine(supplyFn, '#145a32', { label: 'Supply', strokeWidth: 2.5 });
+        graph.addDashedLine([{x: 0, y: eqP}, {x: eqQ, y: eqP}, {x: eqQ, y: 0}], '#999', { strokeWidth: 1.1 });
+        graph.addShaded({
+          xRange: [0, eqQ],
+          yTop: eqP,
+          yBottom: supplyFn
+        }, '#1e8449', { opacity: 0.24 });
+        graph.addPoint(eqQ, eqP, { color: '#1a5276', label: '(Q*, P*)', radius: 6 });
+        graph.addLabel(14, 1.35, 'PS', {
+          color: '#1e8449',
+          fontSize: '16px',
+          fontWeight: '700',
+          background: true
+        });
+        graph.addLabel(38, 2.7, `Height = €${eqP} - €${pMin}`, {
+          color: '#1e8449',
+          fontSize: '11px',
+          fontWeight: '700',
+          background: true
+        });
+        graph.addLabel(38, 0.45, `Base = Q* = ${eqQ}`, {
+          fontSize: '11px',
+          background: true
+        });
+      })();
+
+      // ===== SOCIAL SURPLUS CALCULATION =====
       (function() {
         const graph = EconGraph.create('#graph-surplus-annotations', {
           xLabel: 'Quantity',
           yLabel: 'Price (€)',
-          xDomain: [0, 100],
+          xDomain: [0, 120],
           yDomain: [0, 90],
           width: 520,
           height: 380
         });
         if (!graph) return;
 
-        const demandFn = x => 80 - x;
-        const supplyFn = x => 10 + 0.75 * x;
-        const eqQ = 40;
+        const demandFn = x => 80 - (2 / 3) * x;
+        const supplyFn = x => 10 + 0.5 * x;
+        const eqQ = 60;
         const eqP = 40;
         const pMax = demandFn(0);
         const pMin = supplyFn(0);
@@ -448,29 +549,29 @@
           {x: eqQ, y: 0}
         ], '#999', { strokeWidth: 1 });
 
-        graph.addLabel(13, 60, 'CS', {
+        graph.addLabel(20, 59, 'CS', {
           color: '#2e86c1',
           fontSize: '16px',
           fontWeight: '700',
           background: true
         });
 
-        graph.addLabel(13, 24, 'PS', {
+        graph.addLabel(20, 26, 'PS', {
           color: '#1e8449',
           fontSize: '16px',
           fontWeight: '700',
           background: true
         });
 
-        graph.addLabel(51, 5, `Base = Q* = ${eqQ}`, { fontSize: '11px', background: true });
+        graph.addLabel(70, 5, `Base = Q* = ${eqQ}`, { fontSize: '11px', background: true });
         graph.addLabel(2, 44, `P* = €${eqP}`, { fontSize: '11px', background: true });
-        graph.addLabel(55, 72, `CS = 1/2 × ${eqQ} × (${pMax} - ${eqP})\n= €800`, {
+        graph.addLabel(72, 72, `CS = 1/2 × ${eqQ} × (${pMax} - ${eqP})\n= €1,200`, {
           color: '#2e86c1',
           fontSize: '11px',
           fontWeight: '700',
           background: true
         });
-        graph.addLabel(55, 17, `PS = 1/2 × ${eqQ} × (${eqP} - ${pMin})\n= €600`, {
+        graph.addLabel(72, 18, `PS = 1/2 × ${eqQ} × (${eqP} - ${pMin})\n= €900`, {
           color: '#1e8449',
           fontSize: '11px',
           fontWeight: '700',
@@ -484,7 +585,7 @@
         const graph = EconGraph.create('#graph-equilibrium-surplus', {
           xLabel: 'Quantity',
           yLabel: 'Price (€)',
-          xDomain: [0, 120],
+          xDomain: [0, 160],
           yDomain: [0, 100],
           width: 520,
           height: 380
@@ -539,7 +640,7 @@
           background: true
         });
 
-        graph.addLabel(105, 7, `Q* = ${eqQ}`, { fontSize: '11px', background: true });
+        graph.addLabel(96, 7, `Q* = ${eqQ}`, { fontSize: '11px', background: true });
         graph.addLabel(5, 50, `P* = €${eqP}`, { fontSize: '11px', background: true });
 
       })();
@@ -549,7 +650,7 @@
         const graph = EconGraph.create('#graph-price-control', {
           xLabel: 'Quantity',
           yLabel: 'Price (€)',
-          xDomain: [0, 120],
+          xDomain: [0, 160],
           yDomain: [0, 100],
           width: 520,
           height: 380
@@ -673,7 +774,7 @@
         const graph = EconGraph.create('#graph-price-policy', {
           xLabel: 'Quantity',
           yLabel: 'Price (€)',
-          xDomain: [0, 120],
+          xDomain: [0, 160],
           yDomain: [0, 100],
           width: 520,
           height: 380
@@ -769,7 +870,7 @@
               yBottom: supplyFn
             }, '#d35400', { opacity: 0.25 });
 
-            graph.addDashedLine([{x: 0, y: policyPrice}, {x: 110, y: policyPrice}], '#666', { strokeWidth: 1.5 });
+            graph.addDashedLine([{x: 0, y: policyPrice}, {x: 160, y: policyPrice}], '#666', { strokeWidth: 1.5 });
             graph.addDashedLine([{x: qTraded, y: 0}, {x: qTraded, y: policyPrice}], '#2e86c1', { strokeWidth: 1.2 });
             graph.addDashedLine([{x: qSupplied, y: 0}, {x: qSupplied, y: policyPrice}], '#145a32', { strokeWidth: 1.2 });
             graph.addPoint(eqQ, eqP, { color: '#ddd', label: '(Q*, P*)', radius: 5 });
@@ -824,7 +925,7 @@
               }, '#d35400', { opacity: 0.25 });
             }
 
-            graph.addDashedLine([{x: 0, y: policyPrice}, {x: 110, y: policyPrice}], '#666', { strokeWidth: 1.5 });
+            graph.addDashedLine([{x: 0, y: policyPrice}, {x: 160, y: policyPrice}], '#666', { strokeWidth: 1.5 });
             graph.addDashedLine([{x: qTraded, y: 0}, {x: qTraded, y: policyPrice}], '#145a32', { strokeWidth: 1.2 });
             graph.addDashedLine([{x: qDemanded, y: 0}, {x: qDemanded, y: policyPrice}], '#2e86c1', { strokeWidth: 1.2 });
             graph.addPoint(eqQ, eqP, { color: '#ddd', label: '(Q*, P*)', radius: 5 });

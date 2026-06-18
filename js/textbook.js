@@ -216,7 +216,7 @@ const EconGraph = {
     ctx.clear = () => {
       ctx.g.selectAll('.graph-line, .graph-area, .graph-point, .graph-reference, .graph-label, .dynamic').remove();
       if (ctx.axisLayer) {
-        ctx.axisLayer.selectAll('.graph-label, .dynamic').remove();
+        ctx.axisLayer.selectAll('.graph-point, .graph-label, .dynamic').remove();
       }
     };
 
