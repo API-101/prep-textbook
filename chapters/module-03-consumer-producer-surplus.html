@@ -111,24 +111,26 @@
         \(Q^*\) is the equilibrium quantity, \(P_{\max}\) is the price intercept of the inverted demand equation, and \(P^*\) is the equilibrium price.
       </p>
 
-      <div class="worked-example">
+      <div class="worked-example worked-example--with-graph">
         <div class="worked-example__title">Worked Example: Calculating Consumer Surplus (CS)</div>
-        <p>
-          Suppose the demand curve intercepts the price axis at €5/kg. The equilibrium price is €2/kg, and the equilibrium quantity is 30 million kg.
-        </p>
-        <p style="margin-top: var(--space-md); font-family: var(--font-mono);">
-          CS = 1/2 × 30 × (€5 - €2)<br>
-          CS = 1/2 × 30 × €3<br>
-          CS = <strong>€45 million</strong>
-        </p>
-      </div>
-
-      <div class="graph-container">
-        <div class="graph-container__title">Worked Example: Consumer Surplus</div>
-        <div class="graph-container__description">
-          Consumer surplus is the triangle below the demand curve and above the market price, from zero to \(Q^*\).
+        <div class="worked-example__body">
+          <div>
+            <p>
+              Suppose the demand curve intercepts the price axis at €5/kg. The equilibrium price is €2/kg, and the equilibrium quantity is 30 million kg.
+            </p>
+            <p class="worked-example__math">
+              CS = 1/2 × 30 × (€5 - €2)<br>
+              CS = 1/2 × 30 × €3<br>
+              CS = <strong>€45 million</strong>
+            </p>
+          </div>
+          <div class="worked-example__graph">
+            <p class="worked-example__graph-note">
+              Consumer surplus is the triangle below the demand curve and above the market price, from zero to \(Q^*\).
+            </p>
+            <div class="worked-example__svg" id="graph-consumer-surplus-example"></div>
+          </div>
         </div>
-        <div class="graph-container__svg-wrapper" id="graph-consumer-surplus-example"></div>
       </div>
 
       <!-- Self-Check -->
@@ -168,24 +170,26 @@
         \(P_{\min}\) is the minimum price producers would accept at the first unit supplied, represented by the price intercept of the supply curve.
       </p>
 
-      <div class="worked-example">
+      <div class="worked-example worked-example--with-graph">
         <div class="worked-example__title">Worked Example: Calculating Producer Surplus</div>
-        <p>
-          Suppose the supply curve intercepts the price axis at €0.50/kg. The market equilibrium price is €2/kg, and the equilibrium quantity is 30 million kg.
-        </p>
-        <p style="margin-top: var(--space-md); font-family: var(--font-mono);">
-          PS = 1/2 × 30 × (€2 - €0.50)<br>
-          PS = 1/2 × 30 × €1.50<br>
-          PS = <strong>€22.5 million</strong>
-        </p>
-      </div>
-
-      <div class="graph-container">
-        <div class="graph-container__title">Worked Example: Producer Surplus</div>
-        <div class="graph-container__description">
-          Producer surplus is the triangle above the supply curve and below the market price, from zero to \(Q^*\).
+        <div class="worked-example__body">
+          <div>
+            <p>
+              Suppose the supply curve intercepts the price axis at €0.50/kg. The market equilibrium price is €2/kg, and the equilibrium quantity is 30 million kg.
+            </p>
+            <p class="worked-example__math">
+              PS = 1/2 × 30 × (€2 - €0.50)<br>
+              PS = 1/2 × 30 × €1.50<br>
+              PS = <strong>€22.5 million</strong>
+            </p>
+          </div>
+          <div class="worked-example__graph">
+            <p class="worked-example__graph-note">
+              Producer surplus is the triangle above the supply curve and below the market price, from zero to \(Q^*\).
+            </p>
+            <div class="worked-example__svg" id="graph-producer-surplus-example"></div>
+          </div>
         </div>
-        <div class="graph-container__svg-wrapper" id="graph-producer-surplus-example"></div>
       </div>
 
       <!-- Self-Check -->
@@ -211,6 +215,9 @@
 
       <div class="equation-line">
         $$\text{Social Surplus} = \text{Consumer Surplus} + \text{Producer Surplus}$$
+        $$CS = \frac{1}{2} \times 30 \times (5 - 2) = 45$$
+        $$PS = \frac{1}{2} \times 30 \times (2 - 0.5) = 22.5$$
+        $$\text{Social Surplus} = 45 + 22.5 = 67.5$$
       </div>
 
       <div class="definition-box">
@@ -227,7 +234,7 @@
       <div class="graph-container">
         <div class="graph-container__title">Social Surplus at Equilibrium</div>
         <div class="graph-container__description">
-          Social surplus combines consumer surplus and producer surplus. At the competitive equilibrium, the blue and green areas together are as large as possible.
+          Social surplus combines the same consumer surplus and producer surplus calculations from the worked examples above.
         </div>
         <div class="graph-container__svg-wrapper" id="graph-surplus-annotations"></div>
       </div>
@@ -429,7 +436,13 @@
         const eqP = 2;
         const pMax = 5;
 
-        graph.addLine(demandFn, '#2e86c1', { label: 'Demand', strokeWidth: 2.5 });
+        graph.addLine([{x: 0, y: demandFn(0)}, {x: 50, y: demandFn(50)}], '#2e86c1', { strokeWidth: 2.5 });
+        graph.addLabel(41, 1.35, 'Demand', {
+          color: '#2e86c1',
+          fontSize: '12px',
+          fontWeight: '700',
+          background: true
+        });
         graph.addDashedLine([{x: 0, y: eqP}, {x: eqQ, y: eqP}, {x: eqQ, y: 0}], '#999', { strokeWidth: 1.1 });
         graph.addShaded({
           xRange: [0, eqQ],
@@ -472,7 +485,13 @@
         const eqP = 2;
         const pMin = 0.5;
 
-        graph.addLine(supplyFn, '#145a32', { label: 'Supply', strokeWidth: 2.5 });
+        graph.addLine([{x: 0, y: supplyFn(0)}, {x: 60, y: supplyFn(60)}], '#145a32', { strokeWidth: 2.5 });
+        graph.addLabel(41, 2.7, 'Supply', {
+          color: '#145a32',
+          fontSize: '12px',
+          fontWeight: '700',
+          background: true
+        });
         graph.addDashedLine([{x: 0, y: eqP}, {x: eqQ, y: eqP}, {x: eqQ, y: 0}], '#999', { strokeWidth: 1.1 });
         graph.addShaded({
           xRange: [0, eqQ],
@@ -503,22 +522,34 @@
         const graph = EconGraph.create('#graph-surplus-annotations', {
           xLabel: 'Quantity',
           yLabel: 'Price (€)',
-          xDomain: [0, 120],
-          yDomain: [0, 90],
+          xDomain: [0, 60],
+          yDomain: [0, 6],
           width: 520,
           height: 380
         });
         if (!graph) return;
 
-        const demandFn = x => 80 - (2 / 3) * x;
-        const supplyFn = x => 10 + 0.5 * x;
-        const eqQ = 60;
-        const eqP = 40;
+        const demandFn = x => 5 - x / 10;
+        const supplyFn = x => 0.5 + x / 20;
+        const eqQ = 30;
+        const eqP = 2;
         const pMax = demandFn(0);
         const pMin = supplyFn(0);
 
-        graph.addLine(demandFn, '#2e86c1', { label: 'Demand', strokeWidth: 2.5 });
-        graph.addLine(supplyFn, '#145a32', { label: 'Supply', strokeWidth: 2.5 });
+        graph.addLine([{x: 0, y: demandFn(0)}, {x: 50, y: demandFn(50)}], '#2e86c1', { strokeWidth: 2.5 });
+        graph.addLine([{x: 0, y: supplyFn(0)}, {x: 60, y: supplyFn(60)}], '#145a32', { strokeWidth: 2.5 });
+        graph.addLabel(41, 1.35, 'Demand', {
+          color: '#2e86c1',
+          fontSize: '12px',
+          fontWeight: '700',
+          background: true
+        });
+        graph.addLabel(41, 2.7, 'Supply', {
+          color: '#145a32',
+          fontSize: '12px',
+          fontWeight: '700',
+          background: true
+        });
 
         graph.addShaded({
           xRange: [0, eqQ],
@@ -540,32 +571,38 @@
           {x: eqQ, y: 0}
         ], '#999', { strokeWidth: 1 });
 
-        graph.addLabel(20, 59, 'CS', {
+        graph.addLabel(12, 3.3, 'CS', {
           color: '#2e86c1',
           fontSize: '16px',
           fontWeight: '700',
           background: true
         });
 
-        graph.addLabel(20, 26, 'PS', {
+        graph.addLabel(12, 1.25, 'PS', {
           color: '#1e8449',
           fontSize: '16px',
           fontWeight: '700',
           background: true
         });
 
-        graph.addLabel(70, 5, `Base = Q* = ${eqQ}`, { fontSize: '11px', background: true });
-        graph.addLabel(2, 44, `P* = €${eqP}`, { fontSize: '11px', background: true });
-        graph.addLabel(72, 72, `CS = 1/2 × ${eqQ} × (${pMax} - ${eqP})\n= €1,200`, {
+        graph.addLabel(36, 0.55, `Q* = ${eqQ}`, { fontSize: '11px', background: true });
+        graph.addLabel(2, 2.25, `P* = €${eqP}`, { fontSize: '11px', background: true });
+        graph.addLabel(38, 4.7, `CS = 1/2 × ${eqQ} × (${pMax} - ${eqP})\n= €45`, {
           color: '#2e86c1',
           fontSize: '11px',
           fontWeight: '700',
           background: true
         });
-        graph.addLabel(72, 18, `PS = 1/2 × ${eqQ} × (${eqP} - ${pMin})\n= €900`, {
+        graph.addLabel(38, 1.1, `PS = 1/2 × ${eqQ} × (${eqP} - ${pMin})\n= €22.5`, {
           color: '#1e8449',
           fontSize: '11px',
           fontWeight: '700',
+          background: true
+        });
+        graph.addLabel(38, 3, 'Social surplus = €67.5', {
+          color: '#1a5276',
+          fontSize: '12px',
+          fontWeight: '800',
           background: true
         });
 
@@ -592,6 +629,23 @@
         const pMax = 100;
         const pMin = 10;
         const efficientTotal = 0.5 * eqQ * (pMax - pMin);
+
+        function addQuantityGap(leftQ, rightQ, label) {
+          if (Math.abs(rightQ - leftQ) < 1) return;
+          const low = Math.min(leftQ, rightQ);
+          const high = Math.max(leftQ, rightQ);
+          const y = 3;
+          graph.addDashedLine([{x: low, y}, {x: high, y}], '#d35400', { strokeWidth: 2.2 });
+          graph.addDashedLine([{x: low, y: 0}, {x: low, y: 6}], '#d35400', { strokeWidth: 1 });
+          graph.addDashedLine([{x: high, y: 0}, {x: high, y: 6}], '#d35400', { strokeWidth: 1 });
+          graph.addLabel((low + high) / 2, 9, label, {
+            color: '#b03a00',
+            fontSize: '11px',
+            fontWeight: '700',
+            anchor: 'middle',
+            background: true
+          });
+        }
 
         function surplusToQuantity(q) {
           if (q <= eqQ) {
@@ -671,6 +725,7 @@
             {x: tradedQ, y: 0},
             {x: tradedQ, y: Math.max(demandFn(tradedQ), supplyFn(tradedQ))}
           ], '#d35400', { strokeWidth: 1.3 });
+          addQuantityGap(tradedQ, eqQ, `ΔQ = ${Math.round(Math.abs(eqQ - tradedQ))}`);
 
           graph.addLabel(eqQ + 3, 8, `Q* = ${eqQ}`, {
             color: '#1a5276',
@@ -720,6 +775,23 @@
         const csOriginal = 0.5 * eqQ * (pMax - eqP);
         const psOriginal = 0.5 * eqQ * (eqP - pMin);
         const efficientTotal = csOriginal + psOriginal;
+
+        function addQuantityGap(leftQ, rightQ, label, color) {
+          if (Math.abs(rightQ - leftQ) < 1) return;
+          const low = Math.min(leftQ, rightQ);
+          const high = Math.max(leftQ, rightQ);
+          const y = 3;
+          graph.addDashedLine([{x: low, y}, {x: high, y}], color, { strokeWidth: 2.2 });
+          graph.addDashedLine([{x: low, y: 0}, {x: low, y: 6}], color, { strokeWidth: 1 });
+          graph.addDashedLine([{x: high, y: 0}, {x: high, y: 6}], color, { strokeWidth: 1 });
+          graph.addLabel((low + high) / 2, 9, label, {
+            color,
+            fontSize: '11px',
+            fontWeight: '700',
+            anchor: 'middle',
+            background: true
+          });
+        }
 
         function consumerSurplusAt(price, q) {
           return Math.max(0, (pMax - price) * q - 0.5 * demandSlope * q * q);
@@ -804,13 +876,7 @@
             graph.addPoint(qSupplied, policyPrice, { color: '#145a32', label: 'Q_S', radius: 5 });
 
             if (qSurplus > 0) {
-              graph.addLabel((qTraded + qSupplied) / 2, policyPrice + 4, `Surplus = ${Math.round(qSurplus)}`, {
-                color: '#145a32',
-                fontSize: '11px',
-                fontWeight: '700',
-                anchor: 'middle',
-                background: true
-              });
+              addQuantityGap(qTraded, qSupplied, `Surplus = ${Math.round(qSurplus)}`, '#145a32');
             }
 
             document.getElementById('stat-policy-cs-original').textContent = '€' + Math.round(csOriginal);
@@ -859,13 +925,7 @@
             graph.addPoint(qDemanded, policyPrice, { color: '#2e86c1', label: 'Q_D', radius: 5 });
 
             if (qShortage > 0) {
-              graph.addLabel((qTraded + qDemanded) / 2, policyPrice + 4, `Shortage = ${Math.round(qShortage)}`, {
-                color: '#2e86c1',
-                fontSize: '11px',
-                fontWeight: '700',
-                anchor: 'middle',
-                background: true
-              });
+              addQuantityGap(qTraded, qDemanded, `Shortage = ${Math.round(qShortage)}`, '#2e86c1');
             }
 
             document.getElementById('stat-policy-cs-original').textContent = '€' + Math.round(csOriginal);
