@@ -358,6 +358,122 @@
         return fresh;
       }
 
+      function curvePoints(fn, xMin, xMax, steps) {
+        var points = [];
+        var n = steps || 80;
+        for (var i = 0; i <= n; i++) {
+          var x = xMin + (xMax - xMin) * i / n;
+          var y = fn(x);
+          if (Number.isFinite(y)) points.push({ x: x, y: y });
+        }
+        return points;
+      }
+
+      function animateLine(graph, points, color, opts) {
+        opts = opts || {};
+        var delay = opts.delay || 0;
+        var duration = opts.duration || 900;
+        var strokeWidth = opts.strokeWidth || 1.5;
+        var className = opts.className || 'dynamic';
+        var opacity = opts.opacity == null ? 0.9 : opts.opacity;
+        var dashedFinal = opts.dashedFinal !== false;
+        var line = d3.line()
+          .x(function(d) { return graph.xScale(d.x); })
+          .y(function(d) { return graph.yScale(d.y); });
+        var path = graph.g.append('path')
+          .datum(points)
+          .attr('class', 'graph-reference ' + className)
+          .attr('d', line)
+          .attr('fill', 'none')
+          .attr('stroke', color)
+          .attr('stroke-width', strokeWidth)
+          .attr('opacity', opacity);
+        var length = path.node().getTotalLength();
+        path
+          .attr('stroke-dasharray', length + ' ' + length)
+          .attr('stroke-dashoffset', length)
+          .transition()
+          .delay(delay)
+          .duration(duration)
+          .ease(d3.easeCubicOut)
+          .attr('stroke-dashoffset', 0)
+          .on('end', function() {
+            if (dashedFinal) d3.select(this).attr('stroke-dasharray', '5,4');
+            else d3.select(this).attr('stroke-dasharray', null);
+          });
+        return path;
+      }
+
+      function fadeLabel(graph, x, y, text, opts) {
+        opts = opts || {};
+        var labelOpts = {};
+        Object.keys(opts).forEach(function(key) {
+          if (key !== 'delay' && key !== 'duration') labelOpts[key] = opts[key];
+        });
+        labelOpts.className = opts.className || 'dynamic';
+        var label = graph.addLabel(x, y, text, labelOpts);
+        label.attr('opacity', 0)
+          .transition()
+          .delay(opts.delay || 0)
+          .duration(opts.duration || 450)
+          .attr('opacity', 1);
+        return label;
+      }
+
+      function animatedGuides(graph, q, p, color, delay) {
+        color = color || '#1a5276';
+        delay = delay || 0;
+        animateLine(graph, [{ x: q, y: p }, { x: q, y: 0 }], color, {
+          delay: delay,
+          duration: 650,
+          strokeWidth: 1.2
+        });
+        animateLine(graph, [{ x: q, y: p }, { x: 0, y: p }], color, {
+          delay: delay + 180,
+          duration: 650,
+          strokeWidth: 1.2
+        });
+      }
+
+      function fadePoint(graph, x, y, opts) {
+        opts = opts || {};
+        var layer = graph.axisLayer || graph.g;
+        layer.append('circle')
+          .attr('class', 'graph-point ' + (opts.className || 'dynamic'))
+          .attr('cx', graph.xScale(x))
+          .attr('cy', graph.yScale(y))
+          .attr('r', opts.radius || 5)
+          .attr('fill', opts.color || '#1a5276')
+          .attr('stroke', '#fff')
+          .attr('stroke-width', 1.5)
+          .attr('opacity', 0)
+          .transition()
+          .delay(opts.delay || 0)
+          .duration(opts.duration || 450)
+          .attr('opacity', 1);
+        if (opts.label) {
+          fadeLabel(graph, x, y, opts.label, {
+            color: opts.color || '#1a5276',
+            fontSize: opts.fontSize || '13px',
+            fontWeight: opts.fontWeight || '700',
+            delay: (opts.delay || 0) + 180,
+            className: opts.className || 'dynamic'
+          });
+        }
+      }
+
+      function fadeArea(graph, data, color, opts) {
+        opts = opts || {};
+        var finalOpacity = opts.opacity == null ? 0.2 : opts.opacity;
+        var area = graph.addShaded(data, color, { opacity: finalOpacity, className: opts.className || 'dynamic' });
+        area.attr('opacity', 0)
+          .transition()
+          .delay(opts.delay || 0)
+          .duration(opts.duration || 650)
+          .attr('opacity', finalOpacity);
+        return area;
+      }
+
       (function() {
         var graph = EconGraph.create('#cap-fiscal-cost-graph', {
           xLabel: 'Quantity (millions of kg/year)',
@@ -519,88 +635,112 @@
         var qS = 45;
 
         function baseCurves(fadedDemand) {
-          welfare.addLine(D, '#2e86c1', { label: 'D', strokeWidth: fadedDemand ? 1.6 : 2.5, dashed: fadedDemand, className: 'dynamic' });
-          welfare.addLine(S, '#c0392b', { label: 'S', strokeWidth: 2.5, className: 'dynamic' });
+          welfare.addLine(D, '#2e86c1', { label: 'D', strokeWidth: fadedDemand ? 1.6 : 2.5, dashed: fadedDemand });
+          welfare.addLine(S, '#c0392b', { label: 'S', strokeWidth: 2.5 });
         }
 
-        function supportGuides() {
-          welfare.addDashedLine([{ x: 0, y: supportP }, { x: qS, y: supportP }], '#7d3c98', { strokeWidth: 1.8, className: 'dynamic' });
-          welfare.addDashedLine([{ x: qD, y: 0 }, { x: qD, y: supportP }], '#2e86c1', { strokeWidth: 1.2, className: 'dynamic' });
-          welfare.addDashedLine([{ x: qS, y: 0 }, { x: qS, y: supportP }], '#c0392b', { strokeWidth: 1.2, className: 'dynamic' });
-        }
-
-        function fiscalRectangle() {
-          welfare.addShaded({
-            xRange: [qD, qS],
-            yTop: supportP,
-            yBottom: 0
-          }, '#8e44ad', { opacity: 0.22, className: 'dynamic' });
-          welfare.addLabel((qD + qS) / 2, 1.5, 'Fiscal cost = 25 × €3 = €75m', {
-            color: '#6c3483',
-            fontSize: '12px',
-            fontWeight: '800',
-            anchor: 'middle',
-            className: 'dynamic'
+        function supportGuides(delay) {
+          delay = delay || 0;
+          animateLine(welfare, [{ x: 0, y: supportP }, { x: qS, y: supportP }], '#7d3c98', {
+            delay: delay,
+            duration: 850,
+            strokeWidth: 1.8,
+            dashedFinal: true
+          });
+          animateLine(welfare, [{ x: qD, y: 0 }, { x: qD, y: supportP }], '#2e86c1', {
+            delay: delay + 650,
+            duration: 700,
+            strokeWidth: 1.2,
+            dashedFinal: true
+          });
+          animateLine(welfare, [{ x: qS, y: 0 }, { x: qS, y: supportP }], '#c0392b', {
+            delay: delay + 1150,
+            duration: 700,
+            strokeWidth: 1.2,
+            dashedFinal: true
           });
         }
 
-        function surplusGapLabel() {
-          welfare.addDashedLine([{ x: qD, y: 0.35 }, { x: qS, y: 0.35 }], '#6c3483', { strokeWidth: 2.2, className: 'dynamic' });
-          welfare.addLabel((qD + qS) / 2, 0.7, 'Government purchase = 25', {
+        function fiscalRectangle(delay) {
+          delay = delay || 0;
+          fadeArea(welfare, {
+            xRange: [qD, qS],
+            yTop: supportP,
+            yBottom: 0
+          }, '#8e44ad', { opacity: 0.22, delay: delay, duration: 700 });
+          fadeLabel(welfare, (qD + qS) / 2, 1.5, 'Fiscal cost = 25 × €3 = €75m', {
             color: '#6c3483',
             fontSize: '12px',
             fontWeight: '800',
             anchor: 'middle',
-            className: 'dynamic'
+            delay: delay + 650
+          });
+        }
+
+        function surplusGapLabel(delay) {
+          delay = delay || 0;
+          animateLine(welfare, [{ x: qD, y: 0.35 }, { x: qS, y: 0.35 }], '#6c3483', {
+            delay: delay,
+            duration: 800,
+            strokeWidth: 2.2,
+            dashedFinal: false
+          });
+          fadeLabel(welfare, (qD + qS) / 2, 0.7, 'Government purchase = 25', {
+            color: '#6c3483',
+            fontSize: '12px',
+            fontWeight: '800',
+            anchor: 'middle',
+            delay: delay + 750
           });
         }
 
         var welfareFrames = [
           function() {
             baseCurves(false);
-            welfare.addShaded({ xRange: [0, eqQ], yTop: D, yBottom: eqP }, '#2e86c1', { opacity: 0.18, className: 'dynamic' });
-            welfare.addShaded({ xRange: [0, eqQ], yTop: eqP, yBottom: S }, '#1e8449', { opacity: 0.18, className: 'dynamic' });
-            welfare.addPoint(eqQ, eqP, { color: '#1a5276', radius: 6, label: '(Q*, P*)', className: 'dynamic' });
-            addEqGuides(welfare, eqQ, eqP);
-            welfare.addLabel(11, 3.45, 'CS = €45m', { color: '#2e86c1', fontSize: '12px', fontWeight: '800', anchor: 'middle', className: 'dynamic' });
-            welfare.addLabel(12, 1.1, 'PS = €30m', { color: '#1e8449', fontSize: '12px', fontWeight: '800', anchor: 'middle', className: 'dynamic' });
+            fadeArea(welfare, { xRange: [0, eqQ], yTop: D, yBottom: eqP }, '#2e86c1', { opacity: 0.18, delay: 150 });
+            fadeArea(welfare, { xRange: [0, eqQ], yTop: eqP, yBottom: S }, '#1e8449', { opacity: 0.18, delay: 550 });
+            animatedGuides(welfare, eqQ, eqP, '#1a5276', 950);
+            fadePoint(welfare, eqQ, eqP, { color: '#1a5276', radius: 6, label: '(Q*, P*)', delay: 1250 });
+            fadeLabel(welfare, 11, 3.45, 'CS = €45m', { color: '#2e86c1', fontSize: '12px', fontWeight: '800', anchor: 'middle', delay: 1650 });
+            fadeLabel(welfare, 12, 1.1, 'PS = €30m', { color: '#1e8449', fontSize: '12px', fontWeight: '800', anchor: 'middle', delay: 1850 });
           },
           function() {
             baseCurves(false);
-            supportGuides();
-            welfare.addShaded({ xRange: [0, qD], yTop: D, yBottom: supportP }, '#2e86c1', { opacity: 0.22, className: 'dynamic' });
-            welfare.addPoint(qD, supportP, { color: '#2e86c1', radius: 5, label: 'Q_D = 20', className: 'dynamic' });
-            welfare.addPoint(eqQ, eqP, { color: '#999', radius: 4, label: '(Q*, P*)', className: 'dynamic' });
-            welfare.addLabel(8, 4.25, 'Consumer surplus shrinks to €20m', { color: '#2e86c1', fontSize: '12px', fontWeight: '800', className: 'dynamic' });
+            supportGuides(100);
+            fadeArea(welfare, { xRange: [0, qD], yTop: D, yBottom: supportP }, '#2e86c1', { opacity: 0.22, delay: 1050 });
+            fadePoint(welfare, qD, supportP, { color: '#2e86c1', radius: 5, label: 'Q_D = 20', delay: 1450 });
+            fadePoint(welfare, eqQ, eqP, { color: '#999', radius: 4, label: '(Q*, P*)', delay: 1650 });
+            fadeLabel(welfare, 8, 4.25, 'Consumer surplus shrinks to €20m', { color: '#2e86c1', fontSize: '12px', fontWeight: '800', delay: 2100 });
           },
           function() {
             baseCurves(false);
-            supportGuides();
-            welfare.addShaded({ xRange: [0, qD], yTop: D, yBottom: supportP }, '#2e86c1', { opacity: 0.14, className: 'dynamic' });
-            welfare.addShaded({ xRange: [0, qS], yTop: supportP, yBottom: S }, '#1e8449', { opacity: 0.24, className: 'dynamic' });
-            welfare.addPoint(qD, supportP, { color: '#2e86c1', radius: 5, label: 'Q_D = 20', className: 'dynamic' });
-            welfare.addPoint(qS, supportP, { color: '#c0392b', radius: 5, label: 'Q_S = 45', className: 'dynamic' });
-            welfare.addLabel(16, 1.65, 'Producer surplus expands to €67.5m', { color: '#1e8449', fontSize: '12px', fontWeight: '800', className: 'dynamic' });
+            supportGuides(100);
+            fadeArea(welfare, { xRange: [0, qD], yTop: D, yBottom: supportP }, '#2e86c1', { opacity: 0.14, delay: 900 });
+            fadeArea(welfare, { xRange: [0, qS], yTop: supportP, yBottom: S }, '#1e8449', { opacity: 0.24, delay: 1350 });
+            fadePoint(welfare, qD, supportP, { color: '#2e86c1', radius: 5, label: 'Q_D = 20', delay: 1650 });
+            fadePoint(welfare, qS, supportP, { color: '#c0392b', radius: 5, label: 'Q_S = 45', delay: 1900 });
+            fadeLabel(welfare, 16, 1.65, 'Producer surplus expands to €67.5m', { color: '#1e8449', fontSize: '12px', fontWeight: '800', delay: 2300 });
           },
           function() {
             baseCurves(true);
-            welfare.addLine(DTotal, '#2e86c1', { label: "D'", strokeWidth: 2.8, className: 'dynamic' });
-            supportGuides();
-            welfare.addShaded({ xRange: [0, qS], yTop: supportP, yBottom: S }, '#1e8449', { opacity: 0.18, className: 'dynamic' });
-            fiscalRectangle();
-            surplusGapLabel();
-            welfare.addPoint(qS, supportP, { color: '#1a5276', radius: 6, label: "(Q\u2032, P\u2032)", className: 'dynamic' });
+            animateLine(welfare, curvePoints(DTotal, 20, 60, 90), '#2e86c1', { delay: 150, duration: 950, strokeWidth: 2.8, dashedFinal: false });
+            fadeLabel(welfare, 54, 2.2, "D'", { color: '#2e86c1', fontSize: '13px', fontWeight: '800', delay: 1000, background: false });
+            supportGuides(650);
+            fadeArea(welfare, { xRange: [0, qS], yTop: supportP, yBottom: S }, '#1e8449', { opacity: 0.18, delay: 1400 });
+            fiscalRectangle(1850);
+            surplusGapLabel(2350);
+            fadePoint(welfare, qS, supportP, { color: '#1a5276', radius: 6, label: "(Q\u2032, P\u2032)", delay: 2950 });
           },
           function() {
             baseCurves(true);
-            welfare.addLine(DTotal, '#2e86c1', { label: "D'", strokeWidth: 2.8, className: 'dynamic' });
-            supportGuides();
-            fiscalRectangle();
-            surplusGapLabel();
-            welfare.addShaded({ xRange: [eqQ, qS], yTop: S, yBottom: D }, '#d35400', { opacity: 0.3, className: 'dynamic' });
-            welfare.addLabel(38, 2.25, 'Potential efficiency loss', { color: '#b03a00', fontSize: '12px', fontWeight: '800', anchor: 'middle', className: 'dynamic' });
-            welfare.addPoint(eqQ, eqP, { color: '#999', radius: 4, label: '(Q*, P*)', className: 'dynamic' });
-            welfare.addPoint(qS, supportP, { color: '#1a5276', radius: 6, label: "(Q\u2032, P\u2032)", className: 'dynamic' });
+            welfare.addLine(DTotal, '#2e86c1', { label: "D'", strokeWidth: 2.8 });
+            supportGuides(100);
+            fiscalRectangle(900);
+            surplusGapLabel(1350);
+            fadeArea(welfare, { xRange: [eqQ, qS], yTop: S, yBottom: D }, '#d35400', { opacity: 0.3, delay: 1800 });
+            fadeLabel(welfare, 38, 2.25, 'Potential efficiency loss', { color: '#b03a00', fontSize: '12px', fontWeight: '800', anchor: 'middle', delay: 2400 });
+            fadePoint(welfare, eqQ, eqP, { color: '#999', radius: 4, label: '(Q*, P*)', delay: 2600 });
+            fadePoint(welfare, qS, supportP, { color: '#1a5276', radius: 6, label: "(Q\u2032, P\u2032)", delay: 2800 });
           }
         ];
 
