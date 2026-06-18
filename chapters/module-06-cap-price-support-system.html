@@ -24,6 +24,7 @@
       <a href="#introduction" class="sidebar__link sidebar__link--active">Introduction</a>
       <a href="#policy-connections" class="sidebar__link">Policy Connection</a>
       <a href="#demonstrations" class="sidebar__link">Step-by-Step Graphing</a>
+      <a href="#welfare-analysis" class="sidebar__link">Welfare Analysis</a>
       <a href="#key-terms" class="sidebar__link">Key Terms</a>
       <a href="#summary" class="sidebar__link">Summary</a>
 
@@ -71,7 +72,7 @@
       <h2 id="policy-connections">Policy Connection: CAP as a Market Shifter</h2>
 
       <p>
-        The EU's Common Agricultural Policy illustrates demand and supply analysis in action. Supporting high prices through government purchases created large agricultural surpluses, which were sometimes dumped on foreign markets, particularly in developing countries. In this module, we examine the effect of CAP on the EU market as a demand shifter and then turn to its effect on the supply of agricultural products in developing-country markets to study the policy's impact on foreign producers.
+        The EU's Common Agricultural Policy illustrates demand and supply analysis in action. Supporting high prices through government purchases created large agricultural surpluses and changed who gained and who lost in the EU sugar market. In this module, we examine the effect of CAP on the EU market as a demand shifter and then connect that shift to welfare analysis.
       </p>
 
       <h3>Price Support: A Demand Shifter in the EU Market</h3>
@@ -140,7 +141,7 @@
           <div class="demo-layout">
             <div class="demo-layout__graph-col">
               <div class="graph-container__svg-wrapper" id="dm1-graph"></div>
-              <p class="shift-figure__caption">Figure 4.5: Price support policy shifts the demand curve outward.</p>
+              <p class="shift-figure__caption">Figure 6.1: Price support policy shifts the demand curve outward.</p>
               <div class="graphing-method__controls">
                 <button id="dm1-next" class="graphing-method__next-btn">Next Step →</button>
               </div>
@@ -174,7 +175,7 @@
       </p>
       <div class="figure figure--with-controls">
         <div class="figure__graph" id="cap-fiscal-cost-graph"></div>
-        <p class="shift-figure__caption">Figure 4.6: Fiscal cost of the price support equals the supported price times the government purchase quantity.</p>
+        <p class="shift-figure__caption">Figure 6.2: Fiscal cost of the price support equals the supported price times the government purchase quantity.</p>
       </div>
       <p>
         This example illustrates why the CAP created enormous costs. The surplus is not a one-time problem: as long as the price support remains above equilibrium, surpluses continue to accumulate year after year. Multiply €75 million by the number of years the policy ran, add storage costs across multiple commodities (sugar, butter, wine, grains, dairy), and the fiscal burden becomes staggering. The CAP consumed roughly 40% of the entire EU budget for decades.
@@ -182,84 +183,89 @@
       <p>
         This example also illustrates a broader point about policymaking. Policy interventions rarely make everyone better off. While CAP was intended to support farmers with stable prices, the costs were borne by consumers and taxpayers.
       </p>
-      <p>
-        In the next section, we focus on the effect of CAP on foreign agricultural markets, which requires us to shift our attention to the supply side of the market.
-      </p>
 
-      <!-- ---- Demo 2: Supply Shift ---- -->
-      <h3>Agricultural Dumping: A Supply Shifter in Other Countries</h3>
+      <h2 id="welfare-analysis">Welfare Analysis of the Price Support</h2>
       <p>
-        The price support programs under CAP created a ripple effect in foreign agricultural markets. While some surplus was left to rot in government warehouses, some was sold at low prices to other countries' markets.
-      </p>
-      <div class="callout callout--insight">
-        <div class="callout__title">Agricultural Dumping and Its Global Impact</div>
-        <p>
-          CAP has historically provided considerable support for European sugar producers. Prior to the EU sugar market reform of 2017, which abolished production quotas, estimates suggested that approximately <strong>5 million tons of excess EU sugar</strong> were dumped on world markets annually as a direct consequence of intervention buying incentivizing overproduction.<br><br>
-          For markets in countries like Mozambique or Eswatini (formerly Swaziland), this arrival of cheap European sugar acts as a large positive supply shift: quantity supplied increases dramatically at every price. The result? Equilibrium price in those markets falls, and local sugar producers — who cannot compete with low European prices — are forced to cut output or exit the market entirely.<br><br>
-          CAP thus illustrates how a policy designed to help domestic producers can simultaneously harm producers in developing countries while benefiting their consumers.
-        </p>
-      </div>
-      <p>
-        To illustrate this point with a numerical example, consider the Southern African sugar market. When we study a market in a particular country, we use the currency and units of measurement of that country. For consistency with previous sections, we retain the same currency and units (€ and kg).
+        The demand-shift graph tells us how the policy changes price and quantity. Welfare analysis asks a different question: how do consumer surplus, producer surplus, fiscal cost, and potential deadweight loss change when the government becomes the additional buyer?
       </p>
       <p>
-        Demand and supply in the Southern African sugar market are given by the following functions:
+        Click through the sequence below. The graph starts from the free-market equilibrium and then builds the welfare consequences of the CAP price support one layer at a time.
       </p>
-      <div class="equation-line">
-        $$Q_D = 75 - 15P \qquad Q_S = 10P$$
-      </div>
-      <p>
-        The equilibrium is \(P^* = 3\) €/kg and \(Q^* = 30\) million kg/year. Suppose 15 million kg of the total surplus purchased by the EU are sold into the Southern African sugar market regardless of the local market price. This arrival of European sugar shifts supply outward.
-      </p>
-
-      <h3>Deriving Supply Under EU Dumping</h3>
-      <p>Start from the baseline:</p>
-      <div class="equation-line">
-        $$Q_S = 10P$$
-      </div>
-      <p>Modify the supply equation by adding the 15-unit shift due to additional EU sugar in the market:</p>
-      <div class="equation-line">
-        $$Q_S^{\prime} = 15 + 10P$$
-      </div>
 
       <div class="graphing-methods">
-        <div class="graphing-method" id="dm2">
+        <div class="graphing-method" id="cap-welfare-demo">
           <div class="graphing-method__header">
             <span class="graphing-method__badge">Demo 2</span>
-            <h4 class="graphing-method__title">Graphing the Supply Shift</h4>
+            <h4 class="graphing-method__title">Welfare Effects of the Price Support</h4>
           </div>
           <p class="graphing-method__intro">
-            The EU sells 15 million kg/year of excess sugar into the Southern African market regardless of price. Follow the steps to see how this shifts the supply curve and changes equilibrium in that market.
+            Follow the policy from the free-market benchmark to the supported price, government purchases, and possible efficiency loss.
           </p>
           <div class="demo-layout">
             <div class="demo-layout__graph-col">
-              <div class="graph-container__svg-wrapper" id="dm2-graph"></div>
-              <p class="shift-figure__caption">Figure 4.7: Dumped sugar shifts foreign supply right.</p>
+              <div class="graph-container__svg-wrapper" id="cap-welfare-graph"></div>
+              <p class="shift-figure__caption">Figure 6.3: Welfare effects of the CAP price support in the EU sugar market.</p>
               <div class="graphing-method__controls">
-                <button id="dm2-next" class="graphing-method__next-btn">Next Step →</button>
+                <button id="cap-welfare-next" class="graphing-method__next-btn">Next Step →</button>
               </div>
             </div>
             <div class="demo-layout__desc-col">
-              <div class="demo-step-panel" id="dm2-desc">Click <strong>Next Step</strong> to build the supply shift one step at a time.</div>
+              <div class="demo-step-panel" id="cap-welfare-desc">Click <strong>Next Step</strong> to build the welfare analysis one step at a time.</div>
             </div>
           </div>
         </div>
       </div>
 
-      <div class="callout callout--insight">
-        <div class="callout__title">Interpreting the Supply Shift Result</div>
+      <table class="surplus-readout-table surplus-readout-table--comparison" aria-label="Welfare summary for the CAP price support">
+        <thead>
+          <tr>
+            <th scope="col">Group or measure</th>
+            <th scope="col">Before CAP support</th>
+            <th scope="col">After CAP support</th>
+            <th scope="col">Interpretation</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="surplus-readout-table__row surplus-readout-table__row--consumer">
+            <th scope="row">Private consumer surplus</th>
+            <td>€45 million</td>
+            <td>€20 million</td>
+            <td>Private consumers lose surplus because the supported price is higher.</td>
+          </tr>
+          <tr class="surplus-readout-table__row surplus-readout-table__row--producer">
+            <th scope="row">Producer surplus</th>
+            <td>€30 million</td>
+            <td>€67.5 million</td>
+            <td>Producers gain because they sell more output at a higher guaranteed price.</td>
+          </tr>
+          <tr class="surplus-readout-table__row surplus-readout-table__row--government">
+            <th scope="row">Fiscal cost</th>
+            <td>€0</td>
+            <td>€75 million</td>
+            <td>The government buys 25 million kg at €3/kg, ignoring storage/disposal costs and resale value.</td>
+          </tr>
+          <tr class="surplus-readout-table__row surplus-readout-table__row--dwl">
+            <th scope="row">Efficiency implication</th>
+            <td>No deadweight loss at \(Q^* = 30\)</td>
+            <td>Potential overproduction loss</td>
+            <td>Deadweight loss depends on what value, if any, society receives from the purchased surplus.</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="callout callout--warning">
+        <div class="callout__title">Fiscal Cost Is Not Automatically Deadweight Loss</div>
         <p>
-          The new equilibrium is \(P' = €2.4\)/kg and \(Q' = 39\) million kg/year — compared to \(P^* = €3\) and \(Q^* = 30\) million kg/year before the EU entered.<br><br>
-          Again, notice that the EU supplied <em>15</em> extra units, but total quantity only rose by <em>9</em> (from 30 to 39). The price drop (from 3 to 2.4) causes local Southern African producers to reduce their own output — they move <em>down</em> along their supply curve. This partial offset means the EU's actions crowd out some domestic supply.<br><br>
-          CAP's buyback program thus supports sugar producers inside the EU while simultaneously lowering prices for competing producers in markets that receive the excess supply. Sugar consumers in Southern Africa benefit from lower prices and greater availability.
+          The €75 million fiscal cost is a taxpayer cost, but it is not automatically the same as deadweight loss. If the purchased surplus is stored, spoiled, or disposed of, much of the fiscal cost may correspond to wasted resources. If some purchased sugar is used in a way that creates value, the efficiency loss is smaller. The graph therefore treats the orange area as the core overproduction concern and the purple rectangle as fiscal cost.
         </p>
       </div>
-      <p>
-        The CAP example demonstrates a crucial lesson: understanding demand and supply is essential for predicting the real-world effects of policy. A well-intentioned program designed to help farmers created surpluses, inefficient production, and massive costs to taxpayers, while also harming EU consumers and foreign farmers. By applying supply-and-demand analysis, we can anticipate these consequences before implementing a policy and design better alternatives.
-      </p>
-      <p>
-        While we focused on a particular policy as a driver of demand and supply shifts, such changes can happen due to other reasons. In the next section, you will practice the four-step process for equilibrium analysis with shifts driven by a variety of factors.
-      </p>
+
+      <div class="callout callout--insight">
+        <div class="callout__title">What Happened to the Surplus?</div>
+        <p>
+          The purchased surplus had to go somewhere. Some agricultural surpluses were stored, some spoiled or were disposed of, and some were sold or exported at low prices. Those export effects can be analyzed with the supply-shift tools from Module 4, but the central welfare point here is domestic: the price support helped EU producers, hurt private consumers, and required taxpayer spending.
+        </p>
+      </div>
 
       <section id="key-terms" data-glossary-through="6" data-current-module="6"></section>
 
@@ -494,93 +500,130 @@
       })();
 
       (function() {
-        var dm2 = EconGraph.create('#dm2-graph', {
+        var welfare = EconGraph.create('#cap-welfare-graph', {
           xLabel: 'Quantity (millions of kg/year)',
           yLabel: 'Price (\u20AC/kg)',
-          xDomain: [0, 80],
-          yDomain: [0, 6]
+          xDomain: [0, 60],
+          yDomain: [0, 5.5],
+          height: 380
         });
-        if (!dm2) return;
+        if (!welfare) return;
 
-        var saD    = function(x) { return 5 - x / 15; };
-        var saS    = function(x) { return x / 10; };
-        var saSp   = function(x) { return (x - 15) / 10; };
+        var D = function(x) { return 5 - x / 10; };
+        var S = function(x) { return x / 15; };
+        var DTotal = function(x) { return 7.5 - x / 10; };
+        var eqQ = 30;
+        var eqP = 2;
+        var supportP = 3;
+        var qD = 20;
+        var qS = 45;
 
-        var dm2Frames = [
+        function baseCurves(fadedDemand) {
+          welfare.addLine(D, '#2e86c1', { label: 'D', strokeWidth: fadedDemand ? 1.6 : 2.5, dashed: fadedDemand, className: 'dynamic' });
+          welfare.addLine(S, '#c0392b', { label: 'S', strokeWidth: 2.5, className: 'dynamic' });
+        }
+
+        function supportGuides() {
+          welfare.addDashedLine([{ x: 0, y: supportP }, { x: qS, y: supportP }], '#7d3c98', { strokeWidth: 1.8, className: 'dynamic' });
+          welfare.addDashedLine([{ x: qD, y: 0 }, { x: qD, y: supportP }], '#2e86c1', { strokeWidth: 1.2, className: 'dynamic' });
+          welfare.addDashedLine([{ x: qS, y: 0 }, { x: qS, y: supportP }], '#c0392b', { strokeWidth: 1.2, className: 'dynamic' });
+        }
+
+        function fiscalRectangle() {
+          welfare.addShaded({
+            xRange: [qD, qS],
+            yTop: supportP,
+            yBottom: 0
+          }, '#8e44ad', { opacity: 0.22, className: 'dynamic' });
+          welfare.addLabel((qD + qS) / 2, 1.5, 'Fiscal cost = 25 × €3 = €75m', {
+            color: '#6c3483',
+            fontSize: '12px',
+            fontWeight: '800',
+            anchor: 'middle',
+            className: 'dynamic'
+          });
+        }
+
+        function surplusGapLabel() {
+          welfare.addDashedLine([{ x: qD, y: 0.35 }, { x: qS, y: 0.35 }], '#6c3483', { strokeWidth: 2.2, className: 'dynamic' });
+          welfare.addLabel((qD + qS) / 2, 0.7, 'Government purchase = 25', {
+            color: '#6c3483',
+            fontSize: '12px',
+            fontWeight: '800',
+            anchor: 'middle',
+            className: 'dynamic'
+          });
+        }
+
+        var welfareFrames = [
           function() {
-            dm2.addLine(saD, '#2e86c1', { label: 'D', strokeWidth: 2.5, className: 'dynamic' });
-            dm2.addLine(saS, '#c0392b', { label: 'S', strokeWidth: 2.5, className: 'dynamic' });
-            dm2.addPoint(30, 3, { color: '#1a5276', label: '(Q*, P*)', className: 'dynamic' });
-            addEqGuides(dm2, 30, 3);
+            baseCurves(false);
+            welfare.addShaded({ xRange: [0, eqQ], yTop: D, yBottom: eqP }, '#2e86c1', { opacity: 0.18, className: 'dynamic' });
+            welfare.addShaded({ xRange: [0, eqQ], yTop: eqP, yBottom: S }, '#1e8449', { opacity: 0.18, className: 'dynamic' });
+            welfare.addPoint(eqQ, eqP, { color: '#1a5276', radius: 6, label: '(Q*, P*)', className: 'dynamic' });
+            addEqGuides(welfare, eqQ, eqP);
+            welfare.addLabel(11, 3.45, 'CS = €45m', { color: '#2e86c1', fontSize: '12px', fontWeight: '800', anchor: 'middle', className: 'dynamic' });
+            welfare.addLabel(12, 1.1, 'PS = €30m', { color: '#1e8449', fontSize: '12px', fontWeight: '800', anchor: 'middle', className: 'dynamic' });
           },
           function() {
-            dm2.addLine(saD, '#2e86c1', { label: 'D', strokeWidth: 2.5, className: 'dynamic' });
-            dm2.addLine(saS, '#c0392b', { label: 'S', strokeWidth: 1.5, dashed: true, className: 'dynamic' });
-            dm2.addPoint(30, 3, { color: '#999', label: '(Q*, P*)', radius: 4, className: 'dynamic' });
-            addEqGuides(dm2, 30, 3, '#999');
+            baseCurves(false);
+            supportGuides();
+            welfare.addShaded({ xRange: [0, qD], yTop: D, yBottom: supportP }, '#2e86c1', { opacity: 0.22, className: 'dynamic' });
+            welfare.addPoint(qD, supportP, { color: '#2e86c1', radius: 5, label: 'Q_D = 20', className: 'dynamic' });
+            welfare.addPoint(eqQ, eqP, { color: '#999', radius: 4, label: '(Q*, P*)', className: 'dynamic' });
+            welfare.addLabel(8, 4.25, 'Consumer surplus shrinks to €20m', { color: '#2e86c1', fontSize: '12px', fontWeight: '800', className: 'dynamic' });
           },
           function() {
-            dm2.addLine(saD, '#2e86c1', { label: 'D', strokeWidth: 2.5, className: 'dynamic' });
-            dm2.addLine(saS, '#c0392b', { label: 'S', strokeWidth: 1.5, dashed: true, className: 'dynamic' });
-            dm2.addPoint(30, 3, { color: '#999', radius: 4, className: 'dynamic' });
-            dm2.addPoint(15, 0, { color: '#c0392b', radius: 5, className: 'dynamic' });
-            dm2.addLabel(16, 0.4, "S\u2032 x-intercept (15, 0)", { color: '#c0392b', fontSize: '11px', fontWeight: 'bold', anchor: 'start', className: 'dynamic' });
+            baseCurves(false);
+            supportGuides();
+            welfare.addShaded({ xRange: [0, qD], yTop: D, yBottom: supportP }, '#2e86c1', { opacity: 0.14, className: 'dynamic' });
+            welfare.addShaded({ xRange: [0, qS], yTop: supportP, yBottom: S }, '#1e8449', { opacity: 0.24, className: 'dynamic' });
+            welfare.addPoint(qD, supportP, { color: '#2e86c1', radius: 5, label: 'Q_D = 20', className: 'dynamic' });
+            welfare.addPoint(qS, supportP, { color: '#c0392b', radius: 5, label: 'Q_S = 45', className: 'dynamic' });
+            welfare.addLabel(16, 1.65, 'Producer surplus expands to €67.5m', { color: '#1e8449', fontSize: '12px', fontWeight: '800', className: 'dynamic' });
           },
           function() {
-            dm2.addLine(saD,  '#2e86c1', { label: 'D',  strokeWidth: 2.5, className: 'dynamic' });
-            dm2.addLine(saS,  '#c0392b', { label: 'S',  strokeWidth: 1.5, dashed: true, className: 'dynamic' });
-            dm2.addLine(saSp, '#c0392b', { label: "S'", strokeWidth: 2.5, className: 'dynamic' });
-            dm2.addPoint(30, 3, { color: '#999', radius: 4, className: 'dynamic' });
+            baseCurves(true);
+            welfare.addLine(DTotal, '#2e86c1', { label: "D'", strokeWidth: 2.8, className: 'dynamic' });
+            supportGuides();
+            welfare.addShaded({ xRange: [0, qS], yTop: supportP, yBottom: S }, '#1e8449', { opacity: 0.18, className: 'dynamic' });
+            fiscalRectangle();
+            surplusGapLabel();
+            welfare.addPoint(qS, supportP, { color: '#1a5276', radius: 6, label: "(Q\u2032, P\u2032)", className: 'dynamic' });
           },
           function() {
-            dm2.addLine(saD,  '#2e86c1', { label: 'D',  strokeWidth: 2.5, className: 'dynamic' });
-            dm2.addLine(saS,  '#c0392b', { label: 'S',  strokeWidth: 1.5, dashed: true, className: 'dynamic' });
-            dm2.addLine(saSp, '#c0392b', { label: "S'", strokeWidth: 2.5, className: 'dynamic' });
-            dm2.addPoint(30,  3,   { color: '#999',    label: '(Q*, P*)', radius: 4, className: 'dynamic' });
-            dm2.addPoint(39,  2.4, { color: '#1a5276', label: "(Q\u2032, P\u2032)", className: 'dynamic' });
-            addEqGuides(dm2, 39, 2.4);
+            baseCurves(true);
+            welfare.addLine(DTotal, '#2e86c1', { label: "D'", strokeWidth: 2.8, className: 'dynamic' });
+            supportGuides();
+            fiscalRectangle();
+            surplusGapLabel();
+            welfare.addShaded({ xRange: [eqQ, qS], yTop: S, yBottom: D }, '#d35400', { opacity: 0.3, className: 'dynamic' });
+            welfare.addLabel(38, 2.25, 'Potential efficiency loss', { color: '#b03a00', fontSize: '12px', fontWeight: '800', anchor: 'middle', className: 'dynamic' });
+            welfare.addPoint(eqQ, eqP, { color: '#999', radius: 4, label: '(Q*, P*)', className: 'dynamic' });
+            welfare.addPoint(qS, supportP, { color: '#1a5276', radius: 6, label: "(Q\u2032, P\u2032)", className: 'dynamic' });
           }
         ];
 
-        var dm2Descs = [
-          '<strong>Step 1 — Southern African market</strong><br>'
-          + 'Draw \\(Q_D = 75 - 15P\\) and \\(Q_S = 10P\\).<br>'
-          + 'Set \\(Q_D = Q_S\\) to find equilibrium:<br>'
-          + '<span class="demo-equation">\\(75 - 15P = 10P\\)</span>'
-          + '<span class="demo-equation">\\(75 = 25P\\)</span>'
-          + '<span class="demo-equation">\\(P^* = 3,\\ Q^* = 30\\)</span>'
-          + 'Plot \\((Q^*, P^*)\\) at (30, 3).',
+        var welfareDescs = [
+          '<strong>Step 1 — Free-market benchmark</strong><br>'
+          + 'At \\((Q^*, P^*) = (30, 2)\\), private consumer surplus is €45 million and producer surplus is €30 million. There is no fiscal cost and no deadweight loss at the competitive equilibrium.',
 
-          '<strong>Step 2 — Identify the shift</strong><br>'
-          + 'The EU dumps subsidized sugar onto this market,<br>'
-          + 'adding supply on top of local producers.<br>'
-          + 'This shifts the supply curve <em>outward</em>.<br>'
-          + '\\((Q^*, P^*)\\), where P = 3 and Q = 30, is now faded — it will move.',
+          '<strong>Step 2 — Private consumers lose surplus</strong><br>'
+          + 'The supported price is €3. At that price, private consumers buy only \\(Q_D = 20\\) million kg. Consumer surplus falls from €45 million to €20 million.',
 
-          '<strong>Step 3 — Write the new equation</strong><br>'
-          + 'EU adds 15 million kg at every price:<br>'
-          + '<span class="demo-equation">\\(Q_S^{\\prime} = (0 + 15) + 10P\\)</span>'
-          + '<span class="demo-equation">\\(Q_S^{\\prime} = 15 + 10P\\)</span>'
-          + 'Invert the equation to solve for P in terms of Q:<br>'
-          + '<span class="demo-equation">\\(P = (Q - 15)/10\\)</span>'
-          + 'The x-intercept shifts from 0 \u2192 <strong>15</strong>. Plot it.',
+          '<strong>Step 3 — Producers gain surplus</strong><br>'
+          + 'At €3, producers supply \\(Q_S = 45\\) million kg. Because the government buys the surplus, producers sell more output at a higher price. Producer surplus rises from €30 million to €67.5 million.',
 
-          '<strong>Step 4 — Draw S\u2032</strong><br>'
-          + 'Same slope (1/10) as S, but starting at (15, 0).<br>'
-          + 'S\u2032 is parallel to S, shifted <em>15 units right</em>.<br>'
-          + 'Every point on S moves horizontally to the right.',
+          '<strong>Step 4 — Government purchases absorb the gap</strong><br>'
+          + 'The horizontal gap is \\(Q_S - Q_D = 45 - 20 = 25\\) million kg. The fiscal cost is \\(25 \\times €3 = €75\\) million, ignoring storage/disposal costs and any resale value.',
 
-          '<strong>Step 5 — New equilibrium</strong><br>'
-          + 'Set \\(Q_D = Q_S^{\\prime}\\):<br>'
-          + '<span class="demo-equation">\\(75 - 15P = 15 + 10P\\)</span>'
-          + '<span class="demo-equation">\\(60 = 25P\\)</span>'
-          + '<span class="demo-equation">\\(P^{\\prime} = 2.4,\\ Q^{\\prime} = 39\\)</span>'
-          + 'Mark \\((Q^{\\prime}, P^{\\prime})\\). Price fell \u20AC3 \u2192 \u20AC2.40; quantity rose 30 \u2192 39.'
+          '<strong>Step 5 — Efficiency implications</strong><br>'
+          + 'The orange area highlights the overproduction concern: units beyond \\(Q^*\\) cost more to produce than private consumers are willing to pay. This is a potential deadweight loss, but the exact efficiency loss depends on what value society receives from the purchased surplus.'
         ];
 
-        var dm2Desc = document.getElementById('dm2-desc');
-        var dm2Btn  = rebuildBtn('dm2-next');
-        if (dm2Desc && dm2Btn) makeStepThrough(dm2, dm2Frames, dm2Descs, dm2Desc, dm2Btn);
+        var welfareDesc = document.getElementById('cap-welfare-desc');
+        var welfareBtn = rebuildBtn('cap-welfare-next');
+        if (welfareDesc && welfareBtn) makeStepThrough(welfare, welfareFrames, welfareDescs, welfareDesc, welfareBtn);
       })();
     });
   </script>

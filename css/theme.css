@@ -2708,6 +2708,24 @@ strong {
 .graphing-method__next-btn:disabled { background: var(--color-neutral-400); cursor: default; }
 .graphing-method__next-btn--replay { background: var(--color-neutral-600); }
 .graphing-method__next-btn--replay:hover { background: var(--color-neutral-800); }
+
+.graph-line.dynamic,
+.graph-area.dynamic,
+.graph-point.dynamic,
+.graph-reference.dynamic,
+.graph-label.dynamic {
+  animation: graph-build-in 650ms ease-out both;
+}
+
+@keyframes graph-build-in {
+  from {
+    transform: translateY(5px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
 .gm-step-counter {
   font-size: 0.85em;
   font-weight: 400;

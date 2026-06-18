@@ -720,7 +720,6 @@
             {x: tradedQ, y: 0},
             {x: tradedQ, y: Math.max(demandFn(tradedQ), supplyFn(tradedQ))}
           ], '#d35400', { strokeWidth: 1.3 });
-          addQuantityGap(tradedQ, eqQ, `ΔQ = ${Math.round(Math.abs(eqQ - tradedQ))}`);
 
           graph.addLabel(eqQ + 3, 8, `Q* = ${eqQ}`, {
             color: '#1a5276',
