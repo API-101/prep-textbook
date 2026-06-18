@@ -253,16 +253,7 @@
       <!-- ===== INTERACTIVE GRAPHS ===== -->
       <h2 id="interactive-graphs">Interactive Practice: Surplus and Efficiency</h2>
 
-      <!-- Graph 1: Surplus at Equilibrium -->
-      <div class="graph-container">
-        <div class="graph-container__title">Surplus at Equilibrium</div>
-        <div class="graph-container__description">
-          At the equilibrium price and quantity, consumer surplus (blue) and producer surplus (green) are both maximized. Social surplus = CS + PS. There is no deadweight loss at equilibrium.
-        </div>
-        <div class="graph-container__svg-wrapper" id="graph-equilibrium-surplus"></div>
-      </div>
-
-      <!-- Graph 2: Surplus Away from Equilibrium (Interactive) -->
+      <!-- Graph 1: Surplus Away from Equilibrium (Interactive) -->
       <div class="graph-container">
         <div class="graph-container__title">Moving Away from Equilibrium</div>
         <div class="graph-container__description">
@@ -577,71 +568,6 @@
           fontWeight: '700',
           background: true
         });
-
-      })();
-
-      // ===== EQUILIBRIUM SURPLUS (Static) =====
-      (function() {
-        const graph = EconGraph.create('#graph-equilibrium-surplus', {
-          xLabel: 'Quantity',
-          yLabel: 'Price (€)',
-          xDomain: [0, 160],
-          yDomain: [0, 100],
-          width: 520,
-          height: 380
-        });
-        if (!graph) return;
-
-        const demandFn2 = x => 100 - 0.6 * x;
-        const supplyFn2 = x => 10 + 0.4 * x;
-        const eqQ = 90;
-        const eqP = 46;
-
-        // Draw curves
-        graph.addLine(demandFn2, '#2e86c1', { label: 'D', strokeWidth: 2.5 });
-        graph.addLine(supplyFn2, '#145a32', { label: 'S', strokeWidth: 2.5 });
-
-        // Consumer surplus
-        graph.addShaded({
-          xRange: [0, eqQ],
-          yTop: demandFn2,
-          yBottom: eqP
-        }, '#2e86c1', { opacity: 0.2 });
-
-        // Producer surplus
-        graph.addShaded({
-          xRange: [0, eqQ],
-          yTop: eqP,
-          yBottom: supplyFn2
-        }, '#1e8449', { opacity: 0.2 });
-
-        // Equilibrium point
-        graph.addPoint(eqQ, eqP, { color: '#1a5276', label: '(Q*, P*)', radius: 6 });
-
-        // Dashed lines
-        graph.addDashedLine([
-          {x: 0, y: eqP},
-          {x: eqQ, y: eqP},
-          {x: eqQ, y: 0}
-        ], '#999', { strokeWidth: 1 });
-
-        // Labels
-        graph.addLabel(20, 75, 'CS = €2,430', {
-          color: '#2e86c1',
-          fontSize: '13px',
-          fontWeight: '700',
-          background: true
-        });
-
-        graph.addLabel(20, 22, 'PS = €1,620', {
-          color: '#1e8449',
-          fontSize: '13px',
-          fontWeight: '700',
-          background: true
-        });
-
-        graph.addLabel(96, 7, `Q* = ${eqQ}`, { fontSize: '11px', background: true });
-        graph.addLabel(5, 50, `P* = €${eqP}`, { fontSize: '11px', background: true });
 
       })();
 
