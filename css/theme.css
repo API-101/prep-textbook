@@ -1390,7 +1390,32 @@ strong {
   margin-top: calc(-1 * var(--space-sm));
 }
 
+.text-with-sidenote {
+  display: grid;
+  gap: var(--space-lg);
+  grid-template-columns: minmax(0, 1fr) minmax(12rem, 16rem);
+  align-items: start;
+  margin: var(--space-md) 0;
+}
+
+.text-with-sidenote > p {
+  margin-bottom: 0;
+}
+
+.text-footnote--side {
+  background: #fafafa;
+  border-left: 3px solid var(--color-neutral-300);
+  color: var(--color-neutral-600);
+  font-size: 0.8125rem;
+  margin-top: 0;
+  padding: var(--space-sm) var(--space-md);
+}
+
 @media (max-width: 760px) {
+  .text-with-sidenote {
+    grid-template-columns: 1fr;
+  }
+
   .figure--with-controls {
     grid-template-columns: 1fr;
   }

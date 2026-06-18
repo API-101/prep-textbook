@@ -1053,11 +1053,8 @@ const CumulativeGlossary = {
     { module: 5, term: 'Allocative Efficiency', definition: 'An outcome where resources are allocated to their highest-value uses and total surplus is maximized.' },
     { module: 5, term: 'Consumer Surplus', definition: 'The benefit consumers receive from buying a good, measured by willingness to pay minus the amount actually paid.' },
     { module: 5, term: 'Deadweight Loss', definition: 'The reduction in total surplus caused by an inefficient outcome or policy that moves quantity away from the efficient equilibrium quantity.' },
-    { module: 5, term: 'Economic Surplus', definition: 'Another name for social surplus or total surplus.' },
     { module: 5, term: 'Producer Surplus', definition: 'The benefit producers receive from selling a good, measured by the price received minus the minimum price they would accept.' },
     { module: 5, term: 'Social Surplus', definition: 'The sum of consumer surplus and producer surplus. In cases with government interventions, government costs or revenues are included in social surplus.' },
-    { module: 5, term: 'Total Surplus', definition: 'Another name for social surplus: the total economic benefit generated in a market.' },
-    { module: 6, term: 'Agricultural Dumping', definition: 'Selling agricultural surplus into other markets at low prices, which can shift supply outward in those markets.' },
     { module: 6, term: 'Fiscal Cost', definition: 'The monetary expenditure incurred by the government to sustain a policy, excluding additional storage or disposal costs unless stated.' },
     { module: 6, term: 'Government Purchase', definition: 'The quantity the government buys to absorb excess supply and maintain a supported price.' },
     { module: 6, term: 'Price Support', definition: 'A policy that guarantees producers a minimum price, often requiring government purchases when quantity supplied exceeds private quantity demanded.' }
