@@ -24,6 +24,7 @@
       <a href="#introduction" class="sidebar__link sidebar__link--active">Introduction</a>
       <a href="#policy-connections" class="sidebar__link">Policy Connection</a>
       <a href="#demonstrations" class="sidebar__link">Step-by-Step Graphing</a>
+      <a href="#welfare-analysis" class="sidebar__link">Welfare Analysis</a>
       <a href="#key-terms" class="sidebar__link">Key Terms</a>
       <a href="#summary" class="sidebar__link">Summary</a>
 
@@ -261,6 +262,55 @@
         While we focused on a particular policy as a driver of demand and supply shifts, such changes can happen due to other reasons. In the next section, you will practice the four-step process for equilibrium analysis with shifts driven by a variety of factors.
       </p>
 
+      <h2 id="welfare-analysis">Welfare Analysis: Who Gains, Who Loses, and What Is Lost</h2>
+      <p>
+        The demand-shift framing explains how the CAP price support changes the market outcome. Welfare analysis adds the distributional question: who receives more surplus, who receives less surplus, what taxpayers finance, and what part of the policy may represent lost social value.
+      </p>
+      <p>
+        Use the figure below to build the welfare comparison one piece at a time. The baseline equilibrium is \(P^* = €2\) and \(Q^* = 30\). Under the price support, the supported price is \(€3\), private consumers buy \(Q_D = 20\), producers supply \(Q_S = 45\), and the government purchases the 25 million kg surplus.
+      </p>
+
+      <div class="graphing-methods">
+        <div class="graphing-method" id="cap-welfare">
+          <div class="graphing-method__header">
+            <span class="graphing-method__badge">Figure 6.1</span>
+            <h4 class="graphing-method__title">CAP Welfare Walkthrough</h4>
+          </div>
+          <p class="graphing-method__intro">
+            Click through the sequence to see producer surplus expand, private consumer surplus shrink, government purchases create fiscal cost, and the upper-bound efficiency loss appear.
+          </p>
+          <div class="demo-layout">
+            <div class="demo-layout__graph-col">
+              <div class="graph-container__svg-wrapper" id="cap-welfare-graph"></div>
+              <p class="shift-figure__caption">Figure 6.1: Welfare effects of the CAP price support in the EU sugar market.</p>
+              <div class="graphing-method__controls">
+                <button id="cap-welfare-next" class="graphing-method__next-btn">Next Step →</button>
+              </div>
+            </div>
+            <div class="demo-layout__desc-col">
+              <div class="demo-step-panel" id="cap-welfare-desc">Click <strong>Next Step</strong> to build the welfare analysis one piece at a time.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="callout callout--insight">
+        <div class="callout__title">How to Read the Welfare Result</div>
+        <p>
+          Producers gain because they sell 45 million kg at €3 instead of 30 million kg at €2. Private consumers lose because they buy less sugar and pay a higher price. Taxpayers finance the government purchase: \(25 \times €3 = €75\) million, before storage or disposal costs and before any resale value.
+        </p>
+        <p>
+          The orange efficiency-loss area should be interpreted carefully. If the purchased surplus has no social value and no offsetting resale value, it is an upper-bound deadweight loss from the policy. If the government later sells, donates, or otherwise uses some of the surplus, that value can reduce the efficiency loss. The fiscal cost remains a budgetary cost, but fiscal cost and deadweight loss are not the same thing.
+        </p>
+      </div>
+
+      <div class="callout callout--warning">
+        <div class="callout__title">What Happened to the Sugar Surplus?</div>
+        <p>
+          The model tells us that the policy creates a 25 million kg surplus in this example. Historically, surplus agricultural products could be stored, disposed of, left to spoil, sold at low prices, exported, or donated as aid. Dumping surplus into foreign markets can be analyzed with the supply-shift tools from Module 4, but the welfare analysis here focuses on the European sugar market.
+        </p>
+      </div>
+
       <section id="key-terms" data-glossary-through="6" data-current-module="6"></section>
 
       <h2 id="summary">Summary</h2>
@@ -351,6 +401,217 @@
         old.parentNode.replaceChild(fresh, old);
         return fresh;
       }
+
+      function fadeInLatest(graph) {
+        graph.g.selectAll('.dynamic')
+          .attr('opacity', 0)
+          .transition()
+          .duration(750)
+          .attr('opacity', function() {
+            var existing = d3.select(this).attr('data-target-opacity');
+            return existing || 1;
+          });
+        if (graph.axisLayer) {
+          graph.axisLayer.selectAll('.dynamic')
+            .attr('opacity', 0)
+            .transition()
+            .duration(750)
+            .attr('opacity', 1);
+        }
+      }
+
+      function drawCapMarket(graph, opts) {
+        opts = opts || {};
+        var D = function(x) { return 5 - x / 10; };
+        var S = function(x) { return x / 15; };
+        var pEq = 2;
+        var qEq = 30;
+        var pSupport = 3;
+        var qDemanded = 20;
+        var qSupplied = 45;
+
+        if (opts.baselineCS) {
+          graph.addShaded({
+            xRange: [0, qEq],
+            yTop: D,
+            yBottom: pEq
+          }, '#2e86c1', { opacity: 0.22, className: 'dynamic' }).attr('data-target-opacity', 0.22);
+        }
+
+        if (opts.baselinePS) {
+          graph.addShaded({
+            xRange: [0, qEq],
+            yTop: pEq,
+            yBottom: S
+          }, '#1e8449', { opacity: 0.22, className: 'dynamic' }).attr('data-target-opacity', 0.22);
+        }
+
+        if (opts.newPS) {
+          graph.addShaded({
+            xRange: [0, qSupplied],
+            yTop: pSupport,
+            yBottom: S
+          }, '#1e8449', { opacity: 0.28, className: 'dynamic' }).attr('data-target-opacity', 0.28);
+        }
+
+        if (opts.newCS) {
+          graph.addShaded({
+            xRange: [0, qDemanded],
+            yTop: D,
+            yBottom: pSupport
+          }, '#2e86c1', { opacity: 0.28, className: 'dynamic' }).attr('data-target-opacity', 0.28);
+        }
+
+        if (opts.fiscalCost) {
+          graph.addShaded({
+            xRange: [qDemanded, qSupplied],
+            yTop: pSupport,
+            yBottom: 0
+          }, '#8e44ad', { opacity: 0.2, className: 'dynamic' }).attr('data-target-opacity', 0.2);
+        }
+
+        if (opts.upperBoundDWL) {
+          graph.addShaded({
+            xRange: [qDemanded, qEq],
+            yTop: D,
+            yBottom: S
+          }, '#d35400', { opacity: 0.28, className: 'dynamic' }).attr('data-target-opacity', 0.28);
+          graph.addShaded({
+            xRange: [qDemanded, qSupplied],
+            yTop: S,
+            yBottom: 0
+          }, '#d35400', { opacity: 0.14, className: 'dynamic' }).attr('data-target-opacity', 0.14);
+        }
+
+        graph.addLine(D, '#2e86c1', { label: 'D', strokeWidth: 2.5, className: 'dynamic' });
+        graph.addLine(S, '#c0392b', { label: 'S', strokeWidth: 2.5, className: 'dynamic' });
+
+        if (opts.priceSupport) {
+          graph.addDashedLine([{ x: 0, y: pSupport }, { x: qSupplied, y: pSupport }], '#7d3c98', { strokeWidth: 2, className: 'dynamic' });
+          graph.addDashedLine([{ x: qDemanded, y: 0 }, { x: qDemanded, y: pSupport }], '#2e86c1', { strokeWidth: 1.6, className: 'dynamic' });
+          graph.addDashedLine([{ x: qSupplied, y: 0 }, { x: qSupplied, y: pSupport }], '#c0392b', { strokeWidth: 1.6, className: 'dynamic' });
+          graph.addPoint(qDemanded, pSupport, { color: '#2e86c1', radius: 5, label: 'Q_D = 20', className: 'dynamic', labelOffset: { dx: -58, dy: -10 } });
+          graph.addPoint(qSupplied, pSupport, { color: '#c0392b', radius: 5, label: 'Q_S = 45', className: 'dynamic' });
+          graph.addLabel(11, pSupport + 0.38, 'Price support = €3', {
+            color: '#7d3c98',
+            fontSize: '12px',
+            fontWeight: '800',
+            anchor: 'middle',
+            className: 'dynamic'
+          });
+        }
+
+        if (opts.baselinePoint !== false) {
+          graph.addPoint(qEq, pEq, { color: opts.priceSupport ? '#8a8f94' : '#1a5276', radius: opts.priceSupport ? 4 : 6, label: '(Q*, P*)', className: 'dynamic' });
+          addEqGuides(graph, qEq, pEq, opts.priceSupport ? '#8a8f94' : '#1a5276');
+        }
+
+        if (opts.newPS) {
+          graph.addLabel(31, 2.45, 'Producer surplus expands', {
+            color: '#1e8449',
+            fontSize: '12px',
+            fontWeight: '800',
+            anchor: 'middle',
+            className: 'dynamic'
+          });
+        }
+
+        if (opts.newCS) {
+          graph.addLabel(9, 4.25, 'Private consumer surplus shrinks', {
+            color: '#2e86c1',
+            fontSize: '12px',
+            fontWeight: '800',
+            anchor: 'middle',
+            className: 'dynamic'
+          });
+        }
+
+        if (opts.fiscalCost) {
+          graph.addLabel(32.5, 1.48, 'Fiscal cost = €75m', {
+            color: '#6c3483',
+            fontSize: '13px',
+            fontWeight: '800',
+            anchor: 'middle',
+            className: 'dynamic'
+          });
+          graph.addLabel(32.5, 0.48, 'Government purchase = 25', {
+            color: '#6c3483',
+            fontSize: '12px',
+            fontWeight: '800',
+            anchor: 'middle',
+            className: 'dynamic'
+          });
+        }
+
+        if (opts.upperBoundDWL) {
+          graph.addLabel(36, 1.12, 'Upper-bound efficiency loss', {
+            color: '#b03a00',
+            fontSize: '12px',
+            fontWeight: '800',
+            anchor: 'middle',
+            className: 'dynamic'
+          });
+        }
+
+        fadeInLatest(graph);
+      }
+
+      (function() {
+        var welfareGraph = EconGraph.create('#cap-welfare-graph', {
+          xLabel: 'Quantity (millions of kg/year)',
+          yLabel: 'Price (\u20AC/kg)',
+          xDomain: [0, 60],
+          yDomain: [0, 5.8],
+          height: 390
+        });
+        if (!welfareGraph) return;
+
+        var welfareFrames = [
+          function() {
+            drawCapMarket(welfareGraph, { baselineCS: true, baselinePS: true, priceSupport: false });
+          },
+          function() {
+            drawCapMarket(welfareGraph, { newPS: true, priceSupport: true });
+          },
+          function() {
+            drawCapMarket(welfareGraph, { newCS: true, newPS: true, priceSupport: true });
+          },
+          function() {
+            drawCapMarket(welfareGraph, { newCS: true, newPS: true, fiscalCost: true, priceSupport: true });
+          },
+          function() {
+            drawCapMarket(welfareGraph, { newCS: true, newPS: true, fiscalCost: true, upperBoundDWL: true, priceSupport: true });
+          }
+        ];
+
+        var welfareDescs = [
+          '<strong>Step 1 — Baseline equilibrium</strong><br>'
+          + 'Before the policy, \\(P^* = €2\\) and \\(Q^* = 30\\).<br>'
+          + 'Consumer surplus is the blue area above price and below demand: \\(€45\\) million.<br>'
+          + 'Producer surplus is the green area below price and above supply: \\(€30\\) million.',
+
+          '<strong>Step 2 — Producer surplus after the price support</strong><br>'
+          + 'At \\(P = €3\\), producers supply \\(Q_S = 45\\).<br>'
+          + 'Because the government purchases the unsold surplus, producers receive €3 for all 45 million kg.<br>'
+          + 'Producer surplus rises to \\(€67.5\\) million.',
+
+          '<strong>Step 3 — Private consumer surplus after the price support</strong><br>'
+          + 'Private consumers now buy only \\(Q_D = 20\\) at the higher price of €3.<br>'
+          + 'Their consumer surplus shrinks from \\(€45\\) million to \\(€20\\) million.',
+
+          '<strong>Step 4 — Fiscal cost of government purchases</strong><br>'
+          + 'The government purchases the surplus: \\(Q_S - Q_D = 45 - 20 = 25\\).<br>'
+          + 'Fiscal cost is \\(25 \\times €3 = €75\\) million, before storage or disposal costs and before resale value.',
+
+          '<strong>Step 5 — Efficiency loss, interpreted carefully</strong><br>'
+          + 'If the purchased sugar has no offsetting social value, the policy creates an upper-bound deadweight loss of \\(€62.5\\) million.<br>'
+          + 'If some surplus is sold, donated, or otherwise valued, that value reduces the efficiency loss. Fiscal cost is still a budgetary cost, but it is not automatically deadweight loss.'
+        ];
+
+        var welfareDesc = document.getElementById('cap-welfare-desc');
+        var welfareBtn = rebuildBtn('cap-welfare-next');
+        if (welfareDesc && welfareBtn) makeStepThrough(welfareGraph, welfareFrames, welfareDescs, welfareDesc, welfareBtn);
+      })();
 
       (function() {
         var graph = EconGraph.create('#cap-fiscal-cost-graph', {
