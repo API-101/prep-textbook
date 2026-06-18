@@ -220,24 +220,20 @@
         $$\text{Social Surplus} = 45 + 22.5 = 67.5$$
       </div>
 
+      <p>
+        The graph below combines those same two areas: the blue consumer surplus triangle and the green producer surplus triangle.
+      </p>
+      <div class="calculation-figure" id="graph-surplus-annotations"></div>
+
       <div class="definition-box">
         <div class="definition-box__term">Allocative Efficiency</div>
         <div class="definition-box__text">
           A market outcome is allocatively efficient when the quantity produced and consumed maximizes social surplus. At the competitive equilibrium, the marginal benefit to buyers, reflected in the demand curve, equals the marginal cost to sellers, reflected in the supply curve. Any deviation from this quantity prevents some mutually beneficial trades.
         </div>
       </div>
-
       <p>
         Social surplus measures the total value created by the market. At equilibrium, every unit for which willingness to pay exceeds the cost of production is traded. If a policy raises or lowers the price away from equilibrium, some trades that would have created value no longer happen.
       </p>
-
-      <div class="graph-container">
-        <div class="graph-container__title">Social Surplus at Equilibrium</div>
-        <div class="graph-container__description">
-          Social surplus combines the same consumer surplus and producer surplus calculations from the worked examples above.
-        </div>
-        <div class="graph-container__svg-wrapper" id="graph-surplus-annotations"></div>
-      </div>
 
       <div class="definition-box">
         <div class="definition-box__term">Deadweight Loss</div>
@@ -444,26 +440,32 @@
           background: true
         });
         graph.addDashedLine([{x: 0, y: eqP}, {x: eqQ, y: eqP}, {x: eqQ, y: 0}], '#999', { strokeWidth: 1.1 });
+        graph.addDashedLine([{x: 0, y: 1.55}, {x: eqQ, y: 1.55}], '#1a5276', { strokeWidth: 1.8 });
+        graph.addDashedLine([{x: 2, y: eqP}, {x: 2, y: pMax}], '#1a5276', { strokeWidth: 1.8 });
         graph.addShaded({
           xRange: [0, eqQ],
           yTop: demandFn,
           yBottom: eqP
         }, '#2e86c1', { opacity: 0.24 });
         graph.addPoint(eqQ, eqP, { color: '#1a5276', label: '(Q*, P*)', radius: 6 });
-        graph.addLabel(14, 3.2, 'CS', {
+        graph.addLabel(10, 3.1, 'CS', {
           color: '#2e86c1',
           fontSize: '16px',
           fontWeight: '700',
+          anchor: 'middle',
           background: true
         });
-        graph.addLabel(38, 4.7, `Height = €${pMax} - €${eqP}`, {
-          color: '#2e86c1',
+        graph.addLabel(4.5, 3.75, `Height = €${pMax} - €${eqP}`, {
+          color: '#1a5276',
           fontSize: '11px',
           fontWeight: '700',
           background: true
         });
-        graph.addLabel(38, 0.75, `Base = Q* = ${eqQ}`, {
+        graph.addLabel(15, 1.2, `Base = Q* = ${eqQ}`, {
+          color: '#1a5276',
           fontSize: '11px',
+          fontWeight: '700',
+          anchor: 'middle',
           background: true
         });
       })();
@@ -493,26 +495,32 @@
           background: true
         });
         graph.addDashedLine([{x: 0, y: eqP}, {x: eqQ, y: eqP}, {x: eqQ, y: 0}], '#999', { strokeWidth: 1.1 });
+        graph.addDashedLine([{x: 0, y: 0.25}, {x: eqQ, y: 0.25}], '#1a5276', { strokeWidth: 1.8 });
+        graph.addDashedLine([{x: 2, y: pMin}, {x: 2, y: eqP}], '#1a5276', { strokeWidth: 1.8 });
         graph.addShaded({
           xRange: [0, eqQ],
           yTop: eqP,
           yBottom: supplyFn
         }, '#1e8449', { opacity: 0.24 });
         graph.addPoint(eqQ, eqP, { color: '#1a5276', label: '(Q*, P*)', radius: 6 });
-        graph.addLabel(14, 1.35, 'PS', {
+        graph.addLabel(10, 1.5, 'PS', {
           color: '#1e8449',
           fontSize: '16px',
           fontWeight: '700',
+          anchor: 'middle',
           background: true
         });
-        graph.addLabel(38, 2.7, `Height = €${eqP} - €${pMin}`, {
-          color: '#1e8449',
+        graph.addLabel(4.5, 1.35, `Height = €${eqP} - €${pMin}`, {
+          color: '#1a5276',
           fontSize: '11px',
           fontWeight: '700',
           background: true
         });
-        graph.addLabel(38, 0.45, `Base = Q* = ${eqQ}`, {
+        graph.addLabel(15, 0.12, `Base = Q* = ${eqQ}`, {
+          color: '#1a5276',
           fontSize: '11px',
+          fontWeight: '700',
+          anchor: 'middle',
           background: true
         });
       })();
@@ -570,36 +578,52 @@
           {x: eqQ, y: eqP},
           {x: eqQ, y: 0}
         ], '#999', { strokeWidth: 1 });
+        graph.addDashedLine([{x: 0, y: 1.55}, {x: eqQ, y: 1.55}], '#1a5276', { strokeWidth: 1.6 });
+        graph.addDashedLine([{x: 2, y: pMin}, {x: 2, y: pMax}], '#1a5276', { strokeWidth: 1.6 });
 
-        graph.addLabel(12, 3.3, 'CS', {
+        graph.addLabel(10, 3.1, 'CS', {
           color: '#2e86c1',
           fontSize: '16px',
           fontWeight: '700',
+          anchor: 'middle',
           background: true
         });
 
-        graph.addLabel(12, 1.25, 'PS', {
+        graph.addLabel(10, 1.5, 'PS', {
           color: '#1e8449',
           fontSize: '16px',
           fontWeight: '700',
+          anchor: 'middle',
           background: true
         });
 
-        graph.addLabel(36, 0.55, `Q* = ${eqQ}`, { fontSize: '11px', background: true });
+        graph.addLabel(15, 1.2, `Base = Q* = ${eqQ}`, {
+          color: '#1a5276',
+          fontSize: '11px',
+          fontWeight: '700',
+          anchor: 'middle',
+          background: true
+        });
         graph.addLabel(2, 2.25, `P* = €${eqP}`, { fontSize: '11px', background: true });
-        graph.addLabel(38, 4.7, `CS = 1/2 × ${eqQ} × (${pMax} - ${eqP})\n= €45`, {
+        graph.addLabel(4.5, 3.75, 'Height', {
+          color: '#1a5276',
+          fontSize: '11px',
+          fontWeight: '700',
+          background: true
+        });
+        graph.addLabel(34, 4.25, `CS = €45`, {
           color: '#2e86c1',
-          fontSize: '11px',
+          fontSize: '12px',
           fontWeight: '700',
           background: true
         });
-        graph.addLabel(38, 1.1, `PS = 1/2 × ${eqQ} × (${eqP} - ${pMin})\n= €22.5`, {
+        graph.addLabel(34, 1.35, `PS = €22.5`, {
           color: '#1e8449',
-          fontSize: '11px',
+          fontSize: '12px',
           fontWeight: '700',
           background: true
         });
-        graph.addLabel(38, 3, 'Social surplus = €67.5', {
+        graph.addLabel(34, 2.75, 'Social surplus = €67.5', {
           color: '#1a5276',
           fontSize: '12px',
           fontWeight: '800',
