@@ -307,7 +307,7 @@
 <div class="graph-container__info" id="equilibrium-info">
 <p><strong>Current demand:</strong> <span id="eq-demand-display">\(Q_D = 50 - 10P\)</span></p>
 <p><strong>Current supply:</strong> <span id="eq-supply-display">\(Q_S = 15P\)</span></p>
-<p><strong>Equilibrium Price (\(P^*\)):</strong> <span id="eq-price-display">€2.00</span></p>
+<p><strong>Equilibrium Price (\(P^*\)):</strong> <span id="eq-price-display">€2</span></p>
 <p><strong>Equilibrium Quantity (\(Q^*\)):</strong> <span id="eq-quantity-display">30</span> million kg</p>
 </div>
 </div>
@@ -378,7 +378,7 @@
           There are other ways to guarantee a certain selling price for producers. A more direct approach is to regulate the prices at which market exchanges can take place. Instead of purchasing sugar at the supported price, the government could simply set a price floor for sugar. Price floors establish the minimum price in a regulated market, prohibiting any exchange below that price.
         </p>
 <p>
-          In this module, we study the effect of a price floor set above equilibrium at €3 per kg, which will help us better understand the price support system in the next module.
+          In this module, we study the effect of a price floor set above equilibrium at €3 per kg, which will help us better understand the price support system in Module 6.
         </p>
 <table class="equation-feature-table equation-feature-table--quantities">
 <thead>
@@ -824,6 +824,13 @@
         return 'Q_S = ' + intercept + ' + ' + d.toFixed(0) + 'P';
       }
 
+      function formatPrice(value) {
+        if (Math.abs(value - Math.round(value)) < 0.001) {
+          return value.toFixed(0);
+        }
+        return value.toFixed(2);
+      }
+
       function update() {
         graph.clear();
         const a = parseFloat(document.getElementById('eq-demand-intercept').value);
@@ -864,8 +871,8 @@
           graph.addDashedLine([{x: eqQ, y: eqP}, {x: eqQ, y: 0}], '#1a5276', { strokeWidth: 1.5, className: 'dynamic' });
           graph.addDashedLine([{x: eqQ, y: eqP}, {x: 0, y: eqP}], '#1a5276', { strokeWidth: 1.5, className: 'dynamic' });
           graph.addLabel(eqQ + 2, -0.3, `Q* = ${eqQ.toFixed(0)}`, { color: '#1a5276', fontSize: '12px', fontWeight: '600', className: 'dynamic' });
-          graph.addLabel(-6, eqP, `P* = €${eqP.toFixed(2)}`, { color: '#1a5276', fontSize: '12px', fontWeight: '600', anchor: 'end', className: 'dynamic' });
-          document.getElementById('eq-price-display').textContent = '€' + eqP.toFixed(2);
+          graph.addLabel(-6, eqP, `P* = €${formatPrice(eqP)}`, { color: '#1a5276', fontSize: '12px', fontWeight: '600', anchor: 'end', className: 'dynamic' });
+          document.getElementById('eq-price-display').textContent = '€' + formatPrice(eqP);
           document.getElementById('eq-quantity-display').textContent = eqQ.toFixed(0);
         } else {
           document.getElementById('eq-price-display').textContent = 'Outside graph';
