@@ -774,7 +774,7 @@
             fadeLabel(welfare, 8, 1.1, 'PS = €30m', { color: '#1e8449', fontSize: '12px', fontWeight: '800', anchor: 'middle', delay: 1850, className: 'dynamic baseline-welfare' });
           },
           function() {
-            dimLayer('.baseline-welfare', 0.22, 0);
+            dimLayer('.baseline-welfare', 0.16, 0);
             animateLine(welfare, curvePoints(DTotal, 20, 60, 90), '#2e86c1', { delay: 150, duration: 950, strokeWidth: 2.8, dashedFinal: false, className: 'dynamic policy-layer' });
             fadeLabel(welfare, 54, 2.2, "D'", { color: '#2e86c1', fontSize: '13px', fontWeight: '800', delay: 1000, background: false, className: 'dynamic policy-layer' });
             supportGuides(650);
@@ -785,10 +785,10 @@
           },
           function() {
             dimLayer('.baseline-welfare', 0, 0);
-            dimLayer('.policy-layer', 0.18, 0);
-            dimLayer('.fiscal-layer', 0.1, 0);
+            dimLayer('.policy-layer', 0.12, 0);
+            dimLayer('.fiscal-layer', 0.06, 0);
             fadeArea(welfare, { xRange: [0, qD], yTop: D, yBottom: supportP }, '#2e86c1', { opacity: 0.32, delay: 150, className: 'dynamic final-welfare consumer-focus' });
-            fadeLabel(welfare, 8, 4.25, 'Consumer surplus = €20m', { color: '#2e86c1', fontSize: '12px', fontWeight: '800', delay: 750, className: 'dynamic final-welfare consumer-focus' });
+            fadeLabel(welfare, 3, 3.4, 'CS = €20m', { color: '#2e86c1', fontSize: '12px', fontWeight: '800', delay: 750, className: 'dynamic final-welfare consumer-focus' });
             outlineArea([
               { x: 0, y: eqP },
               { x: 0, y: supportP },
@@ -796,12 +796,12 @@
               { x: eqQ, y: eqP },
               { x: 0, y: eqP }
             ], '#2e86c1', { delay: 950, className: 'dynamic consumer-focus' });
-            fadeLabel(welfare, 5, 2.5, 'Private consumers lose €25m', { color: '#2e86c1', fontSize: '11px', fontWeight: '700', delay: 1350, className: 'dynamic final-welfare consumer-focus' });
+            fadeLabel(welfare, 1.9, 2.2, 'Private consumers lose €25m', { color: '#2e86c1', fontSize: '11px', fontWeight: '700', delay: 1350, className: 'dynamic final-welfare consumer-focus' });
           },
           function() {
-            dimLayer('.consumer-focus', 0.22, 0);
-            dimLayer('.policy-layer', 0.14, 0);
-            dimLayer('.fiscal-layer', 0.12, 0);
+            dimLayer('.consumer-focus', 0.16, 0);
+            dimLayer('.policy-layer', 0.09, 0);
+            dimLayer('.fiscal-layer', 0.07, 0);
             fadeArea(welfare, { xRange: [0, qS], yTop: supportP, yBottom: S }, '#1e8449', { opacity: 0.28, delay: 150, className: 'dynamic final-welfare producer-focus' });
             outlineArea([
               { x: 0, y: eqP },
@@ -810,8 +810,8 @@
               { x: eqQ, y: eqP },
               { x: 0, y: eqP }
             ], '#1e8449', { delay: 900, className: 'dynamic producer-focus' });
-            fadeLabel(welfare, 16, 1.65, 'Producer surplus = €67.5m', { color: '#1e8449', fontSize: '12px', fontWeight: '800', delay: 1150, className: 'dynamic final-welfare producer-focus' });
-            fadeLabel(welfare, 13, 2.65, 'Producers gain €37.5m', { color: '#1e8449', fontSize: '11px', fontWeight: '700', delay: 1500, className: 'dynamic final-welfare producer-focus' });
+            fadeLabel(welfare, 2, 1.5, 'PS = €67.5m', { color: '#1e8449', fontSize: '12px', fontWeight: '800', delay: 1150, className: 'dynamic final-welfare producer-focus' });
+            fadeLabel(welfare, 13, 2.5, 'Producers gain €37.5m', { color: '#1e8449', fontSize: '11px', fontWeight: '700', delay: 1500, className: 'dynamic final-welfare producer-focus' });
             fadePoint(welfare, qS, supportP, { color: '#1a5276', radius: 6, label: "(Q\u2032, P\u2032)", delay: 1750 });
           }
         ];
