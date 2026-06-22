@@ -186,10 +186,10 @@
 
       <h2 id="welfare-analysis">Welfare Analysis of the Price Support</h2>
       <p>
-        The demand-shift graph tells us how the policy changes price and quantity. Welfare analysis asks a different question: how do consumer surplus, producer surplus, fiscal cost, and potential deadweight loss change when the government becomes the additional buyer?
+        The demand-shift graph tells us how the policy changes price and quantity. Welfare analysis asks a different question: how do consumer surplus, producer surplus, and fiscal cost change when the government becomes the additional buyer?
       </p>
       <p>
-        Click through the sequence below. The graph starts from the free-market equilibrium and then builds the welfare consequences of the CAP price support one layer at a time.
+        Click through the sequence below. The graph starts from the free-market equilibrium, then adds the policy-driven demand shift and the three main welfare consequences one layer at a time.
       </p>
 
       <div class="graphing-methods">
@@ -199,7 +199,7 @@
             <h4 class="graphing-method__title">Welfare Effects of the Price Support</h4>
           </div>
           <p class="graphing-method__intro">
-            Follow the policy from the free-market benchmark to the supported price, government purchases, and possible efficiency loss.
+            Follow the policy from the free-market benchmark to the supported price, government purchases, and the resulting changes in consumer surplus and producer surplus.
           </p>
           <div class="demo-layout">
             <div class="demo-layout__graph-col">
@@ -244,19 +244,13 @@
             <td>€75 million</td>
             <td>The government buys 25 million kg at €3/kg, ignoring storage/disposal costs and resale value.</td>
           </tr>
-          <tr class="surplus-readout-table__row surplus-readout-table__row--dwl">
-            <th scope="row">Efficiency implication</th>
-            <td>No deadweight loss at \(Q^* = 30\)</td>
-            <td>Potential overproduction loss</td>
-            <td>Deadweight loss depends on what value, if any, society receives from the purchased surplus.</td>
-          </tr>
         </tbody>
       </table>
 
       <div class="callout callout--warning">
         <div class="callout__title">Fiscal Cost Is Not Automatically Deadweight Loss</div>
         <p>
-          The €75 million fiscal cost is a taxpayer cost, but it is not automatically the same as deadweight loss. If the purchased surplus is stored, spoiled, or disposed of, much of the fiscal cost may correspond to wasted resources. If some purchased sugar is used in a way that creates value, the efficiency loss is smaller. The graph therefore treats the orange area as the core overproduction concern and the purple rectangle as fiscal cost.
+          The €75 million fiscal cost is a taxpayer cost, but it is not automatically the same as deadweight loss. If the purchased surplus is stored, spoiled, or disposed of, much of the fiscal cost may correspond to wasted resources. If some purchased sugar is used in a way that creates value, the efficiency loss is smaller. For that reason, the graph focuses on the directly measured welfare components: private consumer surplus, producer surplus, and fiscal cost.
         </p>
       </div>
 
@@ -341,6 +335,47 @@
           }
           frame++;
           drawFrame(frame);
+          if (frame >= total - 1) {
+            btn.textContent = '\u21BA Reset';
+            btn.classList.add('graphing-method__next-btn--replay');
+          }
+        });
+
+        reset();
+      }
+
+      function makeCumulativeStepThrough(graph, frames, descs, descEl, btn) {
+        var frame = -1;
+        var total = frames.length;
+
+        function showDesc(i) {
+          descEl.innerHTML = '<span class="gm-step-counter">Step ' + (i + 1) + ' of ' + total + '</span>' + descs[i];
+          if (typeof renderMathInElement !== 'undefined') {
+            renderMathInElement(descEl, {
+              delimiters: [
+                { left: '$$', right: '$$', display: true },
+                { left: '\\(', right: '\\)', display: false }
+              ]
+            });
+          }
+        }
+
+        function reset() {
+          frame = -1;
+          graph.clear();
+          descEl.innerHTML = 'Click <strong>Next Step \u2192</strong> to build the welfare analysis one layer at a time.';
+          btn.textContent = 'Next Step \u2192';
+          btn.classList.remove('graphing-method__next-btn--replay');
+        }
+
+        btn.addEventListener('click', function() {
+          if (frame >= total - 1) {
+            reset();
+            return;
+          }
+          frame++;
+          frames[frame]();
+          showDesc(frame);
           if (frame >= total - 1) {
             btn.textContent = '\u21BA Reset';
             btn.classList.add('graphing-method__next-btn--replay');
@@ -645,19 +680,22 @@
             delay: delay,
             duration: 850,
             strokeWidth: 1.8,
-            dashedFinal: true
+            dashedFinal: true,
+            className: 'dynamic policy-layer'
           });
           animateLine(welfare, [{ x: qD, y: 0 }, { x: qD, y: supportP }], '#2e86c1', {
             delay: delay + 650,
             duration: 700,
             strokeWidth: 1.2,
-            dashedFinal: true
+            dashedFinal: true,
+            className: 'dynamic policy-layer'
           });
           animateLine(welfare, [{ x: qS, y: 0 }, { x: qS, y: supportP }], '#c0392b', {
             delay: delay + 1150,
             duration: 700,
             strokeWidth: 1.2,
-            dashedFinal: true
+            dashedFinal: true,
+            className: 'dynamic policy-layer'
           });
         }
 
@@ -667,80 +705,88 @@
             xRange: [qD, qS],
             yTop: supportP,
             yBottom: 0
-          }, '#8e44ad', { opacity: 0.22, delay: delay, duration: 700 });
+          }, '#8e44ad', { opacity: 0.22, delay: delay, duration: 700, className: 'dynamic policy-layer fiscal-layer' });
           fadeLabel(welfare, (qD + qS) / 2, 1.5, 'Fiscal cost = 25 × €3 = €75m', {
             color: '#6c3483',
             fontSize: '12px',
             fontWeight: '800',
             anchor: 'middle',
-            delay: delay + 650
+            delay: delay + 650,
+            className: 'dynamic policy-layer fiscal-layer'
           });
         }
 
         function surplusGapLabel(delay) {
           delay = delay || 0;
-          animateLine(welfare, [{ x: qD, y: 0.35 }, { x: qS, y: 0.35 }], '#6c3483', {
+          animateLine(welfare, [{ x: qD, y: 0.16 }, { x: qS, y: 0.16 }], '#6c3483', {
             delay: delay,
             duration: 800,
             strokeWidth: 2.2,
-            dashedFinal: false
+            dashedFinal: false,
+            className: 'dynamic policy-layer gap-layer'
           });
-          fadeLabel(welfare, (qD + qS) / 2, 0.7, 'Government purchase = 25', {
+          fadeLabel(welfare, (qD + qS) / 2, 0.46, 'Government purchase = 25', {
             color: '#6c3483',
             fontSize: '12px',
             fontWeight: '800',
             anchor: 'middle',
-            delay: delay + 750
+            delay: delay + 750,
+            className: 'dynamic policy-layer gap-layer'
           });
+        }
+
+        function dimLayer(selector, opacity, delay) {
+          delay = delay || 0;
+          welfare.g.selectAll(selector)
+            .transition()
+            .delay(delay)
+            .duration(450)
+            .attr('opacity', opacity);
+          if (welfare.axisLayer) {
+            welfare.axisLayer.selectAll(selector)
+              .transition()
+              .delay(delay)
+              .duration(450)
+              .attr('opacity', opacity);
+          }
         }
 
         var welfareFrames = [
           function() {
             baseCurves(false);
-            fadeArea(welfare, { xRange: [0, eqQ], yTop: D, yBottom: eqP }, '#2e86c1', { opacity: 0.18, delay: 150 });
-            fadeArea(welfare, { xRange: [0, eqQ], yTop: eqP, yBottom: S }, '#1e8449', { opacity: 0.18, delay: 550 });
+            fadeArea(welfare, { xRange: [0, eqQ], yTop: D, yBottom: eqP }, '#2e86c1', { opacity: 0.18, delay: 150, className: 'dynamic baseline-welfare' });
+            fadeArea(welfare, { xRange: [0, eqQ], yTop: eqP, yBottom: S }, '#1e8449', { opacity: 0.18, delay: 550, className: 'dynamic baseline-welfare' });
             animatedGuides(welfare, eqQ, eqP, '#1a5276', 950);
-            fadePoint(welfare, eqQ, eqP, { color: '#1a5276', radius: 6, label: '(Q*, P*)', delay: 1250 });
-            fadeLabel(welfare, 11, 3.45, 'CS = €45m', { color: '#2e86c1', fontSize: '12px', fontWeight: '800', anchor: 'middle', delay: 1650 });
-            fadeLabel(welfare, 12, 1.1, 'PS = €30m', { color: '#1e8449', fontSize: '12px', fontWeight: '800', anchor: 'middle', delay: 1850 });
+            fadePoint(welfare, eqQ, eqP, { color: '#1a5276', radius: 6, label: '(Q*, P*)', delay: 1250, className: 'dynamic baseline-welfare' });
+            fadeLabel(welfare, 11, 3.45, 'CS = €45m', { color: '#2e86c1', fontSize: '12px', fontWeight: '800', anchor: 'middle', delay: 1650, className: 'dynamic baseline-welfare' });
+            fadeLabel(welfare, 12, 1.1, 'PS = €30m', { color: '#1e8449', fontSize: '12px', fontWeight: '800', anchor: 'middle', delay: 1850, className: 'dynamic baseline-welfare' });
           },
           function() {
-            baseCurves(false);
-            supportGuides(100);
-            fadeArea(welfare, { xRange: [0, qD], yTop: D, yBottom: supportP }, '#2e86c1', { opacity: 0.22, delay: 1050 });
-            fadePoint(welfare, qD, supportP, { color: '#2e86c1', radius: 5, label: 'Q_D = 20', delay: 1450 });
-            fadePoint(welfare, eqQ, eqP, { color: '#999', radius: 4, label: '(Q*, P*)', delay: 1650 });
-            fadeLabel(welfare, 8, 4.25, 'Consumer surplus shrinks to €20m', { color: '#2e86c1', fontSize: '12px', fontWeight: '800', delay: 2100 });
-          },
-          function() {
-            baseCurves(false);
-            supportGuides(100);
-            fadeArea(welfare, { xRange: [0, qD], yTop: D, yBottom: supportP }, '#2e86c1', { opacity: 0.14, delay: 900 });
-            fadeArea(welfare, { xRange: [0, qS], yTop: supportP, yBottom: S }, '#1e8449', { opacity: 0.24, delay: 1350 });
-            fadePoint(welfare, qD, supportP, { color: '#2e86c1', radius: 5, label: 'Q_D = 20', delay: 1650 });
-            fadePoint(welfare, qS, supportP, { color: '#c0392b', radius: 5, label: 'Q_S = 45', delay: 1900 });
-            fadeLabel(welfare, 16, 1.65, 'Producer surplus expands to €67.5m', { color: '#1e8449', fontSize: '12px', fontWeight: '800', delay: 2300 });
-          },
-          function() {
-            baseCurves(true);
-            animateLine(welfare, curvePoints(DTotal, 20, 60, 90), '#2e86c1', { delay: 150, duration: 950, strokeWidth: 2.8, dashedFinal: false });
-            fadeLabel(welfare, 54, 2.2, "D'", { color: '#2e86c1', fontSize: '13px', fontWeight: '800', delay: 1000, background: false });
+            dimLayer('.baseline-welfare', 0.22, 0);
+            animateLine(welfare, curvePoints(DTotal, 20, 60, 90), '#2e86c1', { delay: 150, duration: 950, strokeWidth: 2.8, dashedFinal: false, className: 'dynamic policy-layer' });
+            fadeLabel(welfare, 54, 2.2, "D'", { color: '#2e86c1', fontSize: '13px', fontWeight: '800', delay: 1000, background: false, className: 'dynamic policy-layer' });
             supportGuides(650);
-            fadeArea(welfare, { xRange: [0, qS], yTop: supportP, yBottom: S }, '#1e8449', { opacity: 0.18, delay: 1400 });
-            fiscalRectangle(1850);
-            surplusGapLabel(2350);
-            fadePoint(welfare, qS, supportP, { color: '#1a5276', radius: 6, label: "(Q\u2032, P\u2032)", delay: 2950 });
+            fadePoint(welfare, qD, supportP, { color: '#2e86c1', radius: 5, label: 'Q_D = 20', delay: 1500, className: 'dynamic policy-layer quantity-label' });
+            fadePoint(welfare, qS, supportP, { color: '#c0392b', radius: 5, label: 'Q_S = 45', delay: 1850, className: 'dynamic policy-layer quantity-label' });
+            fiscalRectangle(2250);
+            surplusGapLabel(2700);
           },
           function() {
-            baseCurves(true);
-            welfare.addLine(DTotal, '#2e86c1', { label: "D'", strokeWidth: 2.8 });
-            supportGuides(100);
-            fiscalRectangle(900);
-            surplusGapLabel(1350);
-            fadeArea(welfare, { xRange: [eqQ, qS], yTop: S, yBottom: D }, '#d35400', { opacity: 0.3, delay: 1800 });
-            fadeLabel(welfare, 38, 2.25, 'Potential efficiency loss', { color: '#b03a00', fontSize: '12px', fontWeight: '800', anchor: 'middle', delay: 2400 });
-            fadePoint(welfare, eqQ, eqP, { color: '#999', radius: 4, label: '(Q*, P*)', delay: 2600 });
-            fadePoint(welfare, qS, supportP, { color: '#1a5276', radius: 6, label: "(Q\u2032, P\u2032)", delay: 2800 });
+            dimLayer('.baseline-welfare', 0, 0);
+            dimLayer('.policy-layer', 0.18, 0);
+            dimLayer('.fiscal-layer', 0.1, 0);
+            fadeArea(welfare, { xRange: [0, qD], yTop: D, yBottom: supportP }, '#2e86c1', { opacity: 0.32, delay: 150, className: 'dynamic final-welfare consumer-focus' });
+            fadeLabel(welfare, 8, 4.25, 'Consumer surplus = €20m', { color: '#2e86c1', fontSize: '12px', fontWeight: '800', delay: 750, className: 'dynamic final-welfare consumer-focus' });
+            fadeLabel(welfare, 5, 3.2, 'Private consumers lose €25m', { color: '#2e86c1', fontSize: '11px', fontWeight: '700', delay: 1150, className: 'dynamic final-welfare consumer-focus' });
+          },
+          function() {
+            dimLayer('.consumer-focus', 0.22, 0);
+            dimLayer('.policy-layer', 0.14, 0);
+            dimLayer('.fiscal-layer', 0.12, 0);
+            fadeArea(welfare, { xRange: [0, qS], yTop: supportP, yBottom: S }, '#1e8449', { opacity: 0.28, delay: 150, className: 'dynamic final-welfare producer-focus' });
+            fadeLabel(welfare, 16, 1.65, 'Producer surplus = €67.5m', { color: '#1e8449', fontSize: '12px', fontWeight: '800', delay: 850, className: 'dynamic final-welfare producer-focus' });
+            fadeLabel(welfare, 13, 2.65, 'Producers gain €37.5m', { color: '#1e8449', fontSize: '11px', fontWeight: '700', delay: 1250, className: 'dynamic final-welfare producer-focus' });
+            fadePoint(welfare, qS, supportP, { color: '#1a5276', radius: 6, label: "(Q\u2032, P\u2032)", delay: 1500 });
           }
         ];
 
@@ -748,22 +794,19 @@
           '<strong>Step 1 — Free-market benchmark</strong><br>'
           + 'At \\((Q^*, P^*) = (30, 2)\\), private consumer surplus is €45 million and producer surplus is €30 million. There is no fiscal cost and no deadweight loss at the competitive equilibrium.',
 
-          '<strong>Step 2 — Private consumers lose surplus</strong><br>'
-          + 'The supported price is €3. At that price, private consumers buy only \\(Q_D = 20\\) million kg. Consumer surplus falls from €45 million to €20 million.',
+          '<strong>Step 2 — Policy-driven demand shift</strong><br>'
+          + 'The government enters as an additional buyer, so total demand shifts outward until the supported price of €3 is sustained. Private consumers buy \\(Q_D = 20\\), producers supply \\(Q_S = 45\\), and the government purchases the 25 million kg gap.',
 
-          '<strong>Step 3 — Producers gain surplus</strong><br>'
-          + 'At €3, producers supply \\(Q_S = 45\\) million kg. Because the government buys the surplus, producers sell more output at a higher price. Producer surplus rises from €30 million to €67.5 million.',
+          '<strong>Step 3 — Private consumers lose surplus</strong><br>'
+          + 'At €3, private consumers buy only \\(Q_D = 20\\) million kg. Their consumer surplus falls from €45 million to €20 million.',
 
-          '<strong>Step 4 — Government purchases absorb the gap</strong><br>'
-          + 'The horizontal gap is \\(Q_S - Q_D = 45 - 20 = 25\\) million kg. The fiscal cost is \\(25 \\times €3 = €75\\) million, ignoring storage/disposal costs and any resale value.',
-
-          '<strong>Step 5 — Efficiency implications</strong><br>'
-          + 'The orange area highlights the overproduction concern: units beyond \\(Q^*\\) cost more to produce than private consumers are willing to pay. This is a potential deadweight loss, but the exact efficiency loss depends on what value society receives from the purchased surplus.'
+          '<strong>Step 4 — Producers gain surplus</strong><br>'
+          + 'At the supported price, producers sell \\(Q_S = 45\\) million kg at €3/kg because the government buys the surplus. Producer surplus rises from €30 million to €67.5 million, while the fiscal cost remains €75 million.'
         ];
 
         var welfareDesc = document.getElementById('cap-welfare-desc');
         var welfareBtn = rebuildBtn('cap-welfare-next');
-        if (welfareDesc && welfareBtn) makeStepThrough(welfare, welfareFrames, welfareDescs, welfareDesc, welfareBtn);
+        if (welfareDesc && welfareBtn) makeCumulativeStepThrough(welfare, welfareFrames, welfareDescs, welfareDesc, welfareBtn);
       })();
     });
   </script>
