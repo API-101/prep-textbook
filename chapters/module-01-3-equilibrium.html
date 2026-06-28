@@ -200,7 +200,7 @@
 <div class="figure">
 <div id="equilibrium-static-graph"></div>
 <div class="figure__caption">Figure 3.1: The equilibrium for the
-          EU sugar market. The demand (blue) and supply (red) curves intersect at \((Q^*, P^*)\), where \(Q^* = 30\) million kg/year and \(P^* = €2\)/kg.
+          EU sugar market. The demand (blue, negative slope) and supply (red, positive slope) curves intersect at \((Q^*, P^*)\), where \(Q^* = 30\) million kg/year and \(P^* = €2\)/kg.
           The dashed lines project the equilibrium to the axes.</div>
 </div>
 <h3>Surplus and Shortage Dynamics</h3>
@@ -264,7 +264,7 @@
         </p>
 </div>
 <!-- Check: surplus or shortage -->
-<div class="check-understanding" data-correct="1" data-explanation="At P = 3: Q_S = 15(3) = 45 and Q_D = 50 − 10(3) = 20. Since Q_S (45) > Q_D (20), there is a surplus of 25 million kg. This excess supply creates downward pressure on the price, pushing it back toward the equilibrium of P* = 2." data-question="At a price of 3 (above equilibrium) with Q_D = 50 − 10P and Q_S = 15P, what is the market condition?">
+<div class="check-understanding" data-correct="1" data-explanation="At \(P = 3\): \(Q_S = 15(3) = 45\) and \(Q_D = 50 − 10(3) = 20\). Since \(Q_S\) (45) &gt; \(Q_D\) (20), there is a surplus of 25 million kg. This excess supply creates downward pressure on the price, pushing it back toward the equilibrium of \(P^* = 2\)." data-question="At a price of 3 (above equilibrium) with \(Q_D = 50 − 10P\) and \(Q_S = 15P\), what is the market condition?">
 <div class="check-understanding__option" data-index="0">A) A shortage of 25 million kg, so prices will rise.</div>
 <div class="check-understanding__option" data-index="1">B) A surplus of 25 million kg, so prices will fall.</div>
 <div class="check-understanding__option" data-index="2">C) The market is in equilibrium at this price.</div>
@@ -276,7 +276,7 @@
 <div class="graph-container">
 <div class="graph-container__title">Combined Market: Finding Equilibrium</div>
 <div class="graph-container__description">
-          This graph shows both demand (blue) and supply (red) curves for the
+          This graph shows both demand (blue, negative slope) and supply (red, positive slope) curves for the
           EU sugar
           market. Adjust the intercepts and slope coefficients to see how equilibrium price (\(P^*\)) and quantity (\(Q^*\)) change. The dark point marks the equilibrium intersection.
         </div>
@@ -871,7 +871,7 @@
           graph.addDashedLine([{x: eqQ, y: eqP}, {x: eqQ, y: 0}], '#1a5276', { strokeWidth: 1.5, className: 'dynamic' });
           graph.addDashedLine([{x: eqQ, y: eqP}, {x: 0, y: eqP}], '#1a5276', { strokeWidth: 1.5, className: 'dynamic' });
           graph.addLabel(eqQ + 2, -0.3, `Q* = ${eqQ.toFixed(0)}`, { color: '#1a5276', fontSize: '12px', fontWeight: '600', className: 'dynamic' });
-          graph.addLabel(-6, eqP, `P* = €${formatPrice(eqP)}`, { color: '#1a5276', fontSize: '12px', fontWeight: '600', anchor: 'end', className: 'dynamic' });
+          graph.addLabel(2, eqP, `P* = €${formatPrice(eqP)}`, { color: '#1a5276', fontSize: '12px', fontWeight: '600', anchor: 'start', className: 'dynamic' });
           document.getElementById('eq-price-display').textContent = '€' + formatPrice(eqP);
           document.getElementById('eq-quantity-display').textContent = eqQ.toFixed(0);
         } else {

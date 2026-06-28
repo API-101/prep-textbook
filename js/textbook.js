@@ -483,6 +483,17 @@ const SidebarNav = {
      </div>
    ------------------------------------------------------- */
 const CheckUnderstanding = {
+  renderMath(container) {
+    if (typeof renderMathInElement !== 'undefined') {
+      renderMathInElement(container, {
+        delimiters: [
+          {left: "$$", right: "$$", display: true},
+          {left: "\\(", right: "\\)", display: false}
+        ]
+      });
+    }
+  },
+
   init() {
     document.querySelectorAll('.check-understanding').forEach(container => {
       const question = container.dataset.question;
@@ -504,6 +515,8 @@ const CheckUnderstanding = {
         qEl.textContent = question;
         header.insertAdjacentElement('afterend', qEl);
       }
+
+      this.renderMath(container);
 
       // Build feedback area
       const feedback = document.createElement('div');
@@ -534,6 +547,7 @@ const CheckUnderstanding = {
             (isCorrect ? 'check-understanding__feedback--correct' : 'check-understanding__feedback--incorrect');
           feedback.innerHTML = (isCorrect ? '<strong>Correct.</strong> ' : '<strong>Not quite.</strong> ') +
             (explanation || '');
+          this.renderMath(feedback);
         });
       });
     });
@@ -983,6 +997,17 @@ PracticeQuiz.loadFromJson = function(selector, url, opts = {}) {
      </div>
    ------------------------------------------------------- */
 const SelfCheck = {
+  renderMath(container) {
+    if (typeof renderMathInElement !== 'undefined') {
+      renderMathInElement(container, {
+        delimiters: [
+          {left: "$$", right: "$$", display: true},
+          {left: "\\(", right: "\\)", display: false}
+        ]
+      });
+    }
+  },
+
   init() {
     document.querySelectorAll('.self-check').forEach(container => {
       const btn = container.querySelector('.self-check__reveal-btn');
@@ -1004,9 +1029,12 @@ const SelfCheck = {
         container.insertBefore(guidance, btn);
       }
 
+      this.renderMath(container);
+
       btn.addEventListener('click', () => {
         answer.classList.toggle('self-check__answer--visible');
         btn.textContent = answer.classList.contains('self-check__answer--visible') ? 'Hide Answer' : 'Show Answer';
+        this.renderMath(container);
       });
     });
   }
