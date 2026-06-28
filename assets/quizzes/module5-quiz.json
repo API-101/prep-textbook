@@ -106,7 +106,7 @@
     "module": "Module 5",
     "skill": "Policy Application",
     "type": "multiple_choice",
-    "text": "In a CAP-style price floor, which statement best separates redistribution from deadweight loss?",
+    "text": "In a CAP-style price floor, which statement best separates surplus transfers from deadweight loss?",
     "options": [
       {
         "text": "All producer gains are deadweight loss.",
