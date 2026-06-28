@@ -221,7 +221,7 @@
       </div>
 
       <p>
-        The graph below combines those same two areas: the blue consumer surplus triangle and the green producer surplus triangle.
+        The graph below combines those same two areas: the consumer surplus triangle labeled CS and the producer surplus triangle labeled PS.
       </p>
       <div class="calculation-figure" id="graph-surplus-annotations"></div>
 
@@ -274,7 +274,7 @@
           <thead>
             <tr>
               <th scope="col">Measure</th>
-              <th scope="col">Graph color</th>
+              <th scope="col">Graph cue</th>
               <th scope="col">Value</th>
             </tr>
           </thead>
@@ -286,12 +286,12 @@
             </tr>
             <tr class="surplus-readout-table__row surplus-readout-table__row--total">
               <th scope="row">Realized Social Surplus</th>
-              <td><span class="surplus-swatch surplus-swatch--consumer"></span>Blue/green</td>
+              <td><span class="surplus-swatch surplus-swatch--consumer"></span>CS + PS labels</td>
               <td id="stat-realized-total">€4,050</td>
             </tr>
             <tr class="surplus-readout-table__row surplus-readout-table__row--dwl">
               <th scope="row">Deadweight Loss</th>
-              <td><span class="surplus-swatch surplus-swatch--dwl"></span>Orange</td>
+              <td><span class="surplus-swatch surplus-swatch--dwl"></span>DWL label</td>
               <td id="stat-dwl">€0</td>
             </tr>
           </tbody>
@@ -321,7 +321,7 @@
           <thead>
             <tr>
               <th scope="col">Measure</th>
-              <th scope="col">Graph color</th>
+              <th scope="col">Graph cue</th>
               <th scope="col">Free market</th>
               <th scope="col">Current policy</th>
             </tr>
@@ -329,19 +329,19 @@
           <tbody>
             <tr class="surplus-readout-table__row surplus-readout-table__row--consumer">
               <th scope="row">Consumer Surplus</th>
-              <td><span class="surplus-swatch surplus-swatch--consumer"></span>Blue</td>
+              <td><span class="surplus-swatch surplus-swatch--consumer"></span>CS label</td>
               <td id="stat-policy-cs-original">€800</td>
               <td id="stat-policy-cs-new">€800</td>
             </tr>
             <tr class="surplus-readout-table__row surplus-readout-table__row--producer">
               <th scope="row">Producer Surplus</th>
-              <td><span class="surplus-swatch surplus-swatch--producer"></span>Green</td>
+              <td><span class="surplus-swatch surplus-swatch--producer"></span>PS label</td>
               <td id="stat-policy-ps-original">€600</td>
               <td id="stat-policy-ps-new">€600</td>
             </tr>
             <tr class="surplus-readout-table__row surplus-readout-table__row--dwl">
               <th scope="row">Deadweight Loss</th>
-              <td><span class="surplus-swatch surplus-swatch--dwl"></span>Orange</td>
+              <td><span class="surplus-swatch surplus-swatch--dwl"></span>DWL label</td>
               <td>€0</td>
               <td id="stat-policy-dwl">€0</td>
             </tr>
@@ -666,8 +666,20 @@
             document.getElementById('quantity-slider-value').textContent = `${Math.round(tradedQ)} (Over-production)`;
           }
 
-          graph.addLine(demandFn, '#2e86c1', { label: 'Demand', strokeWidth: 2.5 });
-          graph.addLine(supplyFn, '#145a32', { label: 'Supply', strokeWidth: 2.5 });
+          graph.addLine(demandFn, '#2e86c1', { strokeWidth: 2.5 });
+          graph.addLine(supplyFn, '#145a32', { strokeWidth: 2.5 });
+          graph.addLabel(136, demandFn(136) + 5, 'Demand', {
+            color: '#2e86c1',
+            fontSize: '12px',
+            fontWeight: '700',
+            background: true
+          });
+          graph.addLabel(136, supplyFn(136) + 5, 'Supply', {
+            color: '#145a32',
+            fontSize: '12px',
+            fontWeight: '700',
+            background: true
+          });
 
           const qForSurplus = Math.min(tradedQ, eqQ);
           if (qForSurplus > 0) {
@@ -681,6 +693,21 @@
               yTop: eqP,
               yBottom: supplyFn
             }, '#1e8449', { opacity: 0.16 });
+            const labelX = Math.max(8, qForSurplus * 0.35);
+            graph.addLabel(labelX, (demandFn(labelX) + eqP) / 2, 'CS', {
+              color: '#2e86c1',
+              fontSize: '14px',
+              fontWeight: '800',
+              anchor: 'middle',
+              background: true
+            });
+            graph.addLabel(labelX, (eqP + supplyFn(labelX)) / 2, 'PS', {
+              color: '#1e8449',
+              fontSize: '14px',
+              fontWeight: '800',
+              anchor: 'middle',
+              background: true
+            });
           }
 
           if (tradedQ < eqQ) {
@@ -809,8 +836,20 @@
             document.getElementById('policy-price-slider-value').textContent = `€${policyPrice} (Price Ceiling)`;
           }
 
-          graph.addLine(demandFn, '#2e86c1', { label: 'Demand', strokeWidth: 2.5 });
-          graph.addLine(supplyFn, '#145a32', { label: 'Supply', strokeWidth: 2.5 });
+          graph.addLine(demandFn, '#2e86c1', { strokeWidth: 2.5 });
+          graph.addLine(supplyFn, '#145a32', { strokeWidth: 2.5 });
+          graph.addLabel(136, demandFn(136) + 5, 'Demand', {
+            color: '#2e86c1',
+            fontSize: '12px',
+            fontWeight: '700',
+            background: true
+          });
+          graph.addLabel(136, supplyFn(136) + 5, 'Supply', {
+            color: '#145a32',
+            fontSize: '12px',
+            fontWeight: '700',
+            background: true
+          });
 
           if (isEquilibrium || Math.abs(policyPrice - eqP) < 0.5) {
             // Free market
@@ -825,6 +864,20 @@
               yTop: eqP,
               yBottom: supplyFn
             }, '#1e8449', { opacity: 0.2 });
+            graph.addLabel(24, 68, 'CS', {
+              color: '#2e86c1',
+              fontSize: '14px',
+              fontWeight: '800',
+              anchor: 'middle',
+              background: true
+            });
+            graph.addLabel(24, 30, 'PS', {
+              color: '#1e8449',
+              fontSize: '14px',
+              fontWeight: '800',
+              anchor: 'middle',
+              background: true
+            });
 
             graph.addPoint(eqQ, eqP, { color: '#1a5276', label: '(Q*, P*)', radius: 6 });
 
@@ -854,6 +907,21 @@
                 yTop: policyPrice,
                 yBottom: supplyFn
               }, '#1e8449', { opacity: 0.2 });
+              const labelX = Math.max(8, qTraded * 0.35);
+              graph.addLabel(labelX, (demandFn(labelX) + policyPrice) / 2, 'CS', {
+                color: '#2e86c1',
+                fontSize: '14px',
+                fontWeight: '800',
+                anchor: 'middle',
+                background: true
+              });
+              graph.addLabel(labelX, (policyPrice + supplyFn(labelX)) / 2, 'PS', {
+                color: '#1e8449',
+                fontSize: '14px',
+                fontWeight: '800',
+                anchor: 'middle',
+                background: true
+              });
             }
 
             graph.addShaded({
@@ -901,6 +969,21 @@
                 yTop: policyPrice,
                 yBottom: supplyFn
               }, '#1e8449', { opacity: 0.2 });
+              const labelX = Math.max(8, qTraded * 0.35);
+              graph.addLabel(labelX, (demandFn(labelX) + policyPrice) / 2, 'CS', {
+                color: '#2e86c1',
+                fontSize: '14px',
+                fontWeight: '800',
+                anchor: 'middle',
+                background: true
+              });
+              graph.addLabel(labelX, (policyPrice + supplyFn(labelX)) / 2, 'PS', {
+                color: '#1e8449',
+                fontSize: '14px',
+                fontWeight: '800',
+                anchor: 'middle',
+                background: true
+              });
             }
 
             if (qTraded < eqQ) {
