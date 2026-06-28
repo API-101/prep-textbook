@@ -128,9 +128,9 @@
     "module": "Module 3",
     "skill": "Equilibrium",
     "type": "short_answer",
-    "text": "Find the equilibrium price when \\(Q_D = 50 - 10P\\) and \\(Q_S = 15P\\).",
-    "feedback": "Set quantity demanded equal to quantity supplied: \\(50 - 10P = 15P\\). Then \\(50 = 25P\\), so \\(P^* = 2\\).",
-    "correctAnswer": "2",
+    "text": "Find the equilibrium price when \\(Q_D = 72 - 8P\\) and \\(Q_S = 12P\\).",
+    "feedback": "Set quantity demanded equal to quantity supplied: \\(72 - 8P = 12P\\). Then \\(72 = 20P\\), so \\(P^* = 3.6\\).",
+    "correctAnswer": "3.6",
     "tolerance": 0.01
   },
   {
@@ -138,9 +138,9 @@
     "module": "Module 3",
     "skill": "Equilibrium",
     "type": "short_answer",
-    "text": "Using the equilibrium price \\(P^* = 2\\), what is the equilibrium quantity? Enter the answer in millions of kilograms.",
-    "feedback": "Substitute \\(P = 2\\) into either curve: \\(Q_D = 50 - 10(2) = 30\\), or \\(Q_S = 15(2) = 30\\).",
-    "correctAnswer": "30",
+    "text": "Find the equilibrium quantity when \\(Q_D = 60 - 6P\\) and \\(Q_S = 4P\\). Enter the answer in millions of kilograms.",
+    "feedback": "Set \\(60 - 6P = 4P\\), so \\(60 = 10P\\) and \\(P^* = 6\\). Substitute back in: \\(Q_S = 4(6) = 24\\), so equilibrium quantity is 24 million kilograms.",
+    "correctAnswer": "24",
     "tolerance": 0.01
   },
   {
@@ -148,18 +148,18 @@
     "module": "Module 3",
     "skill": "Surplus",
     "type": "multiple_choice",
-    "text": "At \\(P = 3\\), \\(Q_D = 20\\) and \\(Q_S = 45\\). What market condition results, and what pressure does it create?",
+    "text": "At \\(P = 5\\), \\(Q_D = 30\\) and \\(Q_S = 50\\). What market condition results, and what pressure does it create?",
     "options": [
       {
-        "text": "A shortage of 25 million kilograms; upward pressure on price.",
+        "text": "A shortage of 20 million kilograms; upward pressure on price.",
         "correct": false
       },
       {
-        "text": "A surplus of 25 million kilograms; downward pressure on price.",
+        "text": "A surplus of 20 million kilograms; downward pressure on price.",
         "correct": true
       },
       {
-        "text": "A surplus of 65 million kilograms; upward pressure on price.",
+        "text": "A surplus of 80 million kilograms; upward pressure on price.",
         "correct": false
       },
       {
@@ -167,7 +167,7 @@
         "correct": false
       }
     ],
-    "feedback": "Quantity supplied exceeds quantity demanded by \\(45 - 20 = 25\\). Unsold output creates a surplus, which normally puts downward pressure on price."
+    "feedback": "Quantity supplied exceeds quantity demanded by \\(50 - 30 = 20\\). Unsold output creates a surplus, which normally puts downward pressure on price."
   },
   {
     "id": "m13-shortage-condition",
@@ -200,9 +200,9 @@
     "module": "Module 3",
     "skill": "Policy Application",
     "type": "short_answer",
-    "text": "Under a price floor at \\(P = 3\\), if \\(Q_S = 45\\) and \\(Q_D = 20\\), how many million kilograms of surplus are created?",
-    "feedback": "The surplus is \\(Q_S - Q_D = 45 - 20 = 25\\). A price floor above equilibrium creates 25 million kilograms of excess supply.",
-    "correctAnswer": "25",
+    "text": "Under a price floor at \\(P = 4.5\\), if \\(Q_S = 54\\) and \\(Q_D = 27\\), how many million kilograms of surplus are created?",
+    "feedback": "The surplus is \\(Q_S - Q_D = 54 - 27 = 27\\). A price floor above equilibrium creates 27 million kilograms of excess supply.",
+    "correctAnswer": "27",
     "tolerance": 0.01
   }
 ]
