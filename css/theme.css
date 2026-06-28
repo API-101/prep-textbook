@@ -32,8 +32,10 @@
   --color-hks-gold: #b28b00;
   --color-success: #1e8449;
   --color-success-light: #d5f5e3;
+  --color-success-dark: #0b4f2a;
   --color-warning: #d35400;
   --color-warning-light: #fdebd0;
+  --color-warning-dark: #7a2e00;
   --color-danger: #c0392b;
   --color-neutral-900: #171717;
   --color-neutral-800: #262626;
@@ -451,7 +453,7 @@ strong {
 
 .graph-container__description {
   font-size: 0.875rem;
-  color: var(--color-neutral-600);
+  color: var(--color-neutral-800);
   margin-bottom: var(--space-md);
   line-height: 1.5;
 }
@@ -756,7 +758,7 @@ strong {
 .graph-control__label {
   font-size: 0.8125rem;
   font-weight: 600;
-  color: var(--color-neutral-700);
+  color: var(--color-neutral-900);
 }
 
 .graph-control__slider {
@@ -788,7 +790,7 @@ strong {
 .graph-control__value {
   font-family: var(--font-mono);
   font-size: 0.8125rem;
-  color: var(--color-primary);
+  color: var(--color-primary-dark);
   font-weight: 600;
 }
 
@@ -799,6 +801,7 @@ strong {
   margin: var(--space-lg) 0;
   font-size: 0.9375rem;
   line-height: 1.6;
+  color: var(--color-neutral-900);
 }
 
 .callout--insight {
@@ -825,8 +828,8 @@ strong {
 }
 
 .callout--insight .callout__title { color: var(--color-hks-crimson); }
-.callout--warning .callout__title { color: var(--color-warning); }
-.callout--example .callout__title { color: var(--color-success); }
+.callout--warning .callout__title { color: var(--color-warning-dark); }
+.callout--example .callout__title { color: var(--color-success-dark); }
 
 /* --- Demand convention comparison --- */
 .convention-compare {
