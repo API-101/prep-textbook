@@ -1346,10 +1346,10 @@ const DrawGraph = {
       snapY: 1,
       feedbackMessages: {
         correct: 'Your line slopes in the right direction.',
-        wrongSlope: 'Check the slope direction.',
-        wrongIntercept: 'Your slope direction is right, but the line is not anchored to the correct points.',
-        oneInterceptWrongSlope: 'One intercept is correct, but the slope is not.',
-        wrongSlopeAndIntercepts: 'The slope and both intercepts are incorrect.'
+        wrongSlope: 'Check the line\'s steepness against the correct curve.',
+        wrongIntercept: 'The line has the right general pattern, but it is not anchored to the correct points.',
+        oneInterceptWrongSlope: 'One endpoint is correct, but the line is too steep, too flat, or otherwise misses the second anchor point.',
+        wrongSlopeAndIntercepts: 'Check both the anchor points and the line\'s steepness.'
       }
     };
 
@@ -1634,7 +1634,11 @@ const DrawGraph = {
               diagnosis = config.feedbackMessages.wrongSlopeAndIntercepts;
             }
           }
-          feedbackEl.innerHTML = '<strong>Not quite.</strong> ' + diagnosis +
+          const fallbackDiagnosis = 'Check the line\'s anchor points and steepness against the correct curve.';
+          const cleanDiagnosis = String(diagnosis || fallbackDiagnosis)
+            .replace(/\b(?:undefined|null)\b\.?\s*/gi, '')
+            .trim() || fallbackDiagnosis;
+          feedbackEl.innerHTML = '<strong>Not quite.</strong> ' + cleanDiagnosis +
             ' The correct curve is shown in the graph above.';
         }
       }
