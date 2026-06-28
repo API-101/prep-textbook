@@ -1000,7 +1000,7 @@ const SelfCheck = {
       if (!container.querySelector('.self-check__guidance')) {
         const guidance = document.createElement('p');
         guidance.className = 'self-check__guidance';
-        guidance.innerHTML = '<em>Take time to generate your own explanation. Then show the answer to compare it with yours.</em>';
+        guidance.innerHTML = '<em>Take time to generate your own response. Then show the answer to compare it with yours.</em>';
         container.insertBefore(guidance, btn);
       }
 
@@ -1026,7 +1026,7 @@ const CumulativeGlossary = {
     { module: 1, term: 'Demand Curve', definition: 'A graph showing the relationship between price and quantity demanded, with quantity on the horizontal axis and price on the vertical axis.' },
     { module: 1, term: 'Demand Equation', definition: 'An equation showing the relationship between price and quantity demanded.' },
     { module: 1, term: 'Inverted Demand Equation', definition: 'A demand equation rearranged with price expressed in terms of quantity demanded, so the demand curve can be graphed with price on the vertical axis and quantity on the horizontal axis.' },
-    { module: 1, term: 'Ceteris Paribus', definition: 'Latin for "all else equal"; the assumption that all variables except those being studied are held constant.' },
+    { module: 1, term: '<em>Ceteris Paribus</em>', definition: 'Latin for "all else equal"; the assumption that all variables except those being studied are held constant.' },
     { module: 1, term: 'Price', definition: 'What a buyer pays for one unit of a good or service.' },
     { module: 1, term: 'Willingness to Pay', definition: 'Maximum price a consumer is willing to pay for a good or service.' },
     { module: 2, term: 'Quantity Supplied', definition: 'The number of units producers are willing to sell at a given price.' },
@@ -1090,7 +1090,7 @@ const CumulativeGlossary = {
 
       container.innerHTML = `
         <h2>Key Terms</h2>
-        <p>Start with the terms introduced in this module. Past terms are available below if you want to review the cumulative vocabulary.</p>
+        <p>Start with the terms introduced in this module.${reviewTerms.length ? ' Past terms are available below if you want to review the cumulative vocabulary.' : ''}</p>
         <table class="glossary-table" id="${tableId}">
           <thead>
             <tr>
