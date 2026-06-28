@@ -14,7 +14,7 @@
     "module": "Module 5",
     "skill": "Equilibrium Review",
     "type": "short_answer",
-    "text": "Using \\(P^* = 8\\), what is the equilibrium quantity in the market with \\(Q_D = 39 - 3P\\) and \\(Q_S = 2P - 1\\)? Enter the answer in millions of metric tons.",
+    "text": "Using the equilibrium price found in Question 1, what is the equilibrium quantity in the market with \\(Q_D = 39 - 3P\\) and \\(Q_S = 2P - 1\\)? Enter the answer in millions of metric tons.",
     "feedback": "Substitute \\(P = 8\\): \\(Q_D = 39 - 3(8) = 15\\), and \\(Q_S = 2(8) - 1 = 15\\). The equilibrium quantity is 15 million metric tons.",
     "correctAnswer": "15",
     "tolerance": 0.01
