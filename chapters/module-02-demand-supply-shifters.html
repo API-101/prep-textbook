@@ -164,10 +164,12 @@
           <div class="shift-showcase__controls" aria-label="Related goods demand shift scenarios">
             <button class="shift-showcase__btn shift-showcase__btn--active" data-related-shift="base" type="button">Baseline</button>
             <button class="shift-showcase__btn" data-related-shift="substitute" type="button">Substitute Price Rises</button>
+            <button class="shift-showcase__btn" data-related-shift="substitute-falls" type="button">Substitute Price Falls</button>
             <button class="shift-showcase__btn" data-related-shift="complement" type="button">Complement Price Rises</button>
+            <button class="shift-showcase__btn" data-related-shift="complement-falls" type="button">Complement Price Falls</button>
           </div>
           <p class="shift-showcase__readout" id="related-demand-readout">
-            Start with the original demand curve. Use the buttons to compare a rightward shift from a substitute becoming more expensive and a leftward shift from a complement becoming more expensive.
+            Start with the original demand curve. Use the buttons to compare how substitute and complement price changes can shift demand right or left.
           </p>
         </div>
         <p class="shift-figure__caption">Figure 4.1: Related goods can shift demand right or left.</p>
@@ -523,11 +525,23 @@
             if (readout) {
               readout.innerHTML = '<strong>Substitute price rises:</strong> buyers switch to the original good. At every price, they now want more, so demand shifts right.';
             }
-          } else {
+          } else if (mode === 'substitute-falls') {
+            animateShiftCurve(graph, leftD, '#2e86c1', { label: "D'", strokeWidth: 2.75 });
+            addShiftArrow(graph, 44, 3, 29, 3, '#2e86c1', '\u2190 Demand shifts left', 30, 3.65);
+            if (readout) {
+              readout.innerHTML = '<strong>Substitute price falls:</strong> buyers switch away from the original good toward the cheaper substitute, so demand shifts left.';
+            }
+          } else if (mode === 'complement') {
             animateShiftCurve(graph, leftD, '#2e86c1', { label: "D'", strokeWidth: 2.75 });
             addShiftArrow(graph, 44, 3, 29, 3, '#2e86c1', '\u2190 Demand shifts left', 30, 3.65);
             if (readout) {
               readout.innerHTML = '<strong>Complement price rises:</strong> the pair becomes more expensive. At every price, buyers want less of the original good, so demand shifts left.';
+            }
+          } else if (mode === 'complement-falls') {
+            animateShiftCurve(graph, rightD, '#2e86c1', { label: "D'", strokeWidth: 2.75 });
+            addShiftArrow(graph, 33, 3.8, 48, 3.8, '#2e86c1', '\u2192 Demand shifts right', 49, 4.45);
+            if (readout) {
+              readout.innerHTML = '<strong>Complement price falls:</strong> the pair becomes less expensive. At every price, buyers want more of the original good, so demand shifts right.';
             }
           }
         }
@@ -681,7 +695,7 @@
           g4.addPoint(originalQ, originalP, { color: '#8a8f94', radius: 4, label: '(Q*, P*)' });
           g4.addPoint(newQ, newP, { color: '#1a5276', radius: 6, label: "(Q\u2032, P\u2032)" });
           addEqGuides(g4, newQ, newP, '#1a5276');
-          g4.addLabel(54, 4.9, 'Price rises', { color: '#1a5276', fontSize: '11px', fontWeight: '700', anchor: 'middle' });
+          g4.addLabel(15, 4.18, 'Price rises', { color: '#1a5276', fontSize: '11px', fontWeight: '700', anchor: 'middle' });
           g4.addLabel(28, 1.35, 'Quantity falls', { color: '#1a5276', fontSize: '11px', fontWeight: '700', anchor: 'middle' });
         }
       })();
