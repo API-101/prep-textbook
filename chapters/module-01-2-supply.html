@@ -457,20 +457,20 @@ Quantity Supplied — \(Q_S = 15P\) (millions of kg/year)
       });
       if (!graph) return;
 
-      graph.addLine(cfg.fn, '#c0392b', { label: 'S', strokeWidth: 2.5 });
+      graph.addLine(cfg.fn, '#145a32', { label: 'S', strokeWidth: 2.5 });
       cfg.schedulePoints.forEach(function(pt) {
         if (pt[0] === 0 && pt[1] === 0) return;
-        graph.addPoint(pt[0], pt[1], { color: '#c0392b', radius: 4 });
+        graph.addPoint(pt[0], pt[1], { color: '#145a32', radius: 4 });
       });
-      graph.addPoint(0, 0, { color: '#e74c3c', radius: 5 });
+      graph.addPoint(0, 0, { color: '#145a32', radius: 5 });
 
       var yMax = cfg.yDomain[1];
       graph.addLabel(cfg.xDomain[1] * 0.02, yMax * 0.07, 'Origin (0, 0)', {
-        color: '#e74c3c', fontSize: '11px', anchor: 'start'
+        color: '#145a32', fontSize: '11px', anchor: 'start'
       });
       var midX = cfg.xDomain[1] * 0.55;
       graph.addLabel(midX, cfg.fn(midX) + yMax * 0.05, 'Slope = ' + cfg.slopeLabel, {
-        color: '#c0392b', fontSize: '11px'
+        color: '#145a32', fontSize: '11px'
       });
     }
 
@@ -537,31 +537,31 @@ Quantity Supplied — \(Q_S = 15P\) (millions of kg/year)
         var yMax = cfg.yDomain[1];
         makeStepThrough(s1, [
           function() {
-            s1.addPoint(0, 0, { color: '#e74c3c', radius: 5 });
+            s1.addPoint(0, 0, { color: '#145a32', radius: 5 });
             s1.addLabel(cfg.xDomain[1] * 0.02, yMax * 0.07, 'Start: Origin (0, 0)', {
-              color: '#e74c3c', fontSize: '11px', anchor: 'start'
+              color: '#145a32', fontSize: '11px', anchor: 'start'
             });
           },
           function() {
-            s1.addPoint(0, 0, { color: '#e74c3c', radius: 5 });
+            s1.addPoint(0, 0, { color: '#145a32', radius: 5 });
             s1.addLabel(cfg.xDomain[1] * 0.02, yMax * 0.07, 'Start: Origin (0, 0)', {
-              color: '#e74c3c', fontSize: '11px', anchor: 'start'
+              color: '#145a32', fontSize: '11px', anchor: 'start'
             });
             sp.forEach(function(pt) {
               if (pt[0] === 0 && pt[1] === 0) return;
-              s1.addPoint(pt[0], pt[1], { color: '#c0392b', radius: 4 });
+              s1.addPoint(pt[0], pt[1], { color: '#145a32', radius: 4 });
             });
             s1.addLabel(sp[1][0], sp[1][1] + yMax * 0.06, 'Each step: ' + cfg.stepDesc, {
-              color: '#c0392b', fontSize: '11px', anchor: 'start'
+              color: '#145a32', fontSize: '11px', anchor: 'start'
             });
           },
           function() {
-            s1.addLine(cfg.fn, '#c0392b', { label: 'S', strokeWidth: 2.5 });
+            s1.addLine(cfg.fn, '#145a32', { label: 'S', strokeWidth: 2.5 });
             s1.addLabel(72, cfg.fn(72) + yMax * 0.08, 'Supply', {
-              color: '#c0392b', fontSize: '12px', fontWeight: '800', anchor: 'start'
+              color: '#145a32', fontSize: '12px', fontWeight: '800', anchor: 'start'
             });
-            s1.addPoint(0, 0, { color: '#e74c3c', radius: 5 });
-            sp.forEach(function(pt) { s1.addPoint(pt[0], pt[1], { color: '#c0392b', radius: 4 }); });
+            s1.addPoint(0, 0, { color: '#145a32', radius: 5 });
+            sp.forEach(function(pt) { s1.addPoint(pt[0], pt[1], { color: '#145a32', radius: 4 }); });
           }
         ], [
           'Step 1 — Plot the <strong>origin (0, 0)</strong>. The supply curve starts here: at a price of zero, producers supply nothing.',
@@ -602,15 +602,15 @@ Quantity Supplied — \(Q_S = 15P\) (millions of kg/year)
         var sm2Frames = sp.map(function(_, i) {
           return function() {
             sp.slice(0, i + 1).forEach(function(pt) {
-              s2.addPoint(pt[0], pt[1], { color: '#c0392b', radius: 5 });
+              s2.addPoint(pt[0], pt[1], { color: '#145a32', radius: 5 });
             });
           };
         });
         sm2Frames.push(function() {
-          sp.forEach(function(pt) { s2.addPoint(pt[0], pt[1], { color: '#c0392b', radius: 5 }); });
-          s2.addLine(cfg.fn, '#c0392b', { label: 'S', strokeWidth: 2.5 });
+          sp.forEach(function(pt) { s2.addPoint(pt[0], pt[1], { color: '#145a32', radius: 5 }); });
+          s2.addLine(cfg.fn, '#145a32', { label: 'S', strokeWidth: 2.5 });
           s2.addLabel(72, cfg.fn(72) + cfg.yDomain[1] * 0.08, 'Supply', {
-            color: '#c0392b', fontSize: '12px', fontWeight: '800', anchor: 'start'
+            color: '#145a32', fontSize: '12px', fontWeight: '800', anchor: 'start'
           });
         });
         var sm2Descs = sp.map(function(pt, i) {
@@ -687,13 +687,13 @@ Quantity Supplied — \(Q_S = 15P\) (millions of kg/year)
         renderEquation(inverseDisplay, inverseExpression);
 
         var supply = function(x) { return (x - c) / d; };
-        graph.addLine(supply, '#c0392b', { label: 'S', className: 'dynamic', strokeWidth: 2.5 });
+        graph.addLine(supply, '#145a32', { label: 'S', className: 'dynamic', strokeWidth: 2.5 });
 
         // Show a representative schedule point
         var qDemo = cfg.schedulePoints[2][0];
         var pDemo = supply(qDemo);
         if (pDemo > 0 && pDemo < cfg.yDomain[1]) {
-          graph.addPoint(qDemo, pDemo, { color: '#c0392b', radius: 5, className: 'dynamic' });
+          graph.addPoint(qDemo, pDemo, { color: '#145a32', radius: 5, className: 'dynamic' });
         }
       }
 

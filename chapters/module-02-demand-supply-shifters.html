@@ -565,9 +565,9 @@
         // S:  P = Q/20  |  S': P = (Q+15)/20  (leftward shift of 15)
         var S  = function(x) { return x / 20; };
         var Sp = function(x) { return (x + 15) / 20; };
-        g.addLine(S,  '#c0392b', { label: 'S',  strokeWidth: 2.5 });
-        animateShiftCurve(g, Sp, '#c0392b', { label: "S'", strokeWidth: 2.5, dashed: true });
-        addShiftArrow(g, 42, 2.85, 27, 2.85, '#c0392b', '\u2190 shift left', 28, 3.55);
+        g.addLine(S,  '#145a32', { label: 'S',  strokeWidth: 2.5 });
+        animateShiftCurve(g, Sp, '#145a32', { label: "S'", strokeWidth: 2.5, dashed: true });
+        addShiftArrow(g, 42, 2.85, 27, 2.85, '#145a32', '\u2190 shift left', 28, 3.55);
       })();
 
       /* -- Supply increase: technology → supply shifts RIGHT -- */
@@ -580,9 +580,9 @@
         // S:  P = Q/20  |  S': P = (Q-15)/20  (rightward shift of 15)
         var S  = function(x) { return x / 20; };
         var Sp = function(x) { return (x - 15) / 20; };
-        g.addLine(S,  '#c0392b', { label: 'S',  strokeWidth: 2.5 });
-        animateShiftCurve(g, Sp, '#c0392b', { label: "S'", strokeWidth: 2.5, dashed: true });
-        addShiftArrow(g, 36, 2.15, 51, 2.15, '#c0392b', 'shift right \u2192', 50, 2.85);
+        g.addLine(S,  '#145a32', { label: 'S',  strokeWidth: 2.5 });
+        animateShiftCurve(g, Sp, '#145a32', { label: "S'", strokeWidth: 2.5, dashed: true });
+        addShiftArrow(g, 36, 2.15, 51, 2.15, '#145a32', 'shift right \u2192', 50, 2.85);
       })();
 
       /* -- Important principle: a shift causes movement along the other curve -- */
@@ -610,14 +610,14 @@
           graph.clear();
           setActive(mode);
           graph.addLine(D, '#2e86c1', { label: 'D', strokeWidth: 2.5 });
-          graph.addLine(S, '#c0392b', { label: 'S', strokeWidth: 2.5 });
+          graph.addLine(S, '#145a32', { label: 'S', strokeWidth: 2.5 });
           graph.addPoint(40, 10 / 3, { color: '#8a8f94', radius: 4, label: '(Q*, P*)' });
 
           if (mode === 'supply') {
-            animateShiftCurve(graph, SLeft, '#c0392b', { label: "S'", strokeWidth: 2.75, dashed: true, includeX: [30] });
+            animateShiftCurve(graph, SLeft, '#145a32', { label: "S'", strokeWidth: 2.75, dashed: true, includeX: [30] });
             graph.addPoint(30, 4, { color: '#1a5276', radius: 6, label: "(Q\u2032, P\u2032)" });
             addEqGuides(graph, 30, 4, '#1a5276');
-            addShiftArrow(graph, 45, 4.35, 31, 4.35, '#c0392b', 'S shifts left', 31, 5.05);
+            addShiftArrow(graph, 45, 4.35, 31, 4.35, '#145a32', 'S shifts left', 31, 5.05);
             graph.addDashedLine([{ x: 40, y: 10 / 3 }, { x: 30, y: 4 }], '#2e86c1', { strokeWidth: 2, className: 'dynamic' });
             graph.addLabel(45, 3.75, 'movement along D', { color: '#2e86c1', fontSize: '13px', fontWeight: '800', anchor: 'middle', className: 'dynamic' });
             if (readout) readout.innerHTML = '<strong>Supply shifter:</strong> drought shifts supply left. Demand does not shift; buyers move along the demand curve to the new higher price.';
@@ -626,8 +626,8 @@
             graph.addPoint(48, 4, { color: '#1a5276', radius: 6, label: "(Q\u2032, P\u2032)" });
             addEqGuides(graph, 48, 4, '#1a5276');
             addShiftArrow(graph, 30, 4.15, 45, 4.15, '#2e86c1', 'D shifts right', 45, 4.85);
-            graph.addDashedLine([{ x: 40, y: 10 / 3 }, { x: 48, y: 4 }], '#c0392b', { strokeWidth: 2, className: 'dynamic' });
-            graph.addLabel(55, 3.7, 'movement along S', { color: '#c0392b', fontSize: '13px', fontWeight: '800', anchor: 'middle', className: 'dynamic' });
+            graph.addDashedLine([{ x: 40, y: 10 / 3 }, { x: 48, y: 4 }], '#145a32', { strokeWidth: 2, className: 'dynamic' });
+            graph.addLabel(55, 3.7, 'movement along S', { color: '#145a32', fontSize: '13px', fontWeight: '800', anchor: 'middle', className: 'dynamic' });
             if (readout) readout.innerHTML = '<strong>Demand shifter:</strong> higher income shifts demand right. Supply does not shift; sellers move along the supply curve to the new higher price.';
           }
         }
@@ -662,7 +662,7 @@
 
         function drawOriginal(graph, faded) {
           graph.addLine(demand, faded ? '#8aa9bf' : '#2e86c1', { label: 'D', strokeWidth: faded ? 1.6 : 2.5, dashed: faded });
-          graph.addLine(supply, faded ? '#d9aaa4' : '#c0392b', { label: 'S', strokeWidth: faded ? 1.6 : 2.5, dashed: faded });
+          graph.addLine(supply, faded ? '#9fc5aa' : '#145a32', { label: 'S', strokeWidth: faded ? 1.6 : 2.5, dashed: faded });
           graph.addPoint(originalQ, originalP, { color: faded ? '#8a8f94' : '#1a5276', radius: faded ? 4 : 6, label: '(Q*, P*)' });
           addEqGuides(graph, originalQ, originalP, faded ? '#8a8f94' : '#1a5276');
         }
@@ -676,22 +676,22 @@
         var g2 = createStepGraph('#four-step-graph-2');
         if (g2) {
           drawOriginal(g2, false);
-          g2.addLabel(54, 4.45, 'Drought affects supply', { color: '#c0392b', fontSize: '11px', fontWeight: '700', anchor: 'middle' });
+          g2.addLabel(54, 4.45, 'Drought affects supply', { color: '#145a32', fontSize: '11px', fontWeight: '700', anchor: 'middle' });
         }
 
         var g3 = createStepGraph('#four-step-graph-3');
         if (g3) {
           g3.addLine(demand, '#2e86c1', { label: 'D', strokeWidth: 2.5 });
-          g3.addLine(supply, '#d9aaa4', { label: 'S', strokeWidth: 1.6, dashed: true });
-          animateShiftCurve(g3, supplyLeft, '#c0392b', { label: "S'", strokeWidth: 2.5, includeX: [30] });
-          addShiftArrow(g3, 43, 3.9, 29, 3.9, '#c0392b', 'Supply shifts left', 30, 4.6);
+          g3.addLine(supply, '#9fc5aa', { label: 'S', strokeWidth: 1.6, dashed: true });
+          animateShiftCurve(g3, supplyLeft, '#145a32', { label: "S'", strokeWidth: 2.5, includeX: [30] });
+          addShiftArrow(g3, 43, 3.9, 29, 3.9, '#145a32', 'Supply shifts left', 30, 4.6);
         }
 
         var g4 = createStepGraph('#four-step-graph-4');
         if (g4) {
           g4.addLine(demand, '#2e86c1', { label: 'D', strokeWidth: 2.5 });
-          g4.addLine(supply, '#d9aaa4', { label: 'S', strokeWidth: 1.6, dashed: true });
-          animateShiftCurve(g4, supplyLeft, '#c0392b', { label: "S'", strokeWidth: 2.5, includeX: [30] });
+          g4.addLine(supply, '#9fc5aa', { label: 'S', strokeWidth: 1.6, dashed: true });
+          animateShiftCurve(g4, supplyLeft, '#145a32', { label: "S'", strokeWidth: 2.5, includeX: [30] });
           g4.addPoint(originalQ, originalP, { color: '#8a8f94', radius: 4, label: '(Q*, P*)' });
           g4.addPoint(newQ, newP, { color: '#1a5276', radius: 6, label: "(Q\u2032, P\u2032)" });
           addEqGuides(g4, newQ, newP, '#1a5276');
@@ -765,7 +765,7 @@
         }
 
         function selectedShiftColor() {
-          return response.curve === 'demand' ? '#2e86c1' : '#c0392b';
+          return response.curve === 'demand' ? '#2e86c1' : '#145a32';
         }
 
         function updateReadout(message, className) {
@@ -796,7 +796,7 @@
           var directionLabelY = response.curve === 'demand' ? 4.85 : 4.95;
 
           graph.addLine(D, '#2e86c1', { label: 'D', strokeWidth: response.curve === 'demand' ? 1.6 : 2.5, dashed: response.curve === 'demand' });
-          graph.addLine(S, '#c0392b', { label: 'S', strokeWidth: response.curve === 'supply' ? 1.6 : 2.5, dashed: response.curve === 'supply' });
+          graph.addLine(S, '#145a32', { label: 'S', strokeWidth: response.curve === 'supply' ? 1.6 : 2.5, dashed: response.curve === 'supply' });
           graph.addPoint(40, 10 / 3, { color: showSolution ? '#8a8f94' : '#1a5276', radius: showSolution ? 4 : 6, label: '(Q*, P*)' });
           addEqGuides(graph, 40, 10 / 3, showSolution ? '#8a8f94' : '#1a5276');
 
@@ -816,7 +816,7 @@
           if (showSolution) {
             if (!shiftCurve || response.curve !== key.curve || response.direction !== key.direction) {
               var correctCurve = key.curve === 'supply' ? SLeft : DRight;
-              var correctColor = key.curve === 'supply' ? '#c0392b' : '#2e86c1';
+              var correctColor = key.curve === 'supply' ? '#145a32' : '#2e86c1';
               graph.addLine(correctCurve, correctColor, { label: key.curve === 'supply' ? "S'" : "D'", strokeWidth: 2.75 });
             }
             graph.addPoint(key.newQ, key.newP, { color: '#1a5276', radius: 6, label: "(Q\u2032, P\u2032)" });

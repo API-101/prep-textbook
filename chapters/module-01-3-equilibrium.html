@@ -200,7 +200,7 @@
 <div class="figure">
 <div id="equilibrium-static-graph"></div>
 <div class="figure__caption">Figure 3.1: The equilibrium for the
-          EU sugar market. The demand (blue, negative slope) and supply (red, positive slope) curves intersect at \((Q^*, P^*)\), where \(Q^* = 30\) million kg/year and \(P^* = €2\)/kg.
+          EU sugar market. The demand (blue, negative slope) and supply (green, positive slope) curves intersect at \((Q^*, P^*)\), where \(Q^* = 30\) million kg/year and \(P^* = €2\)/kg.
           The dashed lines project the equilibrium to the axes.</div>
 </div>
 <h3>Surplus and Shortage Dynamics</h3>
@@ -276,7 +276,7 @@
 <div class="graph-container">
 <div class="graph-container__title">Combined Market: Finding Equilibrium</div>
 <div class="graph-container__description">
-          This graph shows both demand (blue, negative slope) and supply (red, positive slope) curves for the
+          This graph shows both demand (blue, negative slope) and supply (green, positive slope) curves for the
           EU sugar
           market. Adjust the intercepts and slope coefficients to see how equilibrium price (\(P^*\)) and quantity (\(Q^*\)) change. The dark point marks the equilibrium intersection.
         </div>
@@ -495,7 +495,7 @@
       const supply = x => x / 15;
 
       graph.addLine(demand, '#2e86c1', { label: 'D', strokeWidth: 2.5 });
-      graph.addLine(supply, '#c0392b', { label: 'S', strokeWidth: 2.5 });
+      graph.addLine(supply, '#145a32', { label: 'S', strokeWidth: 2.5 });
 
       const eqQ = 30, eqP = 2;
       graph.addPoint(eqQ, eqP, { color: '#1a5276', radius: 7, label: '(Q*, P*)' });
@@ -522,7 +522,7 @@
       const controls = document.querySelectorAll('#show-surplus-example, #show-shortage-example, #clear-imbalance-example');
 
       graph.addLine(demand, '#2e86c1', { label: 'D', strokeWidth: 2.5 });
-      graph.addLine(supply, '#c0392b', { label: 'S', strokeWidth: 2.5 });
+      graph.addLine(supply, '#145a32', { label: 'S', strokeWidth: 2.5 });
       graph.addPoint(eqQ, eqP, { color: '#1a5276', radius: 7, label: '(Q*, P*)' });
       graph.addDashedLine([{x: eqQ, y: eqP}, {x: eqQ, y: 0}], '#1a5276', { strokeWidth: 1.5 });
       graph.addDashedLine([{x: eqQ, y: eqP}, {x: 0, y: eqP}], '#1a5276', { strokeWidth: 1.5 });
@@ -612,11 +612,11 @@
         animateLine([{x: qDemanded, y: 0}, {x: qDemanded, y: price}], '#2e86c1', { strokeWidth: 1.4, delay: 1100 });
         fadePoint(qDemanded, price, '#2e86c1', 1900);
         fadeLabel(qDemanded, price - 0.2, 'Q_D = 20', { color: '#2e86c1', fontSize: '10px', anchor: 'middle', delay: 1950 });
-        animateLine([{x: qSupplied, y: 0}, {x: qSupplied, y: price}], '#c0392b', { strokeWidth: 1.4, delay: 2150 });
-        fadePoint(qSupplied, price, '#c0392b', 2950);
-        fadeLabel(qSupplied, price - 0.2, 'Q_S = 45', { color: '#c0392b', fontSize: '10px', anchor: 'middle', delay: 3000 });
-        animateLine([{x: qDemanded, y: 0.08}, {x: qSupplied, y: 0.08}], '#c0392b', { strokeWidth: 3, delay: 3300, dashedFinal: false, opacity: 0.95 });
-        fadeLabel(25, 0.42, 'Surplus: 45 - 20 = 25', { color: '#c0392b', fontSize: '11px', delay: 4050 });
+        animateLine([{x: qSupplied, y: 0}, {x: qSupplied, y: price}], '#145a32', { strokeWidth: 1.4, delay: 2150 });
+        fadePoint(qSupplied, price, '#145a32', 2950);
+        fadeLabel(qSupplied, price - 0.2, 'Q_S = 45', { color: '#145a32', fontSize: '10px', anchor: 'middle', delay: 3000 });
+        animateLine([{x: qDemanded, y: 0.08}, {x: qSupplied, y: 0.08}], '#145a32', { strokeWidth: 3, delay: 3300, dashedFinal: false, opacity: 0.95 });
+        fadeLabel(25, 0.42, 'Surplus: 45 - 20 = 25', { color: '#145a32', fontSize: '11px', delay: 4050 });
         if (caption) caption.textContent = 'Figure 3.2: Surplus and Shortage Graph Explorer. At P = €3, quantity supplied is 45 and quantity demanded is 20, so the surplus is 25 million kg.';
       }
 
@@ -628,9 +628,9 @@
         const qDemanded = 50 - 10 * price;
         animateLine([{x: 0, y: price}, {x: qDemanded, y: price}], '#8e44ad', { strokeWidth: 2, delay: 0, dashedFinal: false, opacity: 0.9 });
         fadeLabel(2, price + 0.2, 'P = €1', { color: '#8e44ad', fontSize: '11px', fontWeight: '600', anchor: 'start', delay: 850 });
-        animateLine([{x: qSupplied, y: 0}, {x: qSupplied, y: price}], '#c0392b', { strokeWidth: 1.4, delay: 1100 });
-        fadePoint(qSupplied, price, '#c0392b', 1900);
-        fadeLabel(qSupplied, price - 0.18, 'Q_S = 15', { color: '#c0392b', fontSize: '10px', anchor: 'middle', delay: 1950 });
+        animateLine([{x: qSupplied, y: 0}, {x: qSupplied, y: price}], '#145a32', { strokeWidth: 1.4, delay: 1100 });
+        fadePoint(qSupplied, price, '#145a32', 1900);
+        fadeLabel(qSupplied, price - 0.18, 'Q_S = 15', { color: '#145a32', fontSize: '10px', anchor: 'middle', delay: 1950 });
         animateLine([{x: qDemanded, y: 0}, {x: qDemanded, y: price}], '#2e86c1', { strokeWidth: 1.4, delay: 2150 });
         fadePoint(qDemanded, price, '#2e86c1', 2950);
         fadeLabel(qDemanded, price - 0.18, 'Q_D = 40', { color: '#2e86c1', fontSize: '10px', anchor: 'middle', delay: 3000 });
@@ -740,7 +740,7 @@
       function drawBase() {
         graph.clear();
         graph.addLine(demand, '#2e86c1', { label: 'D', strokeWidth: 2.5 });
-        graph.addLine(supply, '#c0392b', { label: 'S', strokeWidth: 2.5 });
+        graph.addLine(supply, '#145a32', { label: 'S', strokeWidth: 2.5 });
         graph.addPoint(eqQ, eqP, { color: '#1a5276', radius: 7, label: '(Q*, P*)' });
         graph.addDashedLine([{x: eqQ, y: eqP}, {x: eqQ, y: 0}], '#1a5276', { strokeWidth: 1.5 });
         graph.addDashedLine([{x: eqQ, y: eqP}, {x: 0, y: eqP}], '#1a5276', { strokeWidth: 1.5 });
@@ -757,11 +757,11 @@
         animateLine([{x: qDemanded, y: 0}, {x: qDemanded, y: supportPrice}], '#2e86c1', { strokeWidth: 1.4, delay: delay });
         fadePoint(qDemanded, supportPrice, '#2e86c1', delay + 800);
         fadeLabel(qDemanded, supportPrice - 0.2, 'Q_D = 20', { color: '#2e86c1', fontSize: '10px', anchor: 'middle', delay: delay + 850 });
-        animateLine([{x: qSupplied, y: 0}, {x: qSupplied, y: supportPrice}], '#c0392b', { strokeWidth: 1.4, delay: delay + 1100 });
-        fadePoint(qSupplied, supportPrice, '#c0392b', delay + 1900);
-        fadeLabel(qSupplied, supportPrice - 0.2, 'Q_S = 45', { color: '#c0392b', fontSize: '10px', anchor: 'middle', delay: delay + 1950 });
-        animateLine([{x: qDemanded, y: 0.08}, {x: qSupplied, y: 0.08}], '#c0392b', { strokeWidth: 3, delay: delay + 2250, dashedFinal: false, opacity: 0.95 });
-        fadeLabel(25, 0.42, 'Surplus = 25', { color: '#c0392b', fontSize: '11px', delay: delay + 3000 });
+        animateLine([{x: qSupplied, y: 0}, {x: qSupplied, y: supportPrice}], '#145a32', { strokeWidth: 1.4, delay: delay + 1100 });
+        fadePoint(qSupplied, supportPrice, '#145a32', delay + 1900);
+        fadeLabel(qSupplied, supportPrice - 0.2, 'Q_S = 45', { color: '#145a32', fontSize: '10px', anchor: 'middle', delay: delay + 1950 });
+        animateLine([{x: qDemanded, y: 0.08}, {x: qSupplied, y: 0.08}], '#145a32', { strokeWidth: 3, delay: delay + 2250, dashedFinal: false, opacity: 0.95 });
+        fadeLabel(25, 0.42, 'Surplus = 25', { color: '#145a32', fontSize: '11px', delay: delay + 3000 });
       }
 
       function updateCaption(step) {
@@ -857,7 +857,7 @@
         const supply = x => (x - c) / d;
 
         graph.addLine(demand, '#2e86c1', { label: 'D', className: 'dynamic', strokeWidth: 2.5 });
-        graph.addLine(supply, '#c0392b', { label: 'S', className: 'dynamic', strokeWidth: 2.5 });
+        graph.addLine(supply, '#145a32', { label: 'S', className: 'dynamic', strokeWidth: 2.5 });
 
         // Equilibrium: a - bP = c + dP => P* = (a - c) / (b + d)
         const eqP = (a - c) / (b + d);

@@ -1355,7 +1355,7 @@ const DrawGraph = {
 
     const config = { ...defaults, ...options };
     config.feedbackMessages = { ...defaults.feedbackMessages, ...(options.feedbackMessages || {}) };
-    config.curveColor = config.expectedSlope === 'positive' ? '#c0392b' : '#2e86c1';
+    config.curveColor = config.expectedSlope === 'positive' ? '#145a32' : '#2e86c1';
 
     const container = document.querySelector(selector);
     if (!container) return null;

@@ -532,12 +532,12 @@
         }, '#9b59b6', { opacity: 0.22 });
 
         graph.addLine(D, '#2e86c1', { label: 'D', strokeWidth: 2.5 });
-        graph.addLine(S, '#c0392b', { label: 'S', strokeWidth: 2.5 });
+        graph.addLine(S, '#145a32', { label: 'S', strokeWidth: 2.5 });
         graph.addDashedLine([{ x: 0, y: supportedPrice }, { x: qSupplied, y: supportedPrice }], '#7d3c98', { strokeWidth: 2 });
         graph.addDashedLine([{ x: qDemanded, y: 0 }, { x: qDemanded, y: supportedPrice }], '#2e86c1', { strokeWidth: 1.6 });
-        graph.addDashedLine([{ x: qSupplied, y: 0 }, { x: qSupplied, y: supportedPrice }], '#c0392b', { strokeWidth: 1.6 });
+        graph.addDashedLine([{ x: qSupplied, y: 0 }, { x: qSupplied, y: supportedPrice }], '#145a32', { strokeWidth: 1.6 });
         graph.addPoint(qDemanded, supportedPrice, { color: '#2e86c1', radius: 5, label: 'Q_D = 20' });
-        graph.addPoint(qSupplied, supportedPrice, { color: '#c0392b', radius: 5, label: 'Q_S = 45' });
+        graph.addPoint(qSupplied, supportedPrice, { color: '#145a32', radius: 5, label: 'Q_S = 45' });
         graph.addPoint(30, 2, { color: '#8a8f94', radius: 4, label: '(Q*, P*)' });
         graph.addLabel(12, supportedPrice + 0.35, 'Price support = €3', {
           color: '#7d3c98',
@@ -575,32 +575,32 @@
         var dm1Frames = [
           function() {
             dm1.addLine(origD, '#2e86c1', { label: 'D', strokeWidth: 2.5, className: 'dynamic' });
-            dm1.addLine(origS, '#c0392b', { label: 'S', strokeWidth: 2.5, className: 'dynamic' });
+            dm1.addLine(origS, '#145a32', { label: 'S', strokeWidth: 2.5, className: 'dynamic' });
             dm1.addPoint(30, 2, { color: '#1a5276', label: '(Q*, P*)', className: 'dynamic' });
             addEqGuides(dm1, 30, 2);
           },
           function() {
             dm1.addLine(origD, '#2e86c1', { label: 'D', strokeWidth: 1.5, dashed: true, className: 'dynamic' });
-            dm1.addLine(origS, '#c0392b', { label: 'S', strokeWidth: 2.5, className: 'dynamic' });
+            dm1.addLine(origS, '#145a32', { label: 'S', strokeWidth: 2.5, className: 'dynamic' });
             dm1.addPoint(30, 2, { color: '#999', label: '(Q*, P*)', radius: 4, className: 'dynamic' });
             addEqGuides(dm1, 30, 2, '#999');
           },
           function() {
             dm1.addLine(origD, '#2e86c1', { label: 'D', strokeWidth: 1.5, dashed: true, className: 'dynamic' });
-            dm1.addLine(origS, '#c0392b', { label: 'S', strokeWidth: 2.5, className: 'dynamic' });
+            dm1.addLine(origS, '#145a32', { label: 'S', strokeWidth: 2.5, className: 'dynamic' });
             dm1.addPoint(30, 2, { color: '#999', radius: 4, className: 'dynamic' });
             dm1.addPoint(0, 7.5, { color: '#2e86c1', radius: 5, className: 'dynamic' });
             dm1.addLabel(2, 8.1, 'New y-int = 7.5', { color: '#2e86c1', fontSize: '11px', fontWeight: 'bold', anchor: 'start', className: 'dynamic' });
           },
           function() {
             dm1.addLine(origD, '#2e86c1', { label: 'D',  strokeWidth: 1.5, dashed: true, className: 'dynamic' });
-            dm1.addLine(origS, '#c0392b', { label: 'S',  strokeWidth: 2.5, className: 'dynamic' });
+            dm1.addLine(origS, '#145a32', { label: 'S',  strokeWidth: 2.5, className: 'dynamic' });
             dm1.addLine(newD,  '#2e86c1', { label: "D'", strokeWidth: 2.5, className: 'dynamic' });
             dm1.addPoint(30, 2, { color: '#999', radius: 4, className: 'dynamic' });
           },
           function() {
             dm1.addLine(origD, '#2e86c1', { label: 'D',  strokeWidth: 1.5, dashed: true, className: 'dynamic' });
-            dm1.addLine(origS, '#c0392b', { label: 'S',  strokeWidth: 2.5, className: 'dynamic' });
+            dm1.addLine(origS, '#145a32', { label: 'S',  strokeWidth: 2.5, className: 'dynamic' });
             dm1.addLine(newD,  '#2e86c1', { label: "D'", strokeWidth: 2.5, className: 'dynamic' });
             dm1.addPoint(30, 2, { color: '#999', label: '(Q*, P*)', radius: 4, className: 'dynamic' });
             dm1.addPoint(45, 3, { color: '#1a5276', label: "(Q\u2032, P\u2032)", className: 'dynamic' });
@@ -671,7 +671,7 @@
 
         function baseCurves(fadedDemand) {
           welfare.addLine(D, '#2e86c1', { label: 'D', strokeWidth: fadedDemand ? 1.6 : 2.5, dashed: fadedDemand });
-          welfare.addLine(S, '#c0392b', { label: 'S', strokeWidth: 2.5 });
+          welfare.addLine(S, '#145a32', { label: 'S', strokeWidth: 2.5 });
         }
 
         function supportGuides(delay) {
@@ -690,7 +690,7 @@
             dashedFinal: true,
             className: 'dynamic policy-layer'
           });
-          animateLine(welfare, [{ x: qS, y: 0 }, { x: qS, y: supportP }], '#c0392b', {
+          animateLine(welfare, [{ x: qS, y: 0 }, { x: qS, y: supportP }], '#145a32', {
             delay: delay + 1150,
             duration: 700,
             strokeWidth: 1.2,
@@ -779,7 +779,7 @@
             fadeLabel(welfare, 54, 2.2, "D'", { color: '#2e86c1', fontSize: '13px', fontWeight: '800', delay: 1000, background: false, className: 'dynamic policy-layer' });
             supportGuides(650);
             fadePoint(welfare, qD, supportP, { color: '#2e86c1', radius: 5, label: 'Q_D = 20', delay: 1500, className: 'dynamic policy-layer quantity-label' });
-            fadePoint(welfare, qS, supportP, { color: '#c0392b', radius: 5, label: 'Q_S = 45', delay: 1850, className: 'dynamic policy-layer quantity-label' });
+            fadePoint(welfare, qS, supportP, { color: '#145a32', radius: 5, label: 'Q_S = 45', delay: 1850, className: 'dynamic policy-layer quantity-label' });
             fiscalRectangle(2250);
             surplusGapLabel(2700);
           },
