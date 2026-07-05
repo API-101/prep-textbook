@@ -487,9 +487,9 @@
         const eqP = 2;
         const pMin = 0.5;
 
-        graph.addLine([{x: 0, y: supplyFn(0)}, {x: 60, y: supplyFn(60)}], '#145a32', { strokeWidth: 2.5 });
+        graph.addLine([{x: 0, y: supplyFn(0)}, {x: 60, y: supplyFn(60)}], '#c0392b', { strokeWidth: 2.5 });
         graph.addLabel(41, 2.7, 'Supply', {
-          color: '#145a32',
+          color: '#c0392b',
           fontSize: '12px',
           fontWeight: '700',
           background: true
@@ -542,7 +542,7 @@
         const eqQ = 30;
         const eqP = 2;
         graph.addLine([{x: 0, y: demandFn(0)}, {x: 50, y: demandFn(50)}], '#2e86c1', { strokeWidth: 2.5 });
-        graph.addLine([{x: 0, y: supplyFn(0)}, {x: 60, y: supplyFn(60)}], '#145a32', { strokeWidth: 2.5 });
+        graph.addLine([{x: 0, y: supplyFn(0)}, {x: 60, y: supplyFn(60)}], '#c0392b', { strokeWidth: 2.5 });
         graph.addLabel(50, 0.3, 'Demand', {
           color: '#2e86c1',
           fontSize: '12px',
@@ -550,7 +550,7 @@
           background: true
         });
         graph.addLabel(50, 3.5, 'Supply', {
-          color: '#145a32',
+          color: '#c0392b',
           fontSize: '12px',
           fontWeight: '700',
           background: true
@@ -667,7 +667,7 @@
           }
 
           graph.addLine(demandFn, '#2e86c1', { strokeWidth: 2.5 });
-          graph.addLine(supplyFn, '#145a32', { strokeWidth: 2.5 });
+          graph.addLine(supplyFn, '#c0392b', { strokeWidth: 2.5 });
           graph.addLabel(136, demandFn(136) + 5, 'Demand', {
             color: '#2e86c1',
             fontSize: '12px',
@@ -675,7 +675,7 @@
             background: true
           });
           graph.addLabel(136, supplyFn(136) + 5, 'Supply', {
-            color: '#145a32',
+            color: '#c0392b',
             fontSize: '12px',
             fontWeight: '700',
             background: true
@@ -837,7 +837,7 @@
           }
 
           graph.addLine(demandFn, '#2e86c1', { strokeWidth: 2.5 });
-          graph.addLine(supplyFn, '#145a32', { strokeWidth: 2.5 });
+          graph.addLine(supplyFn, '#c0392b', { strokeWidth: 2.5 });
           graph.addLabel(136, demandFn(136) + 5, 'Demand', {
             color: '#2e86c1',
             fontSize: '12px',
@@ -845,7 +845,7 @@
             background: true
           });
           graph.addLabel(136, supplyFn(136) + 5, 'Supply', {
-            color: '#145a32',
+            color: '#c0392b',
             fontSize: '12px',
             fontWeight: '700',
             background: true
@@ -932,13 +932,13 @@
 
             graph.addDashedLine([{x: 0, y: policyPrice}, {x: 160, y: policyPrice}], '#666', { strokeWidth: 1.5 });
             graph.addDashedLine([{x: qTraded, y: 0}, {x: qTraded, y: policyPrice}], '#2e86c1', { strokeWidth: 1.2 });
-            graph.addDashedLine([{x: qSupplied, y: 0}, {x: qSupplied, y: policyPrice}], '#145a32', { strokeWidth: 1.2 });
+            graph.addDashedLine([{x: qSupplied, y: 0}, {x: qSupplied, y: policyPrice}], '#c0392b', { strokeWidth: 1.2 });
             graph.addPoint(eqQ, eqP, { color: '#ddd', label: '(Q*, P*)', radius: 5 });
             graph.addPoint(qTraded, policyPrice, { color: '#2e86c1', label: 'Q_D', radius: 5 });
-            graph.addPoint(qSupplied, policyPrice, { color: '#145a32', label: 'Q_S', radius: 5 });
+            graph.addPoint(qSupplied, policyPrice, { color: '#c0392b', label: 'Q_S', radius: 5 });
 
             if (qSurplus > 0) {
-              addQuantityGap(qTraded, qSupplied, `Surplus = ${Math.round(qSurplus)}`, '#145a32');
+              addQuantityGap(qTraded, qSupplied, `Surplus = ${Math.round(qSurplus)}`, '#c0392b');
             }
 
             document.getElementById('stat-policy-cs-original').textContent = '€' + Math.round(csOriginal);
@@ -995,10 +995,10 @@
             }
 
             graph.addDashedLine([{x: 0, y: policyPrice}, {x: 160, y: policyPrice}], '#666', { strokeWidth: 1.5 });
-            graph.addDashedLine([{x: qTraded, y: 0}, {x: qTraded, y: policyPrice}], '#145a32', { strokeWidth: 1.2 });
+            graph.addDashedLine([{x: qTraded, y: 0}, {x: qTraded, y: policyPrice}], '#c0392b', { strokeWidth: 1.2 });
             graph.addDashedLine([{x: qDemanded, y: 0}, {x: qDemanded, y: policyPrice}], '#2e86c1', { strokeWidth: 1.2 });
             graph.addPoint(eqQ, eqP, { color: '#ddd', label: '(Q*, P*)', radius: 5 });
-            graph.addPoint(qTraded, policyPrice, { color: '#145a32', label: 'Q_S', radius: 5 });
+            graph.addPoint(qTraded, policyPrice, { color: '#c0392b', label: 'Q_S', radius: 5 });
             graph.addPoint(qDemanded, policyPrice, { color: '#2e86c1', label: 'Q_D', radius: 5 });
 
             if (qShortage > 0) {
